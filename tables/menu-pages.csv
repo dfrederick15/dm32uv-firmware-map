@@ -28,7 +28,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30b9200,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_view_contact_3042854,Name | Number | Save
 0x30b9240,6,0x2,0x30b9228,0x30b9210,candidate_menu_page_view_contact candidate_menu_multi_page_3038500 candidate_menu_page_view_contact_3042854,View Contact | Add | Edit Contact | Delete | SendMsg | Application
 0x30b9268,3,0x2,0x30b925c,0x30b9250,candidate_menu_page_missed_3041d0c candidate_menu_page_missed_3058ec0 candidate_menu_page_missed_30591ec,Missed | Answered | Sent
-0x30b9288,2,0x2,0x30b9280,0x30b9278,candidate_seconds_label_draw menu_state_021 candidate_menu_page_iso_8bit candidate_menu_page_to candidate_menu_page_select candidate_menu_multi_page_3044248 candidate_menu_page_none_30450ec candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 0x304c86c,ON | OFF
+0x30b9288,2,0x2,0x30b9280,0x30b9278,candidate_seconds_label_draw menu_state_021 candidate_menu_page_iso_8bit candidate_menu_page_to candidate_menu_page_select candidate_menu_multi_page_3044248 candidate_menu_page_none_30450ec candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_page_on_304c86c,ON | OFF
 0x30b92a8,2,0x2,0x30b92a0,0x30b9298,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3044248,VOX SW | Gain Level
 0x30b92c8,2,0x2,0x30b92c0,0x30b92b8,candidate_menu_multi_page_3044248,Switch | Delay Time
 0x30b92e8,2,0x2,0x30b92e0,0x30b92d8,,Vox OFF | Vox ON
@@ -81,7 +81,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30b9e60,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_name,Name | Number | Save
 0x30b9e70,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_name,Name | Number | Save
 0x30b9e88,1,0x6,0x30b9e84,0x30b9e80,menu_state_021 candidate_menu_page_name,Confirm delete?
-0x30b9ed0,6,0x2,0x30b9eb8,0x30b9ea0,candidate_menu_multi_page_302c880 candidate_menu_multi_page_302d838 menu_state_000 0x3042a08 candidate_menu_page_name candidate_menu_page_name_30458e4 candidate_menu_page_name_3046728 candidate_menu_multi_page_304ee0c,Radio Check | Call Alert | Remote Mon. | Radio Disable | Radio Enable | Measure Period
+0x30b9ed0,6,0x2,0x30b9eb8,0x30b9ea0,candidate_menu_multi_page_302c880 candidate_menu_multi_page_302d838 menu_state_000 candidate_menu_page_radio_check_3042a08 candidate_menu_page_name candidate_menu_page_name_30458e4 candidate_menu_page_name_3046728 candidate_menu_multi_page_304ee0c,Radio Check | Call Alert | Remote Mon. | Radio Disable | Radio Enable | Measure Period
 0x30b9ef8,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
 0x30b9f08,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
 0x30b9f18,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
@@ -115,13 +115,13 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30ba414,1,0x2,0x30ba410,0x30ba40c,candidate_popup_setting_ok candidate_menu_page_list_is_empty candidate_menu_multi_page_304ddb0 candidate_block06_write_304e684 candidate_menu_page_list_is_empty_304e960 candidate_roaming_zones_update_304eb34 candidate_menu_page_encrypt_list candidate_menu_page_out_of_range_3050f78,Setting is OK
 0x30ba42c,1,0x2,0x30ba428,0x30ba424,candidate_menu_page_out_of_range candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Out of Range
 0x30ba44c,2,0x2,0x30ba444,0x30ba43c,candidate_menu_multi_page_3044248,OFF | ON
-0x30ba49c,2,0x2,0x30ba494,0x30ba48c,0x30435bc candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14,Search Contact | Manual Dial
+0x30ba49c,2,0x2,0x30ba494,0x30ba48c,candidate_menu_page_search_contact_30435bc candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14,Search Contact | Manual Dial
 0x30ba4bc,1,0x6,0x30ba4b8,0x30ba4b4,candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c,Confirm delete?
 0x30ba4dc,1,0x6,0x30ba4b8,0x30ba4b4,candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14,Confirm delete?
 0x30ba4ec,2,0x2,0x30ba27c,0x30ba274,,Save | Exit
 0x30ba4fc,2,0x2,0x30ba27c,0x30ba274,,Save | Exit
 0x30ba51c,2,0x2,0x30ba514,0x30ba50c,candidate_menu_page_search_contact candidate_menu_page_search_contact_3046e8c candidate_menu_page_search_contact_3047074,Search Contact | Manual Dial
-0x30ba544,3,0x2,0x30ba538,0x30ba52c,candidate_menu_page_view_contact_3043968 0x3043cb0 0x3043e40 0x3045db8 0x3046f24,Send | Save | Delete
+0x30ba544,3,0x2,0x30ba538,0x30ba52c,candidate_menu_page_view_contact_3043968 candidate_menu_page_send_3043cb0 candidate_menu_page_send_3043e40 candidate_menu_page_send_3045db8 candidate_menu_page_send_3046f24,Send | Save | Delete
 0x30ba57c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
 0x30ba58c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
 0x30ba59c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
@@ -169,7 +169,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30baa98,1,0x2,0x30baa94,0x30baa90,,Time is invalid
 0x30baab0,1,0x2,0x30baaac,0x30baaa8,,Date is set
 0x30baac8,1,0x2,0x30baac4,0x30baac0,,Date is invalid
-0x30baae0,1,0x2,0x30baadc,0x30baad8,candidate_menu_page_msg_is_deleted 0x304f7b8 0x304f86c candidate_menu_multi_page_30507bc 0x3050d2c 0x30523ec 0x30526a8,Save to Draft
+0x30baae0,1,0x2,0x30baadc,0x30baad8,candidate_menu_page_msg_is_deleted candidate_menu_popup_save_to_draft_304f7b8 0x304f86c candidate_menu_multi_page_30507bc candidate_menu_dial_flow_3050d2c candidate_menu_dial_flow_30523ec candidate_menu_dial_flow_30526a8,Save to Draft
 0x30baaf8,1,0x2,0x30baaf4,0x30baaf0,candidate_menu_multi_page_3035398,Saving...
 0x30bab10,1,0x2,0x30bab0c,0x30bab08,,No Message
 0x30bab28,1,0x2,0x30bab24,0x30bab20,,Can not run
@@ -213,7 +213,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30baf40,1,0x2,0x30baf3c,0x30baf38,,Contacts existed
 0x30baf58,1,0x2,0x30baf54,0x30baf50,menu_state_026,ID existed
 0x30baf70,1,0x2,0x30baf6c,0x30baf68,candidate_menu_multi_page_303b6ac,Manual Dial
-0x30bafb0,1,0x2,0x30bafac,0x30bafa8,candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588 candidate_menu_page_list_is_empty_304d46c 0x304d9c4 candidate_menu_multi_page_304ddb0 candidate_menu_page_list_is_empty_304e960 candidate_scan_lists_write_304ec70 candidate_menu_page_encrypt_list candidate_roaming_zones_write_30505cc candidate_menu_multi_page_30507bc candidate_menu_page_out_of_range_3050f78,Name is empty
+0x30bafb0,1,0x2,0x30bafac,0x30bafa8,candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588 candidate_menu_page_list_is_empty_304d46c candidate_menu_popup_add_success_304d9c4 candidate_menu_multi_page_304ddb0 candidate_menu_page_list_is_empty_304e960 candidate_scan_lists_write_304ec70 candidate_menu_page_encrypt_list candidate_roaming_zones_write_30505cc candidate_menu_multi_page_30507bc candidate_menu_page_out_of_range_3050f78,Name is empty
 0x30bafc8,1,0x2,0x30bafc4,0x30bafc0,candidate_menu_page_contacts_existed candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588,Number is empty
 0x30bafe0,1,0x2,0x30bafdc,0x30bafd8,,No room
 0x30baff8,1,0x2,0x30baff4,0x30baff0,,No seq
@@ -230,9 +230,9 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30bb100,1,0x2,0x30bb0fc,0x30bb0f8,task_shutdown,Low battery voltage
 0x30bb118,1,0x2,0x30bb114,0x30bb110,,Power On...
 0x30bb130,1,0x2,0x30bb12c,0x30bb128,menu_state_033 menu_state_026,Delete...
-0x30bb148,1,0x2,0x30bb144,0x30bb140,menu_state_033 menu_state_026 candidate_menu_page_out_of_range 0x304f198 0x3050cc0 candidate_menu_page_out_of_range_3052034 0x3056ca8 candidate_roaming_zones_update_3066dc0,Delete OK!
+0x30bb148,1,0x2,0x30bb144,0x30bb140,menu_state_033 menu_state_026 candidate_menu_page_out_of_range candidate_menu_popup_delete_ok_304f198 candidate_menu_popup_delete_ok_3050cc0 candidate_menu_page_out_of_range_3052034 candidate_menu_popup_delete_ok_3056ca8 candidate_roaming_zones_update_3066dc0,Delete OK!
 0x30bb160,1,0x2,0x30bb15c,0x30bb158,candidate_menu_page_remove_group,Remove Group
-0x30bb178,1,0x2,0x30bb174,0x30bb170,candidate_menu_page_member_is_full candidate_menu_page_member_is_full_302e7c0 candidate_menu_page_list_is_empty_304d46c 0x304d9c4 candidate_menu_page_list_is_empty_304e960 candidate_roaming_zones_write_30505cc candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Add Success!
+0x30bb178,1,0x2,0x30bb174,0x30bb170,candidate_menu_page_member_is_full candidate_menu_page_member_is_full_302e7c0 candidate_menu_page_list_is_empty_304d46c candidate_menu_popup_add_success_304d9c4 candidate_menu_page_list_is_empty_304e960 candidate_roaming_zones_write_30505cc candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Add Success!
 0x30bb190,1,0x2,0x30bb18c,0x30bb188,candidate_menu_page_search_contact_3059d5c,Invalid Number
 0x30bb1a8,1,0x2,0x30bb1a4,0x30bb1a0,candidate_menu_page_member_is_full candidate_menu_multi_page_3035588 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Saving...
 0x30bb1c0,1,0x2,0x30bb1bc,0x30bb1b8,menu_state_000,Password

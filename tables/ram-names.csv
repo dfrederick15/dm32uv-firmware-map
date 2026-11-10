@@ -65,3 +65,6 @@ address,name,confidence,basis
 0x3fde0,feature_flags,likely,"loaded from the information page by candidate_feature_flags_load; bit 2 GPS, bit 4 recording"
 0x3fde3,feature_flags_b,likely,loaded from the information page bytes 0x80/0x81
 0x18000a64,progflash_locked,likely,program-flash erase/program/read refuse to run when 1
+0x42ce0,OSMemDbgListPtr,likely,head written by OS_MemDbgListAdd
+0x42a60,OSIntQOutPtr,likely,read by OS_IntQRePost
+0x4273c,OSIntQInPtr,likely,written by OS_IntQPost

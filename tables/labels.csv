@@ -14,6 +14,7 @@ common_irq_entry,0x1064a,0x1064a,0,106,"exact bytes, unique",100,direct instruct
 empty_stub_107bc,,0x107bc,,,rule: empty stub,,,returns immediately,rule-based
 OS_IdleTask,,0x10868,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Idle Task"" (created at 0x10a86)",strings/tasks analysis
 OSSched,,0x10934,,,reviewed code behaviour,,,"checks ISR and lock nesting, finds the highest ready priority, and switches context",voice path review
+OSStart,,0x10a04,,,reviewed decompiled code,,,error codes OS_ERR_OS_RUNNING (24202) and OS_ERR_FATAL_RETURN (15001); called by start_task_init,ghidra review 2026-11-10
 OS_IdleTaskInit,,0x10a54,,,uC/OS-III standard string,,,"creates ""uC/OS-III Idle Task""",strings/tasks analysis
 candidate_OS_PendDbgNameAdd,,0x10b34,,,uC/OS-III standard string,,,references: Task Sem,strings/tasks analysis
 empty_stub_10b6a_thunk_10b3c,,0x10b3c,,,code shape rule,,,thunk: only calls empty_stub_10b6a,morning rule 2026-11-10
@@ -23,6 +24,7 @@ candidate_OS_PendListInit,,0x10b88,,,reviewed decompiled code,,,"zeroes a 12-byt
 candidate_OS_PendListRemove,,0x10c60,,,reviewed decompiled code,,,"removes a TCB from each pend list in its pend-data array (+0x30, count +0x3E) and clears both fields",ghidra review 2026-11-10
 candidate_OS_RdyListInit,,0x10d44,,,reviewed decompiled code,,,"clears 64 ready-list entries of 12 bytes (head, tail, count) at 0x42740; called from OS init",ghidra review 2026-11-10
 candidate_OS_RdyListInsert,,0x10f4c,,,reviewed decompiled code,,,inserts a TCB into OSRdyList[prio at +0x37]; an empty list gets it as head and tail,ghidra review 2026-11-10
+OSSchedRoundRobinYield,,0x11004,,,reviewed decompiled code,,,"error codes 27002/27003 (round robin), 28003 (SCHED_LOCKED), 34001 (YIELD_ISR)",ghidra review 2026-11-10
 candidate_OS_RdyListRemove,,0x110bc,,,reviewed decompiled code,,,"unlinks a TCB from OSRdyList[prio at +0x37], decrements the count, clears the priority bit when the list empties",ghidra review 2026-11-10
 OS_Sched0,,0x11148,,,reviewed code behaviour,,,"selects priority 0 task, counts a context switch, and switches",code behaviour review
 OS_SchedLockTimeMeasStart,,0x1117c,,,reviewed code behaviour,,,stores start time when scheduler-lock nesting is 1,code behaviour review
@@ -35,12 +37,13 @@ OS_Post,,0x11428,,,reviewed decompiled code,,,"delivers message, size and timest
 OS_PendObjDel,,0x114dc,,,reviewed decompiled code,,,"pend status 2 (OS_STATUS_PEND_DEL), clears the message, readies the task",ghidra review 2026-11-10
 OS_PendAbort,,0x1156c,,,reviewed decompiled code,,,"sets pend status +0x35 = 1 (OS_STATUS_PEND_ABORT), clears the message, readies the task; earlier misnamed candidate_OS_Post",ghidra review 2026-11-10
 candidate_OS_IntQPost,,0x11604,,,reviewed decompiled code,,,"inside a critical section appends (object, type, flags, msg, size, opt, ts) to the ISR deferred-post queue at 0x4273C, up to 10 entries, tracking the high-water mark",ghidra review 2026-11-10
+OS_IntQRePost,,0x116a4,,,reviewed decompiled code,,,"ISR queue task worker: dispatches a queued post by object type to OS_TaskQPost, OS_TaskResume, OS_TaskSuspend, OS_QPost, OS_FlagPost, OS_SemPost, OS_TaskSemPost",ghidra review 2026-11-10
 OS_IntQTask,,0x1183c,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III ISR Queue Task"" (created at 0x11992)",strings/tasks analysis
 OS_IntQTaskInit,,0x118cc,,,uC/OS-III standard string,,,"creates ""uC/OS-III ISR Queue Task""",strings/tasks analysis
 candidate_OS_PrioInit,,0x119e0,,,reviewed decompiled code,,,clears the two priority bitmap words at 0x40E8C; called from OS init,ghidra review 2026-11-10
 OS_PrioGetHighest,,0x119ec,,,reviewed code behaviour,,,scans the 32-bit ready-priority bitmap words,voice path review
-update_40e8c_field,,0x11a14,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x40e8c,morning rule 2026-11-10
-candidate_OS_PrioRemove,,0x11a34,,,reviewed decompiled code,,,clears a priority bit in OSPrioTbl; called by OS_RdyListRemove when a priority's list empties,ghidra review 2026-11-10
+OS_PrioInsert,,0x11a14,,,reviewed decompiled code,,,sets bit (31 - prio%32) of OSPrioTbl[prio/32]; counterpart of OS_PrioRemove,ghidra review 2026-11-10
+OS_PrioRemove,,0x11a34,,,reviewed decompiled code,,,clears bit (31 - prio%32) of OSPrioTbl[prio/32]; called by OS_RdyListRemove,ghidra review 2026-11-10
 OSSemPend,,0x11a58,,,reviewed code behaviour,,,"pend primitive with (object, timeout, option, timestamp, error) arguments; wrapped by os_sem_pend_ms",code behaviour review
 OSSemPendAbort,,0x11c0c,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
 candidate_OSSemSet,,0x11d0c,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
@@ -48,14 +51,32 @@ OS_SemClr,,0x11d84,,,uC/OS-III standard string,,,references: ?SEM,strings/tasks 
 OS_SemDbgListAdd,,0x11d9c,,,reviewed decompiled code,,,"called only by OSSemCreate; sets DbgNamePtr, links the semaphore into the list headed at 0x42A44",ghidra review 2026-11-10
 OSSemCreate,,0x11dbc,,,reviewed code behaviour,,,"object create with (object, name, count, error); count 0 or 1 at call sites",code behaviour review
 OSSemDel,,0x11e84,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_SemPost,,0x11fe8,,,reviewed decompiled code,,,OS_ERR_SEM_OVF (28101); called by OSSemPost and the ISR queue task,ghidra review 2026-11-10
 OSSemPost,,0x120dc,,,reviewed code behaviour,,,post primitive with post-all option 0x200; used on objects posted from interrupts,code behaviour review
+OSTaskChangePrio,,0x1216c,,,reviewed decompiled code,,,"OS_ERR_PRIO_INVALID (25203), STATE_INVALID (28205), TASK_CHANGE_PRIO_ISR (29001)",ghidra review 2026-11-10
+candidate_OSTaskQFlush,,0x1230c,,,reviewed decompiled code,,,OS_ERR_FLUSH_ISR (15104); located among the task functions,ghidra review 2026-11-10
 candidate_OSTaskQPend,,0x123c4,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
 candidate_OSTaskQPendAbort,,0x12580,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+OSTaskRegGet,,0x12664,,,reviewed decompiled code,,,"OS_ERR_REG_ID_INVALID (27001); os_task.c order RegGet, RegGetID, RegSet",ghidra review 2026-11-10
+OSTaskRegGetID,,0x126a0,,,reviewed decompiled code,,,OS_ERR_NO_MORE_ID_AVAIL (23002),ghidra review 2026-11-10
+OSTaskRegSet,,0x126e4,,,reviewed decompiled code,,,OS_ERR_REG_ID_INVALID (27001),ghidra review 2026-11-10
 candidate_OSTaskSemPend,,0x12720,,,reviewed code behaviour,,,"(timeout, option, timestamp, error) pend on the calling task's own semaphore; the encoder and decoder block here",voice path review
 OSTaskSemPendAbort,,0x128b8,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSTaskSemSet,,0x129b0,,,reviewed decompiled code,,,OS_ERR_SET_ISR (28102); precedes OSTaskStkChk,ghidra review 2026-11-10
+OSTaskStkChk,,0x129f4,,,reviewed decompiled code,,,"OS_ERR_PTR_INVALID, TASK_NOT_EXIST, TASK_OPT, TASK_STK_CHK_ISR (25301, 29010, 29012, 29017); called by OS_StatTask",ghidra review 2026-11-10
+candidate_OSTaskTimeQuantaSet,,0x12aa8,,,reviewed decompiled code,,,OS_ERR_SET_ISR (28102); follows OSTaskStkChk,ghidra review 2026-11-10
 OS_TaskDbgListAdd,,0x12b08,,,reviewed decompiled code,,,called only by OSTaskCreate; links the TCB into the debug list headed at 0x42720,ghidra review 2026-11-10
 OS_TaskInitTCB,,0x12b84,,,uC/OS-III standard string,,,references: ?Task,strings/tasks analysis
+OSTaskDel,,0x12c3c,,,reviewed decompiled code,,,"OS_ERR_TASK_DEL_IDLE/INVALID/ISR (29004-29006), STATE_INVALID",ghidra review 2026-11-10
 OSTaskCreate,,0x12dd8,,,uC/OS-III task-create call pattern,,,39 direct calls passing a task name in r1 and an entry point in r2,strings/tasks analysis
+OS_TaskQPost,,0x12ff0,,,reviewed decompiled code,,,STATE_INVALID; called by OSTaskQPost and the ISR queue task,ghidra review 2026-11-10
+OSTaskQPost,,0x131cc,,,reviewed decompiled code,,,"OS_ERR_OPT_INVALID (24101), calls OS_TaskQPost",ghidra review 2026-11-10
+OS_TaskResume,,0x1324c,,,reviewed decompiled code,,,OS_ERR_TASK_NOT_SUSPENDED (29011); called by OSTaskResume and the ISR queue task,ghidra review 2026-11-10
+OSTaskResume,,0x13368,,,reviewed decompiled code,,,OS_ERR_TASK_RESUME_SELF (29015),ghidra review 2026-11-10
+OS_TaskSemPost,,0x133f4,,,reviewed decompiled code,,,"OS_ERR_SEM_OVF, STATE_INVALID; called by OSTaskSemPost and the ISR queue task",ghidra review 2026-11-10
+OSTaskSemPost,,0x13664,,,reviewed decompiled code,,,OS_ERR_OPT_INVALID; called from capture_pcm_irq and play_pcm_irq (wakes the encoder and decoder tasks),ghidra review 2026-11-10
+OS_TaskSuspend,,0x136c8,,,reviewed decompiled code,,,"OS_ERR_SCHED_LOCKED, STATE_INVALID; called by OSTaskSuspend and the ISR queue task",ghidra review 2026-11-10
+OSTaskSuspend,,0x137f4,,,reviewed decompiled code,,,"OS_ERR_TASK_SUSPEND_IDLE (29019), TASK_SUSPEND_INT_HANDLER (29020)",ghidra review 2026-11-10
 OS_TickTaskInit,,0x13874,,,uC/OS-III standard string,,,"creates ""uC/OS-III Tick Task""",strings/tasks analysis
 candidate_OSTimeDlyResume,,0x138e8,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
 candidate_OS_TickListRemove,,0x13a48,,,reviewed decompiled code,,,unlinks a TCB via its tick-list pointer at +0x1C and clears its remaining ticks at +0x50,ghidra review 2026-11-10
@@ -63,6 +84,7 @@ candidate_os_list_clear_420a2,,0x13a84,,,reviewed decompiled code,,,clears a u16
 OS_TickTask,,0x13c34,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Tick Task"" (created at 0x138de)",strings/tasks analysis
 OSTimeDly,,0x13c6c,,,reviewed code behaviour,,,"(ticks, option, error) delay primitive called by os_delay_ms",code behaviour review
 OSTimeDlyHMSM,,0x13d60,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSTimeDlyResume,,0x13f38,,,reviewed decompiled code,,,"OS_ERR_TASK_NOT_DLY (29009), TASK_SUSPENDED (29018), TIME_DLY_RESUME_ISR (29302)",ghidra review 2026-11-10
 pcm_pointer_init,0x14164,0x14164,0,26,"exact bytes, unique",100,direct instructions + manual pp269-270,After0x16bdc stores0x180000a0 at0x33c4c and0x18000000 at0x33c50,"docs/modem-map.csv, ported"
 candidate_bitbang_i2c_pin_select,,0x141c0,,,reviewed code behaviour,,,stores the pin index used by the bit-banged bus,audio glue review
 modem_reg_34_update_141c8,,0x141c8,,,rule: single modem register,,,"small function whose only modem register is reg_34: modify: ori:r2,384; modify: ori:r2,96",modem register rule
@@ -379,8 +401,8 @@ candidate_info_page_update_locked,,0x3010db8,,,reviewed decompiled code,,,candid
 candidate_info_page_read_locked,,0x3010ddc,,,reviewed decompiled code,,,candidate_info_page_read under dataflash_lock (earlier misnamed as a data flash operation),ghidra review 2026-11-10
 candidate_table_3077244_entry,,0x3010e0c,,,reviewed decompiled code,,,returns 0x3077244 + n * 108 (108-byte entries),ghidra review 2026-11-10
 candidate_table_30777c0_entry,,0x3010e18,,,reviewed decompiled code,,,returns 0x30777C0 + n * 14,ghidra review 2026-11-10
-candidate_font24_glyph_read_a,,0x3010e24,,,reviewed decompiled code,,,reads a 72-byte 24x24 glyph at data flash 0x73248 + (row*94 + col)*72 (GB2312 coordinates),ghidra review 2026-11-10
-candidate_font24_glyph_read_b,,0x3010e48,,,reviewed decompiled code,,,reads a 72-byte 24x24 glyph at data flash 0x158248 + (row*94 + col)*72 (GB2312 coordinates),ghidra review 2026-11-10
+candidate_font24_glyph_read_a,,0x3010e24,,,reviewed decompiled code,,,"reads a 72-byte 24x24 glyph at data flash 0x73248 + (lead*94 + trail)*72 with raw GB2312 bytes, so code A1A1 lands at 0x180000 (the 24x24 Chinese font)",ghidra review 2026-11-10
+candidate_font24_glyph_read_b,,0x3010e48,,,reviewed decompiled code,,,"reads a 72-byte 24x24 glyph at data flash 0x158248 + (lead*94 + trail)*72 with raw GB2312 bytes, so code A1A1 lands at 0x265000 (symbol rows A1-A5); used for lead bytes below 0xA6",ghidra review 2026-11-10
 candidate_nmea_skip_fields,,0x3011420,,,reviewed code behaviour,,,advances past a given number of commas in a GPS sentence,voice path review
 candidate_gps_coordinate_convert,,0x3011450,,,reviewed call sequence,,,double arithmetic converting a coordinate value,gps review
 candidate_gps_coordinate_format_a,,0x30114d4,,,reviewed call sequence,,,converts then formats with sprintf,gps review
@@ -410,6 +432,7 @@ candidate_key_get,,0x3013078,,,reviewed code behaviour,,,returns the key code th
 keymsgq_post,,0x30130ac,,,reviewed decompiled code,,,decompiled: OSQPost of a one-byte key message to keymsgq; earlier: posts a byte to the keymsgq queue,ghidra review 2026-11-10
 candidate_key_scan_resume_tick,,0x30133dc,,,reviewed decompiled code,,,after 20 ticks clears 0x307AC and sets 0x18000800 = 1 (key scan path enabled),ghidra review 2026-11-10
 candidate_key_beep,,0x301340c,,,reviewed code behaviour,,,"checks a status flag and two settings, then requests a sound; 47 callers in key and menu code",misc review
+candidate_key_beep_repeat,,0x3013470,,,reviewed decompiled code,,,"plays the pending key tone again (same rules as candidate_key_beep: setting 0x11, sound 0x10+n or 0x21)",ghidra review 2026-11-10
 candidate_key_event_dispatch,,0x3013640,,,reviewed code behaviour,,,calls per-key handlers through the press and release tables in modem SRAM,voice path review
 test_3fd69_1,,0x3013f00,,,code shape rule,,,test: tests a field of RAM 0x3fd69,morning rule 2026-11-10
 test_3e0e3,,0x3013f40,,,code shape rule,,,test: tests a field of RAM 0x3e0e3,morning rule 2026-11-10
@@ -544,6 +567,7 @@ candidate_lcd_fill_screen,,0x3017cbc,,,reviewed code behaviour,,,"fills from 0,0
 candidate_lcd_clear_screen,,0x3017cd8,,,reviewed code behaviour,,,fills the screen with colour 0,display review
 lcd_init,,0x3017ce4,,,reviewed code behaviour,,,"resets the panel, then sends commands 11, B2, 35, 3A=05, B7, BB, C0, C2, C3, C6, D0, D6, E0, E1, 21, 29, 2C: the ST7789-family initialisation sequence",display review
 lcd_fill_client_area,,0x3017eec,,,reviewed decompiled code,,,decompiled: fills 240 x 263 pixels from row 27 (below the status bar); earlier: fills the 240 x 263 area from row 27,ghidra review 2026-11-10
+candidate_lcd_blit_b,,0x3018318,,,reviewed decompiled code,,,sets a window and writes a pixel block to the LCD,ghidra review 2026-11-10
 candidate_lcd_draw_glyph_8x16,,0x30184b4,,,reviewed code behaviour,,,sets an 8 by 16 window and writes pixels,display review
 candidate_lcd_draw_glyph_scaled,,0x3018644,,,reviewed code behaviour,,,sets a window and writes foreground or background pixels,display review
 candidate_lcd_draw_ascii_12x24,,0x30186e4,,,reviewed decompiled code,,,draws an ASCII character from the 12x24 font at 0x307850C (36 bytes per glyph),ghidra review 2026-11-10
@@ -554,10 +578,12 @@ candidate_freq_draw,,0x3018bac,,,reviewed decompiled code,,,"formats a frequency
 candidate_menu_draw_list_row,,0x3018c70,,,reviewed code behaviour,,,"draws a list row at a position from a row table, with highlight colours",code behaviour review
 candidate_lcd_draw_mono_bitmap,,0x3018d78,,,reviewed code behaviour,,,plots set bits of a one-bit image,code behaviour review
 candidate_menu_page_menu,,0x3018dfc,,,menu page descriptor,,,loads menu pages: 0x30b8d40: Menu,menu tables analysis
+candidate_main_channel_screen_draw,,0x3018e68,,,reviewed decompiled code,,,"draws the main channel screen from the channel record: frequency, tones, mode icons; called after TX power, encrypt and channel-type key functions",ghidra review 2026-11-10
 candidate_status_bar_draw,,0x30193cc,,,reviewed decompiled code,,,"clears rows 0-26, draws the separator at row 26, then GPS, signal and mode icons from status flags",ghidra review 2026-11-10
 candidate_main_screen_redraw,,0x3019564,,,reviewed decompiled code,,,"status bar, then the main screen page",ghidra review 2026-11-10
 candidate_freq_draw_digits,,0x3019800,,,reviewed decompiled code,,,"formats a frequency as ""%03d.%05d"" and draws it digit by digit at a position (used while editing)",ghidra review 2026-11-10
 candidate_lcd_draw_glyph_24,,0x301989c,,,reviewed code behaviour,,,"under lcd_lock, writes a 24-pixel-high glyph pixel by pixel",morning review 2026-11-10
+candidate_lcd_blit_a,,0x30199bc,,,reviewed decompiled code,,,writes a pixel block to the LCD,ghidra review 2026-11-10
 candidate_lcd_clear_text_row,,0x3019ac0,,,reviewed code behaviour,,,fills a full-width 24- or 26-pixel row with a colour,morning review 2026-11-10
 candidate_popup_line_clear,,0x3019af8,,,reviewed decompiled code,,,"clears one popup text line (y 0x3B or 0xB1, or the single-line slot)",ghidra review 2026-11-10
 candidate_popup_area_clear,,0x3019b80,,,reviewed code behaviour,,,fills the fixed popup rectangle,display review
@@ -567,11 +593,15 @@ candidate_menu_page_ok_3019c34,,0x3019c34,,,menu page descriptor,,,loads menu pa
 candidate_lcd_draw_language_string,,0x3019c60,,,reviewed code behaviour,,,picks a string by the language setting and draws it,display review
 candidate_menu_page_del,,0x3019c98,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
 candidate_menu_page_option,,0x3019cc4,,,menu page descriptor,,,loads menu pages: 0x30ba6d8: Option,menu tables analysis
+candidate_lcd_draw_text_mixed_a,,0x3019cf0,,,reviewed decompiled code,,,"draws a string mixing 8x16, 12x24 ASCII and 24x24 GB2312 glyphs (both 24x24 font sources)",ghidra review 2026-11-10
+candidate_message_box_draw,,0x3019e54,,,reviewed decompiled code,,,draws the message box screens (empty outbox / draft box),ghidra review 2026-11-10
 candidate_lcd_printf,,0x3019f5c,,,reviewed code behaviour,,,formats with vsprintf and draws the string,display review
 candidate_lcd_clear_client,,0x301a310,,,reviewed decompiled code,,,clears rows 27-289 to black,ghidra review 2026-11-10
 empty_stub_301a428,,0x301a428,,,rule: empty stub,,,returns immediately,rule-based
 empty_stub_301a568,,0x301a568,,,rule: empty stub,,,returns immediately,rule-based
 empty_stub_301a570,,0x301a570,,,rule: empty stub,,,returns immediately,rule-based
+candidate_lcd_draw_text_mixed_b,,0x301a64c,,,reviewed decompiled code,,,"draws a string mixing 8x16, 12x24 ASCII and 24x24 GB2312 glyphs (font source A)",ghidra review 2026-11-10
+candidate_channel_info_draw,,0x301a768,,,reviewed decompiled code,,,draws channel name and RX frequency lines with icons,ghidra review 2026-11-10
 candidate_popup_icon_two_lines,,0x301ab40,,,reviewed code behaviour,,,shows an icon with one or two centered lines,code behaviour review
 candidate_seconds_label_draw,,0x301abe4,,,reviewed decompiled code,,,"green bar at row 0x82 with ""%d(S)"" or the default label when 0",ghidra review 2026-11-10
 candidate_uses_ptt_id,,0x301ac98,,,rule: distinctive string reference,,,references: PTT ID,string rule 2
@@ -974,12 +1004,14 @@ menu_state_071,,0x303737c,,,menu dispatch table,,,"handler for menu state 71 (gr
 menu_state_069,,0x30373d0,,,menu dispatch table,,,"handler for menu state 69 (group 9, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_020,,0x30373e4,,,menu dispatch table,,,"handler for menu state 20 (group 2, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_013,,0x30373ec,,,menu dispatch table,,,"handler for menu state 13 (group 1, slot 6) in table at 0x30b1184",menu tables analysis
+candidate_menu_key_16_handler,,0x3037420,,,reviewed decompiled code,,,menu key event 0x16: text input / back handling per menu state,ghidra review 2026-11-10
 menu_state_062,,0x3037598,,,menu dispatch table,,,"handler for menu state 62 (group 8, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_055,,0x30375b4,,,menu dispatch table,,,"handler for menu state 55 (group 7, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_048,,0x30375d0,,,menu dispatch table,,,"handler for menu state 48 (group 6, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_041,,0x3037628,,,menu dispatch table,,,"handler for menu state 41 (group 5, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_034,,0x3037658,,,menu dispatch table,,,"handler for menu state 34 (group 4, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_027,,0x3037674,,,menu dispatch table,,,"handler for menu state 27 (group 3, slot 6) in table at 0x30b1184",menu tables analysis
+candidate_menu_digit_key,,0x30376d8,,,reviewed decompiled code,,,"menu key events 8-17 (digit keys 0-9): text entry, list jump and numeric input per menu state",ghidra review 2026-11-10
 candidate_rssi_sql_display,,0x3037d54,,,string reference,,,references: RSSI:%d,strings/tasks analysis
 menu_state_103,,0x3037db0,,,menu dispatch table,,,"handler for menu state 103 (group 14, slot 5) in table at 0x30b1184",menu tables analysis
 menu_state_100,,0x3037ec4,,,menu dispatch table,,,"handler for menu state 100 (group 14, slot 2) in table at 0x30b1184",menu tables analysis
@@ -988,6 +1020,7 @@ menu_state_098,,0x3038034,,,menu dispatch table,,,"handler for menu state 98 (gr
 candidate_menu_multi_page_3038500,,0x3038500,,,menu page descriptor,,,"loads 26 menu pages: 0x30b8d40: Menu; 0x30b8da8: Talk Group, Scan, Zone, SMS; 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b8e98: Alias Tx Set, Alias Rx Display; 0x30b8eb8: Tx With Alias, Tx Alias Form; 0x30b8f10: Encrypt Switch, Encrypt List; 0x30b9020: InBox, New Msg, Quick Text, OutBox",menu tables analysis
 candidate_lcd_draw_image_locked,,0x3038f5c,,,reviewed code behaviour,,,"takes the LCD lock, sets a window, streams pixels",misc review
 lcd_draw_bitmap,,0x303900c,,,reviewed decompiled code,,,"decompiled: (x, y, w, h, pixels) clipped to 240 x 320 under the LCD bus lock; earlier: clips to 240 x 320 and draws a pixel image",ghidra review 2026-11-10
+candidate_meter_bar_draw,,0x30391a8,,,reviewed decompiled code,,,single-float scaling and a filled bar (meter/progress),ghidra review 2026-11-10
 candidate_list_cursor_up,,0x30393b8,,,reviewed code behaviour,,,"(row, index, count): moves a list cursor up with wrap; eight rows per screen",morning review 2026-11-10
 candidate_list_cursor_down,,0x3039420,,,reviewed code behaviour,,,"(row, index, count): moves a list cursor down with wrap; eight rows per screen",morning review 2026-11-10
 menu_state_092,,0x30394cc,,,menu dispatch table,,,"handler for menu state 92 (group 13, slot 1) in table at 0x30b1184",menu tables analysis
@@ -998,15 +1031,19 @@ candidate_menu_contacts_page_init,,0x303972c,,,reviewed decompiled code,,,"list 
 candidate_menu_text_entry_init,,0x303976c,,,reviewed decompiled code,,,"list type 8, saves and homes the text cursor on refresh, sets 0x3E339 bit 6",ghidra review 2026-11-10
 candidate_setting_voice_announce,,0x30397e0,,,reviewed decompiled code,,,"plays the voice prompt for a changed setting (IDs 0x21, 0x23, ...) when the matching prompt flag in 0x3EA17 is set",ghidra review 2026-11-10
 menu_state_070,,0x303989c,,,menu dispatch table,,,"handler for menu state 70 (group 10, slot 0) in table at 0x30b1184; also loads menu pages: 0x30ba730: Msg Received",menu tables analysis
+candidate_menu_key_17_handler,,0x3039958,,,reviewed decompiled code,,,menu key event 0x17 handler,ghidra review 2026-11-10
 menu_state_006,,0x3039a0c,,,menu dispatch table,,,"handler for menu state 6 (group 0, slot 6) in table at 0x30b1184",menu tables analysis
 candidate_menu_pop_to_saved,,0x3039e0c,,,reviewed decompiled code,,,outside state 0x5B: shows a press-menu prompt and returns to the state saved on the menu stack,ghidra review 2026-11-10
 candidate_menu_list_icon_draw,,0x3039e34,,,reviewed decompiled code,,,draws a 24x24 list icon from the tables at 0x180009B8/0x180009E4 according to theme and status,ghidra review 2026-11-10
+candidate_menu_list_draw_b,,0x3039f30,,,reviewed decompiled code,,,list redraw used by menu list move B,ghidra review 2026-11-10
+candidate_menu_list_draw_a,,0x303a1d0,,,reviewed decompiled code,,,list redraw used by menu list move A,ghidra review 2026-11-10
 candidate_popup_setting_ok,,0x303a4ac,,,reviewed code behaviour,,,"shows the OK icon and a Setting is OK message, waits 1 s, goes back",code behaviour review
 popup_status,,0x303a4f4,,,reviewed decompiled code,,,"decompiled: clears the popup area, draws one of four 48x48 icons and a centred line, waits 1 s, menu_go_back; earlier: shows an icon and message, waits 1 s, goes back",ghidra review 2026-11-10
 menu_state_033,,0x303a54c,,,menu dispatch table,,,"handler for menu state 33 (group 4, slot 5) in table at 0x30b1184; also loads menu pages: 0x30bb130: Delete...",menu tables analysis
 menu_state_026,,0x303a748,,,menu dispatch table,,,"handler for menu state 26 (group 3, slot 5) in table at 0x30b1184; also loads menu pages: 0x30baf58: ID existed; 0x30bb130: Delete...",menu tables analysis
 menu_state_019,,0x303ab30,,,menu dispatch table,,,"handler for menu state 19 (group 2, slot 5) in table at 0x30b1184; also loads menu pages: 0x30b8f90: ContactsCSV, Empty",menu tables analysis
 candidate_menu_page_keypad_lock_303af48,,0x303af48,,,menu page descriptor,,,loads menu pages: 0x30baa68: Keypad Lock!,menu tables analysis
+candidate_menu_symbol_draw,,0x303b220,,,reviewed decompiled code,,,draws a symbol from the 108-byte entries at 0x3077244,ghidra review 2026-11-10
 menu_state_000,,0x303b374,,,menu dispatch table,,,"handler for menu state 0 (group 0, slot 0) in table at 0x30b1184; also loads menu pages: 0x30bb1c0: Password",menu tables analysis
 candidate_menu_multi_page_303b6ac,,0x303b6ac,,,menu page descriptor,,,"loads 11 menu pages: 0x30b8da8: Talk Group, Scan, Zone, SMS; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b8f10: Encrypt Switch, Encrypt List; 0x30b8f50: ContactsCSVList, Search ID; 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b98d8: Device Info, VerSions; 0x30b9fa0: Rx Fre, Tx Fre; 0x30ba708: Send",menu tables analysis
 menu_state_119,,0x303c82c,,,menu dispatch table,,,"handler for menu state 119 (group 17, slot 0) in table at 0x30b1184",menu tables analysis
@@ -1021,10 +1058,19 @@ menu_state_028,,0x303cb78,,,menu dispatch table,,,"handler for menu state 28 (gr
 menu_state_021,,0x303cda8,,,menu dispatch table,,,"handler for menu state 21 (group 3, slot 0) in table at 0x30b1184; also loads 9 menu pages: 0x30b8e40: GPS, BDS, GPS + BDS; 0x30b93a8: Rx Record, Tx Record, Rx/Tx Record; 0x30b9b20: UTC-12:00, UTC-11:00, UTC-10:00, UTC-9:00; 0x30b9b58: DDD, DMS; 0x30b9e88: Confirm delete?; 0x30bac18: List is empty; 0x30bb298: Private Call, Group Call; 0x30bb93c: GPS Beacon, Fixed Beacon",menu tables analysis
 menu_state_014,,0x303d880,,,menu dispatch table,,,"handler for menu state 14 (group 2, slot 0) in table at 0x30b1184; also loads 8 menu pages: 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b9020: InBox, New Msg, Quick Text, OutBox; 0x30b9050: Missed, Answered, Sent, Delete; 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b9118: Radio Settings, Channel Set, Device Info, DTMF; 0x30b9338: Record Switch, Record Sel, Record List, Record Delete; 0x30bb91c: APRS On/Off, Upload ID, Upload Type, Report Channel",menu tables analysis
 menu_state_007,,0x303dd68,,,menu dispatch table,,,"handler for menu state 7 (group 1, slot 0) in table at 0x30b1184; also loads menu pages: 0x30b8b68: Empty Menu!; 0x30b8da8: Talk Group, Scan, Zone, SMS",menu tables analysis
+candidate_menu_jump_page_17,,0x303ded0,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x17 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
 candidate_menu_page_tx_ctc_dcs,,0x303e070,,,menu page descriptor,,,"loads menu pages: 0x30b9140: Tx CTC/DCS, Rx CTC/DCS, RxTx CTC/DCS",menu tables analysis
+candidate_menu_jump_page_18,,0x303e3dc,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x18 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
+candidate_menu_jump_page_17_2,,0x303e624,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x17 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
+candidate_menu_jump_page_17_3,,0x303e89c,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x17 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
+candidate_menu_jump_page_17_4,,0x303eaec,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x17 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
 candidate_menu_page_missed,,0x303ec8c,,,menu page descriptor,,,"loads menu pages: 0x30b9050: Missed, Answered, Sent, Delete",menu tables analysis
+candidate_menu_shortcut_303ef8c,,0x303ef8c,,,reviewed decompiled code,,,menu key event 0x18 shortcut chain member (tried when 0x3E5F9 == 3),ghidra review 2026-11-10
 candidate_menu_page_gnss_on_off,,0x303f158,,,menu page descriptor,,,"loads menu pages: 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format",menu tables analysis
+candidate_menu_shortcut_303f2f0,,0x303f2f0,,,reviewed decompiled code,,,menu key event 0x18 shortcut chain member,ghidra review 2026-11-10
+candidate_menu_shortcut_303f4a4,,0x303f4a4,,,reviewed decompiled code,,,menu key event 0x18 shortcut chain member,ghidra review 2026-11-10
 candidate_menu_page_contact_list,,0x303f65c,,,menu page descriptor,,,"loads menu pages: 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts",menu tables analysis
+candidate_menu_jump_page_17_5,,0x303f834,,,reviewed decompiled code,,,resets the menu stacks (root state 7) and builds the item list for menu page ID 0x17 with candidate_menu_items_build; reached from menu key event 0x18 (shortcut),ghidra review 2026-11-10
 candidate_menu_key_handler,,0x303f9bc,,,reviewed code behaviour,,,"menu task: gets a key code, switches on it, and calls the current state handler",voice path review
 task_menu,,0x3040a38,,,OSTaskCreate arguments,,,"entry point of OS task ""task menu"" (created at 0x3035e4e)",strings/tasks analysis
 candidate_menu_list_move_a,,0x3040b20,,,menu slot comparison,,,shared by the slot 1 handlers of nine menu screens,menu slot review
@@ -1049,6 +1095,7 @@ menu_state_016,,0x3041398,,,menu dispatch table,,,"handler for menu state 16 (gr
 menu_state_009,,0x30413a0,,,menu dispatch table,,,"handler for menu state 9 (group 1, slot 2) in table at 0x30b1184",menu tables analysis
 candidate_menu_page_iso_8bit,,0x3041408,,,menu page descriptor,,,"loads menu pages: 0x30b8ed0: ISO 8bit, Unicode",menu tables analysis
 candidate_menu_draw_list,,0x3041530,,,reviewed code behaviour,,,"loops over visible rows, highlighting the selected one",code behaviour review
+candidate_radio_id_info_draw,,0x3041698,,,reviewed decompiled code,,,"draws radio ID information with ""%d"" and ""%04X""",ghidra review 2026-11-10
 candidate_menu_page_contactscsvlist,,0x3041a00,,,menu page descriptor,,,"loads menu pages: 0x30b8f50: ContactsCSVList, Search ID",menu tables analysis
 candidate_menu_page_alias_tx_set,,0x3041a3c,,,menu page descriptor,,,"loads menu pages: 0x30b8e98: Alias Tx Set, Alias Rx Display",menu tables analysis
 candidate_menu_page_inbox_list,,0x3041a78,,,menu page descriptor,,,"loads menu pages: 0x30bc77c: InBox List, Delete All; 0x30bc79c: OutBox List, Delete All; 0x30bc7bc: DraftBox List, Delete All",menu tables analysis
@@ -1060,7 +1107,9 @@ candidate_menu_page_to,,0x3041d50,,,menu page descriptor,,,"loads menu pages: 0x
 candidate_menu_page_pre_time,,0x30421e0,,,menu page descriptor,,,"loads menu pages: 0x30bc8d0: Select, Channel List, Add Channel, Edit Name; 0x30bcb88: Pre Time, Standard, Response, Side Tone",menu tables analysis
 candidate_menu_multi_page_304231c,,0x304231c,,,menu page descriptor,,,"loads 6 menu pages: 0x30b9478: Voice Func, Key Func, Display Func, Other Func; 0x30b98d8: Device Info, VerSions; 0x30bca10: TX Pretime, PTT ID Decode , PTT ID Pause, Bit Sync; 0x30bcad8: Duration Time, Gap Time, Pre Time, PTT ID Pause; 0x30bcb48: Pre Time, 1st Tone Time, 2nd Tone Time, Long Tone Time; 0x30bcb88: Pre Time, Standard, Response, Side Tone",menu tables analysis
 candidate_menu_page_apply,,0x3042560,,,menu page descriptor,,,"loads menu pages: 0x30b9d88: Apply, Edit/View List, Edit Name",menu tables analysis
+candidate_zone_name_edit_init,,0x30425ac,,,reviewed decompiled code,,,menu state 0x1C: loads the zone name into the text editor,ghidra review 2026-11-10
 candidate_menu_page_view_contact_3042854,,0x3042854,,,menu page descriptor,,,"loads menu pages: 0x30b9200: Name, Number, Save; 0x30b9240: View Contact, Add, Edit Contact, Delete",menu tables analysis
+candidate_menu_page_radio_check_3042a08,,0x3042a08,,,reviewed decompiled code,,,page rule: uses menu page 0x30b9ed0 (Radio Check | Call Alert | Remote Mon. | Radio Disable | Radio Enable | Measure ),ghidra review 2026-11-10
 candidate_menu_page_tx_with_alias,,0x3042a94,,,menu page descriptor,,,"loads menu pages: 0x30b8eb8: Tx With Alias, Tx Alias Form; 0x30b8ef0: Contact First, Alias First",menu tables analysis
 candidate_menu_multi_page_3042b88,,0x3042b88,,,menu page descriptor,,,"loads 7 menu pages: 0x30b9ccc: Search Contact, Manual Dial, Add Quick Text, Save; 0x30b9d2c: Delete Inbox?; 0x30b9d44: Delete Outbox?; 0x30bab88: Empty Inbox!; 0x30baba0: Empty Outbox!; 0x30babb8: Empty Draft Box!; 0x30babd0: Quick Text empty",menu tables analysis
 candidate_menu_multi_page_3042f1c,,0x3042f1c,,,menu page descriptor,,,"loads 4 menu pages: 0x30b9ef8: View, Message, Delete; 0x30b9f08: View, Message, Delete; 0x30b9f18: View, Message, Delete; 0x30ba324: Confirm delete?",menu tables analysis
@@ -1068,11 +1117,15 @@ candidate_menu_page_none,,0x3043040,,,menu page descriptor,,,"loads menu pages: 
 candidate_menu_multi_page_3043164,,0x3043164,,,menu page descriptor,,,"loads 4 menu pages: 0x30b9508: Radio Silent, Battery Low, Key Tone, SMS Prompt; 0x30b95a0: Key Lock, Press SK1 Short, Press SK1 Long, Press SK2 Short; 0x30b9640: Back Light, Light Time, Start Display, Start Character Edit; 0x30b9700: Auto PowerOff, TX Timer, TOT Predict, VOX",menu tables analysis
 candidate_menu_page_play,,0x304337c,,,menu page descriptor,,,"loads menu pages: 0x30b93d0: Play, Delete, Detail",menu tables analysis
 candidate_menu_page_select,,0x30433d0,,,menu page descriptor,,,"loads menu pages: 0x30bc8d0: Select, Channel List, Add Channel, Edit Name",menu tables analysis
+candidate_menu_page_search_contact_30435bc,,0x30435bc,,,reviewed decompiled code,,,page rule: uses menu page 0x30ba49c (Search Contact | Manual Dial),ghidra review 2026-11-10
 empty_stub_3043684,,0x3043684,,,rule: empty stub,,,returns immediately,rule-based
 candidate_menu_page_name,,0x3043710,,,menu page descriptor,,,"loads menu pages: 0x30b9e60: Name, Number, Save; 0x30b9e70: Name, Number, Save; 0x30b9e88: Confirm delete?",menu tables analysis
 candidate_menu_page_view_contact_3043968,,0x3043968,,,menu page descriptor,,,"loads menu pages: 0x30b8f70: View Contact, Application; 0x30b8f90: ContactsCSV, Empty",menu tables analysis
 candidate_scan_lists_read_3043b00,,0x3043b00,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
 candidate_menu_page_del_3043bd4,,0x3043bd4,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
+candidate_menu_page_send_3043cb0,,0x3043cb0,,,reviewed decompiled code,,,page rule: uses menu page 0x30ba544 (Send | Save | Delete),ghidra review 2026-11-10
+candidate_text_edit_init_3043cf8,,0x3043cf8,,,reviewed decompiled code,,,menu state 0x23: loads a stored string into the text editor,ghidra review 2026-11-10
+candidate_menu_page_send_3043e40,,0x3043e40,,,reviewed decompiled code,,,page rule: uses menu page 0x30ba544 (Send | Save | Delete),ghidra review 2026-11-10
 candidate_menu_page_confirm_delete,,0x3043ed8,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
 candidate_menu_page_confirm_delete_3043f90,,0x3043f90,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
 candidate_menu_page_confirm_delete_3044070,,0x3044070,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
@@ -1086,8 +1139,10 @@ candidate_menu_page_pri_setting,,0x3045b20,,,menu page descriptor,,,"loads menu 
 candidate_menu_page_confirm_delete_3045b84,,0x3045b84,,,menu page descriptor,,,loads menu pages: 0x30ba4bc: Confirm delete?,menu tables analysis
 candidate_menu_page_resend,,0x3045d20,,,menu page descriptor,,,"loads menu pages: 0x30ba228: Resend, Forward, Detail, Delete",menu tables analysis
 candidate_menu_page_search_contact,,0x3045d64,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
+candidate_menu_page_send_3045db8,,0x3045db8,,,reviewed decompiled code,,,page rule: uses menu page 0x30ba544 (Send | Save | Delete),ghidra review 2026-11-10
 candidate_menu_page_reply,,0x3045dfc,,,menu page descriptor,,,"loads menu pages: 0x30ba1e8: Reply, Forward, Edit, Delete",menu tables analysis
 candidate_menu_page_sendmsg,,0x3045ec8,,,menu page descriptor,,,"loads menu pages: 0x30ba5ac: SendMsg, Add Quick Text, Exit",menu tables analysis
+candidate_tone_code_format,,0x3045f1c,,,reviewed decompiled code,,,formats a CTCSS/DCS tone code for display,ghidra review 2026-11-10
 candidate_menu_multi_page_3046064,,0x3046064,,,menu page descriptor,,,"loads 4 menu pages: 0x30ba198: Manual, Auto; 0x30bb5f0: Time, Date, Time Display, Display Format; 0x30bb610: yyyy/mm/dd, dd/mm/yyy; 0x30bb6d8: Level 1, Level 2, Level 3, Level 4",menu tables analysis
 candidate_menu_page_confirm_delete_3046408,,0x3046408,,,menu page descriptor,,,loads menu pages: 0x30ba4bc: Confirm delete?,menu tables analysis
 candidate_menu_page_del_30466d8,,0x30466d8,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
@@ -1100,6 +1155,7 @@ candidate_menu_page_confirm_delete_3046b14,,0x3046b14,,,menu page descriptor,,,l
 candidate_menu_page_remove_group,,0x3046c08,,,menu page descriptor,,,loads menu pages: 0x30bb160: Remove Group,menu tables analysis
 candidate_menu_page_search_contact_3046de8,,0x3046de8,,,menu page descriptor,,,"loads menu pages: 0x30ba5ac: SendMsg, Add Quick Text, Exit; 0x30ba618: Search Contact, Manual Dial, Add Quick Text, Save",menu tables analysis
 candidate_menu_page_search_contact_3046e8c,,0x3046e8c,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
+candidate_menu_page_send_3046f24,,0x3046f24,,,reviewed decompiled code,,,page rule: uses menu page 0x30ba544 (Send | Save | Delete),ghidra review 2026-11-10
 candidate_menu_page_search_contact_3047074,,0x3047074,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
 candidate_menu_page_radio_id,,0x3047108,,,menu page descriptor,,,"loads menu pages: 0x30b98d8: Device Info, VerSions; 0x30b9a20: Radio ID, Group ID, Firmware Ver:, CPS Ver:",menu tables analysis
 candidate_popup_printf_a,,0x304735c,,,reviewed code behaviour,,,formats with vsprintf and posts to the key message queue,misc review
@@ -1107,14 +1163,20 @@ candidate_menu_multi_page_30473b0,,0x30473b0,,,menu page descriptor,,,"loads 11 
 candidate_menu_device_info,,0x3047dd0,,,string reference,,,"references: 430-440, DM32.NRF.01.049",strings/tasks analysis
 candidate_popup_printf_b,,0x3048554,,,reviewed code behaviour,,,formats with vsprintf and posts to the key message queue,misc review
 candidate_band_region_display,,0x3048608,,,string reference,,,references: 144-148,strings/tasks analysis
+candidate_menu_timer_value_edit_a,,0x3048938,,,reviewed decompiled code,,,"edits a time setting shown as ""%d(S)"" / ""%d(Min)"" (switch on the item at 0x3E93E)",ghidra review 2026-11-10
+candidate_menu_timer_value_edit_b,,0x3048c5c,,,reviewed decompiled code,,,"edits a time setting shown as ""%d(S)"" / ""%d(Min)""; called from the digit key handler",ghidra review 2026-11-10
 candidate_menu_multi_page_3048f50,,0x3048f50,,,menu page descriptor,,,"loads 10 menu pages: 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b95a0: Key Lock, Press SK1 Short, Press SK1 Long, Press SK2 Short; 0x30b9640: Back Light, Light Time, Start Display, Start Character Edit; 0x30b9700: Auto PowerOff, TX Timer, TOT Predict, VOX; 0x30bad00: Lock Time Delay:; 0x30bb91c: APRS On/Off, Upload ID, Upload Type, Report Channel; 0x30bc980: On/Off, Fixed Time Set; 0x30bca10: TX Pretime, PTT ID Decode , PTT ID Pause, Bit Sync",menu tables analysis
 candidate_settings_read_30493f8,,0x30493f8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x501,codeplug block rule
+candidate_menu_items_build,,0x3049498,,,reviewed decompiled code,,,"(page id, count out, item list out): switches on a menu page ID and lists the items available for it (codeplug, side and feature checks); 33 callers",ghidra review 2026-11-10
 candidate_menu_fill_index_list,,0x304a1e8,,,reviewed code behaviour,,,fills an array with 0..n-1 and stores the count,code behaviour review
 candidate_side_state_load,,0x304a2d0,,,reviewed decompiled code,,,"copies the per-side (A/B) channel, zone and mode fields of the settings block for the selected side",ghidra review 2026-11-10
 candidate_side_mode_bits_sync,,0x304a39c,,,reviewed decompiled code,,,rebuilds settings +0x2D bits 2 and 5 and 0x3E349 bit 2 from the selected side's bits,ghidra review 2026-11-10
 candidate_activity_timer_restart,,0x304a3fc,,,reviewed decompiled code,,,"(n): n=0 off; n<7 -> n*5 s, else (n-6) min, into 0x3E3B4; flag in settings +0x5A; called on key, PTT and cable activity (backlight or key-lock timer)",ghidra review 2026-11-10
+candidate_radio_state_load,,0x304a45c,,,reviewed decompiled code,,,"large loader: reads codeplug and data-flash records into radio state, side settings and DMR state bytes (0x3BD56/0x3BD57)",ghidra review 2026-11-10
+candidate_dmr_params_load,,0x304b010,,,reviewed decompiled code,,,reads DMR parameters from the codeplug into the layer-2 variables 0x33CDE-0x33CEA,ghidra review 2026-11-10
 candidate_setting_set_by_id,,0x304b158,,,reviewed code behaviour,,,"switch on an id, updating settings and writing them to flash",code behaviour review
 candidate_setting_get_by_id,,0x304c434,,,reviewed code behaviour,,,"switch on an id, returning fields of the settings block at 0x3E9D4",code behaviour review
+candidate_menu_page_on_304c86c,,0x304c86c,,,reviewed decompiled code,,,page rule: uses menu page 0x30b9288 (ON | OFF),ghidra review 2026-11-10
 candidate_menu_page_current_volume,,0x304ca48,,,menu page descriptor,,,"loads menu pages: 0x30ba070: Ring 1, Ring 2, Ring 3, Ring 4; 0x30ba158: Current Volume, Level 1, Level 2, Level 3",menu tables analysis
 candidate_settings_update_304cca0,,0x304cca0,,,rule: single codeplug block,,,all 8 codeplug accesses are to block 0x4; offsets 0x20 0x21,codeplug block rule
 candidate_settings_write_304cf70,,0x304cf70,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x332,codeplug block rule
@@ -1125,6 +1187,7 @@ candidate_menu_page_list_is_empty_304d46c,,0x304d46c,,,menu page descriptor,,,lo
 candidate_settings_update_304d6b0,,0x304d6b0,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x40,codeplug block rule
 candidate_menu_page_out_of_range,,0x304d7e0,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range,menu tables analysis
 empty_stub_304d96c,,0x304d96c,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_popup_add_success_304d9c4,,0x304d9c4,,,reviewed decompiled code,,,popup rule: uses menu page 0x30bb178 (Add Success!),ghidra review 2026-11-10
 candidate_menu_page_msg_is_deleted,,0x304db58,,,menu page descriptor,,,loads menu pages: 0x30bab40: Msg is Deleted,menu tables analysis
 candidate_menu_page_del_call_logs,,0x304dd48,,,menu page descriptor,,,loads menu pages: 0x30ba980: Del Call Logs,menu tables analysis
 candidate_menu_multi_page_304ddb0,,0x304ddb0,,,menu page descriptor,,,loads 4 menu pages: 0x30ba3e4: Setting is OK; 0x30ba42c: Out of Range; 0x30baa50: Tx Power is set; 0x30baa80: Slot is set,menu tables analysis
@@ -1134,27 +1197,40 @@ candidate_roaming_zones_update_304eb34,,0x304eb34,,,rule: single codeplug block,
 empty_stub_304ec6c,,0x304ec6c,,,rule: empty stub,,,returns immediately,rule-based
 candidate_scan_lists_write_304ec70,,0x304ec70,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
 candidate_menu_multi_page_304ee0c,,0x304ee0c,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_menu_popup_delete_ok_304f198,,0x304f198,,,reviewed decompiled code,,,popup rule: uses menu page 0x30bb148 (Delete OK!),ghidra review 2026-11-10
+candidate_menu_text_save_flow,,0x304f4ac,,,reviewed decompiled code,,,"menu state 0x21: saves edited text, shows a status popup and returns",ghidra review 2026-11-10
+candidate_menu_popup_save_to_draft_304f7b8,,0x304f7b8,,,reviewed decompiled code,,,popup rule: uses menu page 0x30baae0 (Save to Draft),ghidra review 2026-11-10
 candidate_menu_page_calllog_deleted,,0x304f948,,,menu page descriptor,,,loads menu pages: 0x30ba998: CallLog deleted,menu tables analysis
 candidate_menu_page_setting_is_ok,,0x304fbdc,,,menu page descriptor,,,loads menu pages: 0x30ba3e4: Setting is OK; 0x30ba778: Language set ,menu tables analysis
 candidate_menu_page_encrypt_list,,0x3050238,,,menu page descriptor,,,"loads menu pages: 0x30b8f30: Encrypt List, Empty",menu tables analysis
 candidate_roaming_zones_write_30505cc,,0x30505cc,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x65; offsets var,codeplug block rule
 empty_stub_30507ac,,0x30507ac,,,rule: empty stub,,,returns immediately,rule-based
 candidate_menu_multi_page_30507bc,,0x30507bc,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_menu_popup_delete_ok_3050cc0,,0x3050cc0,,,reviewed decompiled code,,,popup rule: uses menu page 0x30bb148 (Delete OK!),ghidra review 2026-11-10
+candidate_menu_dial_flow_3050d2c,,0x3050d2c,,,reviewed decompiled code,,,menu state 0x2F: pushes the entered DMR ID and shows the result,ghidra review 2026-11-10
 candidate_menu_page_out_of_range_3050f78,,0x3050f78,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range; 0x30ba7e8: KeyLock set ; 0x30bb1a8: Saving...,menu tables analysis
 candidate_menu_multi_page_305182c,,0x305182c,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
 candidate_scan_lists_update_3051b30,,0x3051b30,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x11; offsets var,codeplug block rule
 candidate_menu_page_msg_is_deleted_3051d3c,,0x3051d3c,,,menu page descriptor,,,loads menu pages: 0x30bab40: Msg is Deleted,menu tables analysis
 candidate_menu_page_out_of_range_3052034,,0x3052034,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range; 0x30baf28: Contacts Existed; 0x30bb1a8: Saving...,menu tables analysis
+candidate_menu_dial_flow_30523ec,,0x30523ec,,,reviewed decompiled code,,,"menu state 0x3D: contact search, pushes the DMR ID to the front of the list, shows the result and returns",ghidra review 2026-11-10
+candidate_menu_dial_flow_30526a8,,0x30526a8,,,reviewed decompiled code,,,"menu state 0x44: contact search, pushes the DMR ID to the front of the list, shows the result and returns",ghidra review 2026-11-10
 candidate_menu_quick_text,,0x30529d0,,,string reference,,,references: Quick Text %d/%d,strings/tasks analysis
 candidate_menu_page_quick_text_empty,,0x3052e28,,,menu page descriptor,,,loads menu pages: 0x30bac30: Quick Text empty!,menu tables analysis
 candidate_menu_page_empty_draft_box,,0x3053018,,,menu page descriptor,,,loads menu pages: 0x30babb8: Empty Draft Box!,menu tables analysis
 candidate_menu_page_empty_outbox,,0x3053310,,,menu page descriptor,,,loads menu pages: 0x30baba0: Empty Outbox!,menu tables analysis
 candidate_menu_message_boxes,,0x3053698,,,string reference,,,references: Inbox %d/%d,strings/tasks analysis
+candidate_sector_entry_rewrite,,0x3053b28,,,reviewed decompiled code,,,"reads a codeplug sector, erases it and rewrites it with changes",ghidra review 2026-11-10
+candidate_message_store,,0x3053d74,,,reviewed decompiled code,,,saves a message to the codeplug under a lock (called by Save to Draft and send pages),ghidra review 2026-11-10
+candidate_list_entry_delete,,0x3054110,,,reviewed decompiled code,,,"reads a codeplug sector, removes an entry and writes it back (called by the confirm-delete pages)",ghidra review 2026-11-10
 candidate_id24_list_push_front,,0x305450c,,,reviewed decompiled code,,,shifts a byte list right by 3 and stores a 24-bit value (DMR ID) at the front,ghidra review 2026-11-10
 candidate_wlt_cmd_text_set,,0x3054544,,,reviewed decompiled code,,,"clears the edit buffer and writes ""WLT CMD %03d""",ghidra review 2026-11-10
 candidate_uses_wlt_cmd,,0x3054564,,,rule: distinctive string reference,,,references: WLT CMD ,string rule 2
 start_task_scandisp,,0x30545fc,,,calls OSTaskCreate,,,"creates OS task ""task ScanDisp""",strings/tasks analysis
+candidate_scandisp_update,,0x305463c,,,reviewed decompiled code,,,"scan display task: GPS info, FM tuning and side switching per state",ghidra review 2026-11-10
 task_scandisp,,0x305490c,,,OSTaskCreate arguments,,,"entry point of OS task ""task ScanDisp"" (created at 0x3054632)",strings/tasks analysis
+candidate_tick_timer_reconfig_a,,0x3054b44,,,reviewed decompiled code,,,"disables hardware timers, waits and restarts timer 0 at a new rate; called by task_shutdown",ghidra review 2026-11-10
+candidate_tick_timer_reconfig_b,,0x3054c7c,,,reviewed decompiled code,,,"disables hardware timers, waits and restarts timer 0 at a new rate; called when entering RF mode 3",ghidra review 2026-11-10
 candidate_rfic_mode3_enter,,0x3054dc8,,,reviewed decompiled code,,,under a lock sets 0x3EC11 = 3 and programs RF chip REG 0x37 and 0x30 (special receive mode; the receive dispatcher skips handlers in modes 2 and 4),ghidra review 2026-11-10
 candidate_ec11_mode_reset,,0x3054f90,,,reviewed decompiled code,,,clears 0x3EC10/0x3EC11 (0x3EC11 = 2 or 4 makes the receive interrupt dispatcher skip all handlers); mode 2 first calls 0x3054DC8(1),ghidra review 2026-11-10
 empty_stub_3054fd8,,0x3054fd8,,,reviewed decompiled code,,,returns immediately; follows two literals,ghidra review 2026-11-10
@@ -1165,6 +1241,7 @@ modulation_amplitude_set_thunk_3055068,,0x3055068,,,code shape rule,,,thunk: onl
 modem_sig_center_update_3021764_thunk_3055074,,0x3055074,,,code shape rule,,,thunk: only calls modem_sig_center_update_3021764,morning rule 2026-11-10
 tx_level_dac_write_thunk_3055080,,0x3055080,,,code shape rule,,,thunk: only calls tx_level_dac_write,morning rule 2026-11-10
 candidate_calibration_read_30553c0,,0x30553c0,,,rule: single codeplug block,,,all 10 codeplug accesses are to block 0x2; offsets 0x16 0x1d 0x27 0x40 0xac 0xd0 var,codeplug block rule
+candidate_scandisp_freq_step,,0x3055600,,,reviewed decompiled code,,,scan display task: loads calibration and band tuning for a frequency and draws it; also calls fm_ptt_set and rf_tx_setup (purpose of that path not checked),ghidra review 2026-11-10
 task_tmrhnd,,0x3055918,,,OSTaskCreate arguments,,,"entry point of OS task ""task TmrHnd"" (created at 0x30559de)",strings/tasks analysis
 start_task_tmrhnd,,0x30559a8,,,calls OSTaskCreate,,,"creates OS task ""task TmrHnd""",strings/tasks analysis
 candidate_zone_record_location,,0x3055c90,,,reviewed code behaviour,,,"zone number to (block, offset): 145-byte records, 28 per block from block 0x5C",morning review 2026-11-10
@@ -1181,22 +1258,30 @@ candidate_rx_group_lists_update_3056260,,0x3056260,,,rule: single codeplug block
 candidate_channel_name_read,,0x305655c,,,reviewed code behaviour,,,reads the 16 bytes at the channel record start,morning review 2026-11-10
 candidate_zone_member_channel_get,,0x305660c,,,reviewed code behaviour,,,reads zone member count at +16 and the 2-byte channel number at +17+2(n-1); values over 4000 become 1,morning review 2026-11-10
 candidate_active_channel_location,,0x3056680,,,reviewed code behaviour,,,channel mode (settings +0x2D bit 2): zone member to channel location; otherwise the fixed VFO slots 4015/4063,morning review 2026-11-10
+candidate_channel_talkaround_toggle,,0x30566cc,,,reviewed decompiled code,,,under a lock toggles a channel record bit (talk around key function and setting page),ghidra review 2026-11-10
 candidate_zones_read_30567ec,,0x30567ec,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x5c; offsets 0x0,codeplug block rule
 candidate_menu_zone_list,,0x305680c,,,string reference,,,references: Zone List %d/%d,strings/tasks analysis
+candidate_menu_popup_delete_ok_3056ca8,,0x3056ca8,,,reviewed decompiled code,,,popup rule: uses menu page 0x30bb148 (Delete OK!),ghidra review 2026-11-10
 candidate_rx_group_lists_read_3056dd8,,0x3056dd8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0xf; offsets 0x11,codeplug block rule
 candidate_scan_lists_read_3056e2c,,0x3056e2c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
 candidate_block41_read_3057484,,0x3057484,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_channel_block41_info_read,,0x3057510,,,reviewed decompiled code,,,"reads codeplug block 0x41 and channel data, converts BCD fields",ghidra review 2026-11-10
 candidate_radio_ids_read_3057620,,0x3057620,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets 0x0,codeplug block rule
 candidate_radio_ids_write_305763c,,0x305763c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets 0x0,codeplug block rule
 candidate_radio_ids_read_3057654,,0x3057654,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_channel_encrypt_key_set,,0x3057688,,,reviewed decompiled code,,,encrypt list page: writes the channel's key byte under a lock and reloads the current channel,ghidra review 2026-11-10
 candidate_menu_page_null_ch_3057790,,0x3057790,,,menu page descriptor,,,loads menu pages: 0x30bad90: Null Ch.,menu tables analysis
+candidate_channel_switch_with_prompt,,0x3058528,,,reviewed decompiled code,,,switches to a zone member channel and plays the channel voice prompt,ghidra review 2026-11-10
 candidate_radio_ids_write_3058670,,0x3058670,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
 candidate_radio_ids_read_305868c,,0x305868c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
 candidate_radio_ids_write_30586a8,,0x30586a8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
 candidate_menu_dmr_id_list,,0x3058708,,,string reference,,,references: DMR ID List %d/%d,strings/tasks analysis
+candidate_calllog_clear,,0x30589c8,,,reviewed decompiled code,,,"reads the call log record, clears entries and writes it back (called by the call-log deleted page)",ghidra review 2026-11-10
+candidate_calldisp_record_save,,0x3058b34,,,reviewed decompiled code,,,"call display task: reads a codeplug record under a lock, stamps it with the RTC time",ghidra review 2026-11-10
 candidate_menu_page_missed_3058ec0,,0x3058ec0,,,menu page descriptor,,,"loads menu pages: 0x30b9268: Missed, Answered, Sent; 0x30bb0a0: Empty CallLog!",menu tables analysis
 candidate_menu_page_missed_30591ec,,0x30591ec,,,menu page descriptor,,,"loads menu pages: 0x30b9268: Missed, Answered, Sent",menu tables analysis
 start_task_inputalter,,0x3059448,,,calls OSTaskCreate,,,"creates OS task ""task InputAlter""",strings/tasks analysis
+candidate_text_input_char_commit,,0x305953c,,,reviewed decompiled code,,,commits the pending input characters to the edit buffer and redraws; called by the menu digit and key 0x16 handlers,ghidra review 2026-11-10
 candidate_text_input_char_draw,,0x3059904,,,reviewed decompiled code,,,"draws the pending input character at the text cursor and advances it (12 px, 24 px line wrap)",ghidra review 2026-11-10
 candidate_text_cursor_save_and_home,,0x3059a64,,,reviewed code behaviour,,,"saves the text cursor position and moves it to (32, 5)",morning review 2026-11-10
 set_u8_18000b0c,,0x3059a84,,,rule: setter,,,stores its argument to the u8 at RAM 0x18000b0c,rule-based
@@ -1204,9 +1289,16 @@ candidate_text_input_reset,,0x3059c14,,,reviewed code behaviour,,,"homes the tex
 candidate_text_input_header_draw,,0x3059c90,,,reviewed decompiled code,,,draws the remaining character count and the 18x16 input-method icon,ghidra review 2026-11-10
 candidate_menu_page_search_contact_3059d5c,,0x3059d5c,,,menu page descriptor,,,"loads menu pages: 0x30b8f50: ContactsCSVList, Search ID; 0x30b9ccc: Search Contact, Manual Dial, Add Quick Text, Save; 0x30bb190: Invalid Number",menu tables analysis
 candidate_text_input_redraw,,0x3059f08,,,reviewed decompiled code,,,"redraws the text input screen: bottom bar, OK key, language label or the edit buffer at 0x3EEB8",ghidra review 2026-11-10
+candidate_input_glyph_row_draw,,0x305a1d0,,,reviewed decompiled code,,,draws a row of 24x24 candidate glyphs for the input method,ghidra review 2026-11-10
 candidate_input_candidate_bar_draw,,0x305a464,,,reviewed decompiled code,,,draws the input-method candidate bar (row 0x104) and returns the selected double-byte character,ghidra review 2026-11-10
+candidate_inputalter_draw,,0x305a84c,,,reviewed decompiled code,,,InputAlter task: draws the input method state,ghidra review 2026-11-10
 task_inputalter,,0x305aa50,,,OSTaskCreate arguments,,,"entry point of OS task ""task InputAlter"" (created at 0x305947e)",strings/tasks analysis
+candidate_input_method_bar_draw,,0x305ac48,,,reviewed decompiled code,,,draws the input-method bar,ghidra review 2026-11-10
 candidate_input_method_next,,0x305ae28,,,reviewed code behaviour,,,"steps the input method byte at 0x18000B0A through 1, 2, 4 and redraws",morning review 2026-11-10
+candidate_input_method_select_a,,0x305b0ac,,,reviewed decompiled code,,,input method glyph selection with key tone and redraw,ghidra review 2026-11-10
+candidate_input_method_select_b,,0x305b50c,,,reviewed decompiled code,,,input method glyph selection with key tone and redraw (variant),ghidra review 2026-11-10
+candidate_input_method_select_c,,0x305b6d8,,,reviewed decompiled code,,,input method glyph selection and redraw (variant),ghidra review 2026-11-10
+candidate_input_method_key16,,0x305b87c,,,reviewed decompiled code,,,input method handling for menu key 0x16: glyph selection and redraw,ghidra review 2026-11-10
 candidate_text_cursor_advance,,0x305bcf4,,,reviewed decompiled code,,,"advances the text cursor over a string: 12 px per ASCII character, 24 px per GB2312 pair, wraps at x 228 to the next 24 px line",ghidra review 2026-11-10
 candidate_sub_301e558_thunk,,0x305be0c,,,reviewed code behaviour,,,zero-extends two byte arguments and calls 0x301E558,morning review 2026-11-10
 candidate_tx_stop,,0x305be18,,,reviewed code behaviour,,,clears transmit status bits and sends call control command 1,voice path review
@@ -1339,13 +1431,20 @@ task_init,,0x3068e54,,,OSTaskCreate arguments,,,"entry point of OS task ""task i
 empty_stub_3068e68,,0x3068e68,,,rule: empty stub,,,returns immediately,rule-based
 empty_stub_3068e6c,,0x3068e6c,,,rule: empty stub,,,returns immediately,rule-based
 OSFlagPendAbort,,0x3068e70,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSFlagPendGetFlagsRdy,,0x3068f70,,,reviewed decompiled code,,,OS_ERR_PEND_ISR (25006); small function in the event flag module,ghidra review 2026-11-10
 OSFlagPend,,0x3068fe0,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
 OS_FlagClr,,0x3069538,,,uC/OS-III standard string,,,references: ?FLAG,strings/tasks analysis
 OS_FlagDbgListAdd,,0x3069560,,,reviewed decompiled code,,,called only by OSFlagCreate; links the group into the list headed at 0x42B34,ghidra review 2026-11-10
 OSFlagCreate,,0x3069580,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
 OSFlagDel,,0x3069648,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_FlagPost,,0x30698b0,,,reviewed decompiled code,,,"OS_ERR_FLAG_PEND_OPT (15103), OPT_INVALID; called by OSFlagPost and the ISR queue task",ghidra review 2026-11-10
 OSFlagPost,,0x3069a78,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
-candidate_OS_DbgListAdd_42ce0,,0x3069bb4,,,reviewed decompiled code,,,"same debug-list insert shape as the other OS_*DbgListAdd, list head 0x42CE0; object type not identified",ghidra review 2026-11-10
+OSMemGet,,0x3069b00,,,reviewed decompiled code,,,"OS_ERR_MEM_INVALID_P_MEM (22207), MEM_NO_FREE_BLKS (22210)",ghidra review 2026-11-10
+OSMemPut,,0x3069b54,,,reviewed decompiled code,,,"OS_ERR_MEM_FULL (22202), INVALID_P_BLK (22206), INVALID_P_MEM (22207)",ghidra review 2026-11-10
+OS_MemDbgListAdd,,0x3069bb4,,,reviewed decompiled code,,,debug-list insert called by OSMemCreate; list head 0x42CE0,ghidra review 2026-11-10
+OSMemCreate,,0x3069bd0,,,reviewed decompiled code,,,"object tag 'MEM ', OS_ERR_MEM_CREATE_ISR/INVALID_P_ADDR/INVALID_BLKS/INVALID_SIZE (22201, 22203, 22204, 22209)",ghidra review 2026-11-10
+OS_MsgQGet,,0x3069dcc,,,reviewed decompiled code,,,OS_ERR_Q_EMPTY (26002); called by OSQPend and OSTaskQPend,ghidra review 2026-11-10
+OS_MsgQPut,,0x3069e3c,,,reviewed decompiled code,,,"OS_ERR_MSG_POOL_EMPTY (22301), Q_MAX (26003)",ghidra review 2026-11-10
 OSMutexPend,,0x3069f04,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
 OSMutexPendAbort,,0x306a19c,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
 OSMutexPost,,0x306a2ac,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
@@ -1359,9 +1458,11 @@ OSQPendAbort,,0x306ab78,,,uC/OS-III object tag and error codes,,,"object type ta
 OS_QDbgListAdd,,0x306acac,,,reviewed decompiled code,,,called only by OSQCreate; links the queue into the list headed at 0x4272C,ghidra review 2026-11-10
 OSQCreate,,0x306accc,,,reviewed code behaviour,,,creates the queues named keymsgq and inputq,code behaviour review
 OSQDel,,0x306adc4,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_QPost,,0x306af1c,,,reviewed decompiled code,,,message-queue post worker called by OS_IntQRePost and OSQPost,ghidra review 2026-11-10
 OSQPost,,0x306b03c,,,reviewed code behaviour,,,"(queue, message, size, option, error) post to keymsgq",code behaviour review
 OS_StatTask,,0x306b1f8,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Stat Task"" (created at 0x306b682)",strings/tasks analysis
 OS_StatTaskInit,,0x306b610,,,uC/OS-III standard string,,,"creates ""uC/OS-III Stat Task""",strings/tasks analysis
+candidate_OSTmr_api_306b6d0,,0x306b6d0,,,reviewed decompiled code,,,"object tag 'TMR ', OS_ERR_OBJ_TYPE, TMR_INACTIVE, TMR_INVALID_STATE, TMR_INVALID, TMR_ISR (OSTmrDel, OSTmrRemainGet or OSTmrStart)",ghidra review 2026-11-10
 candidate_OSTmrStateGet,,0x306b78c,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
 OS_TmrDbgListAdd,,0x306b828,,,reviewed decompiled code,,,called only by OSTmrCreate; links the timer into the list headed at 0x426F8,ghidra review 2026-11-10
 OSTmrCreate,,0x306b844,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature

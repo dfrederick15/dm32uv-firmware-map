@@ -6,10 +6,11 @@ start,end,contents
 0x180000,0x1FA000,"24x24 Chinese font, 72 bytes per glyph, column-major (rendered and confirmed)"
 0x201000,0x202000,"voice prompt index, 16-byte records"
 0x202000,0x265000,"59 voice prompts, WAV 8 kHz 16-bit mono"
+0x265000,0x278000,"24x24 GB2312 symbol glyphs from row A1, 72 bytes per glyph column-major, about 1080 glyphs (rendered: A1A3 full stop, A3C1 full-width A); the firmware reads rows A1-A5 through candidate_font24_glyph_read_b"
 0x278000,0x278010,"contact database header, count 36024"
 0x278010,0x5a1230,"contact database: 36024 records of 92 bytes (name 16, 4-byte value of unconfirmed meaning, callsign 8, city 16, state 16, country 32)"
 0x5AB000,0x681000,all zero
 0x681000,0xFFF000,blank except small areas
 0x6DC000,0x6DF000,"recording index area A (3 sectors, tag byte 0xA5 at +0xFFF marks the active one)"
 0x6DF000,0x6E5000,"recording index area B (6 sectors, tags 0xA5/0xA6)"
-0x6E5000,0x1000000,"recording audio area"
+0x6E5000,0x1000000,recording audio area

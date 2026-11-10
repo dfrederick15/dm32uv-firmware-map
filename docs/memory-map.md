@@ -175,6 +175,7 @@ The bootloader uses `0x10000-0x12A5F` for its own RAM code before the applicatio
 | `0x180000-0x1F9FFF` | 24x24 Chinese font, 72 bytes per glyph |
 | `0x201000-0x201FFF` | Voice prompt index, 16-byte records |
 | `0x202000-0x264FFF` | 59 voice prompts, WAV 8 kHz 16-bit mono |
+| `0x265000-0x277FFF` | 24x24 GB2312 symbol glyphs from row A1 (about 1,080), 72 bytes per glyph; the firmware reads rows A1-A5 from here |
 | `0x278000-0x5AAFFF` | Contact (user ID) database: 16-byte header with the record count, then 92-byte records (name 16, a 4-byte value of unconfirmed meaning, callsign 8, city 16, state 16, country 32) |
 | `0x5AB000-0x6DBFFF` | Zero or blank |
 | `0x6DC000-0x6DEFFF` | Recording index area A (active sector tagged `0xA5` at `+0xFFF`) |
@@ -205,5 +206,5 @@ not yet located. The VFOs appear to use the reserved channel numbers 4015 and 40
 ## Coverage
 
 2,881 functions found: 2,172 in the application, 590 in RAM code and 119 in the bootloader (68 of them are small
-leaf routines found in code gaps with no known caller). 1,437 have names, and 82.1% of direct call sites reach a named function. 859 names are inferred
+leaf routines found in code gaps with no known caller). 1,538 have names, and 83.9% of direct call sites reach a named function. 930 names are inferred
 (`candidate_`); code-shape rule names were checked against decompiled code.
