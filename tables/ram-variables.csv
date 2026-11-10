@@ -200,7 +200,7 @@ address,references,functions,example_functions,tasks
 0x3ed4b,9,7,candidate_input_method_bar_draw sub_305b3f8 sub_305a648 sub_305b2b4 sub_305b2d8 sub_305b350,task menu
 0x33c54,9,1,candidate_gps_distance_calc,task CallDisp task menu
 0x42cd0,9,9,candidate_OSCtxSw_body sub_105e6 sub_10620 sub_107c0 sub_108b0 OSSched,irq:common_irq_entry; shared (11 tasks); shared (35 tasks)
-0x33ca4,9,4,sub_1d07c sub_1cefc sub_1cf68 sub_1cf88,CclTraffic rxvoice sysint txslot
+0x33ca4,9,4,aes_encrypt_block aes_sub_bytes aes_shift_rows aes_inv_shift_rows,CclTraffic rxvoice sysint txslot
 0x4a7b8,9,4,sub_1f96c sub_1f5b0 sub_1f798 sub_1f028,decoder encoder task init
 0x31258,9,1,candidate_phy_rx_ber_test,CclTraffic sysint
 0x38b28,8,5,gps_uart_irq candidate_gps_sentence_store candidate_gps_power_cycle candidate_tick_timer_reconfig_a candidate_timer6_irq,irq:candidate_timer6_irq; irq:gps_uart_irq; task ShutDown task init; task gps
@@ -281,8 +281,8 @@ address,references,functions,example_functions,tasks
 0x4565c,6,5,CPU_IntDisMeasStop sub_3072780 sub_101f4 sub_10208 sub_10368,shared (38 tasks); shared (6 tasks)
 0x42a68,6,6,OS_Sched0 candidate_OS_IntQPost OS_IntQTaskInit OSTaskDel OSTaskCreate OSTaskSuspend,shared (11 tasks); shared (6 tasks); task init
 0x4a760,6,5,task_decoder sub_15f84 candidate_rx_voice_ring_read start_tasks_decoder_and_1_more sub_16618,decoder; decrypt; task init
-0x18001638,6,6,sub_19000 sub_1d4c8 sub_229e0 sub_2685c sub_277f8 sub_280d8,decoder encoder task init; decoder task init; encoder
-0x33cb4,6,2,sub_1d1f8 sub_1cf2c,
+0x18001638,6,6,candidate_cos_table_interp sub_1d4c8 sub_229e0 sub_2685c candidate_ambe_synth_enhance sub_280d8,decoder encoder task init; decoder task init; encoder
+0x33cb4,6,2,aes_decrypt_block aes_inv_sub_bytes,
 0x309e8,6,3,gpio_b_irq gpio_a_irq gpio_c_irq,irq:gpio_a_irq; irq:gpio_b_irq; irq:gpio_c_irq
 0x46b5c,6,2,task_decoder candidate_rx_voice_ring_push,decoder
 0x46a38,6,1,task_decoder,decoder
@@ -426,8 +426,8 @@ address,references,functions,example_functions,tasks
 0x49b5c,4,4,start_tasks_decoder_and_1_more sub_165c0 candidate_tx_voice_ring_read candidate_tx_voice_ring_push,encoder; encrypt record; task init
 0x46b80,4,4,start_tasks_decoder_and_1_more sub_165c0 candidate_tx_voice_ring_read candidate_tx_voice_ring_push,encoder; encrypt record; task init
 0x33c74,4,4,candidate_modem_fm_mode_setup candidate_modem_mode_restore candidate_random_from_rf_noise sub_16bdc,decoder encoder task init; task init
-0x180013dc,4,4,candidate_ambe_fec_decode candidate_ambe_fec_encode sub_200b4 sub_2033c,decoder sysint; decoder task init; encoder; encoder txslot
-0x180011a4,4,4,sub_1ce88 sub_1cefc sub_1cf2c sub_1cfac,CclTraffic rxvoice sysint txslot
+0x180013dc,4,4,candidate_ambe_fec_decode candidate_ambe_fec_encode candidate_ambe_quant_part_c candidate_ambe_bits_unpack,decoder sysint; decoder task init; encoder; encoder txslot
+0x180011a4,4,4,candidate_aes_sub_word aes_sub_bytes aes_inv_sub_bytes aes_key_expansion,CclTraffic rxvoice sysint txslot
 0x36468,3,3,rxslot_sem_post_from_irq rxslot_wait start_tasks_ccltraffic_and_12_more,irq:rxslot_sem_post_from_irq; rxslot; task init
 0x35f1c,3,3,candidate_slot_timer_signal slot_timer_wait start_tasks_ccltraffic_and_12_more,SlotTimer; task init
 0x346c0,3,2,start_task_txmsg start_tasks_ccltraffic_and_12_more,task init
@@ -520,13 +520,13 @@ address,references,functions,example_functions,tasks
 0x42700,3,3,sub_10d5c OS_SchedLockTimeMeasStart OS_SchedLockTimeMeasStop,shared (35 tasks)
 0x42710,3,2,OSTaskRegGetID sub_10d5c,
 0x456bc,3,3,candidate_audio_codec_init candidate_rx_voice_ring_read task_decoder,decoder; decrypt; task init
-0x33c9c,3,3,sub_17270 get_u8_33c9c get_u8_33c9c_172b0,decoder encoder task init; task init
-0x18001434,3,1,sub_177f0,encoder
-0x18001444,3,1,sub_177f0,encoder
-0x18000eb0,3,3,sub_189f4 sub_22754 sub_22df4,decoder encoder sysint task init; encoder txslot
-0x18001620,3,3,sub_19364 sub_193e0 sub_23aa8,decoder encoder sysint task init; decoder task init; encoder
+0x33c9c,3,3,candidate_chip_id_read get_u8_33c9c get_u8_33c9c_172b0,decoder encoder task init; task init
+0x18001434,3,1,candidate_ambe_enc_track_core,encoder
+0x18001444,3,1,candidate_ambe_enc_track_core,encoder
+0x18000eb0,3,3,candidate_popcount_bits sub_22754 sub_22df4,decoder encoder sysint task init; encoder txslot
+0x18001620,3,3,candidate_root_fixed_a candidate_root_fixed_b sub_23aa8,decoder encoder sysint task init; decoder task init; encoder
 0x4a798,3,2,sub_1e8bc sub_1f028,decoder encoder task init
-0x180013cc,3,1,sub_205b8,encoder
+0x180013cc,3,1,candidate_ambe_enc_param_estimate,encoder
 0x18003630,3,2,sub_2343c sub_22db4,decoder task init; encoder
 0x18001a38,3,3,sub_2509c sub_25160 sub_25484,decoder encoder task init
 0x18001628,3,1,sub_280d8,encoder
@@ -648,14 +648,14 @@ address,references,functions,example_functions,tasks
 0x48080,2,2,start_tasks_decoder_and_1_more capture_pcm_irq,irq:capture_pcm_irq; task init
 0x49b60,2,1,start_tasks_decoder_and_1_more,task init
 0x47fb8,2,2,start_tasks_decoder_and_1_more play_pcm_irq,irq:play_pcm_irq; task init
-0x180013ec,2,1,sub_177f0,encoder
-0x1800144c,2,1,sub_177f0,encoder
+0x180013ec,2,1,candidate_ambe_enc_track_core,encoder
+0x1800144c,2,1,candidate_ambe_enc_track_core,encoder
 0x180014dc,2,2,candidate_ambe_fec_decode candidate_ambe_fec_encode,decoder sysint; encoder txslot
-0x18001608,2,2,sub_1903c candidate_codec_log_poly,decoder encoder task init; encoder
-0x18001614,2,2,sub_191c0 sub_19280,decoder encoder task init; encoder
-0x1800358c,2,1,sub_1afe0,decoder task init
+0x18001608,2,2,candidate_log2_fixed candidate_codec_log_poly,decoder encoder task init; encoder
+0x18001614,2,2,candidate_pow2_fixed_a candidate_pow2_fixed_b,decoder encoder task init; encoder
+0x1800358c,2,1,candidate_ambe_unvoiced_synth,decoder task init
 0x33cc4,2,1,sub_1f96c,decoder encoder task init
-0x1800353c,2,1,sub_217cc,encoder
+0x1800353c,2,1,candidate_ambe_enc_param_refine,encoder
 0x18003098,2,1,sub_220d4,decoder encoder task init
 0x18003848,2,2,sub_229e0 sub_2685c,decoder encoder task init
 0x180038fc,2,1,sub_26cac,
@@ -869,27 +869,27 @@ address,references,functions,example_functions,tasks
 0x18000e8c,1,1,start_tasks_decoder_and_1_more,task init
 0x49864,1,1,candidate_ambe_burst_fec_encode,txslot
 0x18000e94,1,1,sub_16bdc,decoder encoder task init
-0x180010b0,1,1,sub_16e04,encoder
-0x18001414,1,1,sub_177f0,encoder
-0x18001424,1,1,sub_177f0,encoder
-0x1800140c,1,1,sub_177f0,encoder
-0x1800141c,1,1,sub_177f0,encoder
-0x1800142c,1,1,sub_177f0,encoder
-0x1800143c,1,1,sub_177f0,encoder
+0x180010b0,1,1,candidate_ambe_analyze_frame,encoder
+0x18001414,1,1,candidate_ambe_enc_track_core,encoder
+0x18001424,1,1,candidate_ambe_enc_track_core,encoder
+0x1800140c,1,1,candidate_ambe_enc_track_core,encoder
+0x1800141c,1,1,candidate_ambe_enc_track_core,encoder
+0x1800142c,1,1,candidate_ambe_enc_track_core,encoder
+0x1800143c,1,1,candidate_ambe_enc_track_core,encoder
 0x180014c8,1,1,sub_1823c,decoder sysint
 0x180014d0,1,1,sub_1823c,decoder sysint
 0x18003324,1,1,sub_1a478,decoder task init
-0x18001178,1,1,sub_1a4c8,decoder encoder task init
-0x180032dc,1,1,sub_1a5c0,decoder task init
-0x180033b4,1,1,sub_1a5c0,decoder task init
-0x33ca8,1,1,sub_1d07c,CclTraffic rxvoice sysint txslot
-0x33cb8,1,1,sub_1d1f8,
+0x18001178,1,1,candidate_ambe_param_copy,decoder encoder task init
+0x180032dc,1,1,candidate_ambe_dequantize,decoder task init
+0x180033b4,1,1,candidate_ambe_dequantize,decoder task init
+0x33ca8,1,1,aes_encrypt_block,CclTraffic rxvoice sysint txslot
+0x33cb8,1,1,aes_decrypt_block,
 0x18000bdc,1,1,sub_1f028,decoder encoder task init
 0x18000bec,1,1,sub_1f028,decoder encoder task init
-0x1800148a,1,1,sub_205b8,encoder
-0x180014c4,1,1,sub_205b8,encoder
-0x18000fb0,1,1,sub_205b8,encoder
-0x180013d4,1,1,sub_217cc,encoder
+0x1800148a,1,1,candidate_ambe_enc_param_estimate,encoder
+0x180014c4,1,1,candidate_ambe_enc_param_estimate,encoder
+0x18000fb0,1,1,candidate_ambe_enc_param_estimate,encoder
+0x180013d4,1,1,candidate_ambe_enc_param_refine,encoder
 0x18002038,1,1,sub_220d4,decoder encoder task init
 0x18002098,1,1,sub_220d4,decoder encoder task init
 0x18002c98,1,1,sub_220d4,decoder encoder task init
@@ -899,13 +899,13 @@ address,references,functions,example_functions,tasks
 0x18003830,1,1,sub_22e5c,encoder txslot
 0x1800147c,1,1,sub_23aa8,encoder
 0x18001480,1,1,sub_23aa8,encoder
-0x1800151c,1,1,sub_25224,decoder encoder task init
-0x180014e8,1,1,sub_25224,decoder encoder task init
+0x1800151c,1,1,candidate_cfft_fixed,decoder encoder task init
+0x180014e8,1,1,candidate_cfft_fixed,decoder encoder task init
 0x18001600,1,1,sub_257d0,encoder
 0x1800394c,1,1,sub_26cac,
 0x180032d8,1,1,sub_280d8,encoder
-0x18003974,1,1,sub_29d1c,decoder task init
-0x18003960,1,1,sub_29d1c,decoder task init
+0x18003974,1,1,candidate_ambe_synth_state_update,decoder task init
+0x18003960,1,1,candidate_ambe_synth_state_update,decoder task init
 0x180033fc,1,1,sub_29e9c,encoder
 0x180038bc,1,1,sub_2ae70,decoder encoder task init
 0x180039f4,1,1,sub_2afe8,encoder

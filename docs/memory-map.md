@@ -121,7 +121,7 @@ Ranges are approximate: module boundaries were assigned from callers, strings an
 | `0x10000-0x1018B` | Vector table (VBR) |
 | `0x1018C-0x14157` | uC/OS-III kernel and CPU port |
 | `0x14164-0x16CDB` | Audio and codec glue: PCM interrupts, encoder and decoder tasks |
-| `0x16CDC-0x2B2D1` | AMBE+2 codec (vocoder, FEC, ALPU-MP calls) |
+| `0x16CDC-0x2B2D1` | AMBE+2 codec (vocoder, FEC, ALPU-MP calls); AES voice cipher at `0x1CFAC-0x1D4C7` |
 | `0x2B2DC-0x2F0B3` | Real-time drivers and handlers: data flash, RF chip bus, interrupt handlers, voice rings |
 | `0x2F0B4-0x4A7DF` | Zeroed data (BSS), about 110 KiB |
 | `0x4A7E0-0x4FFFF` | Free space below the initial stack pointer `0x50000` |
@@ -206,5 +206,5 @@ not yet located. The VFOs appear to use the reserved channel numbers 4015 and 40
 ## Coverage
 
 2,881 functions found: 2,172 in the application, 590 in RAM code and 119 in the bootloader (68 of them are small
-leaf routines found in code gaps with no known caller). 1,834 have names, and 90.3% of direct call sites reach a named function. 1,168 names are inferred
+leaf routines found in code gaps with no known caller). 1,915 have names, and 92.3% of direct call sites reach a named function. 1,241 names are inferred
 (`candidate_`); code-shape rule names were checked against decompiled code.

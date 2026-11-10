@@ -110,6 +110,8 @@ candidate_crc4_bits,,0x15418,,,reviewed decompiled code,,,4-bit check over n bit
 candidate_burst_crypto_bits_insert,,0x15478,,,reviewed decompiled code,,,packs IV/crypto bits into fixed burst positions; called by candidate_tx_burst_build,ghidra review 2026-11-10
 candidate_voice_crypto_rx_block,,0x15728,,,reviewed code behaviour,,,same structure on the receive path,audio glue review
 candidate_voice_keystream_xor,,0x157f4,,,reviewed decompiled code,,,XORs 7 keystream bytes into each AMBE frame of a burst (21-byte stride); called by candidate_tx_burst_build,ghidra review 2026-11-10
+candidate_cipher_ofb_keystream_a,,0x15918,,,reviewed decompiled code,,,"voice/data cipher by internal type: 1 ARC4, 2 a 64-bit block cipher (stubbed out), 4 AES-128 (10 rounds), 5 AES-256 (14 rounds); block ciphers run in OFB mode over the IV and XOR the keystream into the data",ghidra review 2026-11-10
+candidate_cipher_ofb_keystream_b,,0x15a44,,,reviewed decompiled code,,,same as candidate_cipher_ofb_keystream_a for the second cipher context (offsets +1),ghidra review 2026-11-10
 candidate_voice_crypto_tx_block,,0x15bd4,,,reviewed code behaviour,,,builds a keyed block for an outgoing voice burst; calls the cipher helpers,audio glue review
 candidate_crypto_iv_decode,,0x15cd4,,,reviewed decompiled code,,,"assembles a 32-bit IV from three 23-bit coded words, checks a 4-bit check value; logs IV_ok_/IV_err_ through the debug stub",ghidra review 2026-11-10
 candidate_audio_codec_init,,0x15d8c,,,reviewed code behaviour,,,"creates three semaphores, sets FM modem mode, initialises PCM pointers, starts the encoder and decoder tasks",audio glue review
@@ -142,26 +144,105 @@ candidate_random_from_rf_noise,,0x16b60,,,reviewed decompiled code,,,"mixes rand
 codec_decode,,0x16cdc,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
 codec_dec_set,,0x16d60,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
 codec_dec_init,,0x16d90,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+candidate_ambe_analyze_frame,,0x16e04,,,reviewed decompiled code,,,"encoder frame analysis called by codec_encode: input filter, spectrum, parameter estimation, refinement, then the tracking step",codec review 2026-11-10
 codec_encode,,0x16f3c,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
 codec_enc_set,,0x16fc0,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
 codec_enc_init,,0x16ff0,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+candidate_spi3_transfer16,,0x17204,,,reviewed decompiled code,,,"SPI3 (0x14150000): waits for space, writes a word to +0x60, waits for completion, returns the received word",codec review 2026-11-10
+candidate_spi3_read_bytes,,0x1723c,,,reviewed decompiled code,,,"SPI3: asserts select, clocks out n bytes with 0xFF and stores the replies",codec review 2026-11-10
+candidate_chip_id_read,,0x17270,,,reviewed decompiled code,,,configures SPI3 and reads 8 bytes into 0x33C9C (read by get_u8_33c9c and used by candidate_random_from_rf_noise),codec review 2026-11-10
 get_u8_33c9c,,0x17298,,,code shape rule,,,getter: returns u8 at RAM 0x33c9c,morning rule 2026-11-10
 get_u8_33c9c_172b0,,0x172b0,,,code shape rule,,,getter: returns u8 at RAM 0x33c9c,morning rule 2026-11-10
 voice_ram_read,,0x172cc,,,reviewed code behaviour,,,copies bytes out of modem voice RAM at 0x16000960,voice path review
 voice_ram_write,,0x172f8,,,reviewed code behaviour,,,copies bytes into modem voice RAM at 0x16000960,voice path review
+candidate_ambe_enc_track,,0x1732c,,,reviewed decompiled code,,,last analysis step; wraps 0x177F0,codec review 2026-11-10
+candidate_ambe_enc_track_core,,0x177f0,,,reviewed decompiled code,,,"2212-byte worker of candidate_ambe_enc_track (argmax, normalisation, compare helpers)",codec review 2026-11-10
 candidate_ambe_fec_decode,,0x182bc,,,reviewed code behaviour,,,large decoder-side error correction before codec_decode,voice path review
 codec_fec_init,,0x188d4,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
 candidate_ambe_fec_encode,,0x1893c,,,reviewed code behaviour,,,encoder-side frame coding between codec_encode and bit packing,voice path review
+candidate_popcount_bits,,0x189f4,,,reviewed decompiled code,,,counts set bits through the bit-count table at 0x18000EB0 (FEC syndrome weight),codec review 2026-11-10
+candidate_ambe_enc_input_filter,,0x18bcc,,,reviewed decompiled code,,,"first encoder stage (calls 0x18A2C, which the decoder synthesis also uses)",codec review 2026-11-10
 candidate_codec_div_sat_a,,0x18c9c,,,reviewed decompiled code,,,"AMBE fixed-point: saturating absolute values, sign from the operand XOR, normalised divide",ghidra review 2026-11-10
+candidate_codec_div_sat_c,,0x18d00,,,reviewed decompiled code,,,fixed-point saturating divide (variant of candidate_codec_div_sat_a),codec review 2026-11-10
 candidate_codec_div_sat_b,,0x18d74,,,reviewed decompiled code,,,AMBE fixed-point: variant of candidate_codec_div_sat_a,ghidra review 2026-11-10
+candidate_bfp_add,,0x18dd8,,,reviewed decompiled code,,,"block floating point add of (mantissa, exponent) pairs",codec review 2026-11-10
+candidate_bfp_sub,,0x18e5c,,,reviewed decompiled code,,,"block floating point subtract of (mantissa, exponent) pairs",codec review 2026-11-10
 candidate_codec_div_norm_s16,,0x18ef4,,,reviewed code behaviour,,,"AMBE window fixed-point divide with normalisation (divs, ff1)",morning review 2026-11-10
+candidate_bfp_less,,0x18f98,,,reviewed decompiled code,,,block floating point compare: a < b,codec review 2026-11-10
+candidate_bfp_greater,,0x18fcc,,,reviewed decompiled code,,,block floating point compare: a > b,codec review 2026-11-10
+candidate_cos_table_interp,,0x19000,,,reviewed decompiled code,,,interpolated cosine from the 512-entry table at 0x18001638,codec review 2026-11-10
+candidate_log2_fixed,,0x1903c,,,reviewed decompiled code,,,"fixed-point log2: normalise with LZCOUNT, polynomial with coefficients at 0x18001608",codec review 2026-11-10
 candidate_codec_log_poly,,0x190c0,,,reviewed decompiled code,,,AMBE fixed-point: normalises with LZCOUNT and evaluates a polynomial with coefficients at 0x18001608-0x18001610 (log-like),ghidra review 2026-11-10
+candidate_pow2_fixed_a,,0x191c0,,,reviewed decompiled code,,,fixed-point power-of-two polynomial (coefficients at 0x18001614),codec review 2026-11-10
+candidate_pow2_fixed_b,,0x19280,,,reviewed decompiled code,,,fixed-point power-of-two with an exponent shift (coefficients at 0x18001614),codec review 2026-11-10
+candidate_root_fixed_a,,0x19364,,,reviewed decompiled code,,,"fixed-point root approximation: normalise, polynomial with coefficients at 0x18001620",codec review 2026-11-10
+candidate_root_fixed_b,,0x193e0,,,reviewed decompiled code,,,fixed-point root approximation with exponent (coefficients at 0x18001620),codec review 2026-11-10
 mem_copy_halfwords,,0x1947c,,,reviewed code behaviour,,,16-bit copy loop,code behaviour review
 mem_set_halfwords,,0x19494,,,reviewed code behaviour,,,16-bit fill loop,code behaviour review
+candidate_bits_to_int,,0x194a4,,,reviewed decompiled code,,,packs n one-bit values (MSB first) into an integer,codec review 2026-11-10
+candidate_int_to_bits,,0x194d8,,,reviewed decompiled code,,,unpacks an integer into n one-bit values,codec review 2026-11-10
+candidate_int_to_bits_signed,,0x19508,,,reviewed decompiled code,,,unpacks a signed integer into n one-bit values,codec review 2026-11-10
+candidate_ambe_frame_unpack,,0x19758,,,reviewed decompiled code,,,"decoder: frame type classification, bit unpacking and dequantisation",codec review 2026-11-10
+candidate_ambe_frame_pack,,0x1994c,,,reviewed decompiled code,,,encoder: quantises the parameters and packs the frame bits (calls candidate_ambe_quantize_pack),codec review 2026-11-10
+candidate_ambe_enc_spectrum,,0x19b6c,,,reviewed decompiled code,,,encoder spectrum: normalises the frame and runs candidate_rfft_forward,codec review 2026-11-10
+candidate_ambe_synthesize,,0x19db8,,,reviewed decompiled code,,,"decoder synthesis of 80 samples (called twice per frame by codec_decode): state update, enhancement, unvoiced and voiced synthesis",codec review 2026-11-10
 candidate_codec_value_class,,0x1a434,,,reviewed decompiled code,,,"classifies a value: 5..0x7A -> 0, 0x80..0x8F -> 1, 0x90..0x9F -> 2, 0xA0..0xA3 -> 3",ghidra review 2026-11-10
+candidate_ambe_param_copy,,0x1a4c8,,,reviewed decompiled code,,,copies parameter sets through the table at 0x18001178 (used by encoder and decoder),codec review 2026-11-10
+candidate_ambe_dequantize,,0x1a5c0,,,reviewed decompiled code,,,"decoder: dequantises parameters (frame classes, saturating divides)",codec review 2026-11-10
+candidate_array_max_s16,,0x1aae4,,,reviewed decompiled code,,,maximum of a 16-bit array,codec review 2026-11-10
+candidate_array_sum_s16,,0x1ab00,,,reviewed decompiled code,,,sum of a 16-bit array,codec review 2026-11-10
+candidate_array_mean_s16,,0x1ab18,,,reviewed decompiled code,,,sum of a 16-bit array divided by n,codec review 2026-11-10
+candidate_complex_power,,0x1ab38,,,reviewed decompiled code,,,|x|^2 * 2 for an array of packed 16-bit complex values,codec review 2026-11-10
+candidate_array_shift_copy,,0x1ab58,,,reviewed decompiled code,,,copies a 16-bit array with a left or right shift,codec review 2026-11-10
+candidate_argmax_s16,,0x1ac60,,,reviewed decompiled code,,,index of the maximum of a 16-bit array,codec review 2026-11-10
+candidate_argmax_s32,,0x1ac9c,,,reviewed decompiled code,,,index of the maximum of a 32-bit array,codec review 2026-11-10
+candidate_array_norm_shift,,0x1ada0,,,reviewed decompiled code,,,finds the largest magnitude of an array and the shift that normalises it,codec review 2026-11-10
+candidate_array_normalise_a,,0x1ae14,,,reviewed decompiled code,,,normalises a 32-bit array to a common exponent,codec review 2026-11-10
+candidate_array_normalise_b,,0x1aecc,,,reviewed decompiled code,,,normalises a 32-bit array (handles 0x80000000),codec review 2026-11-10
+candidate_array_normalise_c,,0x1af5c,,,reviewed decompiled code,,,normalises a 16-bit array to a common exponent,codec review 2026-11-10
+candidate_ambe_unvoiced_synth,,0x1afe0,,,reviewed decompiled code,,,"unvoiced synthesis: MBE noise generator (173, 13849), FFT filtering",codec review 2026-11-10
+aes_gf_mul,,0x1cdbc,,,reviewed decompiled code,,,"GF(2^8) multiply used by MixColumns (factors 2, 3 and the inverse factors)",ghidra review 2026-11-10
+aes_add_round_key,,0x1ce34,,,reviewed decompiled code,,,XORs a 16-byte round key into the state,ghidra review 2026-11-10
+candidate_aes_sub_word,,0x1ce88,,,reviewed decompiled code,,,applies the AES S-box (0x180011A4) to the four bytes of a word,ghidra review 2026-11-10
+aes_row_rotate,,0x1cec4,,,reviewed decompiled code,,,rotates the bytes of a 4-byte row left by n (ShiftRows helper),ghidra review 2026-11-10
+aes_sub_bytes,,0x1cefc,,,reviewed decompiled code,,,AES SubBytes on the 16-byte state at 0x33CA4 (S-box 0x180011A4),ghidra review 2026-11-10
+aes_inv_sub_bytes,,0x1cf2c,,,reviewed decompiled code,,,AES InvSubBytes on the state at 0x33CB4 (inverse S-box 0x180012A4),ghidra review 2026-11-10
+aes_shift_rows,,0x1cf68,,,reviewed decompiled code,,,AES ShiftRows on the encrypt state,ghidra review 2026-11-10
+aes_inv_shift_rows,,0x1cf88,,,reviewed decompiled code,,,AES InvShiftRows on the decrypt state,ghidra review 2026-11-10
+aes_key_expansion,,0x1cfac,,,reviewed decompiled code,,,"AES key schedule (Nk words, rounds): RotWord/SubWord with Rcon from 0x180013A0, extra SubWord when Nk > 6 and i mod Nk == 4 (AES-256)",ghidra review 2026-11-10
+aes_encrypt_block,,0x1d07c,,,reviewed decompiled code,,,"AES block encrypt: AddRoundKey, then rounds of SubBytes, ShiftRows, MixColumns, AddRoundKey (10 or 14 rounds)",ghidra review 2026-11-10
+aes_decrypt_block,,0x1d1f8,,,reviewed decompiled code,,,AES block decrypt with the inverse round functions,ghidra review 2026-11-10
+candidate_crypto_iv_expand,,0x1d3e0,,,reviewed decompiled code,,,expands a 32-bit IV into cipher input words with a 32-step LFSR per word,ghidra review 2026-11-10
+candidate_aes_ofb_keystream_precompute,,0x1d46c,,,reviewed decompiled code,,,"AES-128 (type 4) or AES-256: encrypts the IV block and chains seven more encryptions, 128 bytes of OFB keystream",ghidra review 2026-11-10
 empty_stub_1d4b8,,0x1d4b8,,,rule: empty stub,,,returns immediately,rule-based
-empty_stub_1d4bc,,0x1d4bc,,,rule: empty stub,,,returns immediately,rule-based
-empty_stub_1d4c4,,0x1d4c4,,,rule: empty stub,,,returns immediately,rule-based
+candidate_cipher64_encrypt_stub,,0x1d4bc,,,reviewed decompiled code,,,empty function in the 64-bit block cipher path (type 2): block encrypt compiled out,ghidra review 2026-11-10
+candidate_cipher64_key_setup_stub,,0x1d4c4,,,reviewed decompiled code,,,empty function in the 64-bit block cipher path (type 2): key setup compiled out,ghidra review 2026-11-10
+candidate_ambe_voiced_synth,,0x1de10,,,reviewed decompiled code,,,"voiced synthesis (2378 bytes) with three workers (0x1D4C8, 0x1D71C, 0x1D9F0)",codec review 2026-11-10
+candidate_ambe_enc_post,,0x1e760,,,reviewed decompiled code,,,encoder step between analysis and packing,codec review 2026-11-10
+candidate_ambe_quant_part_a,,0x1fe64,,,reviewed decompiled code,,,quantiser part (interleaved 4x18 parameters),codec review 2026-11-10
+candidate_ambe_quant_part_b,,0x1ff0c,,,reviewed decompiled code,,,quantiser part,codec review 2026-11-10
+candidate_ambe_state_reset,,0x20048,,,reviewed decompiled code,,,shared encoder/decoder state initialisation (called by codec_enc_init and codec_dec_init),codec review 2026-11-10
+candidate_ambe_quant_part_c,,0x200b4,,,reviewed decompiled code,,,quantiser part (bit writes),codec review 2026-11-10
+candidate_ambe_quant_part_d,,0x201e0,,,reviewed decompiled code,,,quantiser part,codec review 2026-11-10
+candidate_ambe_quantize_pack,,0x20228,,,reviewed decompiled code,,,"encoder quantiser: four parts (0x1FE64, 0x1FF0C, 0x200B4, 0x201E0)",codec review 2026-11-10
+candidate_ambe_bits_unpack,,0x2033c,,,reviewed decompiled code,,,decoder: reads parameter fields from the frame bits,codec review 2026-11-10
+candidate_ambe_enc_param_estimate,,0x205b8,,,reviewed decompiled code,,,"main encoder estimator (4600 bytes): pitch, voicing and amplitude estimation helpers, log2/pow2, FFT",codec review 2026-11-10
+candidate_ambe_enc_param_refine,,0x217cc,,,reviewed decompiled code,,,encoder refinement stage after estimation (2056 bytes),codec review 2026-11-10
+candidate_mbe_noise_sign,,0x21fe0,,,reviewed decompiled code,,,MBE noise generator x = 173x + 13849 (mod 2^16) flipping sample signs; used by the unvoiced synthesis,codec review 2026-11-10
+candidate_ambe_dequant_amplitudes,,0x226f4,,,reviewed decompiled code,,,decoder: spectral amplitude reconstruction (calls the 1536-byte 0x220D4),codec review 2026-11-10
+candidate_deinterleave_4x18,,0x22bd8,,,reviewed decompiled code,,,splits 4-way interleaved values into four 18-entry arrays,codec review 2026-11-10
+candidate_bitstream_read,,0x22bfc,,,reviewed decompiled code,,,reads n bits from a bit-array stream and advances it,codec review 2026-11-10
+candidate_interleave_4x18,,0x230a4,,,reviewed decompiled code,,,interleaves four 18-entry arrays,codec review 2026-11-10
+candidate_cfft_fixed,,0x25224,,,reviewed decompiled code,,,"fixed-point radix-2 complex FFT with block floating point scaling and bit-reversal tables (0x180014E8 for 32 points, 0x1800151C)",codec review 2026-11-10
+candidate_rfft_split,,0x25520,,,reviewed decompiled code,,,real-FFT split/merge stage around the half-length complex FFT (direction flag),codec review 2026-11-10
+candidate_rfft_forward,,0x256d0,,,reviewed decompiled code,,,"real FFT: complex FFT of half length, then the split stage",codec review 2026-11-10
+candidate_rfft_inverse,,0x25704,,,reviewed decompiled code,,,"inverse real FFT: merge stage, then the complex FFT",codec review 2026-11-10
+candidate_norm_l,,0x25744,,,reviewed decompiled code,,,number of redundant sign bits of a 32-bit value,codec review 2026-11-10
+candidate_shl_sat,,0x2575c,,,reviewed decompiled code,,,shift with saturation (left or right by sign),codec review 2026-11-10
+candidate_sum_s64,,0x25824,,,reviewed decompiled code,,,64-bit sum of a 32-bit array,codec review 2026-11-10
+candidate_ambe_synth_enhance,,0x277f8,,,reviewed decompiled code,,,synthesis step before the unvoiced/voiced parts (spectral processing),codec review 2026-11-10
+candidate_ambe_synth_state_update,,0x29d1c,,,reviewed decompiled code,,,first synthesis step: updates and shifts the synthesis state,codec review 2026-11-10
+candidate_bfp_align_array,,0x2a65c,,,reviewed decompiled code,,,shifts mantissas to a common exponent,codec review 2026-11-10
 candidate_voice_crypto_tx_block_thunk_2b2dc,,0x2b2dc,,,code shape rule,,,thunk: only calls candidate_voice_crypto_tx_block,morning rule 2026-11-10
 candidate_voice_crypto_rx_block_thunk_2b320,,0x2b320,,,code shape rule,,,thunk: only calls candidate_voice_crypto_rx_block,morning rule 2026-11-10
 mem_copy_bytes,,0x2b338,,,reviewed code behaviour,,,"byte copy loop: destination r0, source r1, count r2",code behaviour review

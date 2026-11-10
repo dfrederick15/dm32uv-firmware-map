@@ -116,6 +116,21 @@ The dispatcher skips all handlers when the mode byte at `0x3EC11` is 2 or 4.
 - DTMF: a key maps to row/column tone frequencies through tables at `0x030B8450`/`0x030B8458`.
 - DMR data CRCs: CRC-32 (polynomial `0x04C11DB7`) and CRC-9. DCS codewords use the Golay (23,12) generator `0xC75`.
 
+## Codec structure
+
+- `codec_encode`: frame analysis (input filter, real-FFT spectrum, parameter estimation, refinement, tracking), a
+  post step, then a four-part quantiser and bit packing.
+- `codec_decode`: frame classification, unpacking and dequantisation, then two 80-sample synthesis calls (state update,
+  enhancement, unvoiced synthesis with the MBE noise generator `x = 173x + 13849`, voiced synthesis).
+- Shared fixed-point toolkit: radix-2 complex FFT with block floating point and real-FFT wrappers, log2/pow2 and root
+  polynomials, an interpolated cosine table.
+
+## Voice cipher
+
+Internal cipher types: 1 ARC4, 2 a 64-bit block cipher compiled out (empty stubs), 4 AES-128, 5 AES-256. The AES code
+(S-box `0x180011A4`, inverse S-box `0x180012A4`, Rcon `0x180013A0`) runs in OFB mode over an IV expanded by a 32-step
+LFSR; the keystream is XORed into the AMBE frames.
+
 ## Bootloader flash driver
 
 The bootloader carries the same program-flash erase (`0x20`) and page-program (`0x02`) routines as the application
@@ -137,7 +152,7 @@ bits from that page into the feature flags at `0x3FDE0`/`0x3FDE3`.
 
 ## Open questions
 
-- 1,047 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
+- 966 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
 - Most settings have only weak hints for their meaning. Squelch, timeout and admit criteria in the channel record are not
   located.
 - Which physical key drives menu slots 3 and 4, and the exact keypad-to-menu-event translation.

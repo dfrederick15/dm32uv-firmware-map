@@ -171,26 +171,26 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x14304,iram-init,candidate_bitbang_i2c_byte_write,yes,282,0x14422,101,2,1,,yes,direct call,audio and codec glue (RAM),gpio_a,decoder encoder task init,yes
 0x14424,iram-init,candidate_bitbang_i2c_write_sequence,yes,216,0x144fc,85,3,2,,yes,direct call,audio and codec glue (RAM),gpio_a,decoder encoder task init,yes
 0x144fc,iram-init,candidate_bitbang_i2c_read_sequence,yes,404,0x14694,158,3,3,,yes,direct call,audio and codec glue (RAM),gpio_a,decoder encoder task init,yes
-0x14698,iram-init,candidate_arc4_key_schedule,yes,86,0x146ee,31,2,0,,yes,direct call,audio and codec glue (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x14698,iram-init,candidate_arc4_key_schedule,yes,86,0x146ee,31,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
 0x146f0,iram-init,sub_146f0,,76,0x1473c,26,0,0,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
-0x1473c,iram-init,candidate_arc4_keystream_a,yes,112,0x147ac,40,2,0,,yes,direct call; unreferenced prologue,audio and codec glue (RAM),,,no
-0x147ac,iram-init,candidate_arc4_keystream_b,yes,106,0x14816,38,2,0,,yes,direct call,audio and codec glue (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1473c,iram-init,candidate_arc4_keystream_a,yes,112,0x147ac,40,2,0,,yes,direct call; unreferenced prologue,voice crypto (RAM),,,no
+0x147ac,iram-init,candidate_arc4_keystream_b,yes,106,0x14816,38,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
 0x14818,iram-init,sub_14818,,70,0x1485e,24,0,0,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
-0x14860,iram-init,candidate_crypto_iv_lfsr_step,yes,164,0x14904,67,2,2,,yes,direct call,audio and codec glue (RAM),,CclTraffic sysint txslot,yes
+0x14860,iram-init,candidate_crypto_iv_lfsr_step,yes,164,0x14904,67,2,2,,yes,direct call,voice crypto (RAM),,CclTraffic sysint txslot,yes
 0x14904,iram-init,sub_14904,,104,0x1496c,42,0,0,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
 0x1496c,iram-init,candidate_cipher_block_function,yes,2234,0x1522e,681,1,0,,yes,direct call,audio and codec glue (RAM),,CclTraffic sysint txslot,yes
-0x15230,iram-init,sub_15230,,486,0x15416,164,1,0,,yes,direct call,audio and codec glue (RAM),,sysint,yes
-0x15418,iram-init,candidate_crc4_bits,yes,94,0x15476,31,2,0,,yes,direct call,audio and codec glue (RAM),,CclTraffic sysint txslot,yes
-0x15478,iram-init,candidate_burst_crypto_bits_insert,yes,242,0x1556a,82,2,0,,yes,direct call,audio and codec glue (RAM),,txslot,yes
+0x15230,iram-init,sub_15230,,486,0x15416,164,1,0,,yes,direct call,voice crypto (RAM),,sysint,yes
+0x15418,iram-init,candidate_crc4_bits,yes,94,0x15476,31,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic sysint txslot,yes
+0x15478,iram-init,candidate_burst_crypto_bits_insert,yes,242,0x1556a,82,2,0,,yes,direct call,voice crypto (RAM),,txslot,yes
 0x1556c,iram-init,sub_1556c,,444,0x15728,159,1,0,,yes,direct call,audio and codec glue (RAM),,sysint,yes
-0x15728,iram-init,candidate_voice_crypto_rx_block,yes,202,0x157f2,77,1,8,,yes,direct call,audio and codec glue (RAM),,rxvoice sysint,yes
-0x157f4,iram-init,candidate_voice_keystream_xor,yes,140,0x15880,54,2,2,,yes,direct call,audio and codec glue (RAM),,txslot,yes
+0x15728,iram-init,candidate_voice_crypto_rx_block,yes,202,0x157f2,77,1,8,,yes,direct call,voice crypto (RAM),,rxvoice sysint,yes
+0x157f4,iram-init,candidate_voice_keystream_xor,yes,140,0x15880,54,2,2,,yes,direct call,voice crypto (RAM),,txslot,yes
 0x15880,iram-init,sub_15880,,150,0x15916,60,1,2,,yes,direct call,audio and codec glue (RAM),,sysint,yes
-0x15918,iram-init,sub_15918,,298,0x15a42,117,0,6,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
-0x15a44,iram-init,sub_15a44,,298,0x15b6e,117,0,6,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
+0x15918,iram-init,candidate_cipher_ofb_keystream_a,yes,298,0x15a42,117,0,6,,yes,unreferenced prologue,voice crypto (RAM),,,no
+0x15a44,iram-init,candidate_cipher_ofb_keystream_b,yes,298,0x15b6e,117,0,6,,yes,unreferenced prologue,voice crypto (RAM),,,no
 0x15b70,iram-init,sub_15b70,,100,0x15bd4,36,1,2,,yes,direct call,audio and codec glue (RAM),,CclTraffic sysint txslot,yes
-0x15bd4,iram-init,candidate_voice_crypto_tx_block,yes,256,0x15cd4,95,5,10,,yes,direct call,audio and codec glue (RAM),,CclTraffic sysint txslot,yes
-0x15cd4,iram-init,candidate_crypto_iv_decode,yes,174,0x15d82,67,1,4,,yes,direct call,audio and codec glue (RAM),,sysint,yes
+0x15bd4,iram-init,candidate_voice_crypto_tx_block,yes,256,0x15cd4,95,5,10,,yes,direct call,voice crypto (RAM),,CclTraffic sysint txslot,yes
+0x15cd4,iram-init,candidate_crypto_iv_decode,yes,174,0x15d82,67,1,4,,yes,direct call,voice crypto (RAM),,sysint,yes
 0x15d8c,iram-init,candidate_audio_codec_init,yes,120,0x15e04,46,1,8,,yes,direct call,audio and codec glue (RAM),,task init,yes
 0x15e14,iram-init,candidate_codec_encoder_param_a_set,yes,26,0x15e2e,10,0,1,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
 0x15e30,iram-init,candidate_codec_encoder_param_b_set,yes,26,0x15e4a,10,0,1,,yes,unreferenced prologue,audio and codec glue (RAM),,,no
@@ -237,18 +237,18 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x16cdc,iram-init,codec_decode,yes,132,0x16d60,53,2,3,,yes,direct call; existing label,AMBE+2 codec window,,decoder task init,yes
 0x16d60,iram-init,codec_dec_set,yes,46,0x16d8e,18,4,2,,yes,direct call; existing label,AMBE+2 codec window,,task init,yes
 0x16d90,iram-init,codec_dec_init,yes,116,0x16e04,41,1,4,,yes,direct call; existing label,AMBE+2 codec window,,task init,yes
-0x16e04,iram-init,sub_16e04,,308,0x16f38,111,1,6,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x16e04,iram-init,candidate_ambe_analyze_frame,yes,308,0x16f38,111,1,6,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x16f3c,iram-init,codec_encode,yes,132,0x16fc0,50,2,3,,yes,direct call; existing label,AMBE+2 codec window,,encoder,yes
 0x16fc0,iram-init,codec_enc_set,yes,48,0x16ff0,19,4,2,,yes,direct call; existing label,AMBE+2 codec window,,task init,yes
 0x16ff0,iram-init,codec_enc_init,yes,486,0x171d6,157,1,4,,yes,direct call; existing label,AMBE+2 codec window,,task init,yes
-0x17204,iram-init,sub_17204,,56,0x1723c,18,1,0,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
-0x1723c,iram-init,sub_1723c,,50,0x1726e,20,1,1,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
-0x17270,iram-init,sub_17270,,40,0x17298,18,1,1,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
+0x17204,iram-init,candidate_spi3_transfer16,yes,56,0x1723c,18,1,0,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
+0x1723c,iram-init,candidate_spi3_read_bytes,yes,50,0x1726e,20,1,1,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
+0x17270,iram-init,candidate_chip_id_read,yes,40,0x17298,18,1,1,,yes,direct call,AMBE+2 codec window,spi3_efuse,task init,yes
 0x17298,iram-init,get_u8_33c9c,yes,24,0x172b0,12,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x172b0,iram-init,get_u8_33c9c_172b0,yes,24,0x172c8,12,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x172cc,iram-init,voice_ram_read,yes,44,0x172f8,16,1,0,,yes,direct call,AMBE+2 codec window,modem_buffers,decoder,yes
 0x172f8,iram-init,voice_ram_write,yes,44,0x17324,16,3,0,,yes,direct call,AMBE+2 codec window,modem_buffers,encoder,yes
-0x1732c,iram-init,sub_1732c,,258,0x1742e,102,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1732c,iram-init,candidate_ambe_enc_track,yes,258,0x1742e,102,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x17430,iram-init,sub_17430,,166,0x174d6,62,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x174d8,iram-init,sub_174d8,,76,0x17524,34,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x17524,iram-init,sub_17524,,272,0x17634,103,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
@@ -256,7 +256,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x17670,iram-init,sub_17670,,136,0x176f8,55,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x176f8,iram-init,sub_176f8,,184,0x177b0,68,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x177b0,iram-init,sub_177b0,,64,0x177f0,25,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x177f0,iram-init,sub_177f0,,2212,0x180be,794,1,10,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x177f0,iram-init,candidate_ambe_enc_track_core,yes,2212,0x180be,794,1,10,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x180c0,iram-init,sub_180c0,,68,0x18104,25,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x18104,iram-init,sub_18104,,224,0x181e4,93,1,2,,yes,direct call,AMBE+2 codec window,,decoder sysint,yes
 0x181e4,iram-init,sub_181e4,,86,0x1823a,29,1,1,,yes,direct call,AMBE+2 codec window,,decoder sysint,yes
@@ -267,83 +267,83 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x188d4,iram-init,codec_fec_init,yes,102,0x1893a,43,1,1,,yes,direct call; existing label,AMBE+2 codec window,,task init,yes
 0x1893c,iram-init,candidate_ambe_fec_encode,yes,176,0x189ec,70,3,6,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
 0x189f0,iram-init,sub_189f0,,4,0x189f4,2,0,0,,yes,unreferenced prologue,AMBE+2 codec window,,,no
-0x189f4,iram-init,sub_189f4,,50,0x18a26,16,5,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
+0x189f4,iram-init,candidate_popcount_bits,yes,50,0x18a26,16,5,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
 0x18a2c,iram-init,sub_18a2c,,416,0x18bcc,165,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x18bcc,iram-init,sub_18bcc,,206,0x18c9a,77,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x18bcc,iram-init,candidate_ambe_enc_input_filter,yes,206,0x18c9a,77,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x18c9c,iram-init,candidate_codec_div_sat_a,yes,100,0x18d00,36,10,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
-0x18d00,iram-init,sub_18d00,,116,0x18d74,42,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x18d00,iram-init,candidate_codec_div_sat_c,yes,116,0x18d74,42,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x18d74,iram-init,candidate_codec_div_sat_b,yes,98,0x18dd6,35,7,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x18dd8,iram-init,sub_18dd8,,130,0x18e5a,49,7,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x18e5c,iram-init,sub_18e5c,,150,0x18ef2,56,4,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x18dd8,iram-init,candidate_bfp_add,yes,130,0x18e5a,49,7,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x18e5c,iram-init,candidate_bfp_sub,yes,150,0x18ef2,56,4,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x18ef4,iram-init,candidate_codec_div_norm_s16,yes,164,0x18f98,62,19,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
-0x18f98,iram-init,sub_18f98,,50,0x18fca,20,5,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x18fcc,iram-init,sub_18fcc,,50,0x18ffe,20,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x19000,iram-init,sub_19000,,54,0x19036,22,1,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1903c,iram-init,sub_1903c,,126,0x190ba,50,5,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x18f98,iram-init,candidate_bfp_less,yes,50,0x18fca,20,5,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x18fcc,iram-init,candidate_bfp_greater,yes,50,0x18ffe,20,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x19000,iram-init,candidate_cos_table_interp,yes,54,0x19036,22,1,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1903c,iram-init,candidate_log2_fixed,yes,126,0x190ba,50,5,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x190c0,iram-init,candidate_codec_log_poly,yes,250,0x191ba,93,8,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x191c0,iram-init,sub_191c0,,186,0x1927a,61,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x19280,iram-init,sub_19280,,224,0x19360,86,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x19364,iram-init,sub_19364,,120,0x193dc,49,5,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
-0x193e0,iram-init,sub_193e0,,152,0x19478,66,3,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x191c0,iram-init,candidate_pow2_fixed_a,yes,186,0x1927a,61,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x19280,iram-init,candidate_pow2_fixed_b,yes,224,0x19360,86,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x19364,iram-init,candidate_root_fixed_a,yes,120,0x193dc,49,5,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
+0x193e0,iram-init,candidate_root_fixed_b,yes,152,0x19478,66,3,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1947c,iram-init,mem_copy_halfwords,yes,24,0x19494,8,21,0,,yes,direct call,AMBE+2 codec window,,shared (5 tasks),yes
 0x19494,iram-init,mem_set_halfwords,yes,16,0x194a4,6,22,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
-0x194a4,iram-init,sub_194a4,,50,0x194d6,21,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init txslot,yes
-0x194d8,iram-init,sub_194d8,,48,0x19508,18,1,0,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
-0x19508,iram-init,sub_19508,,54,0x1953e,20,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
+0x194a4,iram-init,candidate_bits_to_int,yes,50,0x194d6,21,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init txslot,yes
+0x194d8,iram-init,candidate_int_to_bits,yes,48,0x19508,18,1,0,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
+0x19508,iram-init,candidate_int_to_bits_signed,yes,54,0x1953e,20,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint task init,yes
 0x19540,iram-init,sub_19540,,460,0x1970c,178,0,0,,yes,code pointer in instruction,AMBE+2 codec window,,,yes
 0x1970c,iram-init,sub_1970c,,76,0x19758,30,1,0,,yes,direct call,AMBE+2 codec window,,decoder sysint,yes
-0x19758,iram-init,sub_19758,,500,0x1994c,167,1,7,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1994c,iram-init,sub_1994c,,538,0x19b66,189,1,6,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x19b6c,iram-init,sub_19b6c,,334,0x19cba,121,2,5,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x19758,iram-init,candidate_ambe_frame_unpack,yes,500,0x1994c,167,1,7,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1994c,iram-init,candidate_ambe_frame_pack,yes,538,0x19b66,189,1,6,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x19b6c,iram-init,candidate_ambe_enc_spectrum,yes,334,0x19cba,121,2,5,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x19cbc,iram-init,sub_19cbc,,68,0x19d00,24,2,1,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x19d00,iram-init,sub_19d00,,54,0x19d36,23,1,1,,yes,direct call,AMBE+2 codec window,,task init,yes
 0x19d38,iram-init,sub_19d38,,128,0x19db8,50,1,3,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x19db8,iram-init,sub_19db8,,1356,0x1a304,512,1,18,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x19db8,iram-init,candidate_ambe_synthesize,yes,1356,0x1a304,512,1,18,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1a304,iram-init,sub_1a304,,302,0x1a432,105,1,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1a434,iram-init,candidate_codec_value_class,yes,66,0x1a476,29,7,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1a478,iram-init,sub_1a478,,74,0x1a4c2,33,3,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1a4c8,iram-init,sub_1a4c8,,240,0x1a5b8,97,2,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1a5c0,iram-init,sub_1a5c0,,910,0x1a958,328,2,5,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1a4c8,iram-init,candidate_ambe_param_copy,yes,240,0x1a5b8,97,2,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1a5c0,iram-init,candidate_ambe_dequantize,yes,910,0x1a958,328,2,5,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1a958,iram-init,sub_1a958,,142,0x1a9e6,63,2,1,,yes,direct call,AMBE+2 codec window,,task init,yes
 0x1a9e8,iram-init,sub_1a9e8,,250,0x1aae2,94,1,1,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1aae4,iram-init,sub_1aae4,,28,0x1ab00,10,4,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ab00,iram-init,sub_1ab00,,24,0x1ab18,9,4,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ab18,iram-init,sub_1ab18,,32,0x1ab38,12,1,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1ab38,iram-init,sub_1ab38,,32,0x1ab58,13,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ab58,iram-init,sub_1ab58,,80,0x1aba8,27,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1aae4,iram-init,candidate_array_max_s16,yes,28,0x1ab00,10,4,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ab00,iram-init,candidate_array_sum_s16,yes,24,0x1ab18,9,4,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ab18,iram-init,candidate_array_mean_s16,yes,32,0x1ab38,12,1,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1ab38,iram-init,candidate_complex_power,yes,32,0x1ab58,13,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ab58,iram-init,candidate_array_shift_copy,yes,80,0x1aba8,27,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x1abdc,iram-init,sub_1abdc,,128,0x1ac5e,43,3,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1ac60,iram-init,sub_1ac60,,58,0x1ac9a,24,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ac9c,iram-init,sub_1ac9c,,48,0x1accc,22,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ac60,iram-init,candidate_argmax_s16,yes,58,0x1ac9a,24,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ac9c,iram-init,candidate_argmax_s32,yes,48,0x1accc,22,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1accc,iram-init,sub_1accc,,212,0x1ada0,75,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ada0,iram-init,sub_1ada0,,116,0x1ae14,45,5,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1ae14,iram-init,sub_1ae14,,184,0x1aecc,63,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1aecc,iram-init,sub_1aecc,,144,0x1af5c,58,3,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1af5c,iram-init,sub_1af5c,,132,0x1afe0,49,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1afe0,iram-init,sub_1afe0,,1924,0x1b76a,713,1,8,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1ada0,iram-init,candidate_array_norm_shift,yes,116,0x1ae14,45,5,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1ae14,iram-init,candidate_array_normalise_a,yes,184,0x1aecc,63,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1aecc,iram-init,candidate_array_normalise_b,yes,144,0x1af5c,58,3,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1af5c,iram-init,candidate_array_normalise_c,yes,132,0x1afe0,49,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x1afe0,iram-init,candidate_ambe_unvoiced_synth,yes,1924,0x1b76a,713,1,8,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1b770,iram-init,sub_1b770,,5422,0x1cca2,1884,1,8,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1cca4,iram-init,sub_1cca4,,36,0x1ccc8,15,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1ccc8,iram-init,sub_1ccc8,,242,0x1cdba,96,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1cdbc,iram-init,sub_1cdbc,,120,0x1ce34,43,2,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1ce34,iram-init,sub_1ce34,,84,0x1ce88,29,2,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1ce88,iram-init,sub_1ce88,,58,0x1cec2,20,1,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1cec4,iram-init,sub_1cec4,,56,0x1cefc,25,2,1,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1cefc,iram-init,sub_1cefc,,46,0x1cf2a,17,1,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1cf2c,iram-init,sub_1cf2c,,60,0x1cf68,22,1,0,,yes,direct call; unreferenced prologue,AMBE+2 codec window,,,no
-0x1cf68,iram-init,sub_1cf68,,32,0x1cf88,12,1,1,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1cf88,iram-init,sub_1cf88,,36,0x1cfac,12,1,1,,yes,direct call; unreferenced prologue,AMBE+2 codec window,,,no
-0x1cfac,iram-init,sub_1cfac,,196,0x1d070,74,2,1,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d07c,iram-init,sub_1d07c,,378,0x1d1f6,138,3,4,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d1f8,iram-init,sub_1d1f8,,470,0x1d3ce,177,0,4,,yes,unreferenced prologue,AMBE+2 codec window,,,no
-0x1d3e0,iram-init,sub_1d3e0,,140,0x1d46c,52,4,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d46c,iram-init,sub_1d46c,,74,0x1d4b6,30,2,1,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d4b8,iram-init,empty_stub_1d4b8,yes,2,0x1d4ba,1,2,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d4bc,iram-init,empty_stub_1d4bc,yes,2,0x1d4be,1,2,0,,yes,direct call,AMBE+2 codec window,,,no
-0x1d4c4,iram-init,empty_stub_1d4c4,yes,2,0x1d4c6,1,4,0,,yes,direct call,AMBE+2 codec window,,CclTraffic rxvoice sysint txslot,yes
-0x1d4c8,iram-init,sub_1d4c8,,590,0x1d71c,231,1,2,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1cdbc,iram-init,aes_gf_mul,yes,120,0x1ce34,43,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1ce34,iram-init,aes_add_round_key,yes,84,0x1ce88,29,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1ce88,iram-init,candidate_aes_sub_word,yes,58,0x1cec2,20,1,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1cec4,iram-init,aes_row_rotate,yes,56,0x1cefc,25,2,1,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1cefc,iram-init,aes_sub_bytes,yes,46,0x1cf2a,17,1,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1cf2c,iram-init,aes_inv_sub_bytes,yes,60,0x1cf68,22,1,0,,yes,direct call; unreferenced prologue,voice crypto (RAM),,,no
+0x1cf68,iram-init,aes_shift_rows,yes,32,0x1cf88,12,1,1,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1cf88,iram-init,aes_inv_shift_rows,yes,36,0x1cfac,12,1,1,,yes,direct call; unreferenced prologue,voice crypto (RAM),,,no
+0x1cfac,iram-init,aes_key_expansion,yes,196,0x1d070,74,2,1,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d07c,iram-init,aes_encrypt_block,yes,378,0x1d1f6,138,3,4,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d1f8,iram-init,aes_decrypt_block,yes,470,0x1d3ce,177,0,4,,yes,unreferenced prologue,voice crypto (RAM),,,no
+0x1d3e0,iram-init,candidate_crypto_iv_expand,yes,140,0x1d46c,52,4,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d46c,iram-init,candidate_aes_ofb_keystream_precompute,yes,74,0x1d4b6,30,2,1,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d4b8,iram-init,empty_stub_1d4b8,yes,2,0x1d4ba,1,2,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d4bc,iram-init,candidate_cipher64_encrypt_stub,yes,2,0x1d4be,1,2,0,,yes,direct call,voice crypto (RAM),,,no
+0x1d4c4,iram-init,candidate_cipher64_key_setup_stub,yes,2,0x1d4c6,1,4,0,,yes,direct call,voice crypto (RAM),,CclTraffic rxvoice sysint txslot,yes
+0x1d4c8,iram-init,sub_1d4c8,,590,0x1d71c,231,1,2,,yes,direct call,voice crypto (RAM),,decoder task init,yes
 0x1d71c,iram-init,sub_1d71c,,722,0x1d9ee,265,1,3,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x1d9f0,iram-init,sub_1d9f0,,1056,0x1de10,413,1,3,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1de10,iram-init,sub_1de10,,2378,0x1e75e,864,1,7,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x1e760,iram-init,sub_1e760,,252,0x1e85c,107,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1de10,iram-init,candidate_ambe_voiced_synth,yes,2378,0x1e75e,864,1,7,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x1e760,iram-init,candidate_ambe_enc_post,yes,252,0x1e85c,107,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1e85c,iram-init,sub_1e85c,,96,0x1e8bc,30,1,0,,yes,direct call,AMBE+2 codec window,,task init,yes
 0x1e8bc,iram-init,sub_1e8bc,,568,0x1eaf4,276,1,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x1eafc,iram-init,sub_1eafc,,252,0x1ebf8,122,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
@@ -355,29 +355,29 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x1f5b0,iram-init,sub_1f5b0,,486,0x1f796,235,1,4,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x1f798,iram-init,sub_1f798,,450,0x1f96c,219,1,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x1f96c,iram-init,sub_1f96c,,1238,0x1fe60,598,1,8,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x1fe64,iram-init,sub_1fe64,,166,0x1ff0a,63,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x1ff0c,iram-init,sub_1ff0c,,148,0x1ffa0,55,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1fe64,iram-init,candidate_ambe_quant_part_a,yes,166,0x1ff0a,63,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x1ff0c,iram-init,candidate_ambe_quant_part_b,yes,148,0x1ffa0,55,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1ffa0,iram-init,sub_1ffa0,,4,0x1ffa4,2,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x1ffa4,iram-init,sub_1ffa4,,164,0x20048,68,3,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x20048,iram-init,sub_20048,,106,0x200b2,40,2,2,,yes,direct call,AMBE+2 codec window,,task init,yes
-0x200b4,iram-init,sub_200b4,,296,0x201dc,107,1,8,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x201e0,iram-init,sub_201e0,,70,0x20226,28,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x20228,iram-init,sub_20228,,274,0x2033a,98,1,4,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x2033c,iram-init,sub_2033c,,392,0x204c4,146,1,13,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x20048,iram-init,candidate_ambe_state_reset,yes,106,0x200b2,40,2,2,,yes,direct call,AMBE+2 codec window,,task init,yes
+0x200b4,iram-init,candidate_ambe_quant_part_c,yes,296,0x201dc,107,1,8,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x201e0,iram-init,candidate_ambe_quant_part_d,yes,70,0x20226,28,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x20228,iram-init,candidate_ambe_quantize_pack,yes,274,0x2033a,98,1,4,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x2033c,iram-init,candidate_ambe_bits_unpack,yes,392,0x204c4,146,1,13,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x204c8,iram-init,sub_204c8,,238,0x205b6,88,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x205b8,iram-init,sub_205b8,,4600,0x217ca,1572,1,18,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x217cc,iram-init,sub_217cc,,2056,0x21fe0,753,1,4,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x21fe0,iram-init,sub_21fe0,,68,0x22024,29,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint txslot,yes
+0x205b8,iram-init,candidate_ambe_enc_param_estimate,yes,4600,0x217ca,1572,1,18,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x217cc,iram-init,candidate_ambe_enc_param_refine,yes,2056,0x21fe0,753,1,4,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x21fe0,iram-init,candidate_mbe_noise_sign,yes,68,0x22024,29,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder sysint txslot,yes
 0x22024,iram-init,sub_22024,,156,0x220c0,56,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x220c0,iram-init,sub_220c0,,20,0x220d4,7,1,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x220d4,iram-init,sub_220d4,,1536,0x226f2,564,1,8,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x226f4,iram-init,sub_226f4,,92,0x22750,33,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x226f4,iram-init,candidate_ambe_dequant_amplitudes,yes,92,0x22750,33,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x22750,iram-init,sub_22750,,4,0x22754,2,2,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x22754,iram-init,sub_22754,,646,0x229da,199,0,0,,yes,code pointer in instruction,AMBE+2 codec window,,,yes
 0x229e0,iram-init,sub_229e0,,400,0x22b70,144,2,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x22b78,iram-init,sub_22b78,,94,0x22bd6,39,1,2,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x22bd8,iram-init,sub_22bd8,,34,0x22bfa,14,1,0,,yes,direct call,AMBE+2 codec window,,decoder sysint,yes
-0x22bfc,iram-init,sub_22bfc,,26,0x22c16,12,4,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x22bd8,iram-init,candidate_deinterleave_4x18,yes,34,0x22bfa,14,1,0,,yes,direct call,AMBE+2 codec window,,decoder sysint,yes
+0x22bfc,iram-init,candidate_bitstream_read,yes,26,0x22c16,12,4,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x22c18,iram-init,sub_22c18,,184,0x22cd0,71,1,2,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x22cd0,iram-init,sub_22cd0,,170,0x22d7a,69,1,0,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x22d7c,iram-init,sub_22d7c,,50,0x22dae,21,1,1,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
@@ -386,7 +386,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x22e5c,iram-init,sub_22e5c,,16,0x22e6c,7,1,1,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
 0x22e70,iram-init,sub_22e70,,192,0x22f30,80,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x22f30,iram-init,sub_22f30,,372,0x230a4,141,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x230a4,iram-init,sub_230a4,,34,0x230c6,14,1,0,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
+0x230a4,iram-init,candidate_interleave_4x18,yes,34,0x230c6,14,1,0,,yes,direct call,AMBE+2 codec window,,encoder txslot,yes
 0x230c8,iram-init,sub_230c8,,864,0x23428,316,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x23428,iram-init,sub_23428,,20,0x2343c,9,4,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x2343c,iram-init,sub_2343c,,602,0x23696,213,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
@@ -396,16 +396,16 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x23aa8,iram-init,sub_23aa8,,5594,0x2509a,1857,1,5,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x2509c,iram-init,sub_2509c,,190,0x2515a,63,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x25160,iram-init,sub_25160,,190,0x2521e,63,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x25224,iram-init,sub_25224,,598,0x2547e,230,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x25224,iram-init,candidate_cfft_fixed,yes,598,0x2547e,230,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x25484,iram-init,sub_25484,,150,0x2551a,45,1,0,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x25520,iram-init,sub_25520,,432,0x256d0,155,2,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x256d0,iram-init,sub_256d0,,50,0x25702,21,4,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x25704,iram-init,sub_25704,,62,0x25742,27,3,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
-0x25744,iram-init,sub_25744,,24,0x2575c,7,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x2575c,iram-init,sub_2575c,,70,0x257a2,26,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x25520,iram-init,candidate_rfft_split,yes,432,0x256d0,155,2,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x256d0,iram-init,candidate_rfft_forward,yes,50,0x25702,21,4,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x25704,iram-init,candidate_rfft_inverse,yes,62,0x25742,27,3,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
+0x25744,iram-init,candidate_norm_l,yes,24,0x2575c,7,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x2575c,iram-init,candidate_shl_sat,yes,70,0x257a2,26,1,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x257a4,iram-init,sub_257a4,,42,0x257ce,15,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x257d0,iram-init,sub_257d0,,80,0x25820,35,2,0,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x25824,iram-init,sub_25824,,68,0x25868,30,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x25824,iram-init,candidate_sum_s64,yes,68,0x25868,30,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x25868,iram-init,sub_25868,,92,0x258c4,39,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x258c4,iram-init,sub_258c4,,160,0x25964,64,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x25964,iram-init,sub_25964,,252,0x25a60,109,1,3,,yes,direct call,AMBE+2 codec window,,encoder,yes
@@ -418,7 +418,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x269b0,iram-init,sub_269b0,,210,0x26a82,74,1,1,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x26a84,iram-init,sub_26a84,,540,0x26ca8,195,1,4,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x26cac,iram-init,sub_26cac,,2874,0x277f6,1019,0,6,,yes,code pointer in instruction,AMBE+2 codec window,,,yes
-0x277f8,iram-init,sub_277f8,,1426,0x27d92,542,1,6,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x277f8,iram-init,candidate_ambe_synth_enhance,yes,1426,0x27d92,542,1,6,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x27d94,iram-init,sub_27d94,,346,0x27eee,138,1,1,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x27ef0,iram-init,sub_27ef0,,478,0x280ce,174,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x280d8,iram-init,sub_280d8,,5110,0x294e0,1889,1,13,,yes,direct call,AMBE+2 codec window,,encoder,yes
@@ -428,9 +428,9 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x29710,iram-init,sub_29710,,458,0x298da,192,2,2,,yes,direct call,AMBE+2 codec window,,decoder encoder task init,yes
 0x298dc,iram-init,sub_298dc,,54,0x29912,20,2,1,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x29914,iram-init,sub_29914,,1032,0x29d1c,355,1,3,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
-0x29d1c,iram-init,sub_29d1c,,374,0x29e92,137,1,2,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
+0x29d1c,iram-init,candidate_ambe_synth_state_update,yes,374,0x29e92,137,1,2,,yes,direct call,AMBE+2 codec window,,decoder task init,yes
 0x29e9c,iram-init,sub_29e9c,,1976,0x2a65c,649,1,2,,yes,direct call,AMBE+2 codec window,,encoder,yes
-0x2a65c,iram-init,sub_2a65c,,78,0x2a6aa,28,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
+0x2a65c,iram-init,candidate_bfp_align_array,yes,78,0x2a6aa,28,1,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x2a6ac,iram-init,sub_2a6ac,,96,0x2a70c,40,3,1,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x2a70c,iram-init,sub_2a70c,,788,0x2aa20,271,1,5,,yes,direct call,AMBE+2 codec window,,encoder,yes
 0x2aa20,iram-init,sub_2aa20,,760,0x2ad18,288,1,6,,yes,direct call,AMBE+2 codec window,,encoder,yes
