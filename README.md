@@ -21,7 +21,7 @@ This repository holds addresses, names and descriptions only. It contains no fir
 | `tables/modem-registers.csv`, `tables/rfic-writes.csv` | Modem register use and RF chip register writes |
 | `tables/keypad-map.csv`, `tables/key-events.csv` | Keypad scan codes and key event handlers |
 | `tables/menu-states.csv`, `tables/menu-pages.csv` | Menu dispatch states and the 276 menu pages |
-| `tables/settings-*.csv` | Setting IDs, RAM fields, flash locations and call sites |
+| `tables/settings-*.csv` | Setting IDs, RAM fields, flash locations and call sites; `settings-names.csv` gives CPS names for 33 of them |
 | `tables/codeplug-access.csv` | Every codeplug read and write site with block, offset and length |
 | `tables/ram-names.csv`, `tables/ram-variables.csv`, `tables/ram-xrefs.csv` | Named RAM variables and where RAM addresses are used |
 | `tables/sound-ids.csv` | Sound and voice prompt request IDs |

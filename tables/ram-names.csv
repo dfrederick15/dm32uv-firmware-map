@@ -68,3 +68,10 @@ address,name,confidence,basis
 0x42ce0,OSMemDbgListPtr,likely,head written by OS_MemDbgListAdd
 0x42a60,OSIntQOutPtr,likely,read by OS_IntQRePost
 0x4273c,OSIntQInPtr,likely,written by OS_IntQPost
+0x3ea09,setting_tot,likely,"TOT, setting 3 (CPS diff)"
+0x3ea32,setting_vox_level,likely,"VOX level, setting 58 (CPS diff)"
+0x3ea42,setting_auto_power_off,likely,"auto power-off, setting 95 (CPS diff)"
+0x3ea0e,setting_backlight_time,likely,"backlight time, setting 45 (CPS diff)"
+0x3ea3e,setting_analog_mic_level,likely,"analog mic level, setting 85 (CPS probe)"
+0x3ea3f,setting_digital_mic_level,likely,"digital mic level, setting 84 (CPS probe)"
+0x3ea2b,setting_keylock_delay,likely,"auto keypad lock delay, setting 46 (NeonPlug offset)"

@@ -1,0 +1,34 @@
+setting_id,flash_offset,ram_offset,cps_name,name_source
+3,0xa0,0x35,"TOT (TX timeout): 0 off, n = 10 + 5n s",CPS diff
+12,0x80,,VFO/embedded flags (0x80),NeonPlug
+13,0x80,0x2d,VFO/embedded flags (0x80),NeonPlug
+15,0x85,0x30,Key lock mode: bit 0 Manual/Auto,CPS diff
+16,0x20,0x41,Alert tone flags (0x20),NeonPlug
+17,0x20,0x42,Alert tone flags (0x20),NeonPlug
+18,0x20,0x43,Alert tone flags (0x20),NeonPlug
+26,0x21,0x44,"Alert tone flags, second byte (0x21)",NeonPlug
+45,0x31,0x3a,Backlight time,CPS diff
+46,0x86,0x57,Auto keypad lock delay (5-60 s),NeonPlug
+49,0x30,0x55,Backlight brightness (stored 0-5),NeonPlug
+58,0xa2,0x5e,VOX level 1-5,CPS diff + probe
+62,0x40,,"GPS flags (on, units, mode)",NeonPlug
+63,0x41,0xb6,UTC zone,NeonPlug
+64,0x40,0xd8,"GPS flags (on, units, mode)",NeonPlug
+65,0x0,0x34,Power-on interface,NeonPlug
+67,0x80,0x2d,VFO/embedded flags (0x80),NeonPlug
+69,0x65,0xf,Digital settings flags (0x65),NeonPlug
+71,0x87,0x70,SK1 short press function,NeonPlug
+72,0x89,0x71,SK2 short press function,NeonPlug
+73,0x8d,0x72,P1 short press function,NeonPlug
+74,0x8f,0x73,P2 short press function (by position),NeonPlug position
+75,0x8b,0x75,"Key at 0x8B short press function (TK, by position)",NeonPlug position
+76,0x88,0x76,SK1 long press function,NeonPlug
+77,0x8a,0x77,SK2 long press function,NeonPlug
+78,0x8e,0x78,P1 long press function,NeonPlug
+79,0x90,0x79,P2 long press function (by position),NeonPlug position
+80,0x8c,0x7b,"Key at 0x8C long press function (TK, by position)",NeonPlug position
+81,0x93,,Long press time (stored 0-4),NeonPlug
+84,0xa7,0x6b,"Digital mic level (0-4 = 1-5, 5 = Enhance MIC1)",CPS probe
+85,0xa6,0x6a,"Analog mic level (value + 1, 1-5)",CPS probe
+86,0x33,,"Display flags (0x33, date format)",NeonPlug
+95,0x1e,0x6e,"Auto power-off: 0 off, 1-4 = 30 min-4 h",CPS diff + firmware
