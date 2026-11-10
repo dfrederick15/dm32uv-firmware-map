@@ -109,9 +109,22 @@ The dispatcher skips all handlers when the mode byte at `0x3EC11` is 2 or 4.
 - The bootloader is a uC/OS build linked to run from RAM (`0x10000-0x12A5F`); calling through its flash addresses breaks
   a flash-based call graph.
 
+## Program flash writes
+
+The application has its own program-flash SPI driver in RAM (`candidate_progflash_erase`, `_program`, `_read`; commands
+0x06, 0x20, 0x02, 0x05). Every write targets only the 4 KiB information page at `0x0300B000`, and only the cable task
+(`task_usb`) reaches them. A guard byte at `0x18000A64` blocks all three. `candidate_feature_flags_load` copies option
+bits from that page into the feature flags at `0x3FDE0`/`0x3FDE3`.
+
+## Codeplug index blocks
+
+- Block `0x0B` is the contact index: count at offset 0 (at most 800), then an ID-sorted index
+  (`candidate_contact_name_by_id`).
+- Contacts are 24-byte records, 170 per block from block `0x44`, with the 16-byte name at `+2`.
+
 ## Open questions
 
-- 1,613 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
+- 1,444 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
 - Most settings have only weak hints for their meaning. Squelch, timeout and admit criteria in the channel record are not
   located.
 - Which physical key drives menu slots 3 and 4, and the exact keypad-to-menu-event translation.

@@ -28,7 +28,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30b9200,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_view_contact_3042854,Name | Number | Save
 0x30b9240,6,0x2,0x30b9228,0x30b9210,candidate_menu_page_view_contact candidate_menu_multi_page_3038500 candidate_menu_page_view_contact_3042854,View Contact | Add | Edit Contact | Delete | SendMsg | Application
 0x30b9268,3,0x2,0x30b925c,0x30b9250,candidate_menu_page_missed_3041d0c candidate_menu_page_missed_3058ec0 candidate_menu_page_missed_30591ec,Missed | Answered | Sent
-0x30b9288,2,0x2,0x30b9280,0x30b9278,0x301abe4 menu_state_021 candidate_menu_page_iso_8bit candidate_menu_page_to candidate_menu_page_select candidate_menu_multi_page_3044248 candidate_menu_page_none_30450ec candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 0x304c86c,ON | OFF
+0x30b9288,2,0x2,0x30b9280,0x30b9278,candidate_seconds_label_draw menu_state_021 candidate_menu_page_iso_8bit candidate_menu_page_to candidate_menu_page_select candidate_menu_multi_page_3044248 candidate_menu_page_none_30450ec candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 0x304c86c,ON | OFF
 0x30b92a8,2,0x2,0x30b92a0,0x30b9298,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3044248,VOX SW | Gain Level
 0x30b92c8,2,0x2,0x30b92c0,0x30b92b8,candidate_menu_multi_page_3044248,Switch | Delay Time
 0x30b92e8,2,0x2,0x30b92e0,0x30b92d8,,Vox OFF | Vox ON

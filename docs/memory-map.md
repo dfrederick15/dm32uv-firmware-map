@@ -69,7 +69,8 @@ Runtime address = `0x03000000` + flash offset.
 | Flash offset | Runtime | Size | Contents |
 | --- | --- | --- | --- |
 | `0x000000-0x000FFF` | `0x03000000` | 4 KiB | Boot header: ROM boot flag and entry address, then padding |
-| `0x001000-0x00BFFF` | `0x03001000` | 44 KiB | Bootloader (update mode). Most of it is copied to RAM `0x10000-0x12A5F` from flash `0x1F48` and runs there |
+| `0x001000-0x00AFFF` | `0x03001000` | 40 KiB | Bootloader (update mode). Most of it is copied to RAM `0x10000-0x12A5F` from flash `0x1F48` and runs there |
+| `0x00B000-0x00BFFF` | `0x0300B000` | 4 KiB | Information page: factory option bits at `+0x80..+0x82` (GPS, recording, ...), model byte at `+0xA0`. The only program-flash page the application writes, and only from the cable task |
 | `0x00C000-0x0727C7` | `0x0300C000` | 410 KiB | Application code, executed in place (modules below) |
 | `0x0727D0-0x076BD3` | `0x030727D0` | 17 KiB | Initial image of the second SRAM (copied to `0x18000800`) |
 | `0x076BD4-0x0C0C37` | `0x03076BD4` | 296 KiB | Read-only data: UI strings (English and GB2312), icons, fonts, menu tables, lookup tables |
@@ -204,5 +205,5 @@ not yet located. The VFOs appear to use the reserved channel numbers 4015 and 40
 ## Coverage
 
 2,881 functions found: 2,172 in the application, 590 in RAM code and 119 in the bootloader (68 of them are small
-leaf routines found in code gaps with no known caller). 1,275 have names, and 75.7% of direct call sites reach a named function. 709 names are inferred
+leaf routines found in code gaps with no known caller). 1,437 have names, and 82.1% of direct call sites reach a named function. 859 names are inferred
 (`candidate_`); code-shape rule names were checked against decompiled code.

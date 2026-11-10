@@ -60,3 +60,8 @@ address,name,confidence,basis
 0x45648,CPU_IntDisNestCtr,likely,"incremented by Start, decremented by Stop"
 0x45638,CPU_IntDisMeasStart_cnts,likely,timestamp taken at nesting 0
 0x4563c,CPU_IntDisMeasCtr,likely,incremented by every Start
+0x42524,OSTCBCurPtr,likely,current TCB pointer used by OS_Pend
+0x42734,OSRunning,likely,checked == 1 by OSSchedLock/OSSchedUnlock
+0x3fde0,feature_flags,likely,"loaded from the information page by candidate_feature_flags_load; bit 2 GPS, bit 4 recording"
+0x3fde3,feature_flags_b,likely,loaded from the information page bytes 0x80/0x81
+0x18000a64,progflash_locked,likely,program-flash erase/program/read refuse to run when 1
