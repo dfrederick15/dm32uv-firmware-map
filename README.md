@@ -27,6 +27,8 @@ This repository holds addresses, names and descriptions only. It contains no fir
 | `tables/sound-ids.csv` | Sound and voice prompt request IDs |
 | `tables/data-map-program.csv`, `tables/data-map-dataflash.csv`, `tables/images.csv` | Data regions in program flash and data flash, icons |
 | `tables/code-gaps.csv`, `tables/bootloader-ram-functions.csv` | Bytes between functions, and functions in the bootloader's RAM image |
+| `docs/codeplug-format.md` | CPS `.data` file format: channel record and settings fields, decoded by diffing official-CPS saves and probe files |
+| `tools/codeplug/` | Diff and edit tools for CPS `.data` files |
 | `tools/ghidra/` | Scripts that build a Ghidra project from your own firmware dump with all of the above applied (see its README) |
 
 ## Ghidra
