@@ -206,5 +206,5 @@ not yet located. The VFOs appear to use the reserved channel numbers 4015 and 40
 ## Coverage
 
 2,881 functions found: 2,172 in the application, 590 in RAM code and 119 in the bootloader (68 of them are small
-leaf routines found in code gaps with no known caller). 1,538 have names, and 83.9% of direct call sites reach a named function. 930 names are inferred
+leaf routines found in code gaps with no known caller). 1,653 have names, and 86.5% of direct call sites reach a named function. 1,045 names are inferred
 (`candidate_`); code-shape rule names were checked against decompiled code.

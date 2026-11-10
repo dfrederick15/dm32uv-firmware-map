@@ -124,7 +124,7 @@ bits from that page into the feature flags at `0x3FDE0`/`0x3FDE3`.
 
 ## Open questions
 
-- 1,343 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
+- 1,228 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
 - Most settings have only weak hints for their meaning. Squelch, timeout and admit criteria in the channel record are not
   located.
 - Which physical key drives menu slots 3 and 4, and the exact keypad-to-menu-event translation.

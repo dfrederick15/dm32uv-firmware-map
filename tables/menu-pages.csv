@@ -61,7 +61,7 @@ descriptor,count,flags,english_array,chinese_array,loaded_by,items
 0x30b9a20,5,0x2,0x30b9a0c,0x30b99f8,candidate_menu_page_radio_id,Radio ID | Group ID | Firmware Ver: | CPS Ver: | Model Number
 0x30b9a48,3,0x2,0x30b9a3c,0x30b9a30,,TOT | Tx Power | Time Slot
 0x30b9a60,1,0x2,0x30b9a5c,0x30b9a58,,Zone 1
-0x30b9aa8,7,0x13,0x30b9a8c,0x30b9a70,0x3012b28 menu_state_021 candidate_gps_info_display_3062e98 0x3063960 candidate_gps_info_display_3063ea4,Lat: | Long: | Speed: | Altitude: | SA: | Time: | Date:
+0x30b9aa8,7,0x13,0x30b9a8c,0x30b9a70,0x3012b28 menu_state_021 candidate_gps_info_display_3062e98 candidate_gps_distance_calc candidate_gps_info_display_3063ea4,Lat: | Long: | Speed: | Altitude: | SA: | Time: | Date:
 0x30b9b20,26,0x2,0x30b9ab8,0x30b9ab8,candidate_menu_page_utc_12_00 menu_state_021,UTC-12:00 | UTC-11:00 | UTC-10:00 | UTC-9:00 | UTC-8:00 | UTC-7:00 | UTC-6:00 | UTC-5:00 | UTC-4:00 | UTC-3:00 | UTC-2:00 | UTC-1:00 | UTC | UTC+1:00 | UTC+2:00 | UTC+3:00 | UTC+4:00 | UTC+5:00 | UTC+6:00 | UTC+7:00 | UTC+8:00 | UTC+9:00 | UTC+10:00 | UTC+11:00 | UTC+12:00 | UTC+13:00
 0x30b9b38,1,0x2,0x30b9b34,0x30b9b30,candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,GPS Invalid
 0x30b9b58,2,0x2,0x30b9b50,0x30b9b48,menu_state_021,DDD | DMS

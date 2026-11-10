@@ -273,8 +273,11 @@ os_sem_post,,0x300c53c,,,reviewed code behaviour,,,wrapper around OSSemPost; ret
 candidate_uses_timer,,0x300c550,,,rule: distinctive string reference,,,references: timer,string rule 2
 candidate_uses_timer_300c5e4,,0x300c5e4,,,rule: distinctive string reference,,,references: timer,string rule 2
 candidate_os_timer_stop_if_running,,0x300c66c,,,reviewed decompiled code,,,OSTmrStop when the timer state is running (2),ghidra review 2026-11-10
+candidate_timer_36490_stop,,0x300c6a0,,,reviewed decompiled code,,,stops the software timer at 0x36490 if running,ghidra review 2026-11-10
 candidate_timer_35390_start,,0x300c6ac,,,reviewed decompiled code,,,starts the software timer at 0x35390 with callback 0x300C41C and the given period,ghidra review 2026-11-10
 candidate_timer_3548c_start,,0x300c6c8,,,reviewed decompiled code,,,starts the software timer at 0x3548C with callback 0x300C414 and the given period,ghidra review 2026-11-10
+candidate_timer_35358_start,,0x300c6e4,,,reviewed decompiled code,,,starts the software timer at 0x35358,ghidra review 2026-11-10
+candidate_timer_35358_stop,,0x300c6f4,,,reviewed decompiled code,,,stops the software timer at 0x35358 if running,ghidra review 2026-11-10
 candidate_call_flags_wait,,0x300c700,,,reviewed code behaviour,,,waits on bits in the event group at 0x3658C,voice path review
 candidate_call_flags_set,,0x300c724,,,reviewed code behaviour,,,sets bits in the event group at 0x3658C,voice path review
 candidate_call_flags_clear,,0x300c730,,,reviewed code behaviour,,,clears bits in the event group at 0x3658C,voice path review
@@ -314,18 +317,23 @@ candidate_flag_38480_38481_set,,0x300d490,,,reviewed decompiled code,,,"param 1 
 start_tasks_sqlcheck_and_1_more,,0x300d4b0,,,calls OSTaskCreate,,,"creates OS tasks: task SqlCheck, task rf",strings/tasks analysis
 candidate_settings_read_300d568,,0x300d568,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0xa6,codeplug block rule
 candidate_freq_in_band_window,,0x300d810,,,reviewed code behaviour,,,true when the 32-bit value lies between the limits at 0x3848C+0x20 and +0x24,morning review 2026-11-10
+candidate_band_limits_load,,0x300d84c,,,reviewed decompiled code,,,loads band limit pairs into 0x38490-0x38498 from calibration/model data,ghidra review 2026-11-10
 candidate_freq_out_of_band,,0x300da48,,,reviewed decompiled code,,,"true when the frequency is outside the band limit pairs at 0x384AC/0x384B0, 0x3848C/0x38490, 0x38494/0x38498",ghidra review 2026-11-10
 channel_band_and_tuning_set,0x300da88,0x300da88,0,148,"masked code, unique",92,direct instructions,Compares TXr0 and RXr1 with20000000; sets0x3e31b bits4/3; stores TX/RX words0x38468/6c for supported mode branches,"docs/modem-map.csv, ported"
 channel_calibration_load,0x300db48,0x300db48,0,312,"masked code, unique",90,direct instructions + traced consumers,TX channel bytes4..7 and powerselector byte8 bits2:1 feed0x301b33c; stores DAC ramp target at0x38498; other calibration consumers remain separate,"docs/modem-map.csv, ported"
 rf_switch_worker,0x300dc94,0x300dc94,0,80,"exact bytes, unique",100,direct instructions + IRQ producer trace,"Waits on0x38590; for channel mode0x10 dispatches flags0x38464/65 to TX0x2b440 or RX0x2b4a0; entry point of OS task ""task rf"" (created at 0x300d540); entry point of OS task ""task rf"" (created at 0x300d540)","docs/modem-map.csv, ported"
 rf_restore_worker,0x300dce4,0x300dce4,0,56,"exact bytes, unique",100,direct instructions; event meaning unverified,Waits on0x3fd90 mask0x200 and ifTXflag0x3e1c0 bit0 set calls RXrestore0x2b4a0; no proven thermal/battery attribution,"docs/modem-map.csv, ported"
 candidate_rfic_ctcss_control_set,,0x300dd1c,,,RF chip register numbers,,,writes 0x51; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_ctcss_apply,,0x300dd94,,,reviewed decompiled code,,,applies the channel CTCSS/DCS control setting,ghidra review 2026-11-10
 candidate_rfic_tx_deviation_set,,0x300de60,,,RF chip register numbers,,,writes 0x40; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
 candidate_rfic_squelch_threshold_set,,0x300de78,,,RF chip register numbers,,,writes 0x78; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
 candidate_channel_tx_power_set,,0x300de8c,,,reviewed decompiled code,,,"writes the high nibble of channel byte +0x0C (flash and RAM 0x3E204), then reloads a calibration value; likely the TX power level",ghidra review 2026-11-10
 rf_rx_setup,0x300df08,0x300df08,0,62,"masked code, unique",87,direct instructions,Tunes RX word0x3846c through0x2b6a0 then enables RXband0x2c878; retains mode dependent stock processing,"docs/modem-map.csv, ported"
 candidate_rfic_tone1_frequency_set,,0x300df5c,,,RF chip register numbers,,,writes 0x71; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
 candidate_rfic_tone1_tone2_frequency_set,,0x300df7c,,,RF chip register numbers,,,writes 0x71 and 0x72; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_ctcss_tone_program,,0x300e10c,,,reviewed decompiled code,,,called by rf_tx_setup: computes and writes the CTCSS tone registers (double arithmetic),ghidra review 2026-11-10
+candidate_rx_audio_open,,0x300e2c0,,,reviewed decompiled code,,,"amplifier and AF output on, receive level applied, activity timer restarted",ghidra review 2026-11-10
+candidate_rx_audio_mute_for_search,,0x300e360,,,reviewed decompiled code,,,"clears the search flag, RF AF output off, amplifier off",ghidra review 2026-11-10
 candidate_tone_code_type,,0x300e3b4,,,reviewed code behaviour,,,"classifies a 16-bit tone code by its top bits: 0 none, 1 CTCSS, DCS normal 0x8000 or inverted 0xC000",morning review 2026-11-10
 rf_tx_setup,0x300e40c,0x300e40c,0,144,"masked code, unique",96,direct instructions,"Disables RXband, enables TXband, applies stock subtone/mode controls, tunesTX0x2b674 and ramps calibrated DACB target0x38498","docs/modem-map.csv, ported"
 task_cds,,0x300e49c,,,OSTaskCreate arguments,,,"entry point of OS task ""task cds"" (created at 0x301d5f8)",strings/tasks analysis
@@ -365,6 +373,7 @@ candidate_rfic_register_block_write,,0x300f068,,,reviewed call sequence,,,ten or
 candidate_rfic_regs_21_24_set,,0x300f10c,,,reviewed decompiled code,,,"RF chip REG 0x21 = 0x06D8, REG 0x24 = 0x8C7E",ghidra review 2026-11-10
 rfic_3wire_write_thunk_300f124,,0x300f124,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
 rfic_3wire_write_thunk_300f15c,,0x300f15c,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+candidate_rfic_bandwidth_for_freq,,0x300f1b4,,,reviewed decompiled code,,,selects the RF chip filter bandwidth for a frequency (band window check),ghidra review 2026-11-10
 candidate_sound_29_with_value,,0x300f258,,,reviewed decompiled code,,,stores a value at 0x386A8 and requests sound 0x29,ghidra review 2026-11-10
 candidate_rfic_tone_stop,,0x300f268,,,reviewed decompiled code,,,"RF chip idle, AF output off, REG 0x70 (BK4819 tone generator) = 0, back to RX mode, amplifier and FM playback off, clears 0x3E33A bit 1",ghidra review 2026-11-10
 rfic_3wire_write_thunk_300f2e4,,0x300f2e4,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
@@ -394,6 +403,7 @@ candidate_record_data_write,,0x3010680,,,reviewed code behaviour,,,locked raw fl
 candidate_record_index_rebuild,,0x30106b4,,,reviewed code behaviour,,,"init-time read, erase and rewrite of index sectors",record review
 dataflash_write_raw_locked,,0x3010818,,,reviewed call sequence,,,"takes the flash lock, writes, releases",storage review
 candidate_dataflash_write3_locked,,0x3010848,,,reviewed call sequence,,,three writes under one lock,storage review
+candidate_record_index_read,,0x30108a8,,,reviewed decompiled code,,,under dataflash_lock finds the recording index sector and reads it,ghidra review 2026-11-10
 candidate_recordings_erase,,0x3010b40,,,cable command dispatch,,,called after DEL-RCD matches; erases sectors and rewrites headers,cable review
 candidate_record_storage_init,,0x3010bd4,,,reviewed code behaviour,,,"loads the index, checks it, and erases and rebuilds it when invalid",record review
 candidate_record_index_area_a_load,,0x3010cf8,,,reviewed decompiled code,,,under dataflash_lock finds the active recording-index sector (tag 0xA5) and reads 0xFF0 bytes to 0x39490,ghidra review 2026-11-10
@@ -403,6 +413,7 @@ candidate_table_3077244_entry,,0x3010e0c,,,reviewed decompiled code,,,returns 0x
 candidate_table_30777c0_entry,,0x3010e18,,,reviewed decompiled code,,,returns 0x30777C0 + n * 14,ghidra review 2026-11-10
 candidate_font24_glyph_read_a,,0x3010e24,,,reviewed decompiled code,,,"reads a 72-byte 24x24 glyph at data flash 0x73248 + (lead*94 + trail)*72 with raw GB2312 bytes, so code A1A1 lands at 0x180000 (the 24x24 Chinese font)",ghidra review 2026-11-10
 candidate_font24_glyph_read_b,,0x3010e48,,,reviewed decompiled code,,,"reads a 72-byte 24x24 glyph at data flash 0x158248 + (lead*94 + trail)*72 with raw GB2312 bytes, so code A1A1 lands at 0x265000 (symbol rows A1-A5); used for lead bytes below 0xA6",ghidra review 2026-11-10
+candidate_flash_font_glyph_read,,0x3010ec4,,,reviewed decompiled code,,,reads glyph bytes from a data flash font for the text drawer,ghidra review 2026-11-10
 candidate_nmea_skip_fields,,0x3011420,,,reviewed code behaviour,,,advances past a given number of commas in a GPS sentence,voice path review
 candidate_gps_coordinate_convert,,0x3011450,,,reviewed call sequence,,,double arithmetic converting a coordinate value,gps review
 candidate_gps_coordinate_format_a,,0x30114d4,,,reviewed call sequence,,,converts then formats with sprintf,gps review
@@ -434,6 +445,7 @@ candidate_key_scan_resume_tick,,0x30133dc,,,reviewed decompiled code,,,after 20 
 candidate_key_beep,,0x301340c,,,reviewed code behaviour,,,"checks a status flag and two settings, then requests a sound; 47 callers in key and menu code",misc review
 candidate_key_beep_repeat,,0x3013470,,,reviewed decompiled code,,,"plays the pending key tone again (same rules as candidate_key_beep: setting 0x11, sound 0x10+n or 0x21)",ghidra review 2026-11-10
 candidate_key_event_dispatch,,0x3013640,,,reviewed code behaviour,,,calls per-key handlers through the press and release tables in modem SRAM,voice path review
+candidate_key_scan_cycle,,0x30138c4,,,reviewed decompiled code,,,"key scan step: PTT input debounce, then key event dispatch",ghidra review 2026-11-10
 test_3fd69_1,,0x3013f00,,,code shape rule,,,test: tests a field of RAM 0x3fd69,morning rule 2026-11-10
 test_3e0e3,,0x3013f40,,,code shape rule,,,test: tests a field of RAM 0x3e0e3,morning rule 2026-11-10
 return_1_3013f54,,0x3013f54,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
@@ -530,6 +542,7 @@ candidate_keyfunc_vfo_mr,,0x3016734,,,key function table order,,,"entry 7 of the
 candidate_key_function_dispatch,,0x30168cc,,,reviewed call sequence,,,"reads settings block offsets 0x87-0x90 and 0x93, and is the only user of the 43-entry key function table",radio state review
 candidate_uses_tmrkey,,0x3016cac,,,rule: distinctive string reference,,,references: TmrKey,string rule 2
 candidate_timer_39328_start,,0x3016cd4,,,reviewed decompiled code,,,"stores a code at 0x3931D, sets 0x3931E = 3 and starts the OS timer at 0x39328",ghidra review 2026-11-10
+candidate_key_release_common,,0x3016cf0,,,reviewed decompiled code,,,called by several key release handlers: stops the long-press timer and posts a key message,ghidra review 2026-11-10
 set_u8_307b9,,0x3016e20,,,rule: setter,,,stores its argument to the u8 at RAM 0x307b9,rule-based
 get_u8_307b9,,0x3016e28,,,rule: getter,,,returns the u8 at RAM 0x307b9,rule-based
 empty_stub_3016e30,,0x3016e30,,,rule: empty stub,,,returns immediately,rule-based
@@ -537,14 +550,18 @@ candidate_keyfunc_alarm,,0x3016eb8,,,key function table order,,,"entry 8 of the 
 candidate_scan_lists_write_3016edc,,0x3016edc,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x11; offsets 0xf00,codeplug block rule
 candidate_scan_lists_write_3016edc_thunk_3016fc0,,0x3016fc0,,,code shape rule,,,thunk: only calls candidate_scan_lists_write_3016edc,morning rule 2026-11-10
 candidate_keyfunc_scan,,0x3016fcc,,,key function table order,,,"entry 18 of the 43-entry handler table at 0x30728dc; item 18 of the 43-item key function list is ""Scan"" (pairing by position, unverified)",key function table
+candidate_contact_key_handler,,0x3016fd8,,,reviewed decompiled code,,,"key 8 press and the contact key function: key hook, FM mute, opens the contact list",ghidra review 2026-11-10
 candidate_keyfunc_contact,,0x3017074,,,key function table order,,,"entry 15 of the 43-entry handler table at 0x30728dc; item 15 of the 43-item key function list is ""Contact"" (pairing by position, unverified)",key function table
+candidate_hot_key_execute,,0x3017084,,,reviewed decompiled code,,,"hot key 1-n key functions: key hook check, FM mute, runs the stored hot-key action",ghidra review 2026-11-10
 candidate_keyfunc_hot_key_5,,0x3017140,,,key function table order,,,"entry 13 of the 43-entry handler table at 0x30728dc; item 13 of the 43-item key function list is ""Hot Key 5"" (pairing by position, unverified)",key function table
 candidate_keyfunc_hot_key_4,,0x301714c,,,key function table order,,,"entry 12 of the 43-entry handler table at 0x30728dc; item 12 of the 43-item key function list is ""Hot Key 4"" (pairing by position, unverified)",key function table
 candidate_keyfunc_hot_key_3,,0x3017158,,,key function table order,,,"entry 11 of the 43-entry handler table at 0x30728dc; item 11 of the 43-item key function list is ""Hot Key 3"" (pairing by position, unverified)",key function table
 candidate_keyfunc_hot_key_2,,0x3017164,,,key function table order,,,"entry 10 of the 43-entry handler table at 0x30728dc; item 10 of the 43-item key function list is ""Hot Key 2"" (pairing by position, unverified)",key function table
 candidate_keyfunc_hot_key_1,,0x3017170,,,key function table order,,,"entry 9 of the 43-entry handler table at 0x30728dc; item 9 of the 43-item key function list is ""Hot Key 1"" (pairing by position, unverified)",key function table
+candidate_zone_step,,0x3017188,,,reviewed decompiled code,,,"zone up/down key functions: ends receive audio, reads zones, changes the zone setting, plays a sound",ghidra review 2026-11-10
 candidate_keyfunc_zone_down,,0x3017244,,,key function table order,,,"entry 17 of the 43-entry handler table at 0x30728dc; item 17 of the 43-item key function list is ""Zone Down"" (pairing by position, unverified)",key function table
 candidate_keyfunc_zone_up,,0x3017250,,,key function table order,,,"entry 16 of the 43-entry handler table at 0x30728dc; item 16 of the 43-item key function list is ""Zone Up"" (pairing by position, unverified)",key function table
+candidate_record_step,,0x3017278,,,reviewed decompiled code,,,next/previous record key functions: moves through stored recordings,ghidra review 2026-11-10
 candidate_keyfunc_next_record,,0x3017370,,,key function table order,,,"entry 21 of the 43-entry handler table at 0x30728dc; item 21 of the 43-item key function list is ""Next Record"" (pairing by position, unverified)",key function table
 candidate_keyfunc_previous_record,,0x30173ac,,,key function table order,,,"entry 20 of the 43-entry handler table at 0x30728dc; item 20 of the 43-item key function list is ""Previous Record"" (pairing by position, unverified)",key function table
 candidate_keyfunc_tbst_handler,,0x30173d4,,,reviewed decompiled code,,,"key function: release posts key event bit 8, press sends TBST",ghidra review 2026-11-10
@@ -620,6 +637,9 @@ task_shutdown,,0x301b784,,,OSTaskCreate arguments,,,"entry point of OS task ""ta
 start_task_shutdown,,0x301b89c,,,calls OSTaskCreate,,,"creates OS task ""task ShutDown""",strings/tasks analysis
 candidate_periodic_alert_tick,,0x301b924,,,reviewed decompiled code,,,"every 10th call while 0x3E33B bit 4 is set, plays alert sound 0x26 or 0x27",ghidra review 2026-11-10
 candidate_battery_voltage_format,,0x301b97c,,,string reference,,,references: %01d.%02dV,strings/tasks analysis
+candidate_status_bar_icon_draw,,0x301b9e4,,,reviewed decompiled code,,,draws a status bar icon from state flags,ghidra review 2026-11-10
+candidate_battery_voltage_read,,0x301bbf8,,,reviewed decompiled code,,,reads the battery ADC channel and stores it at 0x39458; called at shutdown and by the battery monitor,ghidra review 2026-11-10
+candidate_channel_vox_toggle,,0x301bdb4,,,reviewed decompiled code,,,VOX key function: toggles a channel record bit (flash and current channel),ghidra review 2026-11-10
 candidate_slot_state_reset_309cc,,0x301bf24,,,reviewed decompiled code,,,for index < 2 clears entries of the tables at 0x309CC/0x309D0,ghidra review 2026-11-10
 candidate_rssi_measure,,0x301bf40,,,peripheral registers accessed,,,reads RSSI from the RF chip and processes it,board support review
 modem_reg_34_update_301c0ec,,0x301c0ec,,,rule: single modem register,,,small function whose only modem register is reg_34: modify: clear b17,modem register rule
@@ -628,6 +648,8 @@ candidate_bus_dev_e0_reg_read,,0x301c21c,,,reviewed code behaviour,,,reads one b
 candidate_rtc_time_get,,0x301c238,,,reviewed call sequence,,,clock routine with 7 callers across 9 tasks,gps review
 candidate_bus_dev_e0_reg11_bit2_set,,0x301c3c8,,,reviewed decompiled code,,,sets bit 2 of register 0x11 of bus device 0xE0,ghidra review 2026-11-10
 candidate_rtc_time_set,,0x301c3e0,,,reviewed call sequence,,,clock routine called after GPS time extraction and from the cable task,gps review
+candidate_rtc_write_from_cable,,0x301c6c8,,,reviewed decompiled code,,,writes the RTC registers; called by the cable RTC command,ghidra review 2026-11-10
+candidate_spi_ctrl_enable,,0x301c874,,,reviewed decompiled code,,,"SPI controller enable helper used by the SPI0, SPI1 and SPI3 init functions",ghidra review 2026-11-10
 candidate_spi_reg14_set,,0x301c884,,,reviewed decompiled code,,,writes the +0x14 register of SPI controller n (base table 0x30AE9A4),ghidra review 2026-11-10
 spi0_dataflash_init,,0x301c894,,,peripheral registers accessed,,,"writes SPI0 setup registers, configures the chip select pin, creates the flash lock",board support review
 candidate_spi_transfer16,,0x301c8e0,,,reviewed decompiled code,,,"waits for transmit space, writes a 16-bit word to +0x60, waits for completion and returns the received word",ghidra review 2026-11-10
@@ -650,11 +672,14 @@ start_task_cds,,0x301d550,,,calls OSTaskCreate,,,"creates OS task ""task cds""",
 candidate_audio_amp_pin_init,,0x301d618,,,peripheral registers accessed,,,configures the audio amplifier enable pin,board support review
 audio_amp_set,,0x301d624,,,reviewed decompiled code,,,"decompiled: drives GPIO 0x35 (RadioFoundry: audio power amplifier enable, high = on) and status bit 0x200; earlier: switches GPIO 0x35, the audio amplifier enable, with state tracking",ghidra review 2026-11-10
 test_status_flags_1_1,,0x301d684,,,code shape rule,,,test: tests a field of RAM 0x3fdd9,morning rule 2026-11-10
+candidate_timers_disable_all,,0x301d698,,,reviewed decompiled code,,,clears the enable bits of the hardware timers at 0x14000030/0x14000044/0x14000058,ghidra review 2026-11-10
+candidate_timers_reload_all,,0x301d6e8,,,reviewed decompiled code,,,reloads the hardware timer periods at 0x14000014/0x14000028/0x14000050/0x14000064,ghidra review 2026-11-10
 candidate_timer_28_period_us_set,,0x301d794,,,reviewed decompiled code,,,writes param * clock / 1000000 to the timer register 0x14000028,ghidra review 2026-11-10
 set_u32_3a634,,0x301d7b0,,,rule: setter,,,stores its argument to the u32 at RAM 0x3a634,rule-based
 candidate_timers_init,,0x301d7b8,,,reviewed code behaviour,,,"installs handlers for vectors 34 to 38, timers 2 to 6",voice path review
 candidate_timer_0x14000000_start_ms,,0x301d858,,,reviewed code behaviour,,,loads clock*ms/1000 from 0x3A628 into the timer at 0x14000000 and sets enable bit 0,morning review 2026-11-10
 candidate_timer_0x14000000_stop,,0x301d878,,,reviewed code behaviour,,,clears enable bit 0 of the timer at 0x14000000,morning review 2026-11-10
+candidate_timer_tick_wait,,0x301d8a8,,,reviewed decompiled code,,,waits for one hardware timer tick,ghidra review 2026-11-10
 candidate_gps_uart_init,,0x301d8c4,,,reviewed code behaviour,,,configures UART1 for GPS and drives PTA10 low,voice path review
 candidate_gps_uart_read,,0x301d92c,,,peripheral registers accessed,,,copies received GPS bytes under a lock and touches the UART1 interrupt enable,board support review
 candidate_cable_uart_init,,0x301d9a0,,,reviewed code behaviour,,,installs the UART0 handler,voice path review
@@ -663,12 +688,14 @@ candidate_i2c2_rtc_write,,0x301da98,,,peripheral registers accessed,,,I2C2 write
 candidate_i2c2_rtc_read,,0x301db74,,,peripheral registers accessed,,,I2C2 read sequence,board support review
 candidate_bitbang_bus_a,,0x301dc64,,,peripheral registers accessed,,,bit-banged serial sequence using GPIO high/low with delays,board support review
 candidate_bitbang_bus_b,,0x301dd60,,,peripheral registers accessed,,,bit-banged serial sequence using GPIO high/low with delays,board support review
+candidate_ccl_call_state_machine,,0x301df8c,,,reviewed decompiled code,,,"core DMR call state machine called by the CclTraffic handlers: control burst 0x38, modem state and layer-2 mode changes, call flags",ghidra review 2026-11-10
 modem_reg_74_update_301e4d0,,0x301e4d0,,,rule: single modem register,,,"small function whose only modem register is reg_74: modify: ori:r2,384; modify: clear b7 clear b8",modem register rule
 candidate_prompt_audio_path_set,,0x301e4f0,,,reviewed code behaviour,,,"sets or clears AUDIO_CONTROL bit 7, the prompt audio path",voice path review
 modem_reg_88_update_301e514,,0x301e514,,,rule: single modem register,,,small function whose only modem register is reg_88: = 0x1; = 0x0,modem register rule
 candidate_modem_level_9e5_set,,0x301e530,,,reviewed decompiled code,,,"writes table 0x30AEB60[min(n,7)] | 0x80 to modem buffer byte 0x160009E5",ghidra review 2026-11-10
 empty_stub_301e554,,0x301e554,,,rule: empty stub,,,returns immediately,rule-based
 candidate_modem_buf_9cb_bit5_set,,0x301e558,,,reviewed decompiled code,,,"clears bit 5 of modem buffer byte 0x160009CB when the flag is set, sets it otherwise",ghidra review 2026-11-10
+candidate_layer2_config_apply,,0x301e580,,,reviewed decompiled code,,,"writes LOCAL_CC and modem registers 0x02C, 0x12C, 0x130 for the slot/colour-code configuration",ghidra review 2026-11-10
 set_u32_33cec,,0x301e798,,,rule: setter,,,stores its argument to the u32 at RAM 0x33cec,rule-based
 set_u32_33d74,,0x301e7a0,,,rule: setter,,,stores its argument to the u32 at RAM 0x33d74,rule-based
 set_u32_33cf0,,0x301e7a8,,,rule: setter,,,stores its argument to the u32 at RAM 0x33cf0,rule-based
@@ -702,11 +729,14 @@ update_3ba6d_field_301ecf0,,0x301ecf0,,,code shape rule,,,bitwrite: read-modify-
 candidate_dmr_call_active,,0x301ed00,,,reviewed decompiled code,,,"true if any DMR call state is set (0x3BA59, 0x3C622, 0x3BA55, 0x30E0C)",ghidra review 2026-11-10
 get_u8_3c614,,0x301ed30,,,code shape rule,,,getter: returns u8 at RAM 0x3c614,morning rule 2026-11-10
 candidate_talker_alias_prepare,,0x301ed3c,,,reviewed decompiled code,,,"(enable, 4-bit format, string): sets 0x3BA73 format bits and copies the text into the 32-byte buffer at 0x3BA96",ghidra review 2026-11-10
+candidate_call_display_text_build,,0x301ee6c,,,reviewed decompiled code,,,called by candidate_psint_call_events: assembles the call display text,ghidra review 2026-11-10
 update_3ba73_field,,0x301ef74,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba73,morning rule 2026-11-10
 set_u16_3bd30,,0x301f0b0,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x3bd30,morning rule 2026-11-10
 get_u8_3bd3c,,0x301f108,,,rule: getter,,,returns the u8 at RAM 0x3bd3c,rule-based
 get_u8_30e0c,,0x301f110,,,rule: getter,,,returns the u8 at RAM 0x30e0c,rule-based
+candidate_txmsg_main,,0x301f118,,,reviewed decompiled code,,,"body of task_txmsg (3148 bytes): waits on event group 0x38330, changes modem state and drives message/data transmission",ghidra review 2026-11-10
 task_txmsg,,0x301fdd8,,,OSTaskCreate arguments,,,"entry point of OS task ""txmsg"" (created at 0x300c8cc); also task_txmsg",strings/tasks analysis
+candidate_call_setup_sequence,,0x301fe28,,,reviewed decompiled code,,,"sends control burst 0x38, changes modem state and layer-2 mode, waits for call flags",ghidra review 2026-11-10
 get_u8_30e0d,,0x301ff94,,,rule: getter,,,returns the u8 at RAM 0x30e0d,rule-based
 task_rxmsg,,0x301ff9c,,,OSTaskCreate arguments,,,"entry point of OS task ""rxmsg"" (created at 0x300cb0e)",strings/tasks analysis
 candidate_copy_out_3bac0,,0x3020628,,,reviewed decompiled code,,,copies the record at 0x3BAC0 into the caller buffer,ghidra review 2026-11-10
@@ -721,6 +751,8 @@ task_rxcsbk,,0x30209e4,,,OSTaskCreate arguments,,,"entry point of OS task ""rxcs
 get_u32_3bd50,,0x3020d50,,,rule: getter,,,returns the u32 at RAM 0x3bd50,rule-based
 get_u32_3bd4c,,0x3020d80,,,rule: getter,,,returns the u32 at RAM 0x3bd4c,rule-based
 get_u8_3c61a,,0x3020d88,,,rule: getter,,,returns the u8 at RAM 0x3c61a,rule-based
+candidate_ccltraffic_state_handler,,0x3020dc8,,,reviewed decompiled code,,,called by task_ccltraffic: sets 0x33CDD and posts modem state events,ghidra review 2026-11-10
+candidate_ccltraffic_voice_handler,,0x3020fe4,,,reviewed decompiled code,,,"called by task_ccltraffic: voice transmit/receive transitions with modem state changes, voice encryption block and psint events",ghidra review 2026-11-10
 get_u32_3ba4c,,0x30211e4,,,rule: getter,,,returns the u32 at RAM 0x3ba4c,rule-based
 update_3bd57_field,,0x3021220,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3bd57,morning rule 2026-11-10
 set_u8_3bd54,,0x302122c,,,rule: setter,,,stores its argument to the u8 at RAM 0x3bd54,rule-based
@@ -752,13 +784,21 @@ empty_stub_3021ac8,,0x3021ac8,,,rule: empty stub,,,returns immediately,rule-base
 candidate_debug_print_stub,,0x3021acc,,,reviewed decompiled code,,,"empty function the firmware calls with debug strings (IV_ok_, IV_err_, ...); debug output compiled out",ghidra review 2026-11-10
 return_1_3021ad0,,0x3021ad0,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
 modem_reg_88_update_3021ad8,,0x3021ad8,,,rule: single modem register,,,small function whose only modem register is reg_88: = 0x3; = 0x1,modem register rule
+candidate_modem_audio_init,,0x3021af8,,,reviewed decompiled code,,,called at start-up: MODEM_REG_000 and MODEM_REG_088 setup with delays,ghidra review 2026-11-10
 start_task_sound,,0x3021bd4,,,calls OSTaskCreate,,,"creates OS task ""task sound""",strings/tasks analysis
 sound_request,,0x3021c1c,,,reviewed decompiled code,,,decompiled: under sound_request_lock stores the sound ID and posts system event 0x40; earlier: stores an id for the sound task and sets its event bit,ghidra review 2026-11-10
 candidate_sound_request_with_arg,,0x3021c60,,,reviewed code behaviour,,,stores an id and argument for the sound task and sets its event bit,voice path review
 candidate_prompt_fifo_write,,0x3021c88,,,reviewed code behaviour,,,feeds audio to the modem prompt FIFO at 0x16000980,voice path review
+candidate_prompt_pcm_feed_a,,0x3021de0,,,reviewed decompiled code,,,sound task: copies prompt PCM to modem audio buffer 0x16000980 and signals via flags (AUDIO_CONTROL),ghidra review 2026-11-10
+candidate_prompt_pcm_feed_b,,0x3021fe0,,,reviewed decompiled code,,,sound task: copies prompt PCM to modem audio buffer 0x16000980 (variant),ghidra review 2026-11-10
 modem_audio_control_read_302215c,,0x302215c,,,rule: single modem register,,,small function whose only modem register is AUDIO_CONTROL: reads only,modem register rule
+candidate_prompt_play_start,,0x3022190,,,reviewed decompiled code,,,sound task: starts timer 0x14000000 and the first PCM copy,ghidra review 2026-11-10
 candidate_wav_header_check,,0x302225c,,,string reference,,,references: RIFF,strings/tasks analysis
+candidate_voice_prompt_open,,0x302236c,,,reviewed decompiled code,,,"sound task: reads a prompt from data flash, checks its WAV header, enables the amplifier",ghidra review 2026-11-10
+candidate_sound_task_main,,0x3022410,,,reviewed decompiled code,,,"body of task_sound (2428 bytes): reads settings, sets the audio path and amplifier, plays prompts and tones",ghidra review 2026-11-10
 candidate_wait_ticks_interruptible,,0x3022dd4,,,reviewed decompiled code,,,calls the 1-tick wait n times unless 0x3FF5D and 0x3FF5C bit 0 are set,ghidra review 2026-11-10
+candidate_tone_pcm_generate,,0x3022e04,,,reviewed decompiled code,,,sound task: single-float tone sample generation into modem audio buffer 0x16000980,ghidra review 2026-11-10
+candidate_sound_path_stop,,0x3022f18,,,reviewed decompiled code,,,"task_sound: FM playback and prompt path off, amplifier off, timer stop",ghidra review 2026-11-10
 task_sound,,0x3022fb0,,,OSTaskCreate arguments,,,"entry point of OS task ""task sound"" (created at 0x3021c12)",strings/tasks analysis
 candidate_rx_level_apply,,0x3023028,,,reviewed decompiled code,,,analog: RF chip level from 0x3ED1D; digital: maps 0x3ED1C into modem buffer byte 0x160009DF,ghidra review 2026-11-10
 candidate_debug_printf,,0x3023154,,,reviewed decompiled code,,,vsprintf into a 52-byte buffer and hands it to an output routine,ghidra review 2026-11-10
@@ -768,9 +808,11 @@ candidate_layer2_rx_enable,,0x3023258,,,modem register values,,,LAYER2_CONTROL =
 candidate_layer2_mode_select,,0x3023290,,,reviewed call sequence,,,chooses between slot mode set and receive enable by mode number,dmr control review
 candidate_rx_sync_state_reset,,0x3023364,,,reviewed decompiled code,,,clears the receive synchronisation state bytes at 0x3BEA8-0x3BEB8,ghidra review 2026-11-10
 candidate_layer2_sync_drop,,0x3023394,,,modem register values,,,"sets LAYER2_TXRX_CTRL bits 23 and 22, the RX and TX sync-fail bits",layer 2 review
+candidate_txslot_sync_check,,0x302343c,,,reviewed decompiled code,,,task_txslot: sync loss counting and candidate_layer2_sync_drop,ghidra review 2026-11-10
 candidate_layer2_reset_queues,,0x30234e8,,,reviewed decompiled code,,,"drains the TX slot, RX slot semaphores, writes MODEM_REG_000 = 0x1FC and frees every TX queue entry",ghidra review 2026-11-10
 candidate_modem_dmr_mode_setup,,0x3023574,,,reviewed code behaviour,,,"writes LAYER2_SLOTON 0x11, adjusts RF_MODE, and sets WORK_MODE to the DMR value 0x6E",voice path review
 test_3c616,,0x30237ac,,,code shape rule,,,test: tests a field of RAM 0x3c616,morning rule 2026-11-10
+candidate_rx_slot_select,,0x30237b8,,,reviewed decompiled code,,,chooses the receive slot (0x3BEAC) from the slot activity flags by mode 0x33CC9,ghidra review 2026-11-10
 get_u8_3bead,,0x3023820,,,rule: getter,,,returns the u8 at RAM 0x3bead,rule-based
 candidate_layer2_voice_begin_update,,0x3023828,,,modem register values,,,sets or clears LAYER2_TXRX_CTRL bit 15,layer 2 review
 task_rxslot,,0x302386c,,,OSTaskCreate arguments,,,"entry point of OS task ""rxslot"" (created at 0x300ca36)",strings/tasks analysis
@@ -793,8 +835,15 @@ get_u8_33ded,,0x3023c04,,,code shape rule,,,getter: returns u8 at RAM 0x33ded,mo
 candidate_rx_sync_miss_count,,0x3023c10,,,reviewed call sequence,,,compares a miss counter with a limit and drops layer 2 sync,dmr control review
 test_33dee,,0x3023c5c,,,code shape rule,,,test: tests a field of RAM 0x33dee,morning rule 2026-11-10
 candidate_rx_group_list_check,,0x3023ce8,,,reviewed decompiled code,,,"searches the list at 0x33DCA for an ID: 0 when found, 1 when not found or the list is empty",ghidra review 2026-11-10
+candidate_rx_burst_classify,,0x3023eb8,,,reviewed decompiled code,,,"called by the control-burst receive handlers: classifies a received burst, counts sync misses, sets call flags",ghidra review 2026-11-10
 candidate_dmr_random_backoff_set,,0x30241a4,,,reviewed decompiled code,,,"sets the 11-bit backoff in 0x3BEEE from rand(): mode 3 uses (rand % 54) * 60 / 500, otherwise (rand % 1080 + n * 120) / 500",ghidra review 2026-11-10
+candidate_dmr_access_timer_expired,,0x3024224,,,reviewed decompiled code,,,timer callback 0x300C414 path: retries or drops the access with a new random backoff,ghidra review 2026-11-10
+candidate_dmr_access_start_3024418,,0x3024418,,,reviewed decompiled code,,,access procedure start variant: sets backoff and timer 0x35390,ghidra review 2026-11-10
+candidate_dmr_access_start_30244b8,,0x30244b8,,,reviewed decompiled code,,,"access procedure start variant (state 4, 10 retries)",ghidra review 2026-11-10
+candidate_dmr_access_start_302454c,,0x302454c,,,reviewed decompiled code,,,access procedure start variant: sets backoff and timer 0x35390,ghidra review 2026-11-10
 candidate_dmr_access_retry_start,,0x3024614,,,reviewed decompiled code,,,"sets state 3, 10 retries, copies the target, sets a random backoff and a 120000 ms timer",ghidra review 2026-11-10
+candidate_dmr_access_start_3024678,,0x3024678,,,reviewed decompiled code,,,access procedure start variant,ghidra review 2026-11-10
+candidate_dmr_access_start_30246f4,,0x30246f4,,,reviewed decompiled code,,,timer path: calls candidate_dmr_access_retry_start,ghidra review 2026-11-10
 candidate_tx_queue_burst_simple,,0x3024794,,,reviewed call sequence,,,"allocate, fill, commit",dmr control review
 modem_reg_390_read_3024868,,0x3024868,,,rule: single modem register,,,small function whose only modem register is reg_390: reads only,modem register rule
 candidate_u16_window_compare,,0x30248e0,,,reviewed decompiled code,,,"compares two 16-bit values against a window: 0 inside, 1 or 2 by direction",ghidra review 2026-11-10
@@ -803,10 +852,19 @@ candidate_rx_control_burst_handler_3024e7c,,0x3024e7c,,,modem RAM copy arguments
 candidate_rx_data_block_handler,,0x3025480,,,modem RAM copy arguments,,,reads a variable-length block at RX RAM offset 0 and runs the data decode helpers,rx burst review
 candidate_tx_queue_data_burst_a,,0x3025dac,,,reviewed call sequence,,,"allocate, fill, commit from the message tasks",dmr control review
 candidate_tx_queue_data_burst_b,,0x30260c4,,,reviewed call sequence,,,"allocate, fill with coding helpers, commit from the message tasks",dmr control review
+candidate_msg_burst_build_3026518,,0x3026518,,,reviewed decompiled code,,,called by task_rxmsg: builds data bursts,ghidra review 2026-11-10
+candidate_tx_data_blocks_send,,0x3026600,,,reviewed decompiled code,,,allocates TX queue slots with delays and commits data blocks,ghidra review 2026-11-10
 candidate_tx_queue_data_burst_c,,0x30268cc,,,reviewed call sequence,,,"allocate, fill, commit from the message tasks",dmr control review
+candidate_data_ack_build,,0x302695c,,,reviewed decompiled code,,,called by task_rxmsg: counts missing blocks in a received bitmap and queues data bursts in reply,ghidra review 2026-11-10
+candidate_msg_burst_build_3026a14,,0x3026a14,,,reviewed decompiled code,,,called by task_rxmsg: builds control and data bursts (reply),ghidra review 2026-11-10
+candidate_msg_burst_build_3026bb8,,0x3026bb8,,,reviewed decompiled code,,,called by candidate_txmsg_main: builds control and data bursts for a message,ghidra review 2026-11-10
+candidate_msg_burst_build_3026e78,,0x3026e78,,,reviewed decompiled code,,,called by task_rxmsg: builds control and data bursts (reply),ghidra review 2026-11-10
+candidate_msg_burst_build_3027050,,0x3027050,,,reviewed decompiled code,,,called by candidate_txmsg_main: builds control and data bursts for a message,ghidra review 2026-11-10
 test_3beaf,,0x30272d4,,,code shape rule,,,test: tests a field of RAM 0x3beaf,morning rule 2026-11-10
 test_3beb1,,0x30272e0,,,code shape rule,,,test: tests a field of RAM 0x3beb1,morning rule 2026-11-10
 test_33df1,,0x3027310,,,code shape rule,,,test: tests a field of RAM 0x33df1,morning rule 2026-11-10
+candidate_rx_slot_flag_check,,0x3027320,,,reviewed decompiled code,,,true when the current slot's flag in 0x3C624 is not 1,ghidra review 2026-11-10
+candidate_rx_cc_mismatch,,0x3027334,,,reviewed decompiled code,,,true when the received colour code (0x3C61A) differs from LOCAL_CC 0x33CCD (mode 4 ignores 0x0F),ghidra review 2026-11-10
 return_0_3027358,,0x3027358,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
 return_0_302735c,,0x302735c,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
 test_3c61d,,0x3027360,,,code shape rule,,,test: tests a field of RAM 0x3c61d,morning rule 2026-11-10
@@ -814,6 +872,7 @@ modem_reg_390_read_302736c,,0x302736c,,,rule: single modem register,,,small func
 candidate_short_lc_rx_handler,,0x3027388,,,reviewed code behaviour,,,"called for interrupt status bit 4, short LC received",voice path review
 candidate_rx_control_burst_handler_3027584,,0x3027584,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
 candidate_rx_cc_slot_match,,0x3027628,,,reviewed decompiled code,,,compares MODEM_REG_394 colour code/slot fields with the expected values at 0x3F720/0x3F721,ghidra review 2026-11-10
+candidate_rx_call_header_process,,0x302768c,,,reviewed decompiled code,,,called by the late-entry and control-burst receive handlers: decodes call header fields and checks the RX group list,ghidra review 2026-11-10
 candidate_rx_control_burst_handler_3027b9c,,0x3027b9c,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
 candidate_rx_control_burst_handler_30280c0,,0x30280c0,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
 candidate_rx_control_burst_handler_3028180,,0x3028180,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
@@ -826,11 +885,15 @@ candidate_tx_queue_init,,0x3029438,,,reviewed decompiled code,,,clears the 0x24-
 candidate_tx_queue_slot_alloc,,0x3029464,,,reviewed call sequence,,,scans the table at 0x3C834 for a free entry and clears it; 12 callers,dmr control review
 candidate_tx_queue_slot_free,,0x30294c0,,,reviewed call sequence,,,clears the first byte of an entry,dmr control review
 candidate_tx_queue_commit,,0x30294c8,,,reviewed call sequence,,,called after each queued burst is filled; selects the layer 2 mode,dmr control review
+candidate_tx_response_queue,,0x3029674,,,reviewed decompiled code,,,"builds and queues a response burst (TX queue alloc and commit), with checks on all-call style IDs (0xFFFFFx)",ghidra review 2026-11-10
 candidate_tx_queue_alloc_wait,,0x30297a4,,,reviewed decompiled code,,,"allocates a TX queue slot, retrying after 70 ms delays",ghidra review 2026-11-10
 candidate_tx_queue_control_burst,,0x3029878,,,reviewed call sequence,,,"allocates an entry, waits and retries, fills it, commits",dmr control review
 candidate_tx_queue_control_burst_wrapper,,0x3029b3c,,,reviewed call sequence,,,packs arguments and queues a control burst,dmr control review
+candidate_tx_queue_ack_match,,0x3029b9c,,,reviewed decompiled code,,,task_txslot: compares a received acknowledgement with queued entries and frees the matching slot,ghidra review 2026-11-10
 candidate_tx_control_burst_38,,0x3029c3c,,,reviewed decompiled code,,,queues a control burst of type 0x38 with two parameters via candidate_tx_queue_control_burst,ghidra review 2026-11-10
 candidate_layer2_tx_next_slot_arm,,0x3029c78,,,modem register values,,,"clears then sets LAYER2_TXRX_CTRL bit 7, transmit in the next slot",layer 2 review
+candidate_tx_control_burst_queue_b,,0x3029d08,,,reviewed decompiled code,,,queues a control burst through the TX control-burst wrapper (variant b),ghidra review 2026-11-10
+candidate_tx_control_burst_queue_a,,0x3029d3c,,,reviewed decompiled code,,,queues a control burst through the TX control-burst wrapper (variant a),ghidra review 2026-11-10
 start_task_usb,,0x3029f44,,,calls OSTaskCreate,,,"creates OS task ""task usb""",strings/tasks analysis
 candidate_cable_sysinfo,,0x3029fb0,,,string reference,,,called after the SYSINFO command matches; returns version strings; references: C1.00.01.001,strings/tasks analysis
 candidate_cable_program_mode,,0x302a448,,,string reference,,,called after the PROGRAM command matches; block read and write loop; references: C1.00.01.001,strings/tasks analysis
@@ -843,12 +906,15 @@ cable_uart_write_bytes,,0x302b798,,,reviewed code behaviour,,,waits for UART0 tr
 start_task_calldisp,,0x302b7dc,,,calls OSTaskCreate,,,"creates OS task ""task CallDisp""",strings/tasks analysis
 candidate_uses_talkeralias,,0x302b8a4,,,rule: distinctive string reference,,,references: TalkerAlias,string rule 2
 candidate_call_display_update,,0x302b9a4,,,string reference,,,references: %d->,strings/tasks analysis
+candidate_no_ack_screen_draw,,0x302c3a0,,,reviewed decompiled code,,,"No Ack page: shows the target ID (""%d"") and its name from the contact list or user database",ghidra review 2026-11-10
 candidate_menu_page_no_ack,,0x302c494,,,menu page descriptor,,,loads menu pages: 0x30ba830: No ACK,menu tables analysis
+candidate_calldisp_main_a,,0x302c54c,,,reviewed decompiled code,,,called by task_calldisp: call display state handling,ghidra review 2026-11-10
 candidate_menu_multi_page_302c880,,0x302c880,,,menu page descriptor,,,loads 6 menu pages: 0x30ba6a8: CANCEL; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
 candidate_menu_page_alarm_siren,,0x302cfa0,,,menu page descriptor,,,loads menu pages: 0x30ba3fc: Alarm Siren,menu tables analysis
 candidate_menu_multi_page_302d320,,0x302d320,,,menu page descriptor,,,loads 5 menu pages: 0x30ba3fc: Alarm Siren; 0x30ba800: Send Success ; 0x30ba830: No ACK; 0x30ba848: Alarm Sending; 0x30ba860: Cancel Alarm,menu tables analysis
 candidate_menu_multi_page_302d838,,0x302d838,,,menu page descriptor,,,"loads 5 menu pages: 0x30ba6a8: CANCEL; 0x30ba7a0: Sending...; 0x30ba7b8: Message Sent; 0x30ba7d0: Msg Send Failed; 0x30bc938: Sending Digit, Aprs Data",menu tables analysis
 candidate_menu_page_sending,,0x302da30,,,menu page descriptor,,,loads menu pages: 0x30ba7a0: Sending...; 0x30ba7b8: Message Sent; 0x30ba7d0: Msg Send Failed,menu tables analysis
+candidate_calldisp_main_b,,0x302dbec,,,reviewed decompiled code,,,"called by task_calldisp: call end handling, voice prompt, code switch request",ghidra review 2026-11-10
 task_calldisp,,0x302df18,,,OSTaskCreate arguments,,,"entry point of OS task ""task CallDisp"" (created at 0x302b81a)",strings/tasks analysis
 get_u8_3e0e5,,0x302e0cc,,,rule: getter,,,returns the u8 at RAM 0x3e0e5,rule-based
 get_u8_3e0e3,,0x302e0d4,,,rule: getter,,,returns the u8 at RAM 0x3e0e3,rule-based
@@ -873,17 +939,27 @@ candidate_work_mode_set,,0x302eca0,,,reviewed call sequence,,,stores a new value
 get_u8_3e172,,0x302ece0,,,rule: getter,,,returns the u8 at RAM 0x3e172,rule-based
 candidate_codesw_request_thunk_302ecf8,,0x302ecf8,,,code shape rule,,,thunk: only calls candidate_codesw_request,morning rule 2026-11-10
 candidate_radio_busy_check,,0x302ed04,,,reviewed decompiled code,,,"analog channel: true if any busy flag (0x3E340, 0x3E34A bits, 0x401B5, 0x3FDEC bit 3); digital channel: true if a call is active (0x301ED00, 0x3BA68, 0x3E0E3, 0x3BA43 bit 1)",ghidra review 2026-11-10
+candidate_work_mode_switch,,0x302f370,,,reviewed decompiled code,,,sets the work mode and requests a code switch,ghidra review 2026-11-10
 candidate_channel_switch,,0x302f418,,,reviewed call sequence,,,"sets the mode byte, calls the channel load and record read, and copies records with memcpy",channel review
+candidate_side_channel_load,,0x302f59c,,,reviewed decompiled code,,,loads a zone member's channel record into the current channel for the selected side,ghidra review 2026-11-10
 candidate_scan_lists_read_302f780,,0x302f780,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets 0x0,codeplug block rule
+candidate_digit_entry_draw,,0x302f86c,,,reviewed decompiled code,,,draws entered digits with the 12x24 font,ghidra review 2026-11-10
 candidate_scan_lists_read_302f91c,,0x302f91c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets 0x1,codeplug block rule
 candidate_rx_band_select_draw,,0x302f970,,,reviewed decompiled code,,,"rf_rx_band_enable(0), then raises GPIO 0x22 (VHF LNA/RX supply) or 0x24 (UHF) by 0x3FDDB bit 4 and draws the band mark",ghidra review 2026-11-10
+candidate_freq_search_start,,0x302fa24,,,reviewed decompiled code,,,"frequency search key function: clears the screen, RF chip to RX mode and search registers",ghidra review 2026-11-10
 candidate_freq_scan_stop,,0x302fb70,,,reviewed decompiled code,,,"optional sound 0x19, RF chip REG 0x32 = 0x244, 100 ms delay, clears the scan state bytes and posts key message 100",ghidra review 2026-11-10
 candidate_uses_seek,,0x302fc84,,,rule: distinctive string reference,,,references: SEEK...,string rule 2
+candidate_tone_freq_compute,,0x302fe48,,,reviewed decompiled code,,,converts a scanned tone measurement to a frequency (double arithmetic) and classifies it,ghidra review 2026-11-10
 candidate_tone_scan_result_show,,0x302fff8,,,reviewed decompiled code,,,"shows a scanned tone: CTCSS from BCD as ""%d.%dHz"" or DCS as ""D%03xN""",ghidra review 2026-11-10
+candidate_ctcss_draw,,0x30300d0,,,reviewed decompiled code,,,"draws a CTCSS tone as ""%d.%dHz"" from BCD",ghidra review 2026-11-10
+candidate_dcs_code_draw,,0x3030130,,,reviewed decompiled code,,,"draws a DCS code as ""D%03dN"" or ""D%03dI""",ghidra review 2026-11-10
 start_task_codesw,,0x3030314,,,calls OSTaskCreate,,,"creates OS task ""task CodeSw""",strings/tasks analysis
 candidate_current_channel_set,,0x3030370,,,reviewed code behaviour,,,copies a 64-byte record passed by value into the current channel record 0x3E1F8,morning review 2026-11-10
 candidate_codesw_request,,0x3030560,,,reviewed code behaviour,,,"stores a request, sets an event bit, and waits on the event group used by the CodeSw task",voice path review
+candidate_channel_label_draw,,0x30305b8,,,reviewed decompiled code,,,draws the side's channel/zone label as a mono bitmap,ghidra review 2026-11-10
+candidate_side_freq_draw,,0x30306c8,,,reviewed decompiled code,,,draws the frequency digits for side A or B,ghidra review 2026-11-10
 candidate_block41_write_303073c,,0x303073c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_channel_record_store,,0x30307c8,,,reviewed decompiled code,,,under a lock writes a zone member's channel record and requests a code switch,ghidra review 2026-11-10
 candidate_channel_rx_freq_read,,0x303088c,,,reviewed decompiled code,,,reads the channel record and converts the first 4 BCD bytes to the RX frequency,ghidra review 2026-11-10
 candidate_block41_read_30308bc,,0x30308bc,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
 candidate_block41_write_30308f8,,0x30308f8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
@@ -892,11 +968,15 @@ candidate_uses_noaa_30309b8,,0x30309b8,,,rule: distinctive string reference,,,re
 candidate_block41_update_3030e80,,0x3030e80,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
 candidate_block41_update_3030fc8,,0x3030fc8,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
 candidate_tone_code_type_b,,0x3031140,,,reviewed decompiled code,,,"classifies a tone code: DCS normal (0x8xxx) 2, inverted (0xCxxx) 3, CTCSS 1, none 0",ghidra review 2026-11-10
+candidate_tone_list_row_draw,,0x30311c8,,,reviewed decompiled code,,,"formats a tone list row (""%d.%d"" CTCSS or ""D%03dN"" DCS) and draws it",ghidra review 2026-11-10
 candidate_channel_record_write,,0x30312a0,,,reviewed call sequence,,,"takes a lock, writes a channel record through the codeplug layer, then requests a CodeSw update",channel review
 candidate_block41_write_3031364,,0x3031364,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_channel_name_match,,0x303146c,,,reviewed decompiled code,,,compares a channel name with strncmp,ghidra review 2026-11-10
 candidate_tx_freq_offset_apply,,0x30314b8,,,reviewed decompiled code,,,adds or subtracts the BCD repeater offset by the direction bits 16-17,ghidra review 2026-11-10
 candidate_channel_record_read,,0x3031658,,,reviewed call sequence,,,computes a channel location and reads the record through the codeplug layer,channel review
 candidate_menu_page_null_ch,,0x30317bc,,,menu page descriptor,,,loads menu pages: 0x30bad90: Null Ch.,menu tables analysis
+candidate_idle_screen_draw,,0x3031b7c,,,reviewed decompiled code,,,menu state 0 (idle screen): status bar and channel screens for both sides,ghidra review 2026-11-10
+candidate_codesw_main,,0x3031fd4,,,reviewed decompiled code,,,"body of task_codesw: applies radio mode, ends active calls, sets the colour code and the zone channel",ghidra review 2026-11-10
 task_codesw,,0x30323c8,,,OSTaskCreate arguments,,,"entry point of OS task ""task CodeSw"" (created at 0x3030352)",strings/tasks analysis
 candidate_codeplug_factory_defaults,,0x30323f4,,,string reference,,,references: How are you?,strings/tasks analysis
 candidate_uses_dlyhnd,,0x303316c,,,rule: distinctive string reference,,,references: DlyHnd,string rule 2
@@ -910,9 +990,15 @@ candidate_menu_page_view_contact,,0x3033464,,,menu page descriptor,,,"loads menu
 candidate_userdb_search,,0x3033534,,,reviewed decompiled code,,,searches the user ID database at data flash 0x278000 (count in the header),ghidra review 2026-11-10
 candidate_userdb_record_read,,0x30336b4,,,reviewed decompiled code,,,"reads 92-byte record n of the user ID database at 0x278000: 44 records per 4 KiB sector, up to 50000",ghidra review 2026-11-10
 candidate_menu_page_number_is_err,,0x3033730,,,menu page descriptor,,,loads menu pages: 0x30bb040: Number is err,menu tables analysis
+candidate_contact_list_draw_a,,0x3033a20,,,reviewed decompiled code,,,contact list redraw used by menu list move A,ghidra review 2026-11-10
+candidate_contact_list_draw_b,,0x3033d04,,,reviewed decompiled code,,,contact list redraw used by menu list move B,ghidra review 2026-11-10
 candidate_menu_tx_contact_list,,0x3033ffc,,,string reference,,,references: Tx Contact %d/%d,strings/tasks analysis
 candidate_menu_contacts,,0x3034268,,,string reference,,,references: Contacts %d/%d,strings/tasks analysis
 return_1_30345bc,,0x30345bc,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+candidate_contact_store,,0x30345c0,,,reviewed decompiled code,,,writes a contact record and index through a free sector with a new block tag,ghidra review 2026-11-10
+candidate_contact_delete,,0x30347d0,,,reviewed decompiled code,,,removes a contact: rewrites the contact index and records through a free sector,ghidra review 2026-11-10
+candidate_contact_find_by_name,,0x3034a84,,,reviewed decompiled code,,,scans contact records comparing names with strncmp,ghidra review 2026-11-10
+candidate_contact_index_search,,0x3034b80,,,reviewed decompiled code,,,searches the ID-sorted contact index (block 0x0B) and returns the contact number,ghidra review 2026-11-10
 candidate_contact_name_by_id,,0x3034cf4,,,reviewed decompiled code,,,"looks the ID up in the contact index (codeplug block 0x0B); prints ""%d"" when not found, otherwise reads the 16-byte name from the contact record",ghidra review 2026-11-10
 candidate_contact_index_count,,0x3034db4,,,reviewed decompiled code,,,"reads the 5-byte header of codeplug block 0x0B and returns a count by type (2, 5, 6)",ghidra review 2026-11-10
 clear_3e454_3e465_3e46e,,0x3034fac,,,reviewed decompiled code,,,"writes 0 to 0x3E454, 0x3E465 and 0x3E46E",ghidra review 2026-11-10
@@ -929,6 +1015,7 @@ candidate_menu_page_press_menu_and,,0x30359bc,,,menu page descriptor,,,"loads me
 candidate_menu_page_keypad_unlocked,,0x3035ae0,,,menu page descriptor,,,loads menu pages: 0x30badc0: keypad unlocked,menu tables analysis
 menu_state_083,,0x3035b74,,,menu dispatch table,,,"handler for menu state 83 (group 11, slot 6) in table at 0x30b1184",menu tables analysis
 menu_state_047,,0x3035b8c,,,menu dispatch table,,,"handler for menu state 47 (group 6, slot 5) in table at 0x30b1184",menu tables analysis
+candidate_menu_reset_to_root,,0x3035bd4,,,reviewed decompiled code,,,under the scheduler lock clears the menu stacks and returns to the root state,ghidra review 2026-11-10
 menu_state_077,,0x3035d2c,,,menu dispatch table,,,"handler for menu state 77 (group 11, slot 0) in table at 0x30b1184; also loads menu pages: 0x30ba748: Missed Call",menu tables analysis
 start_task_menu,,0x3035e18,,,calls OSTaskCreate,,,"creates OS task ""task menu""",strings/tasks analysis
 menu_set_state,,0x3035e68,,,reviewed code behaviour,,,writes menu state byte 0x320C8+3 and optional refresh flag +4 read by the dispatcher,code behaviour review
@@ -1303,20 +1390,26 @@ candidate_text_cursor_advance,,0x305bcf4,,,reviewed decompiled code,,,"advances 
 candidate_sub_301e558_thunk,,0x305be0c,,,reviewed code behaviour,,,zero-extends two byte arguments and calls 0x301E558,morning review 2026-11-10
 candidate_tx_stop,,0x305be18,,,reviewed code behaviour,,,clears transmit status bits and sends call control command 1,voice path review
 candidate_analog_tx_start,,0x305be64,,,reviewed code behaviour,,,PTT path: sets up RF transmit and turns on the FM PTT and audio path,voice path review
+candidate_tx_limit_handler,,0x305c1e0,,,reviewed decompiled code,,,"TX limit page: amplifier, FM mute, deviation and a call-control request",ghidra review 2026-11-10
 candidate_menu_page_tx_limit,,0x305c334,,,menu page descriptor,,,"loads menu pages: 0x30bad60: Tx Limit!, 136-174, 400-470; 0x30bae50: Style is err; 0x30baee0: No Contact",menu tables analysis
 candidate_menu_result_show,,0x305cd20,,,reviewed code behaviour,,,"sets a menu state, requests a sound, and shows a result page",radio state review
+candidate_codeplug_list_draw,,0x305cec0,,,reviewed decompiled code,,,reads list records from the codeplug and draws them as menu rows with icons,ghidra review 2026-11-10
 modem_audio_control_update_305d1d8,,0x305d1d8,,,rule: single modem register,,,small function whose only modem register is AUDIO_CONTROL: modify: set b0; modify: clear b0,modem register rule
 candidate_menu_page_msg_send_failed,,0x305d200,,,menu page descriptor,,,loads menu pages: 0x30ba7d0: Msg Send Failed,menu tables analysis
 candidate_call_end_if_active,,0x305d338,,,reviewed code behaviour,,,sends call control command 8 when a state byte is set,radio state review
+candidate_settings_block_load,,0x305d8c0,,,reviewed decompiled code,,,reads the settings block from the codeplug and applies it through the setting setters,ghidra review 2026-11-10
 candidate_encryption_keys_read_305da8c,,0x305da8c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x10; offsets var,codeplug block rule
 update_3fd79_field,,0x305dc98,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3fd79,morning rule 2026-11-10
 update_3fd4d_field,,0x305dd28,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3fd4d,morning rule 2026-11-10
+candidate_tx_end_flags_post,,0x305de8c,,,reviewed decompiled code,,,updates 0x3BD59 and posts an event flag; called by the TX end events,ghidra review 2026-11-10
 candidate_settings_read_305df4c,,0x305df4c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets var,codeplug block rule
 test_3fd4c_2,,0x305df8c,,,code shape rule,,,test: tests a field of RAM 0x3fd4c,morning rule 2026-11-10
 get_u8_3fd8c,,0x305df9c,,,rule: getter,,,returns the u8 at RAM 0x3fd8c,rule-based
 candidate_settings_write_305dfa4,,0x305dfa4,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets var,codeplug block rule
 candidate_call_control_event_thunk_305e308,,0x305e308,,,code shape rule,,,thunk: only calls candidate_call_control_event,morning rule 2026-11-10
+candidate_alarm_start,,0x305e314,,,reviewed decompiled code,,,"alarm key function: call-control event, clears call state, plays the alarm sound",ghidra review 2026-11-10
 test_3fd4d_3,,0x305e3e0,,,code shape rule,,,test: tests a field of RAM 0x3fd4d,morning rule 2026-11-10
+candidate_call_event_end_handler,,0x305e3f0,,,reviewed decompiled code,,,"psint call events: reads and clears activity flags, ends an active call, plays the setting voice prompt",ghidra review 2026-11-10
 candidate_psint_handler_bit3,,0x305e654,,,reviewed call sequence,,,pending bit 3: clears buffers and resets call state,psint review
 candidate_tx_end_event_c,,0x305e6dc,,,reviewed call sequence,,,"red LED off, popups, sound",psint review
 candidate_tx_voice_start_event,,0x305e8ac,,,reviewed call sequence,,,"red LED on, buffers cleared, transmit audio started",psint review
@@ -1331,16 +1424,22 @@ task_psint,,0x305f234,,,OSTaskCreate arguments,,,"entry point of OS task ""task 
 candidate_modem_reg_000_05c_init,,0x305f2f4,,,reviewed decompiled code,,,writes MODEM_REG_05C = 0x01000000 and MODEM_REG_000 = 0xFFFFFE7F,ghidra review 2026-11-10
 candidate_feature_flags_load,,0x305f308,,,reviewed decompiled code,,,"reads option bytes from the program-flash information page (0x0300B000 + 0x80, 0x81, 0x82, 0xA0, 0xA1) into feature flags 0x3FDE0/0x3FDE3 (bit 2 gates the GPS icon, bit 4 recording) and 0x3FDE4",ghidra review 2026-11-10
 candidate_menu_page_are_you_sure,,0x305f4d4,,,menu page descriptor,,,"loads menu pages: 0x30b9c88: Are you sure, restoring fac-, tory settings?; 0x30ba698:  OK ",menu tables analysis
+candidate_board_init,,0x305f674,,,reviewed decompiled code,,,"task_init hardware sequence: GPIO, timers, RTC, DAC, starts the CDS task",ghidra review 2026-11-10
 bcd_bytes_to_uint,,0x305f904,,,reviewed code behaviour,,,"converts packed BCD digits, last byte most significant",code behaviour review
 candidate_spi3_efuse_init_thunk_305fb7c,,0x305fb7c,,,code shape rule,,,thunk: only calls candidate_spi3_efuse_init,morning rule 2026-11-10
 system_event_flags_flags_wait,,0x305fdd4,,,rule: one OS call on one object,,,only calls os_flag_wait on the object at 0x3fdb0,os object rule
 set_u16_3fde6,,0x305fdec,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x3fde6,morning rule 2026-11-10
 candidate_radio_mode_apply,,0x30601cc,,,reviewed code behaviour,,,reprograms the RF chip and audio paths for the current mode,voice path review
+candidate_rx_audio_begin,,0x3060398,,,reviewed decompiled code,,,"FM muted, AF output on, amplifier on, green LED on (counterpart of candidate_rx_audio_end)",ghidra review 2026-11-10
 candidate_rx_audio_end,,0x30603dc,,,reviewed decompiled code,,,"when 0x3E340 (receive audio active) is set: RF audio, amplifier and FM playback off, green LED off, clears the status icon",ghidra review 2026-11-10
 candidate_request_3fdf0_start,,0x3060450,,,reviewed decompiled code,,,"sets 0x3FDF0 = 1, 0x3FDF1 = param, 0x3FDF2 = 0",ghidra review 2026-11-10
 get_u8_3fdf1,,0x3060460,,,rule: getter,,,returns the u8 at RAM 0x3fdf1,rule-based
+candidate_tx_indicator_draw,,0x306054c,,,reviewed decompiled code,,,draws the mode/transmit indicator area; called from analog TX start and radio mode apply,ghidra review 2026-11-10
+candidate_sqlcheck_main,,0x306081c,,,reviewed decompiled code,,,"body of task_sqlcheck: squelch status from the RF chip, work mode and side state",ghidra review 2026-11-10
+candidate_tone_scan_step,,0x3060a74,,,reviewed decompiled code,,,"CTCSS/DCS scan step: timers, GPIO interrupt, shows the scan result",ghidra review 2026-11-10
 task_sqlcheck,,0x3060f18,,,OSTaskCreate arguments,,,"entry point of OS task ""task SqlCheck"" (created at 0x300d51e)",strings/tasks analysis
 candidate_radio_ids_read_3061088,,0x3061088,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_talker_alias_from_radio_id,,0x30610a8,,,reviewed decompiled code,,,reads the radio ID name and prepares it as the talker alias,ghidra review 2026-11-10
 candidate_settings_write_30610d8,,0x30610d8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x50,codeplug block rule
 candidate_settings_update_30610ec,,0x30610ec,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x67,codeplug block rule
 start_task_led_manage,,0x3061170,,,calls OSTaskCreate,,,"creates OS task ""Led Manage""",strings/tasks analysis
@@ -1350,23 +1449,33 @@ led_red_on,,0x30611d8,,,reviewed code behaviour,,,drives GPIO 0x21 high unless t
 led_red_off,,0x30611f4,,,reviewed code behaviour,,,drives GPIO 0x21 low,radio state review
 empty_stub_3061334,,0x3061334,,,rule: empty stub,,,returns immediately,rule-based
 empty_stub_3061338,,0x3061338,,,rule: empty stub,,,returns immediately,rule-based
+candidate_led_manage_step,,0x306133c,,,reviewed decompiled code,,,task_led_manage: red/green LED pattern logic,ghidra review 2026-11-10
 task_led_manage,,0x30614d8,,,OSTaskCreate arguments,,,"entry point of OS task ""Led Manage"" (created at 0x30611a6)",strings/tasks analysis
 obj_3ff0c_wait,,0x30615f4,,,rule: one OS call on one object,,,only calls os_sem_pend_ms on the object at 0x3ff0c,os object rule
 obj_3ff0c_post,,0x3061600,,,rule: one OS call on one object,,,only calls os_sem_post on the object at 0x3ff0c,os object rule
 empty_stub_3061644,,0x3061644,,,rule: empty stub,,,returns immediately,rule-based
+candidate_rfic_tone_play_setup,,0x3061648,,,reviewed decompiled code,,,"task_sound: programs the RF chip tone registers (0x21, 0x24, ...) and AF output for a tone",ghidra review 2026-11-10
 candidate_recording_finish_mode2,,0x30618d4,,,reviewed decompiled code,,,"when recording state 0x3BD55 is 2: stops the codec path, state 5, writes the recording index to flash",ghidra review 2026-11-10
 candidate_recording_finish_mode1,,0x3061930,,,reviewed decompiled code,,,"when recording state 0x3BD55 is 1 and status bit 4: stops the codec path, state 5, writes the recording index to flash",ghidra review 2026-11-10
 candidate_menu_recordings,,0x3061b60,,,string reference,,,references: Record %d/%d,strings/tasks analysis
 candidate_menu_page_rx_record,,0x3061fb4,,,menu page descriptor,,,"loads menu pages: 0x30b93a8: Rx Record, Tx Record, Rx/Tx Record",menu tables analysis
 candidate_settings_update_3062204,,0x3062204,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x45,codeplug block rule
 candidate_settings_update_306224c,,0x306224c,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x45,codeplug block rule
+candidate_record_storage_scan,,0x30622d0,,,reviewed decompiled code,,,"finds the recording index sector, reads it and finishes any open recording",ghidra review 2026-11-10
+candidate_battery_monitor_step,,0x30624c0,,,reviewed decompiled code,,,"ADC reading, low-battery handling with PTT admission and key event bits",ghidra review 2026-11-10
 candidate_settings_read_3062650,,0x3062650,,,rule: single codeplug block,,,all 7 codeplug accesses are to block 0x4; offsets 0x301 0x302 0x306 0x30f 0x310 0x319 0x331,codeplug block rule
+candidate_gps_time_format,,0x30628fc,,,reviewed decompiled code,,,"formats GPS time/date as ""%02d%02d%02d""",ghidra review 2026-11-10
 candidate_gps_nmea_format,,0x3062a54,,,string reference,,,references: %04.4f,strings/tasks analysis
+candidate_aprs_channel_switch,,0x3062cd4,,,reviewed decompiled code,,,APRS send key function: saves the side state and switches the active VFO record before sending,ghidra review 2026-11-10
 candidate_block01_word_get,,0x3062e20,,,reviewed decompiled code,,,reads the first u16 of codeplug block 0x01,ghidra review 2026-11-10
 candidate_gps_info_display_3062e98,,0x3062e98,,,string reference,,,references: Course:,strings/tasks analysis
 candidate_menu_aprs_info,,0x30633d8,,,string reference,,,references: APRS Info %d/%d,strings/tasks analysis
+candidate_gps_position_save,,0x30634f0,,,reviewed decompiled code,,,"saves a GPS record to the codeplug (erase sector, tag, write)",ghidra review 2026-11-10
+candidate_codeplug_block_reset,,0x3063654,,,reviewed decompiled code,,,under the flash lock erases a codeplug sector and writes its block tag,ghidra review 2026-11-10
 candidate_uses_current_chan,,0x306369c,,,rule: distinctive string reference,,,"references: Current Chan, VFO A, VFO B",string rule 2
+candidate_gps_distance_calc,,0x3063960,,,reviewed decompiled code,,,double-precision distance/bearing arithmetic for the GPS info screen,ghidra review 2026-11-10
 candidate_gps_info_display_3063ea4,,0x3063ea4,,,string reference,,,references: Course:,strings/tasks analysis
+candidate_value_draw_ms_a,,0x3064488,,,reviewed decompiled code,,,"draws a value as ""%d(ms)""",ghidra review 2026-11-10
 clear_3e3c6_3e3c7,,0x306499c,,,reviewed decompiled code,,,writes 0 to 0x3E3C6 and 0x3E3C7,ghidra review 2026-11-10
 get_u8_400fc,,0x30649a8,,,rule: getter,,,returns the u8 at RAM 0x400fc,rule-based
 set_u8_400fc,,0x30649b0,,,rule: setter,,,stores its argument to the u8 at RAM 0x400fc,rule-based
@@ -1408,6 +1517,7 @@ candidate_roaming_zones_read_3066a90,,0x3066a90,,,rule: single codeplug block,,,
 candidate_roaming_zones_update_3066b00,,0x3066b00,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets 0x3 var,codeplug block rule
 candidate_roaming_zones_read_3066b90,,0x3066b90,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x65; offsets var,codeplug block rule
 candidate_roaming_zones_read_3066cb8,,0x3066cb8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+candidate_roaming_zone_list_draw,,0x3066d34,,,reviewed decompiled code,,,reads roaming zones and draws them as menu rows,ghidra review 2026-11-10
 candidate_roaming_zones_update_3066dc0,,0x3066dc0,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets var,codeplug block rule
 candidate_roaming_zones_update_3066ea0,,0x3066ea0,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets var,codeplug block rule
 candidate_sd_spi1_init,,0x3066f18,,,reviewed code behaviour,,,"routes SPI1 pins, configures GPIO 0x17, sets the SPI1 clock",voice path review
@@ -1420,10 +1530,15 @@ candidate_block03_update_3067670,,0x3067670,,,rule: single codeplug block,,,all 
 candidate_block03_read_3067764,,0x3067764,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x3; offsets var,codeplug block rule
 candidate_block03_read_3067928,,0x3067928,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x3; offsets 0x36 0x41,codeplug block rule
 candidate_rfic_dtmf_setup,,0x30679f0,,,RF chip register numbers,,,"writes 0x09, 0x21, 0x24; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_value_fmt_tenths_s,,0x3067c60,,,reviewed decompiled code,,,"formats a value as ""%.1f(s)""",ghidra review 2026-11-10
+candidate_value_fmt_s,,0x3067c88,,,reviewed decompiled code,,,"formats a value as ""%d(s)""",ghidra review 2026-11-10
 candidate_block06_read_3067d04,,0x3067d04,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x6; offsets 0xa20,codeplug block rule
 candidate_rfic_fsk_setup_b,,0x3067d30,,,RF chip register numbers,,,"writes 0x70, 0x72, 0x58-0x5E, 0x02; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
 candidate_rfic_fsk_receive,,0x3068144,,,RF chip register numbers,,,"reads 0x0B, 0x59, 0x5E, 0x5F in the cds task; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
 candidate_rfic_fsk_transmit,,0x3068494,,,RF chip register numbers,,,writes FSK registers 0x58-0x5D with delays; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_value_draw_ms_b,,0x30686e4,,,reviewed decompiled code,,,"draws a value as ""%d(ms)""",ghidra review 2026-11-10
+candidate_value_draw_int,,0x3068714,,,reviewed decompiled code,,,"draws a value as ""%d""",ghidra review 2026-11-10
+candidate_value_draw_seconds,,0x3068740,,,reviewed decompiled code,,,draws a value through candidate_seconds_label_draw,ghidra review 2026-11-10
 candidate_copy_40280_by_side,,0x3068930,,,reviewed decompiled code,,,copies 0x40280 to 0x4027E (param 0) or 0x4027F,ghidra review 2026-11-10
 candidate_rfic_tone_transmit_a,,0x3068b4c,,,RF chip register numbers,,,writes 0x70 and 0x30 around TX/RX mode switches; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
 candidate_rfic_tone_transmit_b,,0x3068c1c,,,RF chip register numbers,,,writes 0x70 and 0x30 around TX/RX mode switches; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
