@@ -109,6 +109,19 @@ The dispatcher skips all handlers when the mode byte at `0x3EC11` is 2 or 4.
 - The bootloader is a uC/OS build linked to run from RAM (`0x10000-0x12A5F`); calling through its flash addresses breaks
   a flash-based call graph.
 
+## Crypto, DTMF, CRCs
+
+- ARC4 voice privacy runs in RAM code: an RC4 key schedule, keystream generators, and an XOR of 7 keystream bytes into
+  each AMBE frame of a burst.
+- DTMF: a key maps to row/column tone frequencies through tables at `0x030B8450`/`0x030B8458`.
+- DMR data CRCs: CRC-32 (polynomial `0x04C11DB7`) and CRC-9. DCS codewords use the Golay (23,12) generator `0xC75`.
+
+## Bootloader flash driver
+
+The bootloader carries the same program-flash erase (`0x20`) and page-program (`0x02`) routines as the application
+(`boot_progflash_erase` at `0x03003E9C`, `boot_progflash_program` at `0x03003F60`), without the application's guard
+flag.
+
 ## Program flash writes
 
 The application has its own program-flash SPI driver in RAM (`candidate_progflash_erase`, `_program`, `_read`; commands
@@ -124,9 +137,8 @@ bits from that page into the feature flags at `0x3FDE0`/`0x3FDE3`.
 
 ## Open questions
 
-- 1,228 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
+- 1,047 functions are still unnamed, mainly menu handlers, DMR call control, codec internals and the bootloader.
 - Most settings have only weak hints for their meaning. Squelch, timeout and admit criteria in the channel record are not
   located.
 - Which physical key drives menu slots 3 and 4, and the exact keypad-to-menu-event translation.
 - Which control burst type each of the six DMR receive handlers serves.
-- The bootloader's flash programming routine.
