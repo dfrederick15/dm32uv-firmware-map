@@ -1,0 +1,47 @@
+address,name,confidence,basis
+0x320cb,menu_state,firm,"written by menu_set_state, read by the dispatcher"
+0x320cc,menu_refresh_flag,likely,second byte written by menu_set_state
+0x33c70,bitbang_i2c_pin_select,firm,
+0x35f1c,slot_timer_sem,firm,
+0x35f6c,txslot_sem,firm,
+0x36468,rxslot_sem,firm,
+0x3658c,call_event_flags,firm,event group used by the call flag helpers
+0x3783c,sysint_sem,firm,
+0x385ac,rf_switch_sem,firm,posted by rf_tx_irq and rf_rx_irq
+0x386b8,dataflash_current_address,firm,set by dataflash_set_address
+0x38d8c,keymsgq,firm,queue created with that name
+0x39360,lcd_lock,firm,semaphore held around drawing
+0x39468,dataflash_lock,firm,semaphore held around every flash access
+0x3bd70,sound_request_lock,likely,
+0x3be64,sound_request_id,likely,
+0x3bea0,saved_sys_interp_list,firm,"written by system_irq_collect, read by the sysint dispatcher"
+0x3bea4,saved_rx_info,firm,modem register 0x394 snapshot
+0x3becc,saved_rx_type_info,firm,modem register 0x390 snapshot
+0x3c69c,rx_burst_ring,likely,27-byte entries
+0x3c7d8,tx_burst_ring,likely,27-byte entries
+0x3c834,tx_queue_entries,likely,scanned by the transmit queue allocator
+0x3e5e4,menu_current_handler,firm,handler pointer stored before each indirect call
+0x3e5f4,phy_test_mode,likely,argument passed to physical_test_select
+0x3e9d4,settings_ram_block,firm,base used by the settings getter and setter; mirrors codeplug block 4
+0x3fdb0,system_event_flags,likely,event group set by sound requests and timer interrupts
+0x3fdd8,status_flags,firm,bit flags; see FINDINGS for known bits
+0x40160,sd_card_sem,likely,created by the SD SPI init
+0x42531,OSSchedLockNestingCtr,likely,checked and incremented around scheduler locks
+0x426f4,os_timestamp_or_tick,likely,read by the timestamp getter
+0x426fc,OSIntNestingCtr,likely,checked first by pend and delay routines
+0x456e4,codec_decoder_state,firm,passed to codec_dec_init
+0x46a38,decoder_pcm_buffer,likely,passed to codec_decode
+0x46b80,tx_voice_ring,likely,27-byte entries
+0x4814c,rx_voice_ring,likely,27-byte entries
+0x48184,codec_encoder_state,firm,passed to codec_enc_init
+0x49a1c,encoder_pcm_buffer,likely,passed to codec_encode
+0x18000834,key_press_handlers,firm,27 function pointers
+0x180008a0,key_release_handlers,firm,27 function pointers
+0x1800090c,key_function_handlers,firm,43 function pointers
+0x18000a8c,cable_receive_fn,likely,function pointer
+0x18000a90,cable_send_fn,likely,"function pointer, initial value cable_uart_write_bytes"
+0x36f4c,ccl_traffic_event_flags,firm,event group waited on only by the CclTraffic task
+0x38454,modem_state_lock,likely,semaphore taken by the modem state change routine
+0x3bd5a,modem_requested_state,likely,written by modem_state_event_set
+0x38330,event_group_38330,firm,"third event group, purpose not known"
+0x3e1f8,current_channel_record,firm,"RAM copy of the active channel from flash record offset 0x10 on: RX frequency at +0, TX at +4, flags at +8"

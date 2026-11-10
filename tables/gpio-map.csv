@@ -1,0 +1,51 @@
+gpio_index,port,documented_function,high,low,read,irq_disable,irq_config,direct_set,direct_clear,configure_output,firmware_callers
+0x5,PTA5,ALPU-MP I2C SCL,11,5,0,0,0,0,0,1,0x2cef0 0x2cf70 0x2d1a0 0x301da24 0x301dc64
+0x6,PTA6,ALPU-MP I2C SDA,11,6,0,0,0,2,2,1,0x2cef0 0x2cf70 0x2d1a0 0x301da24 0x301dc64
+0x7,PTA7,FD6818 serial clock,12,10,0,0,0,0,0,1,0x2c1fc 0x2c24c 0x2c29c 0x2d05c 0x2d0dc 0x2d24c 0x301da24 0x301dd60 rfic_3wire_read rfic_3wire_write
+0x8,PTA8,FD6818 serial data,13,6,0,0,0,4,3,1,0x2c1fc 0x2c24c 0x2c29c 0x2d05c 0x2d0dc 0x2d24c 0x301da24 0x301dd60 rfic_3wire_read rfic_3wire_write
+0x9,PTA9,UART1 RXD from GPS,0,0,0,0,0,0,0,0,
+0xa,PTA10,,0,0,0,0,0,0,0,1,0x301d8c4
+0xf,PTA15,LCD backlight,0,0,0,0,0,0,0,0,
+0x10,PTA16,Power switch monitor (1 = knob off),0,0,1,0,0,0,0,0,0x301b778
+0x11,PTA17,Power latch (1 = stay on),0,2,0,0,0,0,0,1,0x301b760 task_shutdown
+0x12,PTA18,Data flash chip select,5,6,0,0,0,0,0,1,0x2b818 0x2b840 0x2b9b8 0x2ba14 0x301c894 dataflash_page_program dataflash_read_bytes
+0x14,PTA20,Data flash SCLK,0,0,0,0,0,0,0,0,
+0x15,PTA21,Data flash MOSI,0,0,0,0,0,0,0,0,
+0x16,PTA22,Data flash MISO,0,0,0,0,0,0,0,0,
+0x17,PTA23,SPI1 CSN0 (unused),1,1,0,0,0,0,0,1,0x3066f18 0x3066fb4 0x3066fdc
+0x18,PTA24,FD6818 chip select,2,2,0,0,0,0,0,1,0x301cb70 rfic_3wire_read rfic_3wire_write
+0x19,PTA25,RDA5807M FM receiver SDIO,4,5,0,0,0,1,1,1,0x3065c08 0x3065c48 0x3065c9c 0x3065cd8 0x3065d0c 0x3065d70 0x3065e20
+0x1a,PTA26,RDA5807M FM receiver SCLK,4,4,0,0,0,0,0,1,0x3065c08 0x3065c48 0x3065c9c 0x3065cd8 0x3065e20
+0x20,PTB0,Green LED,1,1,0,0,0,0,0,1,0x301d464 0x30611b0 0x30611cc
+0x21,PTB1,Red LED,1,1,0,0,0,0,0,1,0x301d464 0x30611d8 0x30611f4
+0x22,PTB2,VHF LNA / RX supply,2,2,0,0,0,0,0,1,0x302f970 rf_rx_band_enable start_task_cds
+0x23,PTB3,UHF PA select,1,2,0,0,0,0,0,1,rf_tx_band_enable start_task_cds
+0x24,PTB4,UHF LNA / RX supply,2,2,0,0,0,0,0,1,0x302f970 rf_rx_band_enable start_task_cds
+0x26,PTB6,Rotary encoder B,0,0,5,0,3,0,0,0,0x2c6dc 0x301d464
+0x27,PTB7,Rotary encoder A,0,0,5,0,3,0,0,0,0x2c6dc 0x301d464
+0x28,PTB8,Keypad backlight,0,0,0,0,0,0,0,0,
+0x2b,PTB11,PTT (low = pressed),0,0,1,0,0,0,0,0,candidate_ptt_input_read
+0x2c,PTB12,GPS power (low = on),4,3,0,0,0,0,0,2,0x3011914 0x301d464 0x305f674 start_task_gps task_shutdown
+0x2e,PTB14,"Mic path: 1 analog FM, 0 DMR codec",4,3,0,0,0,0,0,1,0x301d464 0x302aa58 candidate_menu_page_null_ch_3057790 menu_state_098
+0x2f,PTB15,FD6818 audio switch (speaker vs C7000),6,3,0,0,0,0,0,1,0x301d464 0x3022410 0x3022f18 0x302aa58 candidate_menu_page_null_ch_3057790 menu_state_098
+0x31,PTB17,Keypad column 1,0,0,0,0,0,0,0,0,
+0x32,PTB18,Keypad column 2,0,0,0,0,0,0,0,0,
+0x33,PTB19,Keypad column 3,0,0,2,0,0,0,0,0,0x301355c candidate_menu_page_are_you_sure
+0x34,PTB20,Keypad column 4,0,0,2,0,0,0,0,0,0x301355c candidate_menu_page_are_you_sure
+0x35,PTB21,Audio amplifier enable,1,1,0,0,0,0,0,1,0x301d618 candidate_audio_amp_set
+0x37,PTB23,VHF PA select,1,2,0,0,0,0,0,1,rf_tx_band_enable start_task_cds
+0x3a,PTB26,FD6818 GPIO1,0,0,0,0,0,0,0,0,
+0x3b,PTB27,FD6818 GPIO0,0,0,0,4,0,0,0,0,0x3060a74 rfic_rx_tune rfic_tx_tune start_task_cds
+0x42,PTC2,LCD reset,2,1,0,0,0,0,0,1,0x3017ce4
+0x43,PTC3,LCD CS,0,0,0,0,0,0,0,0,
+0x44,PTC4,LCD RS,0,0,0,0,0,0,0,0,
+0x45,PTC5,LCD WR,0,0,0,0,0,0,0,0,
+0x46,PTC6,LCD RD,0,0,0,0,0,0,0,1,0x3017ce4
+0x47,PTC7,LCD DB0 / keypad row 0,0,1,0,0,0,0,0,4,0x3012e30 0x30134d4 0x301355c candidate_menu_page_are_you_sure
+0x48,PTC8,LCD DB1 / keypad row 1,0,1,0,0,0,0,0,4,0x3012e30 0x30134d4 0x301355c candidate_menu_page_are_you_sure
+0x49,PTC9,LCD DB2 / keypad row 2,0,1,0,0,0,0,0,4,0x3012e30 0x30134d4 0x301355c candidate_menu_page_are_you_sure
+0x4a,PTC10,LCD DB3 / keypad row 3,0,1,0,0,0,0,0,4,0x3012e30 0x30134d4 0x301355c candidate_menu_page_are_you_sure
+0x4b,PTC11,LCD DB4 / keypad row 4,0,1,0,0,0,0,0,4,0x3012e30 0x30134d4 0x301355c candidate_menu_page_are_you_sure
+0x4c,PTC12,LCD DB5,0,1,0,0,0,0,0,0,0x30134d4
+0x4d,PTC13,LCD DB6,0,1,0,0,0,0,0,1,0x30134d4 candidate_menu_page_are_you_sure
+0x4e,PTC14,LCD DB7,0,1,0,0,0,0,0,1,0x30134d4 candidate_menu_page_are_you_sure

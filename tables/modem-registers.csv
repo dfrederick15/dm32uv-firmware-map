@@ -1,0 +1,79 @@
+offset_from_0x11000000,documented_name,reads,writes,readers,writers
+0x0,,5,9,candidate_modem_fm_mode_setup sub_3021af8,candidate_modem_dmr_mode_setup candidate_modem_fm_mode_setup candidate_modem_layer2_stop physical_test_select sub_3021af8 sub_30234e8 sub_305f2f4
+0x4,,19,16,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x10,,8,8,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x24,,8,8,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x28,,0,4,,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x2c,,3,8,sub_301e580 sub_3054b44,startup_clock_config sub_2c8c0 sub_301e580 sub_3054b44 sub_3054c7c
+0x30,CSBK,0,4,,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x34,,4,4,candidate_gps_uart_init sub_141c8 sub_301c0ec,candidate_gps_uart_init sub_141c8 sub_301c0ec
+0x38,,3,3,candidate_sd_spi1_init spi0_dataflash_init start_task_cds,candidate_sd_spi1_init spi0_dataflash_init start_task_cds
+0x3c,,7,7,adc_init candidate_menu_page_are_you_sure dac_init sub_3012e30 sub_3017ce4 sub_301ca18,adc_init candidate_menu_page_are_you_sure dac_init sub_3012e30 sub_3017ce4 sub_301ca18
+0x40,MBC,2,2,start_task_cds,start_task_cds
+0x48,,2,2,start_task_cds,start_task_cds
+0x5c,,0,2,,sub_2bb9c sub_305f2f4
+0x70,,3,3,candidate_modem_dmr_mode_setup,candidate_modem_dmr_mode_setup
+0x74,,3,3,candidate_modem_dmr_mode_setup sub_301e4d0,candidate_modem_dmr_mode_setup sub_301e4d0
+0x80,AUDIO_CONTROL,15,12,candidate_modem_fm_mode_setup candidate_prompt_audio_path_set candidate_wav_header_check capture_pcm_disable capture_pcm_enable fm_play_enable play_pcm_disable play_pcm_enable sub_302215c sub_305d1d8,candidate_modem_fm_mode_setup candidate_modem_mode_restore candidate_prompt_audio_path_set capture_pcm_disable capture_pcm_enable fm_play_enable play_pcm_disable play_pcm_enable sub_305d1d8
+0x84,,6,7,candidate_rx_audio_start candidate_tx_audio_start candidate_tx_audio_start_with_setup sub_30217a8 sub_302197c,candidate_modem_dmr_mode_setup candidate_rx_audio_start candidate_tx_audio_start candidate_tx_audio_start_with_setup sub_30217a8 sub_302197c
+0x88,,2,4,sub_3021af8,sub_301e514 sub_3021ad8
+0x100,WORK_MODE,6,12,candidate_modem_fm_mode_setup sub_301e580 sub_301ecc0 sub_3061d50 task_txslot,candidate_modem_dmr_mode_setup candidate_modem_fm_mode_setup candidate_modem_mode_restore physical_test_select sub_301e580 sub_301ecc0 sub_3061d50
+0x104,RF_MODE,14,14,candidate_modem_dmr_mode_setup candidate_modem_fm_mode_setup sub_301e580,candidate_modem_dmr_mode_setup candidate_modem_fm_mode_setup candidate_modem_mode_restore sub_301e580
+0x108,SIG_CENTER,1,1,sub_3021764,sub_3021764
+0x10c,TX_IF_FREQ,0,1,,candidate_modem_dmr_mode_setup
+0x110,RF_CONTROL,4,4,sub_301e580,sub_301e580
+0x114,RF_MOD_BIAS_CTRL,2,2,modulation_amplitude_set sub_3021748,modulation_amplitude_set sub_3021748
+0x11c,RSSI_BIAS_VALUE,1,0,sub_16b60,
+0x120,THRESHOLD_VALUE,0,1,,candidate_modem_dmr_mode_setup
+0x12c,,0,6,,candidate_modem_dmr_mode_setup candidate_tx_burst_build sub_301e580
+0x130,,0,6,,candidate_modem_dmr_mode_setup candidate_tx_burst_build sub_301e580
+0x134,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x138,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x13c,,2,4,physical_test_select sub_301e580,candidate_modem_dmr_mode_setup physical_test_select sub_301e580
+0x140,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x144,,2,4,physical_test_select sub_301e580,candidate_modem_dmr_mode_setup physical_test_select sub_301e580
+0x148,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x14c,,1,3,sub_301e580,candidate_modem_dmr_mode_setup sub_301e580
+0x150,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x154,,1,3,sub_301e580,candidate_modem_dmr_mode_setup sub_301e580
+0x158,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x15c,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x160,,0,2,,candidate_modem_dmr_mode_setup sub_301e580
+0x168,,0,3,,candidate_modem_dmr_mode_setup physical_test_select
+0x1b0,RX_IF_FREQ,0,1,,candidate_modem_dmr_mode_setup
+0x1b4,RF_RECV_DELAY,0,3,,candidate_modem_dmr_mode_setup physical_test_select
+0x350,PI_CRC_MASK,0,1,,candidate_modem_dmr_mode_setup
+0x354,,0,1,,candidate_modem_dmr_mode_setup
+0x358,,0,1,,candidate_modem_dmr_mode_setup
+0x35c,,0,1,,candidate_modem_dmr_mode_setup
+0x360,,0,1,,candidate_modem_dmr_mode_setup
+0x364,CSBK_CRC_MASK,0,1,,candidate_modem_dmr_mode_setup
+0x368,MBCH_CRC_MASK,0,1,,candidate_modem_dmr_mode_setup
+0x36c,DATAH_CRC_MASK,0,1,,candidate_modem_dmr_mode_setup
+0x370,,0,1,,candidate_modem_dmr_mode_setup
+0x374,,0,1,,candidate_modem_dmr_mode_setup
+0x378,,0,1,,candidate_modem_dmr_mode_setup
+0x37c,,0,1,,candidate_modem_dmr_mode_setup
+0x380,CRC8_INIT,0,1,,candidate_modem_dmr_mode_setup
+0x384,LOCAL_CC,7,7,candidate_tx_burst_build sub_301e580 sub_301e7bc sub_301ec40,candidate_tx_burst_build sub_301e580 sub_301e7bc sub_301ec40
+0x388,VOICE_EMB_CTRL,1,2,candidate_tx_burst_build,candidate_modem_dmr_mode_setup candidate_tx_burst_build
+0x38c,SCRAMBLE_REG,0,1,,candidate_modem_dmr_mode_setup
+0x390,,9,0,candidate_rx_slot_ready_handler sub_2d500 sub_3024868 sub_302736c sub_3027b9c sub_30280c0 sub_30282a4 system_irq_collect,
+0x394,,2,0,sub_3027628 system_irq_collect,
+0x398,SYS_INTERP_LIST,2,0,system_irq_collect,
+0x39c,SYS_INTERP_MASK,1,5,candidate_modem_fm_mode_setup,candidate_cable_test_mode candidate_modem_dmr_mode_setup candidate_modem_fm_mode_setup candidate_modem_mode_restore menu_state_098
+0x3a0,SYS_INTERP_CLEAR,0,1,,system_irq_collect
+0x3b0,INTERP_CLEAR,8,8,candidate_rx_slot_irq candidate_tx_slot_irq capture_pcm_ack capture_pcm_enable play_pcm_ack play_pcm_enable rf_rx_irq rf_tx_irq,candidate_rx_slot_irq candidate_tx_slot_irq capture_pcm_ack capture_pcm_enable play_pcm_ack play_pcm_enable rf_rx_irq rf_tx_irq
+0x400,LAYER2_CONTROL,7,15,sub_30231c0 sub_3023258 sub_3023a88 sub_3023ad8 sub_3024908,candidate_modem_layer2_stop physical_test_select sub_30231a8 sub_30231c0 sub_3023258 sub_3023a88 sub_3023ad8 sub_3024908
+0x404,LAYER2_SLOTON,15,15,sub_30231c0 sub_3023258 sub_3023394 sub_3023a88 sub_3023ad8 task_txslot,candidate_modem_dmr_mode_setup sub_30231a8 sub_30231c0 sub_3023258 sub_3023394 sub_3023a88 sub_3023ad8
+0x408,LAYER2_TXRX_CTRL,11,22,candidate_tx_burst_build sub_30216f4 sub_3023394 sub_3023828 sub_3029c78,candidate_modem_layer2_stop candidate_tx_burst_build physical_test_select sub_30216f4 sub_30231a8 sub_30231c0 sub_3023258 sub_3023394 sub_3023828 sub_3029c78
+0x40c,LAYER2_SLOT_CNT,1,4,sub_30231c0,sub_30231c0 sub_3023ad8
+0x410,LAYER2_MAX_CNT,0,8,,sub_3023894 sub_3023928
+0x414,LAYER2_SLOT_UPDATE,1,1,sub_3023a88,sub_3023a88
+0x418,LAYER2_SEND_TYPE,5,8,candidate_tx_burst_build,candidate_tx_burst_build sub_3029c78
+0x41c,LAYER2_STATUS,8,0,candidate_rx_slot_abnormal_handler sub_30231c0 sub_3023290 sub_3023894 sub_3023928 sub_3023a88,
+0x424,LAYER2_SLOT_PRE,0,1,,candidate_modem_dmr_mode_setup
+0x500,FM_BANDWIDTH,0,1,,sub_300c2cc
+0x504,FM_DEV_COEF,1,2,sub_3021730,candidate_modem_dmr_mode_setup sub_3021730
+0x560,FM_PTT,1,4,candidate_modem_fm_mode_setup,candidate_modem_fm_mode_setup candidate_modem_mode_restore fm_ptt_set
+0xea7b,,1,0,candidate_modem_dmr_mode_setup,

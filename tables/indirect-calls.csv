@@ -1,0 +1,107 @@
+site,function,target_source,detail
+0x1068a,common_irq_entry,pointer variable,0x45538
+0x106d6,sub_106cc,computed,bez
+0x10712,sub_10708,computed,bez
+0x10722,sub_10718,computed,bez
+0x10732,sub_10728,computed,bez
+0x10742,sub_10738,computed,bez
+0x107ca,sub_107c0,computed,bez
+0x1085e,sub_10854,computed,bez
+0x1813c,sub_18104,stack value,0x44
+0x18146,sub_18104,stack value,0x48
+0x181a6,sub_18104,stack value,0x48
+0x1fef4,sub_1fe64,struct field,0x3c
+0x2ca88,candidate_timer3_irq,pointer variable,0x3a634
+0x3012fea,candidate_ptt_input_debounce,pointer variable,0x18000838
+0x3013020,candidate_ptt_input_debounce,pointer variable,0x180008a4
+0x301375e,sub_3013640,table,0x18000834
+0x301378c,sub_3013640,pointer variable,0x18000868
+0x30137b2,sub_3013640,pointer variable,0x1800084c
+0x30137be,sub_3013640,pointer variable,0x1800086c
+0x3013828,sub_3013640,table,0x18000834
+0x3013876,sub_3013640,table,0x18000834
+0x3014100,sub_30140e4,pointer variable,0x18000804
+0x30152ce,task_keytime,struct field,0x2c
+0x301530c,task_keytime,struct field,0x2c
+0x3015312,task_keytime,struct field,0x2c
+0x3015318,task_keytime,struct field,0x2c
+0x302a002,candidate_device_version_info_3029fb0,struct field,0x0
+0x302a092,candidate_device_version_info_3029fb0,struct field,0x0
+0x302a0c8,candidate_device_version_info_3029fb0,struct field,0x0
+0x302a150,candidate_device_version_info_3029fb0,struct field,0x4
+0x302a176,candidate_device_version_info_3029fb0,struct field,0x4
+0x302a3f4,candidate_device_version_info_3029fb0,struct field,0x4
+0x302a40e,candidate_device_version_info_3029fb0,struct field,0x0
+0x302a42a,candidate_device_version_info_3029fb0,struct field,0x4
+0x302a45a,candidate_device_version_info_302a448,pointer variable,0x18000a90
+0x302a46a,candidate_device_version_info_302a448,pointer variable,0x18000a8c
+0x302a48c,candidate_device_version_info_302a448,pointer variable,0x18000a90
+0x302a49c,candidate_device_version_info_302a448,pointer variable,0x18000a8c
+0x302a4b2,candidate_device_version_info_302a448,pointer variable,0x18000a90
+0x302a50e,candidate_device_version_info_302a448,struct field,0x0
+0x302a57e,candidate_device_version_info_302a448,struct field,0x0
+0x302a5da,candidate_device_version_info_302a448,struct field,0x0
+0x302a63a,candidate_device_version_info_302a448,struct field,0x4
+0x302a67c,candidate_device_version_info_302a448,struct field,0x4
+0x302a6b4,candidate_device_version_info_302a448,struct field,0x4
+0x302a6d8,candidate_device_version_info_302a448,struct field,0x4
+0x302a93c,candidate_device_version_info_302a448,struct field,0x4
+0x302a970,candidate_device_version_info_302a448,struct field,0x0
+0x302a98c,candidate_device_version_info_302a448,struct field,0x4
+0x302a9d4,sub_302a9a8,pointer variable,0x18000a8c
+0x302a9ee,sub_302a9a8,pointer variable,0x18000a8c
+0x302aa10,sub_302a9a8,struct field,0x4
+0x302aaa0,candidate_cable_test_mode,pointer variable,0x18000a8c
+0x302b070,candidate_cable_test_mode,table,0x18000ac0
+0x302b0b6,candidate_cable_test_mode,struct field,0x4
+0x302b0f2,candidate_cable_test_mode,struct field,0x4
+0x302b108,candidate_cable_test_mode,struct field,0x4
+0x302b122,candidate_cable_test_mode,struct field,0x0
+0x302b17e,candidate_cable_test_mode,table,0x18000ac0
+0x302b18a,candidate_cable_test_mode,struct field,0x4
+0x302b21a,candidate_cable_test_mode,struct field,0x4
+0x302b238,sub_302b224,pointer variable,0x18000a8c
+0x302b328,sub_302b224,pointer variable,0x18000a90
+0x302b338,sub_302b224,pointer variable,0x18000a90
+0x302b366,task_usb,pointer variable,0x18000a8c
+0x302b450,task_usb,struct field,0x4
+0x302b49a,task_usb,struct field,0x4
+0x302b4fe,task_usb,struct field,0x4
+0x302b534,task_usb,struct field,0x4
+0x302b56a,task_usb,struct field,0x4
+0x302b58e,task_usb,struct field,0x4
+0x302b5d4,task_usb,struct field,0x4
+0x302b606,task_usb,struct field,0x4
+0x30331ae,sub_3033198,computed,bez
+0x30331c0,sub_3033198,computed,bez
+0x3037018,menu_state_090,table,0x3e5e4
+0x3037f6a,menu_state_100,table,0x18000ac0
+0x303801a,menu_state_099,table,0x18000ac0
+0x303837c,menu_state_098,table,0x3e916
+0x303f97e,sub_303f834,pointer variable,0x3e5f8
+0x303fbae,sub_303f9bc,pointer variable,0x3e5f8
+0x303fbf6,sub_303f9bc,pointer variable,0x3e5f8
+0x303ffd4,sub_303f9bc,pointer variable,0x3e5f8
+0x30400b8,sub_303f9bc,pointer variable,0x30b1184
+0x30406b2,sub_303f9bc,table,0x3e5e4
+0x304081a,sub_303f9bc,table,0x3e5e4
+0x304084a,sub_303f9bc,table,0x3e5e4
+0x3040a1c,sub_303f9bc,table,0x3e5e4
+0x3052972,sub_305292c,table,0x3e5e4
+0x3052c0e,sub_3052c04,table,0x30b2378
+0x3052ce0,sub_3052cd4,pointer variable,0x340014da
+0x30553e8,sub_30553c0,pointer variable,0x18000ad0
+0x305540e,sub_30553c0,pointer variable,0x18000ac4
+0x305548c,sub_30553c0,pointer variable,0x18000ac8
+0x3055494,sub_30553c0,pointer variable,0x18000acc
+0x305588e,sub_305587c,pointer variable,0x18000ac0
+0x305589e,sub_305587c,pointer variable,0x18000ac4
+0x30558ae,sub_305587c,pointer variable,0x18000ac8
+0x30558c4,sub_305587c,pointer variable,0x18000ad4
+0x30558da,sub_305587c,pointer variable,0x18000ad8
+0x30558ea,sub_305587c,pointer variable,0x18000ad0
+0x30558fe,sub_305587c,pointer variable,0x18000ae4
+0x306bc48,OS_TmrTask,computed,bez
+0x306bd04,sub_306bc6c,computed,bez
+0x306bd1a,sub_306bc6c,computed,bez
+0x3070f38,sub_3070ef0,struct field,0x4

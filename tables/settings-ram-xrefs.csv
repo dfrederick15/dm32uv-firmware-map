@@ -1,0 +1,89 @@
+ram_offset,reads,writes,descriptive_users
+0x0,10,3,uses_noaa_30309b8
+0x12,4,1,
+0x13,9,3,uses_noaa_30309b8
+0x14,0,1,menu_page_out_of_range_3050f78
+0x1c,0,2,
+0x25,3,1,
+0x26,44,27,keyfunc_digital_encrypt menu_page_lone_work_off menu_page_member_is_full menu_page_null_ch menu_page_null_ch_3057790 menu_page_tx_limit uses_noaa
+0x27,13,6,menu_page_member_is_full uses_noaa uses_noaa_30309b8
+0x28,13,6,menu_page_member_is_full uses_noaa uses_noaa_30309b8
+0x29,29,5,keyfunc_digital_encrypt menu_page_lone_work_off menu_page_member_is_full menu_page_tx_limit
+0x2a,7,5,uses_noaa uses_noaa_30309b8
+0x2b,7,5,uses_noaa uses_noaa_30309b8
+0x2c,2,4,
+0x2d,272,30,analog_tx_start keyfunc_digital_encrypt keyfunc_fm_search keyfunc_switch_chtype keyfunc_tx_power keyfunc_vfo_mr keyfunc_vox m menu_key_handler menu_page_member_is_full
+0x2e,5,2,keyfunc_vfo_mr
+0x2f,2,4,
+0x30,687,16,battery_voltage_format call_display_update codeplug_factory_defaults gps_info_display_3062e98 gps_info_display_3063ea4 keyfunc_ctc_dcs_scan keyfunc_roaming keyfunc_sub_ptt keyfunc_vox lcd_draw_languag menu_page_null_ch_3057790
+0x31,25,12,menu_page_are_you_sure menu_page_mandown_off menu_page_out_of_range_3050f78
+0x32,18,9,led_green_on led_red_on
+0x34,3,2,
+0x35,3,3,
+0x36,4,5,
+0x37,2,2,
+0x38,1,4,
+0x3a,17,2,key_event_dispatch menu_key_handler menu_page_are_you_sure ptt_input_debounce task_calldisp task_keytime task_usb
+0x3c,6,5,menu_page_out_of_range_3050f78
+0x3d,1,3,
+0x3e,1,0,
+0x41,13,3,rfic_fsk_transmit
+0x42,2,5,
+0x43,65,35,menu_key_handler
+0x44,15,7,radio_mode_apply
+0x47,17,0,
+0x48,5,1,
+0x49,2,0,
+0x4a,3,1,
+0x4b,2,0,
+0x4c,3,1,
+0x4d,2,0,
+0x4e,3,1,
+0x4f,2,0,
+0x50,3,1,
+0x51,2,0,
+0x52,3,1,
+0x53,4,2,menu_page_tx_limit
+0x54,16,2,menu_page_msg_is_deleted_3051d3c
+0x55,2,2,menu_go_back
+0x57,6,4,menu_page_keypad_lock_3035864 menu_page_out_of_range_3050f78
+0x58,6,3,analog_tx_start call_display_update task_ccltraffic
+0x59,2,1,
+0x5a,3,2,
+0x5c,2,2,
+0x5d,5,1,
+0x5e,2,2,
+0x5f,3,2,
+0x60,0,1,
+0x61,0,1,
+0x62,4,2,call_display_update menu_page_white uses_talkeralias
+0x63,11,2,call_display_update menu_page_menu menu_page_white
+0x64,8,2,menu_page_white uses_noaa_30309b8
+0x65,8,2,menu_page_white uses_noaa_30309b8
+0x66,6,2,menu_page_white uses_noaa_30309b8
+0x67,6,2,menu_page_white uses_noaa_30309b8
+0x68,0,1,
+0x69,0,1,
+0x6a,2,3,rfic_init
+0x6b,2,3,
+0x6c,56,4,analog_tx_start keyfunc_sub_ptt keyfunc_wait_mode menu_page_null_ch radio_mode_apply uses_alarm uses_noaa uses_noaa_30
+0x6d,20,6,analog_tx_start lcd_init rfic_ctcss_control_set
+0x6e,3,3,
+0x6f,3,2,
+0x70,1,2,
+0x71,1,2,
+0x72,1,2,
+0x73,1,2,
+0x74,0,1,
+0x75,1,2,
+0x76,1,2,
+0x77,1,2,
+0x78,1,2,
+0x79,1,2,
+0x7a,0,1,
+0x7b,1,2,
+0x7c,3,3,
+0x7d,1,5,
+0x7e,2,1,
+0x97,7,10,menu_page_inbox_list menu_page_quick_text_empty
+0xc4,1,0,

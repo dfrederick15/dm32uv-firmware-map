@@ -1,0 +1,104 @@
+table,flash_address,ram_address,index,handler,name_or_item
+key functions,0x30728dc,0x1800090c,0,0x3015538,None
+key functions,0x30728e0,0x18000910,1,0x30162d0,Tx Power
+key functions,0x30728e4,0x18000914,2,0x3015c58,BATT Indicator
+key functions,0x30728e8,0x18000918,3,0x30161a0,Talk Around
+key functions,0x30728ec,0x1800091c,4,0x3015e08,Digital Encrypt
+key functions,0x30728f0,0x18000920,5,0x301552c,Call
+key functions,0x30728f4,0x18000924,6,0x3015d78,Vox
+key functions,0x30728f8,0x18000928,7,0x3016734,VFO/MR
+key functions,0x30728fc,0x1800092c,8,0x3016eb8,Alarm
+key functions,0x3072900,0x18000930,9,0x3017170,Hot Key 1
+key functions,0x3072904,0x18000934,10,0x3017164,Hot Key 2
+key functions,0x3072908,0x18000938,11,0x3017158,Hot Key 3
+key functions,0x307290c,0x1800093c,12,0x301714c,Hot Key 4
+key functions,0x3072910,0x18000940,13,0x3017140,Hot Key 5
+key functions,0x3072914,0x18000944,14,0x3015880,Message
+key functions,0x3072918,0x18000948,15,0x3017074,Contact
+key functions,0x307291c,0x1800094c,16,0x3017250,Zone Up
+key functions,0x3072920,0x18000950,17,0x3017244,Zone Down
+key functions,0x3072924,0x18000954,18,0x3016fcc,Scan
+key functions,0x3072928,0x18000958,19,0x3015b70,Record Switch
+key functions,0x307292c,0x1800095c,20,0x30173ac,Previous Record
+key functions,0x3072930,0x18000960,21,0x3017370,Next Record
+key functions,0x3072934,0x18000964,22,0x3016440,FM Radio
+key functions,0x3072938,0x18000968,23,0x30163bc,FM Search
+key functions,0x307293c,0x1800096c,24,0x30157b8,GPS Info
+key functions,0x3072940,0x18000970,25,0x3017560,Monitor
+key functions,0x3072944,0x18000974,26,0x3015544,A/B Switch
+key functions,0x3072948,0x18000978,27,0x3015fd4,Work Alone
+key functions,0x307294c,0x1800097c,28,0x3016224,KeyPad Lock
+key functions,0x3072950,0x18000980,29,0x3015a38,Nuisance Delete
+key functions,0x3072954,0x18000984,30,0x3015a7c,TBST Send
+key functions,0x3072958,0x18000988,31,0x301571c,APRS Send
+key functions,0x307295c,0x1800098c,32,0x3015cc0,Switch ChType
+key functions,0x3072960,0x18000990,33,0x3016688,Wait Mode
+key functions,0x3072964,0x18000994,34,0x3016580,CTC/DCS Scan
+key functions,0x3072968,0x18000998,35,0x3015900,CTC/DCS Set
+key functions,0x307296c,0x1800099c,36,0x3016354,Mute
+key functions,0x3072970,0x180009a0,37,0x301560c,Roaming
+key functions,0x3072974,0x180009a4,38,0x3015ac8,Sub PTT
+key functions,0x3072978,0x180009a8,39,0x3015520,Scramb
+key functions,0x307297c,0x180009ac,40,0x30164bc,Freq Search
+key functions,0x3072980,0x180009b0,41,0x3015514,Flashlight
+key functions,0x3072984,0x180009b4,42,0x301596c,ManDown
+key event callbacks,0x30727e0,0x18000810,0,0x3014030,sub_3014030
+key event callbacks,0x30727e4,0x18000814,1,0x3013f00,sub_3013f00
+key event callbacks,0x30727e8,0x18000818,2,0x3013f18,sub_3013f18
+key event callbacks,0x30727ec,0x1800081c,3,0x3013fac,sub_3013fac
+key event callbacks,0x30727f0,0x18000820,4,0x3013f40,sub_3013f40
+key event callbacks,0x30727f4,0x18000824,5,0x3013f54,sub_3013f54
+key event callbacks,0x30727f8,0x18000828,6,0x3013f58,sub_3013f58
+key event callbacks,0x30727fc,0x1800082c,7,0x3013f64,sub_3013f64
+key event callbacks,0x3072800,0x18000830,8,0x3013fd0,sub_3013fd0
+key event callbacks,0x3072804,0x18000834,9,0x0,
+key event callbacks,0x3072808,0x18000838,10,0x3014e38,candidate_ptt_press_callback
+key event callbacks,0x307280c,0x1800083c,11,0x3014184,sub_3014184
+key event callbacks,0x3072810,0x18000840,12,0x3014958,sub_3014958
+key event callbacks,0x3072814,0x18000844,13,0x3014870,sub_3014870
+key event callbacks,0x3072818,0x18000848,14,0x3014178,sub_3014178
+key event callbacks,0x307281c,0x1800084c,15,0x3014904,sub_3014904
+key event callbacks,0x3072820,0x18000850,16,0x30147dc,sub_30147dc
+key event callbacks,0x3072824,0x18000854,17,0x30149a4,sub_30149a4
+key event callbacks,0x3072828,0x18000858,18,0x30146c4,sub_30146c4
+key event callbacks,0x307282c,0x1800085c,19,0x301473c,sub_301473c
+key event callbacks,0x3072830,0x18000860,20,0x3014190,sub_3014190
+key event callbacks,0x3072834,0x18000864,21,0x301464c,sub_301464c
+key event callbacks,0x3072838,0x18000868,22,0x3014160,sub_3014160
+key event callbacks,0x307283c,0x1800086c,23,0x3014148,sub_3014148
+key event callbacks,0x3072840,0x18000870,24,0x3014d20,sub_3014d20
+key event callbacks,0x3072844,0x18000874,25,0x3014d14,sub_3014d14
+key event callbacks,0x3072848,0x18000878,26,0x3014d08,sub_3014d08
+key event callbacks,0x307284c,0x1800087c,27,0x3014cfc,sub_3014cfc
+key event callbacks,0x3072850,0x18000880,28,0x3014cf0,sub_3014cf0
+key event callbacks,0x3072854,0x18000884,29,0x3014ce4,sub_3014ce4
+key event callbacks,0x3072858,0x18000888,30,0x3014cd8,sub_3014cd8
+key event callbacks,0x307285c,0x1800088c,31,0x3014ccc,sub_3014ccc
+key event callbacks,0x3072860,0x18000890,32,0x3014cc0,sub_3014cc0
+key event callbacks,0x3072864,0x18000894,33,0x3014cb4,sub_3014cb4
+key event callbacks,0x3072868,0x18000898,34,0x3014130,sub_3014130
+key event callbacks,0x307286c,0x1800089c,35,0x30145fc,sub_30145fc
+key event callbacks,0x3072870,0x180008a0,36,0x0,
+key event callbacks,0x3072874,0x180008a4,37,0x3014dec,candidate_ptt_release_callback
+key event callbacks,0x3072878,0x180008a8,38,0x3014314,sub_3014314
+key event callbacks,0x307287c,0x180008ac,39,0x3014450,sub_3014450
+key event callbacks,0x3072880,0x180008b0,40,0x3014588,sub_3014588
+key event callbacks,0x3072884,0x180008b4,41,0x30142f0,sub_30142f0
+key event callbacks,0x3072888,0x180008b8,42,0x3014264,sub_3014264
+key event callbacks,0x307288c,0x180008bc,43,0x3014514,sub_3014514
+key event callbacks,0x3072890,0x180008c0,44,0x30142cc,sub_30142cc
+key event callbacks,0x3072894,0x180008c4,45,0x30143d4,sub_30143d4
+key event callbacks,0x3072898,0x180008c8,46,0x3014488,sub_3014488
+key event callbacks,0x307289c,0x180008cc,47,0x30142a8,sub_30142a8
+key event callbacks,0x30728a0,0x180008d0,48,0x3014338,sub_3014338
+key event callbacks,0x30728a4,0x180008d4,49,0x3014210,sub_3014210
+key event callbacks,0x30728a8,0x180008d8,50,0x30141d8,sub_30141d8
+key event callbacks,0x30728ac,0x180008dc,51,0x3014dcc,sub_3014dcc
+key event callbacks,0x30728b0,0x180008e0,52,0x3014dc0,sub_3014dc0
+key event callbacks,0x30728b4,0x180008e4,53,0x3014db4,sub_3014db4
+key event callbacks,0x30728b8,0x180008e8,54,0x3014da8,sub_3014da8
+key event callbacks,0x30728bc,0x180008ec,55,0x3014d9c,sub_3014d9c
+key event callbacks,0x30728c0,0x180008f0,56,0x3014d90,sub_3014d90
+key event callbacks,0x30728c4,0x180008f4,57,0x3014d84,sub_3014d84
+key event callbacks,0x30728c8,0x180008f8,58,0x3014d78,sub_3014d78
+key event callbacks,0x30728cc,0x180008fc,59,0x3014d6c,sub_3014d6c

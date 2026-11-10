@@ -1,0 +1,1997 @@
+address,width,reads,writes,reader_functions,writer_functions
+0x2f0b4,4,0,1,,application_entry
+0x2f6b4,1,3,2,sub_300cdb0 sub_300cdc8 sub_300ce80,sub_300cdb0 sub_300ce80
+0x2f6b5,1,3,2,sub_300cdc8 sub_300ce80 sub_300cf8c,sub_300ce80 sub_300cf8c
+0x2f6b6,1,3,2,sub_300cdc8 sub_300ce80 sub_300cfd8,sub_300ce80 sub_300cfd8
+0x2f6b7,1,3,2,sub_300cdc8 sub_300ce80 sub_300d028,sub_300ce80 sub_300d028
+0x2f6b8,1,3,2,sub_300cdc8 sub_300ce80 sub_300d064,sub_300ce80 sub_300d064
+0x2f6b9,1,3,2,sub_300cdc8 sub_300ce80 sub_300d08c,sub_300ce80 sub_300d08c
+0x2f6ba,1,3,2,sub_300cdc8 sub_300ce80 sub_300d028,sub_300ce80 sub_300d028
+0x2f6bb,1,3,2,sub_300cdc8 sub_300ce80 sub_300d064,sub_300ce80 sub_300d064
+0x2f6bc,1,3,2,sub_300cdc8 sub_300ce80 sub_300cf8c,sub_300ce80 sub_300cf8c
+0x2f6bd,1,3,2,sub_300cdc8 sub_300ce80 sub_300cfd8,sub_300ce80 sub_300cfd8
+0x2f6be,1,3,2,sub_300cdc8 sub_300ce80 sub_300cf8c,sub_300ce80 sub_300cf8c
+0x2f6bf,1,3,2,sub_300cdc8 sub_300ce80 sub_300cfd8,sub_300ce80 sub_300cfd8
+0x2f6c0,1,3,2,sub_300cdc8 sub_300ce80 sub_300d028,sub_300ce80 sub_300d028
+0x2f6c1,1,3,2,sub_300cdc8 sub_300ce80 sub_300cf8c,sub_300ce80 sub_300cf8c
+0x2f6c2,1,3,2,sub_300cdc8 sub_300ce80 sub_300cfd8,sub_300ce80 sub_300cfd8
+0x2fec4,1,0,2,,sub_300e10c
+0x2fec8,4,0,1,,sub_305c1e0
+0x2fecd,1,1,2,candidate_rfic_frequency_scan_read,candidate_rfic_frequency_scan_read
+0x2fece,1,2,3,sub_300f1b4,sub_300f1b4
+0x2fecf,1,2,3,sub_300f1b4,sub_300f1b4
+0x2fed1,1,1,0,candidate_codeplug_logical_to_physical,
+0x2ff9c,2,14,7,candidate_gps_nmea_parse sub_3011ad4 sub_3011b3c sub_3011bb8 sub_3011c28,candidate_gps_power_cycle candidate_timer6_irq start_task_gps sub_3011b3c
+0x2ff9e,2,3,8,candidate_gps_sentence_store,candidate_gps_power_cycle candidate_gps_sentence_store candidate_timer6_irq start_task_gps
+0x2ffa0,2,7,10,candidate_gps_sentence_store sub_3011ad4 sub_3011b3c sub_3011bb8 sub_3011c28,candidate_gps_power_cycle candidate_gps_sentence_store candidate_timer6_irq start_task_gps sub_3011b3c
+0x2ffa2,1,3,5,candidate_gps_nmea_parse candidate_gps_sentence_store sub_3011b3c,candidate_gps_power_cycle candidate_gps_sentence_store candidate_timer6_irq start_task_gps sub_3011b3c
+0x303a4,4,0,1,,task_keys
+0x307a8,1,1,2,candidate_keymsgq_post,candidate_key_get
+0x307a9,1,1,2,sub_30130f0,sub_30130f0
+0x307aa,1,1,1,sub_30130f0,sub_30130f0
+0x307ac,4,1,3,sub_30133dc,sub_30133dc sub_3022f18 sub_3059904
+0x307b0,1,1,1,candidate_key_event_dispatch,candidate_key_event_dispatch
+0x307b1,1,1,3,candidate_key_event_dispatch,candidate_key_event_dispatch
+0x307b4,4,1,3,candidate_key_06_release,candidate_key_06_press candidate_key_06_release candidate_key_event_dispatch
+0x307b8,1,8,7,sub_3014dd8 task_keytime,sub_3014dd8 task_keytime
+0x307b9,1,1,1,get_u8_307b9,set_u8_307b9
+0x307bc,1,0,1,,sub_301b5f0
+0x307bc,4,0,1,,sub_301b5f0
+0x307bd,1,1,1,sub_301b5f0,sub_301b5f0
+0x307c0,1,1,1,sub_301b5f0,sub_301b5f0
+0x307c1,1,0,1,,sub_301b5f0
+0x307c2,2,0,1,,sub_301b5f0
+0x309c4,4,0,1,,sub_301bf14
+0x309c8,4,0,1,,sub_301bf14
+0x309e0,4,1,1,sub_301c738,sub_301c738
+0x309e4,1,8,12,sub_301cbc0,gpio_b_irq sub_301cbc0 sub_3039478 sub_3039588
+0x309e5,1,4,12,sub_301cbc0,gpio_b_irq sub_301cbc0 sub_3039478 sub_3039588
+0x309e6,1,1,5,sub_301cbc0,gpio_b_irq sub_301cbc0 sub_3039478 sub_3039588
+0x309e8,4,0,1,,gpio_a_irq
+0x309ec,4,0,1,,gpio_c_irq
+0x309f0,4,4,1,gpio_b_irq,gpio_b_irq
+0x30e00,1,1,2,candidate_timer6_irq,candidate_timer6_irq
+0x30e02,2,1,3,cable_uart_irq,cable_uart_irq candidate_cable_uart_init sub_3029f80
+0x30e04,2,1,3,gps_uart_irq,candidate_gps_uart_read gps_uart_irq
+0x30e06,2,1,2,gps_uart_irq,candidate_gps_uart_read
+0x30e08,2,0,2,,candidate_cable_uart_init sub_3029f80
+0x30e0a,2,0,2,,candidate_cable_uart_init sub_3029f80
+0x30e0c,1,2,2,get_u8_30e0c sub_301ed00,task_txmsg
+0x30e0d,1,1,2,get_u8_30e0d,task_rxmsg
+0x30e0e,1,2,3,sub_300d284 task_rxmsg,sub_300d284 task_rxmsg
+0x30e0f,1,0,2,,task_rxvoice
+0x30e10,1,1,2,get_u8_30e10,task_rxcsbk
+0x30e14,1,0,2,,physical_test_select
+0x30e38,1,1,2,task_encrypt,candidate_tx_audio_start_with_setup modem_reg_84_update_30217a8
+0x30e57,1,1,2,task_decrypt,candidate_rx_audio_start candidate_rx_audio_stop
+0x3127c,1,2,3,candidate_phy_rx_ber_test,candidate_phy_rx_ber_test
+0x31280,4,3,2,candidate_phy_rx_ber_test,candidate_phy_rx_ber_test
+0x31284,4,2,1,candidate_phy_rx_ber_test,candidate_phy_rx_ber_test
+0x31294,1,0,1,,sub_3023364
+0x31298,4,1,1,task_txslot,task_txslot
+0x3129c,4,1,1,task_rxslot,task_rxslot
+0x312a0,4,1,1,task_sysint,task_sysint
+0x312b8,1,0,2,,task_slottimer
+0x315dc,1,0,1,,candidate_cable_test_mode
+0x31a94,1,4,4,sub_302c200 sub_302d4e4,sub_302c200 sub_305e314
+0x32098,4,2,3,sub_3031b7c,sub_302edc8 sub_3031b7c
+0x320c4,1,1,1,get_u8_320c4,set_u8_320c4
+0x320c6,2,1,1,candidate_menu_multi_page_3035588,candidate_menu_page_contacts_existed
+0x320c8,1,6,26,menu_go_back menu_state_098 sub_303694c sub_30528d4 sub_30528f4 sub_305292c,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs menu_go_back menu_state_083 sub_3035bd4 sub_303694c sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x320c8,4,0,1,,candidate_menu_key_handler
+0x320c9,1,2,26,menu_go_back sub_303694c,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs menu_go_back menu_state_083 sub_3035bd4 sub_303694c sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x320ca,1,159,17,candidate_key_26_press candidate_key_event_dispatch candidate_keyfunc_message candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_calll,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs menu_go_back menu_state_083 sub_3035bd4 sub_303694c sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x320cb,1,159,30,candidate_analog_tx_start candidate_gps_nmea_parse candidate_key_06_press candidate_key_08_press candidate_key_11_press candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_ctc_dcs_set candidate_keyfunc_digital_encrypt candidate_keyfunc_fm_radio candidate_keyfunc_fm_search candidate_keyfunc_freq_search ,candidate_menu_key_handler candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs menu_go_back menu_set_state menu_state_075 menu_state_077 menu_state_082 menu_state_083 sub_3035bd4 sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c su
+0x320cc,1,180,14,candidate_menu_device_info candidate_menu_key_handler candidate_menu_multi_page_304231c candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c candidate_menu_multi_page_3043164 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidat,candidate_menu_key_handler candidate_menu_multi_page_303b6ac menu_go_back menu_set_state menu_state_083 menu_state_090 sub_305292c
+0x32ad0,1,30,37,candidate_cable_test_mode menu_state_005 menu_state_098 menu_state_099 menu_state_100 menu_state_103 sub_3037420 sub_30376d8 sub_3055154 sub_30553c0 task_scandisp,candidate_cable_test_mode candidate_menu_page_list_is_empty menu_state_000 menu_state_019 menu_state_033 sub_3037420 sub_30376d8 sub_304d050
+0x32ad1,1,31,34,candidate_cable_test_mode candidate_ptt_press_callback candidate_rssi_sql_display menu_state_098 menu_state_099 menu_state_100 menu_state_103 menu_state_104 sub_30550cc sub_3055154 sub_30553c0 sub_305587c,candidate_cable_test_mode candidate_menu_page_list_is_empty menu_state_019 menu_state_033 sub_304d050
+0x32ad2,1,14,96,sub_3039e34 sub_3039f30 sub_303a1d0 sub_30415dc,candidate_menu_add_list candidate_menu_channel_list candidate_menu_device_info candidate_menu_dmr_id_list candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_page_apply candidate_menu_page_confirm_delete_3046408 candidate_menu_page_iso
+0x32ad3,1,2,3,sub_3052d20 sub_3052d94,sub_3052ce4 sub_3052d20 sub_3052d94
+0x32ad4,1,5,5,sub_30193cc sub_304c720 sub_3053d74 sub_305407c sub_3054110,sub_3053b28 sub_3053d74 sub_305407c sub_3054110
+0x330d8,4,9,6,sub_30559e8 task_tmrhnd,sub_30559e8 task_tmrhnd
+0x334dc,4,1,15,sub_30390c8,candidate_menu_key_handler candidate_menu_page_keypad_lock candidate_menu_page_lone_work_off candidate_menu_page_msg_send_failed candidate_menu_page_record_off candidate_menu_page_tx_limit sub_30390c8 sub_3048554 sub_306574c
+0x3351a,1,3,6,menu_state_077 sub_3058b34,menu_state_000 menu_state_077 menu_state_082 menu_state_083 sub_3058b34 sub_305c1e0
+0x3383c,1,2,1,sub_3059f08 sub_305b87c,sub_3059c90
+0x3383d,1,3,5,sub_305a84c task_inputalter,sub_3059fe4 task_inputalter
+0x33840,1,4,4,candidate_rx_audio_start sub_301efcc sub_305cdc4,sub_301efcc sub_301f074 sub_305cdc4
+0x3384b,1,1,2,sub_306081c,sub_306081c
+0x33c50,1,1,2,task_led_manage,task_led_manage
+0x33c54,4,2,10,sub_3063960,sub_3063960
+0x33c58,4,2,10,sub_3063960,sub_3063960
+0x33c5c,1,1,1,candidate_sd_send_command,candidate_sd_card_init
+0x33c5e,2,0,2,,sub_3067218
+0x33c60,1,3,7,candidate_sd_card_init candidate_sd_read_blocks sub_30674f0,candidate_sd_card_init
+0x33c64,4,4,6,candidate_rfic_fsk_receive,candidate_rfic_fsk_receive
+0x33c68,4,2,1,play_pcm_irq,pcm_pointer_init
+0x33c6c,4,1,1,capture_pcm_irq,pcm_pointer_init
+0x33c70,4,33,1,candidate_bitbang_i2c_byte_read candidate_bitbang_i2c_byte_write candidate_bitbang_i2c_read_sequence candidate_bitbang_i2c_write_sequence modem_reg_34_update_141c8,candidate_bitbang_i2c_pin_select
+0x33c74,4,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c78,4,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c7c,4,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c80,4,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c84,4,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c88,4,0,1,,candidate_modem_fm_mode_setup
+0x33c8c,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c8d,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c8e,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c8f,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c90,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c91,1,1,1,candidate_modem_mode_restore,candidate_modem_fm_mode_setup
+0x33c94,4,1,1,sub_16b60,sub_16b60
+0x33c98,1,0,3,,sub_16bdc
+0x33c9c,1,1,0,sub_17298,
+0x33c9d,1,1,0,sub_17298,
+0x33c9e,1,1,0,sub_17298,
+0x33c9f,1,1,0,sub_17298,
+0x33ca0,1,1,0,sub_172b0,
+0x33ca1,1,1,0,sub_172b0,
+0x33ca2,1,1,0,sub_172b0,
+0x33ca3,1,1,0,sub_172b0,
+0x33ca4,1,1,1,sub_1d07c,sub_1d07c
+0x33cb4,1,1,1,sub_1d1f8,sub_1d1f8
+0x33cc4,1,1,1,sub_1f96c,sub_1f96c
+0x33cc8,1,2,2,sub_301df8c task_sysint,sub_301e580
+0x33cc9,1,48,3,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_rx_slot_ready_handler candidate_tx_burst_build candidate_tx_queue_commit candidate_tx_queue_control_burst start_tasks_ccltraffic_and_12_more sub_301df8c sub_3020dc8 sub_3020fe4 sub_302343c sub_30237b8 sub_3023a54 sub_3024e7c sub_30,sub_301e580
+0x33cca,1,2,1,candidate_layer2_rx_enable candidate_layer2_slot_mode_set,candidate_cable_test_mode
+0x33ccb,1,5,19,candidate_rx_slot_ready_handler sub_2d500 sub_30237b8 sub_3023eb8 sub_3024120,candidate_short_lc_rx_handler modem_work_mode_update_301ecc0 sub_300c328 sub_301e580 sub_3023eb8 sub_3027b9c sub_30280c0 sub_30282a4
+0x33ccc,1,10,19,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_2d500 sub_3023eb8 sub_3024120,candidate_short_lc_rx_handler modem_work_mode_update_301ecc0 sub_300c328 sub_301e580 sub_3023eb8 sub_3027b9c sub_30280c0 sub_30282a4
+0x33ccd,1,13,1,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_tx_burst_build sub_3024e7c sub_3025480 sub_3027334 sub_3027584 sub_3027b9c sub_3028180 sub_30282a4,modem_local_cc_update_301e7bc
+0x33ccf,1,1,0,sub_301f118,
+0x33cd0,1,9,1,sub_301f118 sub_3020dc8 sub_3020ec8 sub_3020fe4 task_rxmsg,set_u8_33cd0
+0x33cd2,1,1,0,sub_3020fe4,
+0x33cd3,1,4,6,sub_3020fe4 sub_3023a70 sub_3023a7c sub_3027b9c,sub_301efcc sub_301f074
+0x33cdb,1,0,17,,sub_301de64 sub_301df0c sub_301df8c
+0x33cdc,1,1,1,get_u8_33cdc,set_u8_33cdc
+0x33cdd,1,8,2,candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_3023eb8 sub_3027b9c sub_30280c0 sub_30282a4,set_u8_33cdd_to_0 set_u8_33cdd_to_1
+0x33cde,1,12,1,sub_300d0a4 sub_300d284 sub_301f118 task_rxmsg,set_u8_33cde
+0x33cdf,1,0,1,,set_u8_33cdf
+0x33ce0,1,1,1,sub_300d284,set_u8_33ce0
+0x33ce1,1,8,1,sub_301df8c task_cpchanscan,set_u8_33ce1
+0x33ce2,1,1,2,sub_3020fe4,task_ccltraffic
+0x33ce3,1,3,3,sub_301f0c8 task_rxmsg,sub_301ebb0
+0x33ce4,2,3,1,sub_301df8c task_cpchanscan,set_u16_33ce4
+0x33ce8,2,2,1,sub_300d284 sub_3013940,sub_301e7d8
+0x33cea,1,16,1,sub_300d284 sub_301f118 sub_3029d08 sub_3029d3c task_rxmsg,set_u8_33cea
+0x33ceb,1,0,1,,set_u8_33ceb
+0x33cec,4,44,1,sub_300d284 sub_301df8c sub_301f118 sub_301fe28 sub_3020dc8 sub_302768c sub_3027b9c sub_3028180 sub_3029c54 sub_3029d3c task_ccltraffic task_cpchanscan task_rxcsbk,set_u32_33cec
+0x33cf0,4,0,1,,set_u32_33cf0
+0x33cf4,4,2,0,sub_302768c,
+0x33cf8,4,2,0,sub_302768c,
+0x33d74,4,0,1,,set_u32_33d74
+0x33d7c,1,0,1,,sub_300c328
+0x33d80,4,0,1,,sub_300c328
+0x33d84,4,0,1,,sub_300c328
+0x33d88,1,0,1,,sub_300c328
+0x33d8c,4,0,1,,sub_300c328
+0x33d90,4,0,1,,sub_300c328
+0x33d94,1,0,1,,sub_300c328
+0x33d98,4,0,1,,sub_300c328
+0x33d9c,4,0,1,,sub_300c328
+0x33da0,1,0,1,,sub_300c328
+0x33da4,4,0,1,,sub_300c328
+0x33da8,4,0,1,,sub_300c328
+0x33dac,1,0,1,,sub_300c328
+0x33db0,4,0,1,,sub_300c328
+0x33db4,4,0,1,,sub_300c328
+0x33dca,1,1,1,sub_3023ce8,sub_300c328
+0x33dcb,1,1,1,sub_3023ce8,sub_300c328
+0x33dec,1,2,1,candidate_rx_sync_miss_count task_cpchanscan,sub_300c328
+0x33ded,1,3,3,sub_3023c04 task_cpchanscan,candidate_rx_sync_miss_count sub_300c328 task_cpchanscan
+0x33dee,1,7,5,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_3023c5c sub_3023eb8 task_cpchanscan,candidate_short_lc_rx_handler sub_300c328 sub_3023b2c sub_3023eb8 task_cpchanscan
+0x33def,1,9,13,candidate_short_lc_rx_handler sub_3023eb8 sub_3027b9c sub_30280c0 sub_30282a4,candidate_short_lc_rx_handler sub_300c328 sub_3023eb8 sub_3027b9c sub_30280c0 sub_30282a4
+0x33df0,1,1,3,candidate_short_lc_rx_handler,candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_300c328
+0x33df1,1,3,1,candidate_late_entry_rx_handler sub_3023afc sub_3027310,candidate_short_lc_rx_handler
+0x33df4,4,1,14,task_cpchanscan,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler candidate_tx_burst_build sub_300c328 sub_3023b2c sub_3023eb8 task_cpchanscan
+0x3844c,1,1,3,sub_300d284,sub_300d0a4 sub_300d284
+0x3844e,2,1,4,sub_300d284,sub_300d284 sub_301e834 sub_301e850
+0x38450,1,1,3,sub_300d284,sub_300d284 sub_3029d3c
+0x3847c,1,1,3,sub_300d284,sub_300d284 task_rxmsg
+0x38480,1,1,3,rf_switch_worker,rf_switch_worker rf_tx_irq sub_300d490
+0x38481,1,0,3,,rf_rx_irq rf_switch_worker sub_300d490
+0x38484,4,2,0,rf_tx_setup rf_tx_switch,
+0x38488,4,2,0,rf_rx_restore rf_rx_setup,
+0x3848c,4,8,1,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_300d84c sub_300da48 sub_302f678 sub_302f780 sub_305bb6c,sub_300d568
+0x38490,4,8,1,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_300d84c sub_300da48 sub_302f678 sub_302f780 sub_305bb6c,sub_300d568
+0x38494,4,8,1,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_300d84c sub_300da48 sub_302f678 sub_302f780 sub_305bb6c,sub_300d568
+0x38498,4,8,1,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_300d84c sub_300da48 sub_302f678 sub_302f780 sub_305bb6c,sub_300d568
+0x3849c,4,6,2,sub_300d568 sub_301b0c8 sub_301b1ac sub_301b4f0 sub_301b53c tx_level_calibration_lookup,sub_300d568
+0x384a0,4,4,2,sub_301b0c8 sub_301b1ac sub_301b4f0 tx_level_calibration_lookup,sub_300d568
+0x384a4,4,6,2,sub_300d568 sub_301b0c8 sub_301b1ac sub_301b4f0 sub_301b53c tx_level_calibration_lookup,sub_300d568
+0x384a8,4,4,2,sub_301b0c8 sub_301b1ac sub_301b4f0 tx_level_calibration_lookup,sub_300d568
+0x384ac,4,8,1,candidate_menu_page_confirm_delete_3046408 candidate_menu_page_out_of_range_3050f78 sub_300d810 sub_300d84c sub_300da48 sub_301aee0 sub_301b1ac sub_305bb6c,sub_300d568
+0x384b0,4,7,1,candidate_menu_page_out_of_range_3050f78 sub_300d810 sub_300d84c sub_300da48 sub_301aee0 sub_301b1ac sub_305bb6c,sub_300d568
+0x384b4,1,3,4,rf_rx_restore rf_tx_setup rf_tx_switch,candidate_cable_test_mode channel_calibration_load menu_state_098 sub_30553c0
+0x384b5,1,3,1,channel_calibration_load,channel_calibration_load
+0x384b9,1,3,4,candidate_rfic_ctcss_control_set,channel_calibration_load sub_300dd94 sub_30553c0
+0x384ba,2,3,2,candidate_battery_voltage_format sub_300d568 sub_301ba8c,sub_300d568
+0x384bc,2,1,0,sub_301ba8c,
+0x384be,1,3,2,candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit channel_calibration_load,candidate_menu_page_null_ch_3057790 channel_calibration_load
+0x384c1,1,16,7,candidate_menu_multi_page_303b6ac rf_tx_setup rfic_rx_tune sub_300d568 sub_300dd94 sub_300e218 sub_300e530 sub_300ee10 sub_300ee6c sub_302fe48 sub_30301f4 sub_306081c sub_3060a74,candidate_menu_multi_page_303b6ac rf_tx_setup rfic_rx_tune sub_300d568 sub_302fe48 sub_30301f4
+0x384c4,1,1,2,candidate_rfic_tx_deviation_set,channel_calibration_load sub_3055040
+0x384c7,1,0,1,,sub_300d568
+0x384c8,1,0,1,,sub_300d568
+0x384c9,1,0,1,,sub_300d568
+0x384ca,1,0,1,,sub_300d568
+0x384cb,1,0,1,,sub_300d568
+0x384cc,1,0,1,,sub_300d568
+0x384d0,4,0,2,,sub_300e10c
+0x385d4,4,1,0,sub_300dfd8,
+0x386a4,2,7,6,rfic_rx_tune sub_3013940 sub_3067a5c,rfic_rx_tune
+0x386a6,2,1,1,sub_302fe48,candidate_rfic_tone_scan_read
+0x386a8,1,1,1,task_sound,sub_300f258
+0x386aa,2,1,1,sub_302fe48,candidate_rfic_tone_scan_read
+0x386ac,2,1,1,candidate_uses_seek,candidate_rfic_frequency_scan_read
+0x386ae,2,2,2,candidate_rfic_tone_scan_read sub_302fe48,candidate_rfic_tone_scan_read
+0x386b0,2,1,1,candidate_uses_seek,candidate_rfic_frequency_scan_read
+0x386b4,2,3,1,candidate_wav_header_check sub_302236c sub_3022410,sub_300f4fc
+0x386b8,4,10,2,candidate_menu_page_contacts_existed dataflash_page_program dataflash_read_bytes dataflash_sector_erase_at_address sub_3010978 sub_30347d0 sub_30622d0,candidate_cable_program_mode dataflash_set_address
+0x386bc,2,0,1,,sub_300f4fc
+0x386be,1,10,1,candidate_codeplug_block_tag_read candidate_codeplug_free_sector_find candidate_codeplug_map_rebuild,sub_300f4fc
+0x386bf,1,4,1,candidate_codeplug_block_tag_read candidate_codeplug_free_sector_find candidate_codeplug_map_rebuild,sub_300f4fc
+0x386c0,1,2,0,candidate_gps_nmea_parse,
+0x38b24,1,1,2,candidate_timer6_irq,candidate_timer6_irq gps_uart_irq
+0x38b28,1,0,1,,gps_uart_irq
+0x38bbc,1,0,1,,gps_uart_irq
+0x38bbd,1,0,1,,gps_uart_irq
+0x38c88,1,39,13,candidate_gps_field_extract candidate_gps_info_display_3063ea4 candidate_gps_nmea_format candidate_gps_nmea_parse candidate_gps_power_cycle candidate_keyfunc_aprs_send candidate_menu_multi_page_302d838 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_3051,candidate_gps_nmea_parse candidate_gps_power_cycle candidate_timer6_irq gps_uart_irq start_task_gps sub_3054b44 task_gps
+0x38c8a,2,3,1,candidate_ptt_admission sub_301cbc0 sub_3031fd4,sub_3011884
+0x38c8c,4,0,1,,sub_3011884
+0x38c90,2,0,1,,sub_3011884
+0x38c92,2,0,2,,candidate_gps_power_cycle start_task_gps
+0x38c94,1,0,1,,sub_304a45c
+0x38d3d,1,1,2,candidate_gps_field_extract,candidate_gps_field_extract candidate_gps_nmea_parse
+0x38d3e,1,4,3,candidate_datetime_format menu_state_021 sub_30628fc,candidate_setting_set_by_id menu_state_021 sub_304a45c
+0x38d58,2,2,1,candidate_gps_field_extract candidate_gps_nmea_parse,candidate_gps_nmea_parse
+0x38d5a,2,1,2,candidate_gps_nmea_parse,candidate_gps_nmea_parse
+0x38d5c,2,2,2,candidate_gps_field_extract candidate_gps_nmea_parse,candidate_gps_nmea_parse
+0x38d60,1,23,15,candidate_gps_info_display_3062e98 candidate_gps_power_cycle candidate_menu_page_null_ch_3057790 candidate_setting_set_by_id menu_state_021 start_task_gps sub_3011884 sub_30193cc sub_304a45c sub_304d6b0,candidate_gps_power_cycle candidate_menu_page_null_ch_3057790 candidate_setting_set_by_id sub_3011884 sub_304a45c sub_304d6b0
+0x38e3c,1,1,4,candidate_ptt_input_debounce,candidate_ptt_input_debounce start_tasks_keytime_and_1_more
+0x38e3d,1,12,11,candidate_menu_key_handler candidate_ptt_input_debounce start_tasks_keytime_and_1_more sub_3013314 sub_30138c4 sub_3061648 sub_3068a88,candidate_menu_key_handler candidate_ptt_input_debounce start_tasks_keytime_and_1_more sub_3013314 sub_3061648 sub_3068a88
+0x38e44,1,2,2,candidate_radio_mode_apply candidate_tx_stop,candidate_radio_mode_apply candidate_tx_stop
+0x38e45,1,2,2,sub_301355c,sub_301355c
+0x38e46,1,0,1,,candidate_keymsgq_post
+0x38e48,1,1,2,sub_3013470,sub_301340c
+0x38e49,1,1,1,sub_3013470,sub_301340c
+0x38fdd,1,0,1,,candidate_key_get
+0x392e0,1,5,2,candidate_key_event_dispatch,candidate_key_event_dispatch start_tasks_keytime_and_1_more
+0x392e1,1,2,3,candidate_key_event_dispatch,candidate_key_event_dispatch start_tasks_keytime_and_1_more
+0x392e2,1,1,1,candidate_ptt_input_debounce,candidate_ptt_input_debounce
+0x392e3,1,1,1,candidate_ptt_input_debounce,candidate_ptt_input_debounce
+0x392e9,1,7,5,candidate_key_06_release candidate_key_13_release candidate_key_14_press candidate_key_14_release candidate_key_event_dispatch candidate_menu_key_handler sub_301cbc0,candidate_key_event_dispatch
+0x392e9,4,1,0,candidate_key_event_dispatch,
+0x392ea,1,1,2,sub_3061d50,candidate_key_06_press sub_3061d50
+0x392ec,1,40,30,candidate_key_04_press candidate_key_04_release candidate_key_07_press candidate_key_07_release candidate_key_09_press candidate_key_09_release candidate_key_10_press candidate_key_10_release candidate_key_12_press candidate_key_12_release candidate_setting_set_by_id sub_30168cc,candidate_setting_set_by_id sub_30168cc
+0x392f0,1,50,41,candidate_key_04_press candidate_key_04_release candidate_key_07_press candidate_key_07_release candidate_key_09_press candidate_key_09_release candidate_key_10_press candidate_key_10_release candidate_key_12_press candidate_key_12_release candidate_setting_set_by_id sub_30168cc,candidate_setting_set_by_id sub_30168cc
+0x392f4,4,1,2,sub_3016864,candidate_setting_set_by_id sub_30168cc
+0x392f8,4,1,2,sub_3016864,candidate_setting_set_by_id sub_30168cc
+0x392fc,4,1,2,sub_3016864,candidate_setting_set_by_id sub_30168cc
+0x39300,4,1,2,sub_3016864,candidate_setting_set_by_id sub_30168cc
+0x39304,4,1,2,sub_3016864,candidate_setting_set_by_id sub_30168cc
+0x39308,4,1,2,sub_3016cf0,candidate_setting_set_by_id sub_30168cc
+0x3930c,4,1,2,sub_3016cf0,candidate_setting_set_by_id sub_30168cc
+0x39310,4,1,2,sub_3016cf0,candidate_setting_set_by_id sub_30168cc
+0x39314,4,1,2,sub_3016cf0,candidate_setting_set_by_id sub_30168cc
+0x39318,4,1,2,sub_3016cf0,candidate_setting_set_by_id sub_30168cc
+0x3931d,1,3,1,sub_3016864 sub_3016cf0 task_keytime,sub_3016cd4
+0x3931e,1,2,3,sub_3016864 sub_3016cf0,sub_3016864 sub_3016cd4 sub_3016cf0
+0x39320,4,1,12,task_keytime,sub_3016864 sub_3016cf0
+0x39348,4,0,2,,candidate_setting_set_by_id sub_30168cc
+0x3934c,4,0,2,,candidate_setting_set_by_id sub_30168cc
+0x3935c,1,1,2,menu_go_back,candidate_setting_set_by_id sub_304a45c
+0x3935e,2,7,8,sub_3019cf0 sub_3052d20 sub_3052d94,sub_3019cf0 sub_3052ce4 sub_3052d20 sub_3052d94
+0x39388,2,1,2,sub_3052d94,sub_3052ce4
+0x3938a,2,5,3,sub_3019cf0 sub_3052d20 sub_3052d94,sub_3052ce4 sub_3052d20 sub_3052d94
+0x3938c,2,1,1,sub_3019cf0,sub_3019cf0
+0x39458,2,3,4,sub_301bbf8,sub_301bbf8 task_shutdown
+0x3945a,1,1,3,sub_301bbf8,sub_301bbf8 task_shutdown
+0x3945b,1,4,6,candidate_keyfunc_batt_indicator sub_301b9e4 sub_301ba8c,sub_301ba8c
+0x3945c,1,0,1,,sub_305f674
+0x3945d,1,1,2,sub_301b924,sub_301b924
+0x3945e,1,1,1,sub_301ba8c,sub_301ba8c
+0x3945f,1,1,1,candidate_rssi_measure,sub_301bf14
+0x39460,1,0,1,,candidate_rssi_measure
+0x39464,4,16,1,sub_2bb9c,sub_2bb9c
+0x39490,1,5,2,sub_30104b0 sub_30105d0 sub_3010bd4 sub_3010cf8,sub_30622d0
+0x39491,1,4,0,sub_30105d0 sub_3010bd4 sub_3010cf8,
+0x39492,1,1,0,sub_3010cf8,
+0x39493,1,1,0,sub_3010cf8,
+0x3a508,1,1,4,sub_30130f0,sub_30130f0 sub_301cbc0
+0x3a624,4,0,4,,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x3a628,4,12,4,candidate_cable_uart_init candidate_gps_uart_init candidate_timers_init get_u32_3a628 i2c2_rtc_init sub_301d764 sub_301d794 sub_301d858 sub_3021a9c sub_3054b44 sub_3054c7c sub_306d6c0,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x3a62c,4,0,4,,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x3a630,4,0,4,,startup_clock_config sub_2c8c0 sub_3054b44 sub_3054c7c
+0x3a634,4,1,1,candidate_timer3_irq,set_u32_3a634
+0x3a638,1,0,1,,candidate_gpio_init
+0x3a664,1,0,1,,candidate_gpio_init
+0x3a668,2,0,2,,candidate_cable_uart_init sub_3029f80
+0x3a66a,1,1,3,candidate_timer6_irq,cable_uart_irq candidate_timer6_irq
+0x3a66b,1,0,6,,candidate_gps_power_cycle gps_uart_irq sub_3054b44
+0x3b8d4,1,1,5,gps_uart_irq,candidate_gps_power_cycle gps_uart_irq sub_3054b44
+0x3b9c0,1,1,2,candidate_timer6_irq,cable_uart_irq candidate_timer6_irq
+0x3b9c2,2,1,3,cable_uart_irq,cable_uart_irq candidate_cable_uart_init sub_3029f80
+0x3ba3c,1,5,8,candidate_late_entry_rx_handler sub_300d284 sub_301e8a8 sub_3020fe4 sub_30282a4,candidate_call_control_event candidate_layer2_sync_drop sub_300d0a4 sub_301e480 sub_301e868 sub_3020d98 sub_3020fe4
+0x3ba3d,1,4,1,sub_300d0a4 sub_3020fbc sub_30211ec,sub_3020fe4
+0x3ba3e,1,1,4,sub_30211ec,sub_3020fe4
+0x3ba3f,1,0,1,,sub_3020fe4
+0x3ba40,1,6,1,sub_3020fe4 sub_3027b9c,sub_3020fe4
+0x3ba41,1,1,2,task_rxvoice,sub_3020ec8
+0x3ba42,1,2,1,sub_3020fe4,sub_3020fe4
+0x3ba43,1,17,9,candidate_call_control_event sub_300d0a4 sub_300d284 sub_3014f54 sub_301df8c sub_301e480 sub_301e8a8 sub_301fe28 sub_3027b9c sub_302ed04,candidate_call_control_event sub_300d284 sub_301df8c sub_301e480 sub_301fe28 sub_3027b9c
+0x3ba44,1,2,1,sub_300d0a4 sub_300d284,sub_300d284
+0x3ba46,1,1,1,sub_301e480,sub_301e480
+0x3ba4c,4,4,1,get_u32_3ba4c sub_300d284 sub_3020fbc task_record,sub_3020fe4
+0x3ba50,4,3,1,sub_300d284 sub_3020fbc task_record,sub_3020fe4
+0x3ba54,1,0,33,,sub_300d0a4 sub_301df8c sub_301e480 sub_301e868 sub_301fe28 sub_3020d98 sub_3020dc8 sub_3020ec8 sub_3020fe4 sub_3027b9c sub_3029d3c task_rxcsbk task_rxvoice
+0x3ba55,1,6,5,candidate_layer2_sync_drop sub_300d284 sub_301de64 sub_301e8a8 sub_301ed00 sub_3020fe4,candidate_layer2_sync_drop sub_301e480 sub_3020fe4 task_rxvoice
+0x3ba59,1,15,47,candidate_call_control_event candidate_tx_burst_build sub_300d0a4 sub_300d284 sub_301ed00 sub_301f118,candidate_call_control_event candidate_tx_burst_build modem_state_event_set sub_300d0a4 sub_301df8c sub_301e480 sub_301f118 sub_301fe28 sub_3027b9c task_ccltraffic
+0x3ba5d,1,1,1,sub_3020ec8,task_rxvoice
+0x3ba60,1,1,0,sub_300d0a4,
+0x3ba60,4,7,2,candidate_call_display_update sub_3020ec8 sub_302c4fc task_rxcsbk task_rxvoice,task_rxcsbk task_rxvoice
+0x3ba64,4,5,2,get_u32_3ba64 get_u32_3ba64_30209d4 task_rxcsbk task_rxvoice,task_rxcsbk task_rxvoice
+0x3ba68,1,1,3,get_u8_3ba68,sub_300d284 sub_301e834 sub_301e850
+0x3ba69,1,0,1,,sub_301e834
+0x3ba6b,1,1,1,sub_300d284,set_u8_3ba6b
+0x3ba6c,1,30,13,candidate_burst_rx_handler candidate_call_control_event candidate_late_entry_rx_handler modem_local_cc_update_301ec40 sub_300d284 sub_301e580 sub_301e834 sub_301e850 sub_301ec1c sub_301ec28 sub_301ec7c sub_301ec88 sub_301ec94 sub_301eca0 sub_3020d98 sub_302768c sub_3027b9c sub_3028180 sub_30282a4 su,candidate_call_control_event modem_local_cc_update_301ec40 sub_300d284 sub_301e834 sub_301e850 sub_301ec1c sub_301ec28 sub_301ec88 sub_301ec94 sub_301eca0 sub_3020d98 task_ccltraffic
+0x3ba6d,1,29,12,candidate_burst_rx_handler candidate_call_control_event candidate_late_entry_rx_handler sub_300d0a4 sub_301df8c sub_301e8a8 sub_301ebb0 sub_301ec34 sub_301ecf0 sub_301f118 sub_301fe28 sub_302768c task_txslot,candidate_call_control_event sub_300d0a4 sub_301e8a8 sub_301ebb0 sub_301ec34 sub_301ecf0 sub_301f118
+0x3ba6e,1,1,7,candidate_call_control_event,candidate_call_control_event sub_301ebb0 sub_301f118
+0x3ba70,1,2,3,candidate_tx_burst_build,candidate_layer2_sync_drop candidate_tx_burst_build
+0x3ba71,1,1,4,candidate_tx_burst_build,sub_301ed3c
+0x3ba72,1,1,1,candidate_tx_burst_build,sub_301ed3c
+0x3ba73,1,13,6,candidate_late_entry_rx_handler candidate_layer2_sync_drop candidate_tx_burst_build sub_301ed3c sub_301ee6c sub_301ef74,candidate_late_entry_rx_handler candidate_layer2_sync_drop sub_301ed3c sub_301ef74
+0x3ba74,1,3,1,sub_301ee6c,candidate_late_entry_rx_handler
+0x3ba75,1,1,0,sub_301ee6c,
+0x3ba77,1,2,0,sub_301ee6c,
+0x3ba95,1,3,3,sub_301ed3c,sub_301ed3c
+0x3ba96,1,0,2,,sub_301ed3c
+0x3bab8,1,2,1,task_ccltraffic,sub_301eac8
+0x3babc,4,10,1,task_ccltraffic,sub_301eac8
+0x3bac0,1,11,4,get_u8_3bac0 sub_3020628 task_rxmsg,task_rxmsg
+0x3bac1,1,4,4,sub_3020628 task_rxmsg,task_rxmsg
+0x3bac2,2,6,4,task_rxmsg,task_rxmsg
+0x3bac4,2,3,3,task_rxmsg,task_rxmsg
+0x3bac8,4,7,4,sub_3020628 task_rxmsg,task_rxmsg
+0x3bacc,4,8,4,get_u32_3bacc sub_3020628 task_rxmsg,task_rxmsg
+0x3bad0,4,1,2,sub_3020628,task_rxmsg
+0x3bad4,2,1,0,get_u16_3bad4,
+0x3bad4,4,1,4,sub_3020628,task_rxmsg
+0x3bd30,1,7,1,sub_301f118,sub_301f0c8
+0x3bd31,1,9,1,sub_300d0a4 sub_301f118,sub_301f0c8
+0x3bd32,2,30,23,sub_301f118,sub_301f0b0 sub_301f118
+0x3bd34,2,30,45,sub_301f118,sub_301f0b0 sub_301f118
+0x3bd38,4,10,1,candidate_menu_multi_page_302d838 sub_301f118 sub_305ef88,sub_301f0c8
+0x3bd3c,1,1,2,get_u8_3bd3c,sub_301f0f0 task_txmsg
+0x3bd40,4,9,1,sub_301f118,sub_301f0c8
+0x3bd44,2,8,2,sub_301f118,sub_301f0c8 sub_301f0f0
+0x3bd48,1,2,1,sub_30209c0 sub_3020d58,task_rxvoice
+0x3bd49,1,2,4,sub_30209c0 sub_3020d58,task_rxvoice
+0x3bd4c,4,3,1,get_u32_3bd4c sub_30209c0 task_record,task_rxvoice
+0x3bd50,4,3,1,get_u32_3bd50 sub_30209c0 task_record,task_rxvoice
+0x3bd54,1,0,1,,set_u8_3bd54
+0x3bd55,1,9,1,candidate_menu_page_record_off get_u8_3bd55 sub_30618d4 sub_3061930 task_record,set_u8_3bd55
+0x3bd56,1,2,1,candidate_rx_audio_start candidate_tx_audio_start_with_setup,set_u8_3bd56
+0x3bd57,1,3,1,candidate_rx_audio_start candidate_tx_audio_start_with_setup sub_3021220,sub_3021220
+0x3bd58,1,27,18,candidate_call_control_event sub_300d284 sub_301e480 sub_3020dc8 sub_30214f0 sub_3027b9c task_ccltraffic task_rxcsbk task_rxvoice,candidate_call_control_event sub_300d284 sub_301e480 sub_3020dc8 sub_30214f0 sub_3027b9c task_ccltraffic
+0x3bd59,1,22,17,candidate_tx_burst_build modem_state_event_set sub_300d0a4 sub_301e480 sub_3021598 sub_30215a8 task_rxcsbk task_rxvoice,candidate_tx_burst_build modem_state_event_set sub_301e480 sub_3021598 sub_30215a8 task_rxcsbk
+0x3bd5a,1,1,1,sub_300cdc8,modem_state_event_set
+0x3bd5b,1,6,17,sub_300cdc8 sub_300d284 sub_3029d3c task_ccltraffic task_rxvoice,sub_3020dc8 task_rxcsbk
+0x3bd5c,1,1,3,sub_300d284,sub_300d284 sub_3020dc8
+0x3bd60,4,2,2,get_u32_3bd60 sub_300d284,sub_3020dc8
+0x3bd64,1,2,2,task_rxcsbk task_rxvoice,set_u8_3bd64 sub_301e480
+0x3bd68,4,1,2,get_u32_3bd68,task_rxcsbk
+0x3bd6c,1,18,6,candidate_menu_page_mandown_off candidate_rx_audio_start candidate_rx_audio_stop candidate_tx_audio_start candidate_tx_audio_start_with_setup modem_reg_84_update_30217a8 sub_3013ec0 sub_3017084 sub_3021844 sub_305dd00 sub_30654f8,candidate_rx_audio_start candidate_rx_audio_stop candidate_tx_audio_start candidate_tx_audio_start_with_setup modem_reg_84_update_30217a8 sub_3021844
+0x3bd98,1,2,2,sub_3022410,candidate_sound_request candidate_sound_request_with_arg
+0x3be64,1,1,2,task_sound,candidate_sound_request candidate_sound_request_with_arg
+0x3be9a,1,1,0,candidate_phy_rx_ber_test,
+0x3bea0,4,1,1,candidate_sysint_dispatch,system_irq_collect
+0x3bea4,4,0,1,,system_irq_collect
+0x3bea8,1,95,15,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_layer2_slot_timing_slave candidate_layer2_tx_master_clear candidate_layer2_voice_begin_update candidate_rx_slot_ready_handler sub_2d500 sub_302343c sub_3024e7c sub_3025480 sub_3027584 sub_30275f4 sub_3027b9c sub_3028180 sub_30282a4,candidate_burst_rx_handler candidate_layer2_mode_select modem_reg_390_read_3024868 sub_2d500 sub_3023364 sub_3023eb8 task_slottimer
+0x3bea9,1,0,1,,sub_3023364
+0x3beaa,1,17,21,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_30237b8 sub_3023afc sub_3027320 sub_3029334 task_rxcsbk task_rxvoice,candidate_late_entry_rx_handler candidate_short_lc_rx_handler modem_work_mode_update_301ecc0 sub_2d500 sub_3023eb8 sub_3024120 sub_3024e7c sub_3027b9c sub_30280c0 sub_30282a4
+0x3beab,1,1,16,sub_30272ec,candidate_burst_rx_handler candidate_late_entry_rx_handler sub_3023364 sub_3023eb8 sub_3024e7c sub_3025480 sub_3027584 sub_30275f4 sub_3027b9c sub_30280c0 sub_3028180 sub_30282a4
+0x3beac,1,12,25,candidate_rx_slot_ready_handler candidate_tx_queue_commit sub_3024224 sub_302958c sub_3029618 sub_30297a4 sub_3029c54,candidate_late_entry_rx_handler candidate_short_lc_rx_handler modem_work_mode_update_301ecc0 sub_2d500 sub_30237b8 sub_3023eb8 sub_3024120 sub_3024e7c sub_3027b9c sub_30280c0 sub_30282a4
+0x3bead,1,8,7,candidate_layer2_mode_select get_u8_3bead sub_2d500 sub_302343c sub_3024224 task_txslot,candidate_layer2_mode_select sub_2d500 sub_3023364 task_txslot
+0x3beae,1,0,1,,sub_3023364
+0x3beaf,1,10,12,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_layer2_mode_select sub_2d500 sub_302343c sub_30272d4,candidate_burst_rx_handler candidate_short_lc_rx_handler sub_3023364 sub_3023eb8 sub_30275f4
+0x3beb0,1,0,1,,sub_3023364
+0x3beb1,1,11,5,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_rx_slot_ready_handler candidate_short_lc_rx_handler sub_2d500 sub_3023eb8 sub_30272e0,sub_2d500 sub_3023364 sub_3023eb8
+0x3beb2,2,4,5,candidate_rx_slot_ready_handler sub_2d500,sub_2d500 sub_3023364
+0x3beb4,1,1,1,candidate_late_entry_rx_handler,candidate_burst_rx_handler
+0x3beb7,1,1,2,candidate_layer2_mode_select,candidate_layer2_slot_timing_slave sub_3024120
+0x3beb8,2,4,24,sub_302343c task_txslot,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler candidate_tx_burst_build candidate_tx_queue_commit sub_3023364 sub_3024e7c sub_3025480 sub_3027584 sub_30275f4 sub_3027b9c sub_30280c0 sub_3028180 sub_30282a4 task_txslot
+0x3bebb,1,2,4,sub_3024224 sub_30272ec,candidate_rx_slot_ready_handler sub_3023364
+0x3bebc,1,3,3,candidate_rx_slot_ready_handler sub_2d500,sub_2d500
+0x3becc,4,6,1,candidate_burst_rx_handler candidate_late_entry_rx_handler candidate_short_lc_rx_handler sub_3024e7c sub_3027584 sub_3028180,system_irq_collect
+0x3bed0,4,0,1,,task_txslot
+0x3bed8,1,10,10,candidate_layer2_mode_select candidate_layer2_tx_master_clear sub_30241a4 sub_3024418 sub_30244b8 sub_30246f4 sub_3024894,candidate_layer2_tx_master_clear sub_3024120 sub_3024418 sub_302454c sub_30246f4 sub_3024894
+0x3bed9,1,0,2,,modem_reg_390_read_3024868 sub_3024120
+0x3beda,1,10,6,candidate_layer2_tx_master_clear sub_3024224 sub_30243a0 sub_3024418 sub_302454c sub_3024614 sub_3024678,sub_3024120 sub_3024224 sub_30244b8
+0x3bedb,1,3,5,candidate_layer2_tx_master_clear,sub_3024120 sub_3024194 sub_30241a4 sub_3024224
+0x3bedc,1,3,9,candidate_layer2_tx_master_clear sub_3024224,candidate_layer2_tx_master_clear sub_3024120 sub_3024224 sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bedd,1,1,3,sub_30246f4,sub_3024120 sub_30246f4
+0x3bede,1,2,7,sub_3024224,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bedf,1,1,7,candidate_tx_queue_burst_simple,candidate_layer2_mode_select sub_3024120
+0x3bee0,2,18,8,candidate_layer2_tx_master_clear candidate_tx_queue_burst_simple sub_3024120 sub_3024224 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678 sub_30246f4 sub_3024894,candidate_layer2_tx_master_clear sub_3024120 sub_30244b8 sub_30246f4 sub_3024894
+0x3bee1,1,12,7,candidate_layer2_tx_master_clear candidate_tx_queue_burst_simple sub_3024120 sub_3024418 sub_30244b8 sub_302454c sub_3024678 sub_30246f4 sub_3024894,candidate_layer2_tx_master_clear sub_3024120 sub_3024418 sub_30244b8 sub_30246f4 sub_3024894
+0x3bee4,4,12,6,candidate_layer2_tx_master_clear candidate_tx_queue_burst_simple sub_3024418 sub_302454c sub_3024678,candidate_layer2_tx_master_clear sub_3024120 sub_3024418 sub_30244b8 sub_30246f4 sub_3024894
+0x3bee6,2,5,1,candidate_tx_queue_burst_simple sub_3024418 sub_30244b8 sub_302454c sub_3024678,sub_3024418
+0x3bee8,4,19,4,candidate_layer2_tx_master_clear candidate_tx_queue_burst_simple sub_3024120 sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678,candidate_layer2_tx_master_clear sub_3024120
+0x3beea,2,14,4,candidate_layer2_tx_master_clear candidate_tx_queue_burst_simple sub_3024120 sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024894,sub_3024120 sub_30243a0 sub_3024418 sub_3024894
+0x3beec,1,0,7,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3beed,1,0,7,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3beee,2,10,10,candidate_layer2_tx_master_clear sub_30241a4 sub_3024224 sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678,candidate_layer2_tx_master_clear sub_30241a4 sub_3024224 sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3beef,1,8,8,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bef0,1,0,8,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bef4,4,0,8,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bef8,1,0,7,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3befc,4,0,7,,candidate_layer2_tx_master_clear sub_30243a0 sub_3024418 sub_30244b8 sub_302454c sub_3024614 sub_3024678
+0x3bf00,1,4,7,sub_300d0a4 sub_302695c sub_3026e78 sub_3027050,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf01,1,0,11,,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf02,1,0,1,,sub_3026bb8
+0x3bf03,1,0,7,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf04,1,0,16,,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf05,1,0,15,,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf06,1,0,2,,sub_3026e78 sub_3027050
+0x3bf07,1,0,2,,sub_3026e78 sub_3027050
+0x3bf08,1,0,2,,sub_3026e78 sub_3027050
+0x3bf0f,1,0,16,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf11,1,14,20,sub_302695c sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050,sub_3026518 sub_302695c sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf12,1,0,4,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf13,1,4,5,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050,sub_3024e6c sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf14,1,0,8,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf16,1,0,3,,sub_3026518
+0x3bf17,1,0,3,,sub_3026518
+0x3bf18,1,0,3,,sub_3026518
+0x3bf1c,1,0,5,,sub_302695c sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf1e,1,0,2,,sub_3026bb8
+0x3bf26,1,2,8,sub_3026600,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf28,4,1,7,sub_302695c,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf2c,4,1,7,sub_302695c,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf30,2,0,7,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf32,2,0,7,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf34,1,9,9,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf35,1,0,9,,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3bf4b,1,0,2,,sub_3026bb8
+0x3bf4c,1,0,2,,sub_3026bb8
+0x3bf4d,1,0,1,,sub_3026bb8
+0x3bf4e,1,0,1,,sub_3026bb8
+0x3bf4f,1,0,1,,sub_3026bb8
+0x3c26c,2,11,16,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3c26e,2,0,5,,sub_3026518 sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3c272,2,0,8,,sub_3026a14 sub_3026bb8 sub_3026e78 sub_3027050
+0x3c278,1,1,6,task_rxmsg,sub_3024e7c
+0x3c279,1,2,6,sub_3025480 task_rxmsg,sub_3024e7c
+0x3c27a,1,0,2,,sub_3024e7c
+0x3c27b,1,0,2,,sub_3024e7c
+0x3c27c,1,3,6,sub_3024e7c sub_3025480,sub_3024e7c
+0x3c27d,1,0,1,,sub_3024e7c
+0x3c27e,1,0,6,,sub_3024e7c
+0x3c27f,1,1,1,sub_3024e7c,sub_3024e7c
+0x3c280,1,0,1,,sub_3024e7c
+0x3c281,1,0,1,,sub_3024e7c
+0x3c282,1,3,2,sub_3025480,sub_3024e7c
+0x3c283,1,3,4,sub_3024e7c sub_3025480,sub_3024e7c
+0x3c284,1,4,7,sub_3024e7c sub_3025480,sub_3024e7c
+0x3c285,1,0,3,,sub_3024e7c
+0x3c286,1,5,1,sub_3025480,sub_3024e7c
+0x3c287,1,0,2,,sub_3024e7c
+0x3c289,1,3,6,sub_301f118,sub_3024e7c sub_3025480
+0x3c28a,1,3,6,sub_301f118,sub_3024e7c sub_3025480
+0x3c28b,1,0,6,,sub_3024e7c sub_3025480
+0x3c28c,1,0,1,,sub_3024e7c
+0x3c28d,1,0,1,,sub_3024e7c
+0x3c28e,2,0,1,,sub_3024e7c
+0x3c292,1,2,2,sub_3025480,sub_3024e7c
+0x3c293,1,0,1,,sub_3024e7c
+0x3c294,1,0,1,,sub_3024e7c
+0x3c295,1,2,1,sub_3025480,sub_3024e7c
+0x3c296,1,0,1,,sub_3024e7c
+0x3c297,1,0,1,,sub_3024e7c
+0x3c298,1,0,1,,sub_3024e7c
+0x3c299,1,0,1,,sub_3024e7c
+0x3c29b,1,0,1,,sub_3024e7c
+0x3c29c,1,0,1,,sub_3024e7c
+0x3c2a4,4,1,6,task_rxmsg,sub_3024e7c
+0x3c2a8,4,1,6,task_rxmsg,sub_3024e7c
+0x3c2ac,2,1,5,task_rxmsg,sub_302530c
+0x3c2ae,2,0,1,,sub_3024e6c
+0x3c2b0,2,1,5,task_rxmsg,sub_302530c
+0x3c2b3,1,4,4,sub_3025480,sub_3024e7c sub_3025480
+0x3c2b4,1,3,4,sub_3025480,sub_3024e7c sub_3025480
+0x3c2b5,1,1,6,sub_3025480,sub_3024e7c
+0x3c5f4,4,3,18,sub_3025480 task_rxmsg,sub_3024e7c sub_3025480
+0x3c5fc,4,15,6,sub_3024e7c sub_3025480,sub_3024e7c sub_3025480
+0x3c600,2,0,2,,sub_3025480
+0x3c602,2,1,3,sub_3025480,sub_3025480
+0x3c604,4,6,7,sub_3025480,sub_3024e7c sub_3025480
+0x3c608,4,2,2,sub_3025480,sub_3025480
+0x3c60c,1,5,5,sub_3025480 task_rxmsg,sub_3024e7c sub_3025480
+0x3c610,1,4,1,candidate_burst_rx_handler,candidate_burst_rx_handler
+0x3c616,1,1,2,sub_30237ac,candidate_burst_rx_handler
+0x3c619,1,0,3,,candidate_burst_rx_handler candidate_late_entry_rx_handler
+0x3c61a,1,8,5,get_u8_3c61a sub_3024e7c sub_3025480 sub_3027334 sub_3027584 sub_3027b9c sub_3028180 sub_30282a4,candidate_burst_rx_handler candidate_late_entry_rx_handler sub_3029318
+0x3c61b,1,0,5,,modem_local_cc_update_301ec40 sub_301e580
+0x3c61c,1,4,12,candidate_late_entry_rx_handler sub_30282a4 task_rxvoice,candidate_late_entry_rx_handler sub_30282a4
+0x3c61d,1,1,19,sub_3027360,candidate_late_entry_rx_handler sub_30234e8 sub_3028180 sub_30282a4 sub_3029318
+0x3c61e,1,0,7,,candidate_late_entry_rx_handler sub_30282a4
+0x3c61f,1,3,11,candidate_late_entry_rx_handler sub_30282a4 task_rxvoice,candidate_late_entry_rx_handler sub_3028180 sub_30282a4
+0x3c620,1,0,2,,sub_30234e8 sub_3029318
+0x3c620,2,1,0,candidate_layer2_voice_begin_update,
+0x3c621,1,0,2,,sub_30234e8 sub_3029318
+0x3c622,1,1,2,sub_301ed30,sub_30234e8 sub_3029318
+0x3c622,2,1,0,sub_301ed00,
+0x3c623,1,1,2,sub_301ed30,sub_30234e8 sub_3029318
+0x3c624,1,0,2,,candidate_layer2_sync_drop sub_30234e8
+0x3c625,1,0,2,,candidate_layer2_sync_drop sub_30234e8
+0x3c626,1,0,1,,sub_30234e8
+0x3c627,1,0,1,,sub_30234e8
+0x3c6d2,1,10,2,candidate_burst_rx_handler,candidate_burst_rx_handler
+0x3c6d3,1,1,2,candidate_rx_burst_ring_read,candidate_burst_rx_handler
+0x3c6d6,1,0,2,,sub_3027b9c
+0x3c6d7,1,0,1,,sub_3027b9c
+0x3c6d8,1,0,2,,sub_3027b9c
+0x3c6d9,1,0,2,,sub_3027b9c
+0x3c6da,1,0,2,,sub_3027b9c
+0x3c6db,1,0,1,,sub_3027b9c
+0x3c6e8,1,1,1,sub_302938c,sub_30293ac
+0x3c6e9,1,0,2,,sub_302938c sub_30293ac
+0x3c6ea,1,0,1,,sub_30293ac
+0x3c6eb,1,1,4,task_slottimer,sub_30293ac task_slottimer
+0x3c6ec,1,1,3,task_slottimer,sub_302938c sub_30293ac task_slottimer
+0x3c6f3,1,2,1,candidate_tx_burst_build,sub_3029674
+0x3c6f4,1,2,2,candidate_tx_burst_build,candidate_layer2_sync_drop candidate_tx_burst_build
+0x3c6f5,1,0,1,,sub_3029674
+0x3c6f6,1,1,2,candidate_tx_burst_build,sub_3029674
+0x3c6f7,1,1,2,candidate_tx_burst_build,candidate_tx_burst_build
+0x3c6f8,1,12,7,candidate_tx_burst_build sub_3029674,candidate_tx_burst_build sub_3029674
+0x3c6f9,1,5,6,candidate_tx_burst_build,candidate_tx_burst_build sub_3029674
+0x3c6fa,1,0,1,,candidate_tx_burst_build
+0x3c6fb,1,0,1,,candidate_tx_burst_build
+0x3c794,4,3,1,sub_2d500 sub_30234e8 sub_3029e4c,sub_3029438
+0x3c798,4,3,1,sub_2d500 sub_30234e8 sub_3029e4c,sub_3029438
+0x3c79c,4,0,2,,sub_30234e8 sub_3029438
+0x3c7a0,4,0,2,,sub_30234e8 sub_3029438
+0x3c7bc,1,2,1,candidate_tx_burst_ring_write,candidate_tx_burst_ring_write
+0x3c7bd,1,3,1,candidate_tx_burst_build,candidate_tx_burst_ring_write
+0x3c7c1,1,2,6,candidate_tx_burst_build,candidate_tx_burst_build
+0x3c7c4,1,0,1,,sub_3029c3c
+0x3c7c5,1,0,1,,sub_3029c3c
+0x3c7d0,4,0,1,,sub_3029c3c
+0x3c7d4,4,0,1,,sub_3029c3c
+0x3c810,1,1,1,candidate_tx_queue_slot_alloc,sub_3029438
+0x3c830,4,0,1,,sub_3029438
+0x3c834,1,1,0,candidate_tx_queue_slot_alloc,
+0x3cf18,1,2,4,sub_3029ea8,sub_3029e9c sub_3029ea8
+0x3cf19,1,3,5,sub_3029ea8,sub_3029e9c sub_3029ea8
+0x3cf1c,1,4,11,candidate_cable_program_mode candidate_cable_sysinfo,candidate_cable_program_mode candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf1d,1,2,2,candidate_cable_sysinfo,candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf1e,1,2,16,candidate_cable_sysinfo,candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf1f,1,4,4,candidate_cable_sysinfo,candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf20,1,3,2,candidate_cable_sysinfo,candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf21,1,1,2,candidate_cable_sysinfo,candidate_cable_sysinfo candidate_codeplug_factory_defaults
+0x3cf23,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf27,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf28,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf29,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf2a,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf2b,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf2c,1,0,9,,candidate_codeplug_factory_defaults
+0x3cf2d,1,0,4,,candidate_codeplug_factory_defaults
+0x3cf2e,1,0,5,,candidate_codeplug_factory_defaults
+0x3cf2f,1,0,5,,candidate_codeplug_factory_defaults
+0x3cf30,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf31,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf32,1,0,5,,candidate_codeplug_factory_defaults
+0x3cf33,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf34,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf35,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf36,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf37,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf38,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf39,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf3b,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf3c,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf3d,1,0,4,,candidate_codeplug_factory_defaults
+0x3cf3f,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf41,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf43,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf45,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf47,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf48,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf49,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf4a,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf4b,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf4c,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf4d,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf4e,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf4f,1,0,3,,candidate_codeplug_factory_defaults
+0x3cf51,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf53,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf5c,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf5d,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf5e,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf5f,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf62,1,0,1,,candidate_codeplug_factory_defaults
+0x3cf7c,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf7d,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf7e,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf7f,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf80,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf81,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf9c,1,0,2,,candidate_codeplug_factory_defaults
+0x3cf9d,1,0,2,,candidate_codeplug_factory_defaults
+0x3cfad,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfbf,1,0,2,,candidate_codeplug_factory_defaults
+0x3cfc0,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfc1,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfc2,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfc3,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfcc,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfcd,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfce,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfd0,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfd2,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfd4,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfd6,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfd8,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfda,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfdc,1,0,1,,candidate_codeplug_factory_defaults
+0x3cfde,1,0,1,,candidate_codeplug_factory_defaults
+0x3d01c,1,0,2,,candidate_codeplug_factory_defaults
+0x3d01d,1,0,1,,candidate_codeplug_factory_defaults
+0x3d01e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d01f,1,0,1,,candidate_codeplug_factory_defaults
+0x3d020,1,0,2,,candidate_codeplug_factory_defaults
+0x3d021,1,0,2,,candidate_codeplug_factory_defaults
+0x3d025,1,0,1,,candidate_codeplug_factory_defaults
+0x3d026,1,0,1,,candidate_codeplug_factory_defaults
+0x3d02c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d02e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d03c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d04c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d05c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d0af,1,0,1,,candidate_codeplug_factory_defaults
+0x3d118,1,0,1,,sub_30675c0
+0x3d118,4,1,0,sub_3067584,
+0x3d119,1,0,1,,sub_30675c0
+0x3d11a,1,0,1,,sub_30675c0
+0x3d11b,1,0,2,,candidate_codeplug_factory_defaults sub_30675c0
+0x3d12c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d130,1,0,1,,candidate_codeplug_factory_defaults
+0x3d21c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d222,1,0,1,,candidate_codeplug_factory_defaults
+0x3d223,1,0,1,,candidate_codeplug_factory_defaults
+0x3d224,1,0,1,,candidate_codeplug_factory_defaults
+0x3d225,1,0,1,,candidate_codeplug_factory_defaults
+0x3d226,1,0,1,,candidate_codeplug_factory_defaults
+0x3d227,1,0,2,,candidate_codeplug_factory_defaults
+0x3d228,1,0,2,,candidate_codeplug_factory_defaults
+0x3d229,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22a,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22b,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22c,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22d,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22e,1,0,2,,candidate_codeplug_factory_defaults
+0x3d22f,1,0,1,,candidate_codeplug_factory_defaults
+0x3d230,1,0,1,,candidate_codeplug_factory_defaults
+0x3d231,1,0,1,,candidate_codeplug_factory_defaults
+0x3d232,1,0,1,,candidate_codeplug_factory_defaults
+0x3d233,1,0,1,,candidate_codeplug_factory_defaults
+0x3d234,1,0,1,,candidate_codeplug_factory_defaults
+0x3d235,1,0,1,,candidate_codeplug_factory_defaults
+0x3d24e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d41c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d41d,1,0,1,,candidate_codeplug_factory_defaults
+0x3d41e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d41f,1,0,1,,candidate_codeplug_factory_defaults
+0x3d420,1,0,1,,candidate_codeplug_factory_defaults
+0x3d421,1,0,1,,candidate_codeplug_factory_defaults
+0x3d422,1,0,1,,candidate_codeplug_factory_defaults
+0x3d423,1,0,1,,candidate_codeplug_factory_defaults
+0x3d51d,1,0,1,,candidate_codeplug_factory_defaults
+0x3d51e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d61c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d65c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d65d,1,0,1,,candidate_codeplug_factory_defaults
+0x3d65e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d65f,1,0,1,,candidate_codeplug_factory_defaults
+0x3d660,1,0,1,,candidate_codeplug_factory_defaults
+0x3d661,1,0,1,,candidate_codeplug_factory_defaults
+0x3d93c,1,0,1,,candidate_codeplug_factory_defaults
+0x3d93e,1,0,1,,candidate_codeplug_factory_defaults
+0x3d940,1,0,1,,candidate_codeplug_factory_defaults
+0x3d941,1,0,1,,candidate_codeplug_factory_defaults
+0x3d942,1,0,1,,candidate_codeplug_factory_defaults
+0x3d943,1,0,1,,candidate_codeplug_factory_defaults
+0x3d9ac,1,0,1,,candidate_codeplug_factory_defaults
+0x3d9ae,1,0,1,,candidate_codeplug_factory_defaults
+0x3d9cc,1,0,1,,candidate_codeplug_factory_defaults
+0x3d9cd,1,0,1,,candidate_codeplug_factory_defaults
+0x3d9cf,1,0,1,,candidate_codeplug_factory_defaults
+0x3da1d,1,0,1,,candidate_codeplug_factory_defaults
+0x3da1e,1,0,1,,candidate_codeplug_factory_defaults
+0x3da23,1,0,1,,candidate_codeplug_factory_defaults
+0x3da24,1,0,1,,candidate_codeplug_factory_defaults
+0x3da25,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd1d,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd1e,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd1f,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd20,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd22,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd23,1,0,1,,candidate_codeplug_factory_defaults
+0x3dd24,1,0,1,,candidate_codeplug_factory_defaults
+0x3df17,1,0,1,,candidate_codeplug_factory_defaults
+0x3df1b,1,0,16,,candidate_codeplug_factory_defaults
+0x3e0dc,1,1,12,sub_302b834,sub_302b834 sub_305dd38 sub_305e3f0 sub_305e654 sub_305eb8c sub_305ed90 sub_305ee08
+0x3e0dc,4,3,0,task_calldisp,
+0x3e0dd,1,1,4,sub_302c350,sub_302c350 sub_305e5e4 sub_305ea58
+0x3e0de,1,1,3,sub_302dbec,menu_state_097 sub_302c54c sub_302dbec
+0x3e0df,1,3,5,sub_302cf08,sub_302cf08 sub_302d7fc
+0x3e0e0,1,1,6,sub_302d598,sub_302c200 sub_302d178 sub_302d598 sub_302d6fc
+0x3e0e0,4,3,0,task_calldisp,
+0x3e0e1,1,1,3,sub_302ccd0,sub_302ccd0
+0x3e0e2,1,1,3,sub_302d178,sub_302d148 sub_302d178
+0x3e0e3,1,18,1,candidate_menu_key_handler candidate_menu_page_tx_limit get_u8_3e0e3 menu_state_091 sub_3013f40 sub_3013f58 sub_301cbc0 sub_302c54c sub_302dbec sub_302ed04 sub_305e134 sub_305e68c sub_3061210,sub_302c54c
+0x3e0e4,1,2,2,menu_state_091 sub_302c54c,menu_state_000 sub_302c54c
+0x3e0e4,4,3,0,task_calldisp,
+0x3e0e5,1,10,4,candidate_menu_key_handler get_u8_3e0e5 menu_state_097 sub_302dbec sub_305e8ac task_record,menu_state_000 sub_302dbec
+0x3e0e6,1,54,34,candidate_call_display_update candidate_menu_key_handler candidate_menu_page_msg_send_failed candidate_menu_page_tx_limit candidate_ptt_admission sub_30174e0 sub_302c100 sub_302c200 sub_302c350 sub_302c54c sub_302ce14 sub_302d4e4 sub_302d6fc sub_302d7fc sub_302dbec sub_305e3f0 sub_305e8ac,candidate_call_display_update candidate_menu_key_handler candidate_ptt_admission sub_302c100 sub_302c200 sub_302c350 sub_302c54c sub_302ce14 sub_302d4e4 sub_302d6fc sub_302d7fc sub_302dbec sub_305e3f0 sub_305e8ac
+0x3e0e7,1,27,17,candidate_menu_page_alarm_siren candidate_menu_page_no_ack candidate_menu_page_sending sub_302c32c sub_302c54c sub_302ce54 sub_302d178 sub_302d6b4 sub_302d7fc sub_302dbec,candidate_menu_page_alarm_siren candidate_menu_page_no_ack candidate_menu_page_sending sub_302c32c sub_302c54c sub_302ce54 sub_302d178 sub_302d6b4 sub_302d7fc sub_302dbec
+0x3e0e8,1,26,17,sub_302c4fc sub_302dbec sub_305c1e0 sub_305e3f0 sub_305e8ac sub_305ea58 sub_305ee08 sub_305ef88 task_calldisp,sub_302c4fc sub_302dbec sub_305c1e0 sub_305e3f0 sub_305e8ac sub_305ea58 sub_305ee08 sub_305ef88 task_calldisp
+0x3e0ec,4,11,2,candidate_call_display_update candidate_menu_multi_page_302c880 candidate_menu_page_tx_limit sub_302c54c sub_305c1e0 sub_305e3f0,sub_305e3f0
+0x3e0f0,1,7,2,candidate_call_display_update candidate_menu_page_tx_limit sub_302c4fc sub_305c1e0 sub_305e3f0 task_record,sub_305e3f0
+0x3e0f4,4,11,3,candidate_call_display_update candidate_menu_page_tx_limit sub_302c3a0 sub_302c54c sub_305e8ac,sub_305e8ac
+0x3e0f8,1,5,3,candidate_call_display_update candidate_menu_page_tx_limit sub_305e8ac sub_305ea58 task_record,sub_305e8ac
+0x3e13b,1,11,8,candidate_call_display_update candidate_menu_multi_page_302d838 candidate_menu_page_null_ch_3057790 candidate_menu_page_sending menu_state_097 sub_302dbec sub_3031fd4 sub_305e5e4 sub_305e8ac,candidate_menu_multi_page_302d838 candidate_menu_page_null_ch_3057790 candidate_menu_page_sending sub_302dbec sub_3031fd4 sub_305e5e4 sub_305e8ac
+0x3e13c,2,3,12,sub_302b834 sub_302c350 sub_302ccd0,candidate_radio_mode_apply sub_302b834 sub_302c350 sub_302ccd0 sub_305c1e0 sub_305e3f0 sub_305e8ac sub_306081c sub_3060a74 sub_3068a88
+0x3e140,4,4,2,candidate_call_display_update sub_305dd38 sub_305e6dc,sub_302c54c
+0x3e144,1,2,2,candidate_menu_page_to sub_302edc8,candidate_setting_set_by_id sub_302f780
+0x3e148,4,2,1,sub_302f6a4 sub_305bb6c,sub_302f6a4
+0x3e14c,1,0,5,,sub_302fc18
+0x3e14d,1,1,2,sub_302fc18,sub_302fc18
+0x3e150,1,1,5,sub_3013940,candidate_uses_seek sub_3013940 sub_306081c
+0x3e151,1,2,2,sub_3013940,sub_3013940 sub_302fe48
+0x3e152,2,2,3,sub_302fe48,sub_302fb70 sub_302fe48
+0x3e154,2,1,2,sub_302fe48,sub_302fb70 sub_302fe48
+0x3e156,1,1,3,sub_3013940,sub_302fa24 sub_302fb70
+0x3e157,1,1,7,sub_303009c,candidate_menu_page_to sub_3013940 sub_302fa24 sub_302fb70 sub_303009c
+0x3e158,4,2,1,sub_302f6a4 sub_305bb6c,sub_302f6a4
+0x3e15c,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e15d,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e15e,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e15f,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e160,1,9,1,candidate_menu_multi_page_303b6ac candidate_menu_page_to sub_302e974 sub_302e99c sub_302f3d0 sub_302f780 sub_302f91c,sub_302f780
+0x3e161,1,23,7,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty candidate_menu_page_member_is_full_302e7c0 candidate_menu_page_pri_setting sub_302e1a4 sub_302e54c sub_302e6c8 sub_302e810 sub_302ec0c sub_302ec44 sub_302edc8 sub_302f2f8 sub_304d970 sub_304ec70 sub_3050cc0 sub_3056e2c,sub_302e1a4 sub_302e54c sub_302e6c8 sub_302f2f8 sub_3043b00 sub_3051b30
+0x3e162,1,5,1,candidate_menu_page_tx_limit sub_302e1a4 sub_302edc8 sub_3060a74,sub_302e1a4
+0x3e163,1,2,1,sub_302edc8,sub_302f780
+0x3e164,1,13,1,candidate_menu_channel_list sub_302e1a4 sub_302edc8 sub_3051b30,sub_302e1a4
+0x3e166,2,5,0,candidate_menu_page_tx_limit sub_301742c sub_302e1a4,
+0x3e168,2,8,1,candidate_menu_channel_list sub_301a768 sub_302e1a4 sub_302edc8 sub_302f2f8 sub_3051b30,sub_302e1a4
+0x3e16a,2,8,1,candidate_menu_channel_list sub_301a768 sub_302e1a4 sub_302edc8 sub_302f2f8 sub_3051b30,sub_302e1a4
+0x3e16c,1,1,0,candidate_menu_page_tx_limit,
+0x3e16d,1,1,1,sub_3014f54,sub_3014f54
+0x3e16e,1,5,6,sub_302edc8 sub_302f2f8,sub_302edc8 sub_302f370
+0x3e16f,1,18,11,sub_302ec68 sub_302ec78 sub_302ec84 sub_302ec94 sub_302eca0 sub_302edc8 sub_3060a74,sub_302ec68 sub_302ec84 sub_302eca0 sub_302edc8
+0x3e170,1,30,16,candidate_keyfunc_monitor candidate_menu_page_list_is_empty candidate_menu_page_null_ch menu_state_006 menu_state_007 sub_301409c sub_3016edc sub_301742c sub_3018e68 sub_301a768 sub_301cbc0 sub_302e144 sub_302e1a4 sub_302edc8 sub_302f2f8 sub_302f418 sub_302f780 sub_3049498 sub_304c720 sub_305e134 su,candidate_menu_page_list_is_empty menu_state_006 sub_3016edc sub_301cbc0 sub_302e144 sub_302e1a4 sub_302edc8 sub_302f2f8 sub_302f418 sub_302f780
+0x3e171,1,4,2,candidate_menu_page_null_ch menu_state_000 sub_302f388,sub_302f388
+0x3e172,1,4,1,get_u8_3e172 sub_3013940 sub_302eca0 task_scandisp,sub_302eca0
+0x3e173,1,1,1,sub_3031b7c,sub_302eca0
+0x3e174,2,3,3,sub_301a768 sub_3031fd4,candidate_uses_noaa sub_302ece8 sub_302edc8
+0x3e176,2,3,1,sub_302e1a4,sub_302e1a4
+0x3e1ac,1,0,1,,sub_302e1a4
+0x3e1b4,2,11,1,candidate_menu_multi_page_304ddb0 candidate_menu_page_null_ch_3057790 sub_301a768 sub_302edc8 sub_302f2f8 sub_3031b7c sub_3031fd4 sub_3057510 sub_305dfa4 sub_305e134,candidate_menu_page_null_ch_3057790
+0x3e1b6,2,2,3,candidate_menu_page_tx_limit sub_302edc8,sub_302edc8
+0x3e1b8,2,0,2,,sub_302e144 sub_302e1a4
+0x3e1ba,2,11,1,candidate_menu_page_null_ch sub_301a768 sub_303150c sub_3031658,sub_302edc8
+0x3e1bc,1,6,4,sub_302e1a4 sub_302edc8 sub_302f3d0,sub_302e1a4
+0x3e1bd,1,11,7,candidate_menu_page_null_ch_3057790 candidate_menu_page_to menu_state_022 menu_state_023 sub_301cbc0 sub_302edc8 sub_30301f4,candidate_menu_page_to menu_state_022 menu_state_023 sub_301cbc0 sub_302edc8
+0x3e1be,1,6,2,candidate_menu_page_list_is_empty candidate_menu_page_to menu_state_005,candidate_menu_page_list_is_empty sub_302f780
+0x3e1c0,4,1,2,candidate_uses_seek,candidate_uses_seek sub_302fb70
+0x3e1c4,4,2,1,sub_302f6a4 sub_305bb6c,sub_302f6a4
+0x3e1c8,1,1,5,sub_3013940,candidate_uses_seek sub_3013940 sub_302fa24 sub_306081c
+0x3e1cc,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e1cd,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e1ce,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e1cf,1,1,1,candidate_setting_set_by_id,sub_302f780
+0x3e1d0,4,2,1,sub_302f6a4 sub_305bb6c,sub_302f6a4
+0x3e1d4,1,1,2,sub_302fff8,sub_302fe48
+0x3e1d8,2,1,5,sub_3031fd4,candidate_keyfunc_digital_encrypt candidate_menu_page_lone_work_off candidate_menu_page_tx_limit
+0x3e1da,1,0,1,,sub_3031fd4
+0x3e1db,1,36,26,candidate_analog_tx_start candidate_call_display_update candidate_keyfunc_freq_search candidate_keyfunc_monitor candidate_menu_key_handler candidate_menu_page_null_ch_3057790 sub_300e2c0 sub_300e360 sub_3013940 sub_302dbec sub_302edc8 sub_305c1e0 sub_305e3f0 sub_3060468 sub_306048c sub_3060ec4 sub_3,candidate_analog_tx_start candidate_call_display_update candidate_keyfunc_freq_search candidate_keyfunc_monitor candidate_menu_key_handler candidate_menu_page_null_ch_3057790 sub_300e2c0 sub_300e360 sub_3013940 sub_302dbec sub_302edc8 sub_305c1e0 sub_305e3f0 sub_3060468 sub_3064a84
+0x3e1dc,1,15,10,candidate_ptt_input_debounce rf_restore_worker rf_rx_restore rf_tx_switch sub_3013314 sub_3054110 sub_3061648 sub_3068a88 task_calldisp,candidate_ptt_input_debounce rf_rx_restore rf_tx_switch sub_3013314 sub_3054110 sub_3061648 sub_3068a88
+0x3e1dd,1,7,3,candidate_menu_page_radio_id sub_304f758 sub_3050d2c sub_3052b54 sub_3054110,sub_3054110
+0x3e1e0,1,0,1,,sub_301a574
+0x3e1e1,1,0,2,,sub_301a574
+0x3e1e2,1,0,1,,sub_301a574
+0x3e1f4,1,5,4,sub_301a574,sub_301a574
+0x3e1f8,1,42,9,candidate_analog_tx_start candidate_keyfunc_digital_encrypt candidate_keyfunc_switch_chtype candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load menu_state_000 menu_state_005 sub_300de8c su,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek sub_3055600 sub_305bc8c sub_305bcc0
+0x3e1f8,4,10,1,candidate_menu_page_null_ch sub_3030edc sub_3031b7c,sub_3030370
+0x3e1f9,1,42,9,candidate_analog_tx_start candidate_keyfunc_digital_encrypt candidate_keyfunc_switch_chtype candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load menu_state_000 menu_state_005 sub_300de8c su,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek sub_3055600 sub_305bc8c sub_305bcc0
+0x3e1fa,1,42,9,candidate_analog_tx_start candidate_keyfunc_digital_encrypt candidate_keyfunc_switch_chtype candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load menu_state_000 menu_state_005 sub_300de8c su,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek sub_3055600 sub_305bc8c sub_305bcc0
+0x3e1fb,1,42,9,candidate_analog_tx_start candidate_keyfunc_digital_encrypt candidate_keyfunc_switch_chtype candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load menu_state_000 menu_state_005 sub_300de8c su,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek sub_3055600 sub_305bc8c sub_305bcc0
+0x3e1fc,1,32,8,candidate_analog_tx_start candidate_band_region_display candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit channel_calibration_load sub_300dd94 sub_3,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055600
+0x3e1fc,4,2,1,sub_3030edc sub_3031b7c,sub_3030370
+0x3e1fd,1,31,8,candidate_analog_tx_start candidate_band_region_display candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load sub_300dd94 sub_3014f54 sub_301bdb4 sub_302f59,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055600
+0x3e1fe,1,31,8,candidate_analog_tx_start candidate_band_region_display candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load sub_300dd94 sub_3014f54 sub_301bdb4 sub_302f59,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055600
+0x3e1ff,1,31,8,candidate_analog_tx_start candidate_band_region_display candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 channel_calibration_load sub_300dd94 sub_3014f54 sub_301bdb4 sub_302f59,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055600
+0x3e200,1,144,21,candidate_analog_tx_start candidate_cable_test_mode candidate_keyfunc_digital_encrypt candidate_keyfunc_freq_search candidate_keyfunc_monitor candidate_keyfunc_roaming candidate_menu_key_handler candidate_menu_message_boxes candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588 candidat,candidate_cable_test_mode candidate_menu_page_lone_work_off candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_menu_page_tx_limit candidate_setting_set_by_id menu_state_098 sub_302fa24 sub_30553c0 sub_30570e8 sub_305c1e0 su
+0x3e200,4,1,1,sub_3030edc,sub_3030370
+0x3e201,1,42,11,candidate_cable_test_mode candidate_keyfunc_digital_encrypt candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_list_is_empty candidate_menu_page_lone_work_off candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_,candidate_cable_test_mode candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_setting_set_by_id menu_state_098 sub_302f59c sub_30553c0
+0x3e202,1,26,2,candidate_keyfunc_digital_encrypt candidate_menu_multi_page_3044248 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit sub_301bdb4 sub_302f59c sub_30,candidate_menu_page_member_is_full sub_30566cc
+0x3e203,1,18,0,candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_null_ch_3057790 sub_301bdb4 sub_302f59c sub_3056ffc sub_30570e8 sub_30571cc sub_30572b8 sub_30573a0 sub_3057688 sub_305cff0 sub_305d0a0 sub_3062744 sub_3062828,
+0x3e204,1,29,6,candidate_cable_test_mode candidate_keyfunc_digital_encrypt candidate_menu_multi_page_3044248 candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 channel_calibration_,candidate_cable_test_mode candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_098 sub_300de8c sub_3062744
+0x3e204,4,1,1,sub_3030edc,sub_3030370
+0x3e205,1,32,7,candidate_call_display_update candidate_keyfunc_digital_encrypt candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_301bdb4 sub_,candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_3056ffc sub_30571cc sub_30572b8
+0x3e206,1,23,1,candidate_keyfunc_digital_encrypt candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_none_30450ec candidate_menu_page_null_ch_3057790 sub_301bdb4 sub_302f59c sub_3056ffc sub_30570e8 sub_30571cc sub_30572b8 sub_30573a0 sub_3057688 sub_305cdc4 sub_305cff0 sub_305d0,sub_305cff0
+0x3e207,1,29,6,candidate_keyfunc_digital_encrypt candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_none_30450ec candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_301bdb4 s,candidate_keyfunc_digital_encrypt candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_30573a0 sub_305d0a0
+0x3e208,1,1,1,menu_state_021,sub_3062828
+0x3e208,4,0,1,,sub_3030370
+0x3e209,1,25,11,candidate_keyfunc_ctc_dcs_scan candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0 candidate_menu_page_list_is_empty candidate_menu_page_none_30450ec menu_state_005 rfic_rx_tune sub_300e218 sub_3019570 sub_302fe48 sub_30301f4 sub_3045f1c sub_3049498 sub_306,candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek menu_state_005 sub_302fe48 sub_3055154
+0x3e20a,1,25,11,candidate_keyfunc_ctc_dcs_scan candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0 candidate_menu_page_list_is_empty candidate_menu_page_none_30450ec menu_state_005 rfic_rx_tune sub_300e218 sub_3019570 sub_302fe48 sub_30301f4 sub_3045f1c sub_3049498 sub_306,candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_uses_seek menu_state_005 sub_302fe48 sub_3055154
+0x3e20b,1,9,11,candidate_menu_multi_page_303b6ac candidate_menu_page_none_30450ec channel_calibration_load menu_state_005 rf_tx_setup sub_3019570 sub_3045f1c,candidate_menu_page_list_is_empty candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055154
+0x3e20c,1,9,11,candidate_menu_multi_page_303b6ac candidate_menu_page_none_30450ec channel_calibration_load menu_state_005 rf_tx_setup sub_3019570 sub_3045f1c,candidate_menu_page_list_is_empty candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_005 sub_3055154
+0x3e20c,4,0,1,,sub_3030370
+0x3e20d,1,1,1,sub_301bdb4,sub_301bdb4
+0x3e20e,1,20,1,candidate_analog_tx_start candidate_menu_multi_page_30473b0 candidate_radio_mode_apply candidate_uses_ptt_id rfic_rx_tune sub_3013940 sub_3014f54 sub_3031060 sub_3049498 sub_306081c sub_3060a74 sub_30648ac task_cds,sub_3031060
+0x3e210,4,0,1,,sub_3030370
+0x3e211,1,9,1,candidate_analog_tx_start candidate_menu_multi_page_3044248 candidate_menu_multi_page_30473b0 candidate_setting_set_by_id sub_3014f54,candidate_setting_set_by_id
+0x3e213,1,5,1,candidate_menu_device_info candidate_menu_multi_page_30473b0 candidate_menu_page_encrypt_list sub_3061088,sub_3057688
+0x3e214,4,0,1,,sub_3030370
+0x3e218,4,0,1,,sub_3030370
+0x3e21c,4,0,1,,sub_3030370
+0x3e220,4,0,1,,sub_3030370
+0x3e224,4,0,1,,sub_3030370
+0x3e228,2,0,1,,sub_3030370
+0x3e229,1,6,2,candidate_menu_multi_page_304ddb0 candidate_menu_page_member_is_full candidate_menu_page_tx_limit sub_30432c4 sub_3049498 sub_305dd38,candidate_menu_multi_page_304ddb0
+0x3e22a,1,6,3,candidate_menu_multi_page_304ddb0 candidate_menu_page_member_is_full candidate_menu_page_tx_limit sub_30432c4 sub_3049498 sub_305dd38,candidate_menu_multi_page_304ddb0 sub_3030370
+0x3e22c,1,6,2,candidate_menu_multi_page_3044248 candidate_menu_page_setting_is_ok sub_300d568 sub_306081c,candidate_menu_page_setting_is_ok sub_300d568
+0x3e22e,1,1,0,rf_rx_setup,
+0x3e22e,2,0,4,,candidate_cable_test_mode channel_calibration_load menu_state_098 sub_300de8c
+0x3e238,1,1,1,sub_3018e68,sub_3066608
+0x3e238,4,3,3,candidate_menu_page_null_ch candidate_uses_noaa_30309b8 sub_2ded4,candidate_uses_noaa_30309b8 sub_3030370
+0x3e239,1,1,1,sub_3018e68,sub_3066608
+0x3e23a,1,1,1,sub_3018e68,sub_3066608
+0x3e23b,1,1,1,sub_3018e68,sub_3066608
+0x3e23c,1,1,1,sub_3018e68,sub_3066608
+0x3e23c,4,0,2,,sub_3030370
+0x3e23d,1,1,1,sub_3018e68,sub_3066608
+0x3e23e,1,1,1,sub_3018e68,sub_3066608
+0x3e23f,1,1,1,sub_3018e68,sub_3066608
+0x3e240,1,5,1,sub_2ded4 sub_2df5c sub_301a464,sub_2ded4
+0x3e240,4,0,2,,sub_3030370
+0x3e242,1,3,2,sub_3018e68 sub_30566cc,sub_30566cc
+0x3e244,1,1,0,candidate_menu_page_null_ch_3057790,
+0x3e244,4,0,2,,sub_3030370
+0x3e245,1,1,1,sub_3066608,sub_3066608
+0x3e246,1,1,0,sub_3018e68,
+0x3e248,4,0,2,,sub_3030370
+0x3e249,1,1,0,sub_3018e68,
+0x3e24a,1,1,0,sub_3018e68,
+0x3e24c,4,0,2,,sub_3030370
+0x3e250,4,0,2,,sub_3030370
+0x3e251,1,1,0,sub_305bb6c,
+0x3e254,4,0,2,,sub_3030370
+0x3e258,4,0,2,,sub_3030370
+0x3e25c,4,0,2,,sub_3030370
+0x3e260,4,0,2,,sub_3030370
+0x3e264,4,0,2,,sub_3030370
+0x3e268,2,0,2,,sub_3030370
+0x3e26a,1,0,2,,sub_3030370
+0x3e334,1,2,2,sub_304b010,sub_304b010
+0x3e335,1,8,1,candidate_menu_page_null_ch_3057790 sub_3031b7c sub_3031fd4,candidate_codesw_request
+0x3e336,1,18,15,candidate_cable_test_mode candidate_menu_page_none_30450ec candidate_menu_page_null_ch_3057790 menu_state_000 menu_state_098 sub_3018e68 sub_302edc8 sub_3056330 sub_3068d04,candidate_cable_test_mode candidate_menu_page_null_ch_3057790 menu_state_000 menu_state_098 sub_3018e68 sub_302edc8 sub_3056330
+0x3e336,2,1,0,task_sqlcheck,
+0x3e337,1,146,60,candidate_cable_test_mode candidate_keyfunc_batt_indicator candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_ctc_dcs_set candidate_keyfunc_gps_info candidate_keyfunc_message candidate_keyfunc_nuisance_delete candidate_keyfunc_switch_chtype candidate_keyfunc_tx_power candidate_keyfunc_vfo_mr candidate,candidate_cable_test_mode candidate_menu_key_handler candidate_menu_page_list_is_empty candidate_menu_page_null_ch_3057790 candidate_menu_page_view_contact_3042854 channel_band_and_tuning_set menu_state_000 menu_state_019 menu_state_021 menu_state_028 menu_state_124 sub_300d84c sub_304579c
+0x3e338,1,35,22,candidate_codesw_request candidate_key_06_press candidate_key_26_press candidate_key_event_dispatch candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_null_ch_3057790 candidate_menu_page,candidate_codesw_request candidate_key_26_press candidate_key_event_dispatch candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_null_ch_3057790 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_remove_group me
+0x3e339,1,61,32,candidate_analog_tx_start candidate_key_02_release candidate_key_03_release candidate_key_05_release candidate_key_06_release candidate_key_08_release candidate_key_11_release candidate_key_13_release candidate_key_14_release candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_men,candidate_menu_key_handler candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_30507bc candidate_menu_page_confirm_delete_3046408 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_search_contact_3059d5c menu_state_026 menu_state_112 sub_3016cf0 sub_3035bd4 sub_303976c sub_3041908 
+0x3e33a,1,67,34,candidate_call_display_update candidate_key_02_release candidate_key_03_release candidate_key_05_release candidate_key_06_release candidate_key_08_release candidate_key_11_release candidate_key_13_release candidate_key_14_release candidate_menu_key_handler candidate_menu_multi_page_3038500 candidate,candidate_call_display_update candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_confirm_delete candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_encrypt_list candidate_menu
+0x3e33b,1,38,16,candidate_burst_rx_handler candidate_keyfunc_aprs_send candidate_keyfunc_roaming candidate_menu_page_tx_limit candidate_menu_result_show candidate_ptt_admission menu_state_000 sub_30138c4 sub_3016cf0 sub_301b924 sub_301ba8c sub_3021de0 sub_3022410 sub_302edc8 sub_3030520 sub_3035bd4 sub_30376d8 sub_,sub_3016cf0 sub_301ba8c sub_3021de0 sub_3022410 sub_3030520 sub_3035bd4 sub_30594e4 sub_3059f68
+0x3e33c,1,30,16,candidate_menu_multi_page_3044248 candidate_menu_page_current_volume menu_state_043 menu_state_044 menu_state_048 sub_301340c sub_3013470 sub_3035bd4,candidate_menu_multi_page_3044248 candidate_menu_page_current_volume menu_state_048 sub_3035bd4
+0x3e33d,1,16,11,candidate_band_region_display candidate_menu_page_keypad_lock candidate_menu_page_keypad_unlocked candidate_menu_page_press_menu_and candidate_menu_page_tx_limit sub_30390c8 sub_30413c4 sub_304a45c,candidate_band_region_display candidate_menu_page_keypad_lock candidate_menu_page_keypad_unlocked candidate_menu_page_press_menu_and candidate_menu_page_tx_limit sub_30413c4 sub_304a45c
+0x3e33e,1,1,2,sub_304a45c,sub_304a45c
+0x3e33f,1,9,7,gpio_b_irq start_task_cds sub_301cbc0,gpio_b_irq start_task_cds sub_301cbc0
+0x3e340,1,14,3,candidate_keyfunc_fm_radio candidate_keyfunc_fm_search candidate_ptt_admission sub_300e360 sub_301742c sub_3022410 sub_302b834 sub_302ed04 sub_302edc8 sub_305463c sub_30603dc sub_3061210 sub_3064a84,sub_302fa24 sub_3060398 sub_30603dc
+0x3e340,2,1,0,sub_30193cc,
+0x3e341,1,8,4,sub_30174e0 sub_302c4fc sub_3031fd4 sub_305ccf0,sub_3031fd4 sub_305ccf0
+0x3e343,1,23,5,candidate_menu_multi_page_3044248 candidate_setting_set_by_id candidate_uses_wlt_cmd sub_300d0a4 sub_301f118 sub_3020684 sub_3026bb8 sub_305d39c sub_305d764 sub_305d8c0 task_rxmsg,candidate_setting_set_by_id sub_305d8c0
+0x3e344,1,55,23,candidate_analog_tx_start candidate_gps_nmea_format candidate_key_04_release candidate_key_07_release candidate_key_09_release candidate_key_10_release candidate_key_12_release candidate_keyfunc_aprs_send candidate_keyfunc_monitor candidate_keyfunc_switch_chtype candidate_keyfunc_tbst_send candidate,candidate_gps_nmea_format candidate_keyfunc_tbst_send candidate_menu_multi_page_302d838 candidate_menu_page_msg_send_failed candidate_menu_page_sending candidate_menu_result_show candidate_ptt_admission candidate_radio_mode_apply candidate_rx_audio_stop menu_state_077 sub_300d84c sub_3011cc4 sub_301
+0x3e344,2,1,0,sub_305ee08,
+0x3e345,1,56,21,candidate_gps_info_display_3063ea4 candidate_menu_key_handler candidate_menu_multi_page_302d838 candidate_menu_multi_page_3042b88 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_keypad_lock_303af48 candidate_menu_page_null_ch_,candidate_menu_key_handler candidate_menu_multi_page_302d838 candidate_menu_multi_page_3042b88 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_sending menu_state_000 menu_state_111 sub_300d84c sub_3015570 sub_301f118 sub_3050d
+0x3e346,2,25,4,candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0 candidate_menu_page_list_is_empty_304d46c candidate_menu_page_member_is_full candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 menu_state_026 sub_303146c sub_3045ad8 sub_304ec70 sub_3056af8 sub_3056e2,candidate_menu_page_member_is_full candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_3058528
+0x3e349,1,84,31,candidate_analog_tx_start candidate_keyfunc_vfo_mr candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48 candidate_menu_page_null_ch candidate_menu_page_null_ch_3057790 candidate_radio_mode_apply candidate_rfic_ctcss_control_set candidate_rfic_fsk_receive candidate_uses_noaa candidate_u,candidate_analog_tx_start candidate_menu_page_keypad_lock_303af48 candidate_radio_mode_apply candidate_rfic_fsk_receive candidate_uses_noaa sub_300e530 sub_3013940 sub_3014f54 sub_30306c8 sub_304a2d0 sub_304a39c sub_306461c sub_30649b8 sub_3064dbc sub_3067a5c
+0x3e34a,1,69,39,candidate_analog_tx_start candidate_menu_key_handler candidate_menu_page_null_ch candidate_radio_mode_apply candidate_rfic_tone_transmit_a candidate_rfic_tone_transmit_b candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_2b634 sub_30130f0 sub_3013940 sub_302c54c su,candidate_menu_key_handler candidate_menu_page_null_ch candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_2b634 sub_3013940 sub_3031fd4 sub_306081c sub_3060a74 sub_30648ac sub_3068948 sub_30689b0 sub_30689f0 sub_3068cc0 sub_3068d04 task_keys
+0x3e364,2,0,1,,candidate_menu_page_member_is_full
+0x3e36c,2,1,0,sub_3013940,
+0x3e374,1,1,1,sub_3018e68,sub_3066608
+0x3e374,4,3,3,candidate_menu_page_null_ch candidate_uses_noaa_30309b8 sub_2ded4,candidate_uses_noaa_30309b8 sub_3030370
+0x3e375,1,1,1,sub_3018e68,sub_3066608
+0x3e376,1,1,1,sub_3018e68,sub_3066608
+0x3e377,1,1,1,sub_3018e68,sub_3066608
+0x3e378,1,1,1,sub_3018e68,sub_3066608
+0x3e378,4,0,2,,sub_3030370
+0x3e379,1,1,1,sub_3018e68,sub_3066608
+0x3e37a,1,1,1,sub_3018e68,sub_3066608
+0x3e37b,1,1,1,sub_3018e68,sub_3066608
+0x3e37c,1,5,1,sub_2ded4 sub_2df5c sub_301a464,sub_2ded4
+0x3e37c,4,0,2,,sub_3030370
+0x3e37e,1,3,2,sub_3018e68 sub_30566cc,sub_30566cc
+0x3e380,1,1,0,candidate_menu_page_null_ch_3057790,
+0x3e380,4,0,2,,sub_3030370
+0x3e381,1,1,1,sub_3066608,sub_3066608
+0x3e382,1,1,0,sub_3018e68,
+0x3e384,4,0,2,,sub_3030370
+0x3e385,1,1,0,sub_3018e68,
+0x3e386,1,1,0,sub_3018e68,
+0x3e388,4,0,2,,sub_3030370
+0x3e38c,4,0,2,,sub_3030370
+0x3e38d,1,1,0,sub_305bb6c,
+0x3e390,4,0,2,,sub_3030370
+0x3e394,4,0,2,,sub_3030370
+0x3e398,4,0,2,,sub_3030370
+0x3e39c,4,0,2,,sub_3030370
+0x3e3a0,4,0,2,,sub_3030370
+0x3e3a4,2,0,2,,sub_3030370
+0x3e3a6,1,0,2,,sub_3030370
+0x3e3a8,1,1,5,sub_3061048,candidate_menu_key_handler candidate_menu_page_null_ch_3057790 sub_3061048 task_keys
+0x3e3a9,1,1,2,sub_30130f0,sub_30130f0
+0x3e3aa,1,1,2,sub_3054878,sub_3054878
+0x3e3ac,2,1,6,sub_3054eb8,candidate_cable_receive sub_3054b20 sub_3054eb8 sub_3054f90 sub_3054fb0 task_usb
+0x3e3ae,1,1,5,sub_30624c0,sub_300e360 sub_301bdb4 sub_3022410 sub_305ea58 sub_30624c0
+0x3e3af,1,1,3,sub_3013314,candidate_ptt_input_debounce sub_3013314
+0x3e3b0,1,1,3,sub_3013314,candidate_ptt_input_debounce sub_3013314
+0x3e3b1,1,1,3,sub_30133dc,candidate_key_event_dispatch sub_30133dc
+0x3e3b2,1,1,8,sub_305463c,candidate_menu_key_handler menu_state_105 sub_305463c
+0x3e3b3,1,1,3,sub_305463c,candidate_menu_page_setting_is_ok sub_304a45c
+0x3e3b4,2,1,3,sub_305489c,sub_304a3fc sub_305489c
+0x3e3b7,1,0,2,,sub_302f418 sub_306081c
+0x3e3b8,2,2,6,sub_302edc8,sub_302edc8
+0x3e3ba,1,3,10,sub_302edc8,sub_302eca0 sub_302edc8 sub_306081c
+0x3e3bc,2,1,4,candidate_timer6_irq,candidate_cable_receive candidate_timer6_irq sub_3029f80
+0x3e3c0,2,1,3,sub_301bcc4,sub_301bcc4
+0x3e3c2,2,1,5,sub_301bcc4,sub_301bc78
+0x3e3c5,1,1,3,sub_30130f0,menu_state_077 sub_30130f0
+0x3e3c6,1,1,17,sub_3013940,candidate_keyfunc_vfo_mr candidate_menu_key_handler candidate_menu_page_member_is_full candidate_menu_page_tx_limit menu_state_006 sub_3013940 sub_3017278 sub_301cbc0 sub_302fb70 sub_306081c sub_3062cd4 sub_3064960 sub_306499c sub_3064a44 sub_3064c9c sub_3066608
+0x3e3c7,1,3,26,sub_3064a84,candidate_keyfunc_vfo_mr candidate_menu_key_handler candidate_menu_page_member_is_full candidate_menu_page_tx_limit menu_state_006 sub_3017278 sub_301cbc0 sub_302fb70 sub_3054dc8 sub_306081c sub_3062cd4 sub_3064960 sub_306499c sub_3064a44 sub_3064a84 sub_3064c9c sub_3064cdc sub_3066608
+0x3e3c8,1,1,4,sub_3060a3c,sub_2b634 sub_306081c sub_3060a3c
+0x3e3cb,1,2,7,sub_306048c,sub_300e2c0 sub_306048c task_sqlcheck task_sysint
+0x3e3cf,1,1,3,sub_3013940,sub_3013940 sub_30648ac
+0x3e3d4,1,0,1,,sub_304a45c
+0x3e3dc,1,40,5,candidate_gps_nmea_parse candidate_key_04_press candidate_key_04_release candidate_key_07_press candidate_key_07_release candidate_key_09_press candidate_key_09_release candidate_key_10_press candidate_key_10_release candidate_key_12_press candidate_key_12_release candidate_menu_key_handler candidat,menu_state_005 sub_304a45c sub_3058528
+0x3e3e0,4,1,1,candidate_menu_page_out_of_range_3052034,candidate_menu_page_out_of_range_3050f78
+0x3e404,4,0,2,,sub_30331d0 sub_3033218
+0x3e408,4,0,2,,sub_30331d0 sub_3033218
+0x3e418,4,2,2,sub_3033198 sub_30331d0,sub_3033198 sub_30331d0
+0x3e41c,4,2,1,sub_3033198 sub_30331d0,sub_30331d0
+0x3e420,4,1,2,sub_3033198,sub_3033198 sub_30331d0
+0x3e424,4,1,1,sub_3033198,sub_30331d0
+0x3e42a,2,0,2,,candidate_menu_contacts candidate_menu_tx_contact_list
+0x3e454,1,0,1,,sub_3034fac
+0x3e45c,1,0,2,,candidate_menu_page_name_30458e4 candidate_menu_page_view_contact_3043968
+0x3e465,1,0,1,,sub_3034fac
+0x3e46e,1,0,1,,sub_3034fac
+0x3e47f,1,20,5,candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_ctc_dcs_set candidate_keyfunc_gps_info candidate_keyfunc_message candidate_keyfunc_tx_power candidate_menu_contacts candidate_menu_key_handler candidate_menu_multi_page_304ee0c candidate_menu_page_name_30458e4 candidate_menu_page_tx_limit candidate_me,candidate_menu_multi_page_304ee0c menu_state_000 sub_3041838 sub_30432c4 sub_3059f68
+0x3e480,2,0,1,,candidate_menu_page_tx_limit
+0x3e494,1,2,0,candidate_call_display_update,
+0x3e494,4,1,0,candidate_menu_multi_page_3035398,
+0x3e4a0,2,0,2,,candidate_menu_page_tx_limit
+0x3e4dc,1,6,20,candidate_menu_page_keypad_lock_3035864,candidate_menu_key_handler candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_unlocked candidate_menu_page_press_menu_and sub_3035858 sub_3035b3c sub_3035b54
+0x3e4dd,1,33,18,candidate_key_04_press candidate_key_07_press candidate_key_08_press candidate_key_09_press candidate_key_10_press candidate_key_11_press candidate_key_12_press candidate_menu_key_handler candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_lock_303af48 ,candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_lock_303af48 candidate_menu_page_keypad_unlocked candidate_menu_page_press_menu_and sub_3035858 sub_3035b3c sub_30413c4
+0x3e4de,1,0,1,,candidate_key_event_dispatch
+0x3e4df,1,8,4,candidate_key_13_press candidate_key_event_dispatch candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_lock_303af48 sub_30130f0,candidate_key_event_dispatch candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_lock_303af48
+0x3e508,1,0,13,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e509,1,43,10,candidate_keyfunc_message candidate_menu_contacts candidate_menu_key_handler candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_page_radio_id candidate_menu_page_remove_group candidate_menu_page_tx_li,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303e3dc sub_303e624 sub_303e89c sub_303f834
+0x3e50a,1,103,1,candidate_menu_device_info candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304231c candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c candidate_menu_multi_page_3048f50 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc c,candidate_menu_page_tx_ctc_dcs
+0x3e50b,1,88,5,candidate_menu_contacts candidate_menu_device_info candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c candidate_menu_multi_page_3043164 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_m,candidate_menu_page_calllog_deleted candidate_menu_page_tx_ctc_dcs sub_304f86c
+0x3e50c,1,73,4,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_page_calllog_deleted candidate_menu_page_confirm_delete candidate_menu_page_confirm_delete_3043f90 candidate_menu_p,candidate_menu_page_msg_is_deleted_3051d3c sub_3050d2c
+0x3e50d,1,39,0,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30507bc candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_msg_is_deleted_3051d3c candidate_menu_page_name_30458e4 candidate_menu_page_out_of_range_305,
+0x3e50e,1,24,0,candidate_menu_multi_page_305182c candidate_menu_page_confirm_delete_304689c candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14 candidate_menu_page_msg_is_deleted_3051d3c candidate_menu_page_name_3046728 candidate_menu_page_out_of_range_3052034 candidate_menu_page_,
+0x3e50f,1,7,0,candidate_menu_page_search_contact_3047074 sub_3046a28 sub_3046f24 sub_3046fa0 sub_30523ec,
+0x3e510,1,5,0,sub_3046ff8 sub_3047014 sub_30526a8,
+0x3e528,2,1,0,menu_state_014,
+0x3e548,4,0,1,,candidate_menu_multi_page_3046064
+0x3e5e4,4,0,11,,candidate_menu_key_handler menu_state_090 sub_303f834 sub_305292c
+0x3e5e8,4,1,7,candidate_menu_multi_page_303b6ac,candidate_menu_page_view_contact_3043968 sub_304274c sub_30427c8
+0x3e5ec,1,405,321,candidate_gps_info_draw_a candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_menu_draw_list candidate_menu_message_boxes candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_3048f5,candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_keyfunc_ctc_dcs_scan candidate_menu_device_info candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_3048f50 candidate_menu_page_
+0x3e5ed,1,4,2,candidate_menu_multi_page_303b6ac,menu_state_075 sub_30369f8
+0x3e5f0,4,1,12,menu_state_098,candidate_menu_page_to menu_state_014 menu_state_021 menu_state_028
+0x3e5f4,1,4,27,candidate_cable_test_mode menu_state_098,candidate_cable_test_mode candidate_menu_page_list_is_empty menu_state_019 menu_state_033 sub_304d050
+0x3e5f5,1,106,186,candidate_gps_info_draw_a candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_menu_draw_list candidate_menu_message_boxes candidate_menu_multi_page_303b6ac candidate_menu_page_empty_draft_box candidate_menu_page_empty_outbox candidate_menu_page_missed_3058ec0 candidate_menu_quick_text menu,candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_menu_device_info candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidat
+0x3e5f8,1,15,11,candidate_menu_key_handler candidate_menu_page_list_is_empty menu_state_000 menu_state_112 sub_3031fd4 sub_30376d8 sub_3041950 sub_30427c8,candidate_menu_key_handler candidate_menu_page_list_is_empty menu_state_000 menu_state_112 sub_30376d8
+0x3e5f9,1,5,21,candidate_keyfunc_gps_info candidate_keyfunc_message candidate_menu_key_handler sub_3016e34 sub_3016fd8,candidate_key_11_press candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_ctc_dcs_set candidate_keyfunc_gps_info candidate_keyfunc_message candidate_menu_key_handler sub_3016e34 sub_3016fd8 sub_303f81c sub_3065934
+0x3e5fc,2,2,0,sub_30392a4 sub_3039368,
+0x3e5fc,4,6,4,candidate_menu_multi_page_303b6ac candidate_menu_page_name_30458e4 candidate_menu_page_tx_limit candidate_menu_page_view_contact_3043968 sub_304274c,candidate_menu_page_view_contact_3043968 sub_304274c sub_30427c8
+0x3e600,1,0,14,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_3035bd4 sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e601,1,0,13,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e602,1,0,8,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303e3dc sub_303e624 sub_303e89c sub_303f834
+0x3e603,1,0,1,,candidate_menu_page_tx_ctc_dcs
+0x3e604,1,0,1,,candidate_menu_page_tx_ctc_dcs
+0x3e618,1,3,0,candidate_gps_info_draw_b sub_3033a20 sub_303a1d0,
+0x3e618,2,71,51,candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304231c candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ee0c candidate_menu_page_gnss_on_off candidate_me,candidate_menu_device_info candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_inbox_list candidate_menu_page_none_30450ec candidate_menu_page_pri_setting candidate_menu_page_quick_text_e
+0x3e61a,1,22,0,candidate_gps_info_draw_c candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_3033d04 sub_3039f30 sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834,
+0x3e61b,1,6,0,candidate_gps_info_draw_c sub_3033d04 sub_3039f30,
+0x3e634,1,0,3,,candidate_menu_device_info
+0x3e8fa,1,4,22,menu_go_back menu_state_098 sub_303694c,candidate_menu_page_missed menu_go_back sub_3035bd4 sub_303694c sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e90f,1,2,22,menu_go_back sub_303694c,candidate_menu_page_missed menu_go_back sub_3035bd4 sub_303694c sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e912,2,32,13,candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_page_msg_is_deleted_3051d3c candidate_menu_page_name candidate_menu_page_out_of_range_3052034 candidate_menu_page_tx_limit candidate_menu_page_view_c,candidate_menu_page_remove_group menu_state_021 sub_303972c sub_3041838 sub_30425ac sub_30432c4 sub_3045ad8
+0x3e914,1,18,19,candidate_gps_info_draw_a candidate_menu_draw_list candidate_menu_message_boxes candidate_menu_page_empty_draft_box candidate_menu_page_empty_outbox candidate_menu_page_missed_3058ec0 candidate_menu_quick_text sub_3033958 sub_30415dc,candidate_menu_multi_page_303b6ac
+0x3e916,2,35,31,candidate_cable_test_mode candidate_ptt_press_callback menu_state_098 menu_state_099 menu_state_100 menu_state_103 sub_305508c sub_30550cc sub_305587c,candidate_cable_test_mode candidate_ptt_press_callback menu_state_098 menu_state_099 menu_state_100 menu_state_103 sub_305508c sub_30550cc
+0x3e918,1,30,315,candidate_band_region_display candidate_menu_device_info candidate_menu_message_boxes candidate_menu_multi_page_303b6ac candidate_menu_page_empty_draft_box candidate_menu_page_empty_outbox candidate_menu_page_list_is_empty candidate_menu_page_name candidate_menu_page_name_30458e4 candidate_menu_page,candidate_menu_device_info candidate_menu_multi_page_304231c candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c candidate_menu_multi_page_3043164 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ee0c c
+0x3e919,1,5,3,candidate_menu_multi_page_303b6ac sub_30392a4 sub_3040b20 sub_3040f68,candidate_menu_device_info sub_3043658 sub_3045528
+0x3e91a,2,5,18,candidate_menu_multi_page_303b6ac,candidate_menu_page_remove_group menu_state_021 sub_303972c sub_3041838 sub_30425ac sub_30432c4 sub_3045ad8
+0x3e91c,2,4,2,sub_3056f50 sub_3056fb4,candidate_menu_multi_page_303b6ac sub_304ec70
+0x3e91e,2,12,21,candidate_cable_test_mode candidate_ptt_press_callback menu_state_098 menu_state_103 sub_30553c0,sub_305508c sub_30550cc sub_3055154
+0x3e920,1,16,1,candidate_menu_channel_list candidate_menu_multi_page_303b6ac candidate_menu_page_apply sub_302e7b0 sub_3043b00 sub_304ec70 sub_3050cc0 sub_3051b30 sub_3056ed4,candidate_menu_page_list_is_empty
+0x3e924,4,92,309,candidate_band_region_display candidate_gps_info_draw_a candidate_gps_info_draw_b candidate_gps_info_draw_c candidate_menu_multi_page_303b6ac candidate_menu_page_radio_id sub_3033958 sub_3033a20 sub_3033d04 sub_3039f30 sub_303a1d0 sub_30415dc sub_3041698 sub_3052ce4,candidate_menu_device_info candidate_menu_multi_page_304231c candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c candidate_menu_multi_page_3043164 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ee0c c
+0x3e928,1,0,13,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303ded0 sub_303e3dc sub_303e624 sub_303e89c sub_303eaec sub_303ef8c sub_303f2f0 sub_303f4a4 sub_303f834
+0x3e929,1,0,12,,candidate_menu_page_contact_list candidate_menu_page_gnss_on_off candidate_menu_page_missed candidate_menu_page_tx_ctc_dcs sub_303e3dc sub_303e624 sub_303e89c sub_303f834
+0x3e92a,1,0,1,,candidate_menu_page_tx_ctc_dcs
+0x3e92b,1,0,5,,candidate_menu_page_calllog_deleted candidate_menu_page_tx_ctc_dcs sub_304f86c
+0x3e92c,1,0,4,,candidate_menu_page_msg_is_deleted_3051d3c sub_3050d2c
+0x3e93c,2,2,0,sub_3041838 sub_30432c4,
+0x3e93e,1,8,30,candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3048f50 candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048938 sub_3048c5c,candidate_menu_device_info candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_page_select candidate_menu_page_to menu_state_021
+0x3e93f,1,1,96,sub_3039e34,candidate_menu_device_info candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_iso_8bit candidate_menu_page_none candidate_menu_page_none_30450ec candidate_menu_page_pre_time candidate_me
+0x3e95f,4,1,0,candidate_menu_multi_page_30473b0,
+0x3e980,1,0,1,,sub_30485b8
+0x3e984,2,2,7,sub_30392a4 sub_3039368,candidate_menu_multi_page_303b6ac candidate_menu_page_remove_group menu_state_021 sub_303972c sub_3041838 sub_30432c4 sub_3045ad8
+0x3e988,2,2,0,sub_30392a4 sub_3039368,
+0x3e988,4,3,2,candidate_menu_multi_page_303b6ac sub_303382c sub_3033870,menu_state_019 sub_304274c
+0x3e98c,1,3,1,sub_304579c sub_3049498,candidate_menu_page_view_contact_3042854
+0x3e990,1,0,1,,candidate_menu_add_list
+0x3e991,1,0,1,,candidate_menu_add_list
+0x3e992,1,0,1,,candidate_menu_add_list
+0x3e993,1,0,1,,candidate_menu_add_list
+0x3e994,1,0,1,,candidate_menu_add_list
+0x3e995,1,0,1,,candidate_menu_add_list
+0x3e996,1,0,1,,candidate_menu_add_list
+0x3e997,1,0,1,,candidate_menu_add_list
+0x3e998,1,0,1,,candidate_menu_add_list
+0x3e999,1,0,1,,candidate_menu_add_list
+0x3e9d4,1,10,3,candidate_uses_noaa_30309b8 sub_3030978 sub_3030e44 sub_3031658 sub_3031fd4 sub_304a200 sub_304a2d0,candidate_setting_set_by_id sub_304a45c
+0x3e9e4,2,2,1,candidate_setting_set_by_id sub_301cbc0,candidate_menu_multi_page_3044248
+0x3e9e6,1,4,1,sub_304a200 sub_304a2d0 sub_304a45c,sub_304a200
+0x3e9e7,1,9,3,candidate_uses_noaa_30309b8 sub_3030978 sub_3030e44 sub_3031658 sub_3031fd4 sub_304a200 sub_304a2d0,candidate_setting_set_by_id sub_304a45c
+0x3e9e8,1,0,1,,candidate_menu_page_out_of_range_3050f78
+0x3e9f0,1,0,2,,candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064
+0x3e9f9,1,3,1,sub_304a200 sub_304a2d0 sub_304a45c,sub_304a200
+0x3e9fa,1,44,27,candidate_keyfunc_digital_encrypt candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_page_lone_work_off candidate_menu_page_null_ch candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit candidate_uses_noaa menu_state_098 sub_30130f0 sub_301cbc0 sub_302e144 ,candidate_menu_page_member_is_full candidate_setting_set_by_id candidate_uses_noaa menu_state_124 sub_301cbc0 sub_302edc8 sub_304a2d0 sub_30649b8
+0x3e9fb,1,13,6,candidate_setting_set_by_id candidate_uses_noaa candidate_uses_noaa_30309b8 sub_303150c sub_3031658 sub_304a2d0 sub_304a45c sub_30649b8,candidate_menu_page_member_is_full candidate_setting_set_by_id sub_304a45c sub_3056ca8
+0x3e9fc,1,13,6,candidate_setting_set_by_id candidate_uses_noaa candidate_uses_noaa_30309b8 sub_303150c sub_3031658 sub_304a2d0 sub_304a45c sub_30649b8,candidate_menu_page_member_is_full candidate_setting_set_by_id sub_304a45c sub_3056ca8
+0x3e9fd,1,29,5,candidate_keyfunc_digital_encrypt candidate_menu_page_lone_work_off candidate_menu_page_member_is_full candidate_menu_page_tx_limit candidate_setting_get_by_id candidate_setting_set_by_id menu_state_098 menu_state_124 sub_3017188 sub_302e144 sub_302e1a4 sub_302edc8 sub_302f59c sub_30307c8 sub_30312a,candidate_setting_set_by_id sub_304a200 sub_304a2d0
+0x3e9fe,1,7,5,candidate_setting_set_by_id candidate_uses_noaa candidate_uses_noaa_30309b8 sub_304a2d0 sub_30649b8,candidate_setting_set_by_id candidate_uses_noaa sub_302edc8 sub_304a45c
+0x3e9ff,1,7,5,candidate_setting_set_by_id candidate_uses_noaa candidate_uses_noaa_30309b8 sub_304a2d0 sub_30649b8,candidate_setting_set_by_id candidate_uses_noaa sub_302edc8 sub_304a45c
+0x3ea00,1,2,4,sub_301cbc0,sub_304a200 sub_304a2d0
+0x3ea01,1,272,30,candidate_analog_tx_start candidate_keyfunc_digital_encrypt candidate_keyfunc_fm_search candidate_keyfunc_switch_chtype candidate_keyfunc_tx_power candidate_keyfunc_vfo_mr candidate_keyfunc_vox candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3044248 candidate_m,candidate_keyfunc_vfo_mr candidate_menu_page_member_is_full candidate_setting_set_by_id menu_state_006 sub_3039958 sub_304a2d0 sub_304a39c sub_304a45c sub_30649b8
+0x3ea02,1,5,2,candidate_keyfunc_vfo_mr menu_state_006 sub_304a45c,sub_304a45c
+0x3ea03,1,2,4,sub_305bb6c,candidate_setting_set_by_id sub_305bb6c
+0x3ea04,1,687,16,candidate_battery_voltage_format candidate_call_display_update candidate_codeplug_factory_defaults candidate_gps_info_display_3062e98 candidate_gps_info_display_3063ea4 candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_roaming candidate_keyfunc_sub_ptt candidate_keyfunc_vox candidate_lcd_draw_languag,candidate_menu_page_null_ch_3057790 candidate_setting_set_by_id sub_301bdb4 sub_304a45c
+0x3ea04,2,2,2,candidate_setting_set_by_id sub_304a45c,candidate_setting_set_by_id sub_304a45c
+0x3ea05,1,25,12,candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064 candidate_menu_page_are_you_sure candidate_menu_page_mandown_off candidate_menu_page_out_of_range_3050f78 candidate_menu_page_setting_is_ok candidate_setting_set_by_id sub_3013940 sub_301b5f0 sub_304a45c sub_3054eb8,candidate_menu_page_out_of_range_3050f78 candidate_menu_page_setting_is_ok candidate_setting_set_by_id sub_304a45c
+0x3ea06,1,18,9,candidate_setting_get_by_id candidate_setting_set_by_id led_green_on led_red_on sub_304a45c sub_304b010,candidate_setting_set_by_id sub_304a45c sub_304b010
+0x3ea08,1,3,2,candidate_menu_multi_page_3044248 candidate_setting_get_by_id sub_3040a44,candidate_setting_set_by_id sub_304a45c
+0x3ea09,1,3,3,candidate_setting_get_by_id sub_3055a70,candidate_setting_set_by_id sub_304a45c
+0x3ea0a,1,4,5,candidate_menu_multi_page_3048f50 candidate_menu_page_setting_is_ok sub_3048938 sub_3048c5c,candidate_menu_multi_page_3044248 sub_3048938 sub_3048c5c
+0x3ea0b,1,2,2,candidate_menu_multi_page_3044248 sub_3055a70,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea0c,1,1,4,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304c7c8
+0x3ea0e,1,17,2,candidate_key_event_dispatch candidate_menu_key_handler candidate_menu_page_are_you_sure candidate_ptt_input_debounce candidate_setting_get_by_id menu_state_070 sub_300e2c0 sub_301bcc4 sub_302c350 sub_3040a44 sub_305eb8c task_calldisp task_keytime task_usb,candidate_menu_page_setting_is_ok candidate_setting_set_by_id
+0x3ea10,1,6,5,candidate_menu_page_out_of_range_3050f78 sub_3048938 sub_3048c5c,candidate_menu_multi_page_3048f50 sub_3048938 sub_3048c5c
+0x3ea11,1,1,3,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304c7c8
+0x3ea12,1,1,0,candidate_setting_get_by_id,
+0x3ea15,1,13,3,candidate_rfic_fsk_transmit candidate_setting_get_by_id sub_3022f18 sub_3059904 sub_3061648 sub_30644b8 sub_3065114 sub_3065290 sub_3067764,candidate_setting_set_by_id sub_304a45c
+0x3ea16,1,2,5,candidate_setting_get_by_id sub_304c86c,candidate_setting_set_by_id sub_304a45c sub_304cca0
+0x3ea17,1,65,35,candidate_menu_key_handler candidate_setting_get_by_id candidate_setting_set_by_id menu_state_070 sub_30130f0 sub_301b924 sub_3021c44 sub_302dbec sub_30397e0 sub_304a45c sub_304c86c sub_304cca0 sub_3058528 sub_305e3f0,candidate_setting_set_by_id sub_304a45c sub_304cca0
+0x3ea18,1,15,7,candidate_menu_multi_page_3044248 candidate_radio_mode_apply candidate_setting_get_by_id candidate_setting_set_by_id sub_301b924 sub_304a45c sub_304c86c sub_304cca0,candidate_setting_set_by_id sub_304a45c sub_304cca0
+0x3ea1b,1,17,0,candidate_setting_get_by_id menu_state_043 menu_state_044 sub_301340c sub_3013470,
+0x3ea1c,1,5,1,candidate_setting_get_by_id menu_state_043 menu_state_044 sub_301340c sub_3013470,sub_304a45c
+0x3ea1d,1,2,0,candidate_setting_get_by_id sub_30397e0,
+0x3ea1e,1,3,1,candidate_setting_get_by_id menu_state_043 menu_state_044,sub_304a45c
+0x3ea1f,1,2,0,candidate_setting_get_by_id sub_30397e0,
+0x3ea20,1,3,1,candidate_setting_get_by_id menu_state_043 menu_state_044,sub_304a45c
+0x3ea21,1,2,0,candidate_setting_get_by_id sub_30397e0,
+0x3ea22,1,3,1,candidate_setting_get_by_id menu_state_043 menu_state_044,sub_304a45c
+0x3ea23,1,2,0,candidate_setting_get_by_id sub_30397e0,
+0x3ea24,1,3,1,candidate_setting_get_by_id menu_state_043 menu_state_044,sub_304a45c
+0x3ea25,1,2,0,candidate_setting_get_by_id sub_30397e0,
+0x3ea26,1,3,1,candidate_setting_get_by_id menu_state_043 menu_state_044,sub_304a45c
+0x3ea27,1,4,2,candidate_menu_page_tx_limit,sub_304c7c8
+0x3ea28,1,16,2,candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_msg_is_deleted_3051d3c sub_30396a0 sub_304f670 sub_304f758 sub_3050720 sub_3050d2c sub_3050ecc sub_30523ec sub_30526a8 sub_306574c sub_3065934,sub_304c7c8
+0x3ea29,1,2,2,candidate_setting_get_by_id sub_304a45c,candidate_setting_set_by_id menu_go_back
+0x3ea2b,1,6,4,candidate_menu_multi_page_3048f50 candidate_menu_page_keypad_lock_3035864 candidate_setting_get_by_id sub_304a45c,candidate_menu_page_out_of_range_3050f78 candidate_setting_set_by_id sub_304a45c
+0x3ea2c,1,6,3,candidate_analog_tx_start candidate_call_display_update sub_300e2c0 sub_304a45c task_ccltraffic,sub_304a45c
+0x3ea2d,1,2,1,candidate_menu_multi_page_3044248 sub_304a45c,candidate_menu_page_setting_is_ok
+0x3ea2e,1,3,2,sub_304a3fc sub_305489c,sub_304a3fc
+0x3ea30,1,2,2,candidate_menu_multi_page_3048f50 candidate_setting_set_by_id,candidate_setting_set_by_id sub_30168cc
+0x3ea31,1,5,1,menu_state_000 sub_3031fd4 sub_304a45c sub_3058528,sub_304a45c
+0x3ea32,1,2,2,candidate_menu_multi_page_3046064 sub_30624c0,candidate_setting_set_by_id sub_304a45c
+0x3ea33,1,3,2,candidate_menu_multi_page_3044248 candidate_menu_multi_page_3048f50 sub_30624c0,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea34,1,0,1,,sub_3058528
+0x3ea35,1,0,1,,sub_3058528
+0x3ea36,1,4,2,candidate_call_display_update candidate_menu_page_white candidate_uses_talkeralias,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea37,1,11,2,candidate_call_display_update candidate_menu_page_menu candidate_menu_page_white sub_3018e68 sub_30193cc sub_301b5f0,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea38,1,8,2,candidate_menu_page_white candidate_uses_noaa_30309b8 sub_3018bac sub_301a64c sub_30306c8 sub_3039c4c,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea39,1,8,2,candidate_menu_page_white candidate_uses_noaa_30309b8 sub_3018bac sub_301a64c sub_30306c8 sub_3039c4c,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea3a,1,6,2,candidate_menu_page_white candidate_uses_noaa_30309b8 sub_301aa94 sub_3039d00,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea3b,1,6,2,candidate_menu_page_white candidate_uses_noaa_30309b8 sub_301aa94 sub_3039d00,candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea3c,1,0,1,,sub_304a45c
+0x3ea3d,1,0,1,,sub_304a45c
+0x3ea3e,1,2,3,candidate_menu_multi_page_3044248 candidate_rfic_init,candidate_setting_set_by_id sub_300d568
+0x3ea3f,1,2,3,candidate_menu_multi_page_3044248 sub_300d568,candidate_setting_set_by_id sub_300d568
+0x3ea40,1,56,4,candidate_analog_tx_start candidate_keyfunc_sub_ptt candidate_keyfunc_wait_mode candidate_menu_multi_page_303b6ac candidate_menu_multi_page_3044248 candidate_menu_page_null_ch candidate_menu_page_setting_is_ok candidate_radio_mode_apply candidate_uses_alarm candidate_uses_noaa candidate_uses_noaa_30,candidate_keyfunc_wait_mode candidate_menu_page_setting_is_ok sub_304a45c
+0x3ea41,1,20,6,candidate_analog_tx_start candidate_menu_multi_page_3044248 candidate_menu_page_setting_is_ok candidate_rfic_ctcss_control_set lcd_init sub_300d568 sub_300e218 sub_300e530 sub_300ee10 sub_3018e68 sub_304a45c sub_306081c,candidate_menu_page_setting_is_ok sub_300d568 sub_304a45c
+0x3ea42,1,3,3,candidate_menu_multi_page_3044248 sub_30193cc sub_301bcc4,candidate_menu_page_setting_is_ok candidate_setting_set_by_id sub_304a45c
+0x3ea43,1,3,2,sub_302c4fc sub_305d8c0,sub_305d8c0
+0x3ea44,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea45,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea46,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea47,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea48,1,0,1,,sub_304a45c
+0x3ea49,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea4a,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea4b,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea4c,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea4d,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea4e,1,0,1,,sub_304a45c
+0x3ea4f,1,1,2,candidate_setting_get_by_id,candidate_setting_set_by_id sub_304a45c
+0x3ea50,1,3,3,sub_30528f4 sub_305292c sub_3052984,sub_30528d4 sub_305292c sub_3052984
+0x3ea51,1,1,5,sub_3052984,sub_30528d4 sub_30528f4 sub_305292c sub_3052984
+0x3ea52,1,2,1,sub_30528f4 sub_305292c,sub_30528d4
+0x3ea6b,1,7,10,candidate_menu_multi_page_303b6ac sub_3019e54 sub_3040b20 sub_3040f68 sub_3052d20 sub_3052d94,candidate_menu_multi_page_3042b88 candidate_menu_page_inbox_list candidate_menu_page_quick_text_empty menu_state_075 sub_3043cf8
+0x3ea98,1,1,0,sub_3053cbc,
+0x3eb1c,4,0,2,,sub_3043cf8
+0x3ec10,1,2,8,sub_3054eb8,candidate_cable_receive sub_3054b20 sub_3054eb8 sub_3054f90 sub_3054fb0
+0x3ec11,1,11,10,candidate_cable_receive candidate_sysint_dispatch sub_30130f0 sub_3013940 sub_3054eb8 sub_3054f90 sub_3054fb0 task_scandisp task_sqlcheck task_usb,candidate_cable_receive sub_3054b20 sub_3054dc8 sub_3054e64 sub_3054eb8 sub_3054f90 sub_3054fb0 task_usb
+0x3ec12,1,1,3,sub_3054eb8,sub_3054b20 sub_3054eb8
+0x3ec14,2,3,7,sub_3055600,sub_30555e8 sub_3055600
+0x3ec16,1,1,4,sub_3055600,sub_30555e8 sub_3055600
+0x3ece0,1,1,3,sub_3055a70,sub_3055a70
+0x3ece2,2,1,2,sub_3055a70,sub_3055a70
+0x3ece4,2,1,3,sub_3055a70,sub_3055a70
+0x3ece6,1,11,7,candidate_menu_key_handler sub_3055a1c sub_3055a70 sub_305ea58 task_keys,candidate_menu_key_handler sub_3055a1c sub_3055a70 sub_305ea58 task_keys
+0x3ece7,1,1,2,sub_3055a70,sub_3055a1c sub_3055a70
+0x3ed1c,1,2,2,sub_3023028 sub_3055b90,sub_3055b90
+0x3ed1d,1,5,2,candidate_rfic_fsk_transmit rfic_rx_tune sub_300f198 sub_3023028 sub_3055b90,sub_3055b90
+0x3ed1e,1,6,1,candidate_menu_page_null_ch_3057790 sub_300e2c0 sub_3022410 sub_30390c8 sub_3055b90 sub_3061d50,sub_3055b90
+0x3ed20,1,8,1,candidate_menu_multi_page_303b6ac candidate_menu_page_out_of_range_3052034 candidate_menu_page_remove_group sub_3056068 sub_30561a4 sub_30561cc,candidate_menu_page_confirm_delete_3046408
+0x3ed22,2,4,2,sub_3056f50 sub_3056fb4,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304d46c
+0x3ed24,1,13,2,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304d46c candidate_menu_page_member_is_full sub_30425ac sub_3056ac0 sub_3056adc sub_3056af8 sub_3056c28 sub_3056ca8,sub_3056c28 sub_3056ca8
+0x3ed25,1,12,3,candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0 candidate_menu_page_encrypt_list candidate_menu_page_none_30450ec candidate_menu_page_out_of_range_3050f78 sub_3049498 sub_3058854 sub_3058878,candidate_menu_multi_page_30473b0 candidate_menu_page_encrypt_list
+0x3ed26,1,13,1,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304d46c candidate_menu_page_pre_time sub_30425ac sub_304d9c4 sub_304edfc sub_3056ac0 sub_3056adc sub_3056bac,menu_state_019
+0x3ed27,1,7,2,candidate_menu_multi_page_303b6ac candidate_menu_page_encrypt_list candidate_menu_page_none_30450ec sub_3056210 sub_3056238,candidate_menu_multi_page_30473b0 sub_3056260
+0x3ed28,1,7,1,candidate_menu_page_encrypt_list candidate_menu_page_none_30450ec,candidate_menu_multi_page_304ddb0
+0x3ed29,1,11,1,candidate_menu_multi_page_303b6ac candidate_menu_page_confirm_delete_3046408 candidate_menu_page_encrypt_list candidate_menu_page_none_30450ec candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 sub_30561a4 sub_30561cc,candidate_menu_multi_page_304ddb0
+0x3ed2c,1,1,1,sub_30588c4,sub_305892c
+0x3ed44,4,3,1,sub_305a0f0 sub_305a1d0 sub_305ac48,sub_305a648
+0x3ed48,2,75,59,candidate_analog_tx_start candidate_menu_page_calllog_deleted candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_msg_is_deleted menu_state_026 menu_state_119 sub_30456f4 sub_304579c sub_3053cbc sub_305934c sub_305986c sub_3059904 sub_3059a64 sub,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_3048f50 candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c menu_state_119 sub_30425ac sub_3043b00 sub_3043cf8 sub_3045554 sub_30
+0x3ed4a,1,10,26,sub_305a464 sub_305b2b4 sub_305b2d8 sub_305b350 sub_305b3f8 sub_305b678 sub_305b7f0,sub_3059c14 sub_3059f68 sub_3059fe4 sub_305a648 sub_305ae28 sub_305b2b4 sub_305b2d8 sub_305b350 sub_305b3f8 sub_305b678 sub_305b7f0 sub_305bb08 sub_305bb54
+0x3ed4b,1,6,3,sub_305b2b4 sub_305b2d8 sub_305b350 sub_305b3f8 sub_305b7f0,sub_305a648 sub_305ac48
+0x3ee14,1,7,11,sub_305a0f0 sub_305a1d0 sub_305a648 sub_305ac48 sub_305bb08,sub_3059c14 sub_3059f68 sub_3059fe4 sub_305a648 sub_305ae28 sub_305bb08
+0x3ee15,1,0,3,,sub_305a648 sub_305a7d8
+0x3ee16,1,35,25,candidate_menu_key_handler candidate_menu_multi_page_304ddb0 candidate_menu_page_keypad_lock_303af48 candidate_menu_page_out_of_range candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_menu_page_search_contact_3059d5c menu_state_124 sub_3037420 sub_30376d8 su,candidate_menu_multi_page_30473b0 candidate_menu_multi_page_3048f50 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_remove_group candidate_menu_page_to menu_state_021 sub_3037420 sub_30376d8 sub_30456f4 sub_304579c sub_3048938 sub_3048c5c sub_3059a64 sub_3059afc
+0x3ee17,1,2,0,sub_305b3bc sub_305b490,
+0x3ee48,1,2,4,task_inputalter,sub_3059c14 sub_3059fe4
+0x3ee49,1,59,43,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_30507bc candidate_menu_page_confirm_delete_3046408 candidate_menu_page_encrypt_list candidate_menu_page_msg_is_deleted candidate_menu_page_msg_is_deleted_3051d3c sub_30376d,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c c
+0x3ee4c,4,4,1,sub_305a0f0 sub_305ac48,sub_305a648
+0x3ee50,1,5,1,sub_305a0f0 sub_305a1d0 sub_305ac48,sub_305a648
+0x3ee88,1,11,21,sub_3059f08 sub_305a554 sub_305a990 sub_305af94 sub_305b0ac sub_305b50c sub_305b6d8 sub_305b87c sub_305bcf4,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 sub_30425ac sub_3043b00 sub_3045554 sub_3053cbc sub_3059c14 sub_305a554 sub_305a990 sub_305af94 sub_305b0ac sub_305b50c sub_305b6d8 sub_305b87c sub_305bcf4 sub_305bd70
+0x3ee8c,1,1,0,menu_state_124,
+0x3ee8c,4,18,13,candidate_menu_multi_page_304ee0c candidate_menu_page_msg_is_deleted_3051d3c candidate_menu_page_radio_id candidate_menu_page_tx_limit candidate_menu_page_view_contact_3043968 menu_state_026 menu_state_124 sub_3041698 sub_304f670 sub_3050720 sub_30523ec sub_30526a8 sub_3052b54 sub_3052bc0,candidate_menu_device_info candidate_menu_message_boxes candidate_menu_page_search_contact_3059d5c candidate_menu_page_tx_limit menu_state_124 sub_3054404
+0x3ee90,1,4,5,sub_305ae28 sub_305b258 sub_305b3bc sub_305b490,sub_305b3bc sub_305b490
+0x3ee92,2,70,87,candidate_analog_tx_start candidate_menu_page_calllog_deleted candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c candidate_menu_page_msg_is_deleted menu_state_026 sub_3037420 sub_30456f4 sub_304579c sub_3053cbc sub_305934c,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_multi_page_3048f50 candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c candidate_menu_page_remove_group menu_state_021 menu_state_119 sub_30
+0x3ee94,1,2,9,sub_305b2d8 sub_305b7f0,sub_3059c14 sub_3059f68 sub_3059fe4 sub_305a0f0 sub_305a648 sub_305ae28 sub_305bb08
+0x3ee98,1,3,0,sub_305a0f0 sub_305a1d0 sub_305ac48,
+0x3eea0,1,6,15,sub_305a1d0 sub_305ac48 sub_305b2d8 sub_305b7f0,sub_3059c14 sub_3059f68 sub_3059fe4 sub_305a648 sub_305ae28 sub_305b2d8 sub_305b7f0 sub_305bb08
+0x3eea2,2,7,15,sub_3048938 sub_3048c5c sub_30594e4,candidate_menu_multi_page_3048f50 candidate_menu_page_calllog_deleted candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_msg_is_deleted menu_state_026 sub_30456f4 sub_304579c sub_3053cbc sub_3059a64 sub_305b87c sub_305bd70
+0x3eea4,1,19,25,candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034 candidate_menu_page_search_contact_3059d5c menu_state_124 sub_30376d8 sub_3048850 sub_30488ac sub_305953c sub_3059904,candidate_menu_key_handler candidate_menu_multi_page_3048f50 candidate_menu_page_keypad_lock_303af48 candidate_menu_page_out_of_range candidate_menu_page_search_contact_3059d5c menu_state_001 menu_state_002 menu_state_005 menu_state_006 menu_state_113 menu_state_114 menu_state_117 menu_state_118 sub
+0x3eea5,1,8,5,candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048850 sub_30488ac sub_305953c,candidate_menu_multi_page_3048f50 sub_30376d8
+0x3eea6,1,6,3,candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048850 sub_30488ac sub_305953c,candidate_menu_multi_page_3048f50 sub_30376d8
+0x3eea7,1,6,5,candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048850 sub_30488ac,candidate_menu_multi_page_3048f50 sub_30376d8
+0x3eea8,1,5,4,candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048850 sub_30488ac,candidate_menu_multi_page_3048f50 sub_30376d8
+0x3eea9,1,6,9,candidate_menu_page_out_of_range_3050f78 sub_30376d8 sub_3048850 sub_30488ac,candidate_menu_multi_page_3048f50 sub_30376d8
+0x3eeaa,1,0,1,,candidate_menu_multi_page_30473b0
+0x3eeab,1,0,2,,candidate_menu_page_confirm_delete_3046408 candidate_menu_page_remove_group
+0x3eeac,1,0,2,,candidate_menu_page_confirm_delete_3046408 menu_state_021
+0x3eeb0,1,1,4,sub_305a990,sub_305a464 sub_305a7d8 sub_305ae28 task_inputalter
+0x3eeb1,1,1,2,sub_305a990,sub_305a464 task_inputalter
+0x3eeb2,1,0,1,,task_inputalter
+0x3eeb4,2,1,13,sub_30594e4,candidate_menu_page_calllog_deleted candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_msg_is_deleted menu_state_026 sub_30456f4 sub_304579c sub_3053cbc sub_3059a64 sub_305b87c sub_305bd70
+0x3eeb8,1,11,4,candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_30507bc candidate_menu_page_encrypt_list candidate_menu_page_list_is_empty_304d46c candidate_menu_page_list_is_empty_304e960 candidate_menu_page_out_of_range_3050f78 sub_304d9c4 sub_304ec70 sub_30505cc,sub_303690c sub_303b334 sub_3054110 sub_306574c
+0x3eeb9,1,0,3,,sub_303690c sub_303b334 sub_305a554
+0x3eeba,1,0,3,,sub_303690c sub_303b334 sub_305a990
+0x3eebb,1,0,4,,candidate_menu_page_empty_outbox sub_303690c sub_303b334
+0x3eebc,1,0,2,,sub_303690c sub_303b334
+0x3eebd,1,0,2,,sub_303690c sub_303b334
+0x3eebe,1,0,2,,sub_303690c sub_303b334
+0x3eebf,1,0,2,,sub_303690c sub_303b334
+0x3eec0,1,0,2,,sub_303690c sub_303b334
+0x3eec1,1,0,2,,sub_303690c sub_303b334
+0x3eec2,1,0,3,,candidate_menu_page_confirm_delete_3046408 sub_303690c sub_303b334
+0x3eec3,1,0,3,,sub_303690c sub_303b334 sub_3043b00
+0x3eec4,1,0,2,,sub_303690c sub_303b334
+0x3eec5,1,0,2,,sub_303690c sub_303b334
+0x3eec6,1,0,4,,candidate_menu_page_empty_draft_box sub_303690c sub_303b334
+0x3eec8,1,0,3,,candidate_menu_multi_page_30473b0 sub_30425ac sub_3045554
+0x3eec8,2,3,0,candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,
+0x3ef38,1,0,1,,candidate_menu_multi_page_3042b88
+0x3f00c,1,26,37,sub_3037420 sub_3053cbc sub_305a554 sub_305a84c sub_305a990 sub_305aeb0 sub_305af94 sub_305b0ac sub_305b50c sub_305b6d8 sub_305b87c task_inputalter,candidate_menu_multi_page_3042b88 candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c sub_30425ac sub_3043b00 sub_3043cf8 sub_3045554 sub_304579c sub_3053cbc sub_3059c14 sub_305a554 sub_305
+0x3f010,4,6,13,candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,candidate_menu_multi_page_304ee0c candidate_menu_page_msg_is_deleted_3051d3c candidate_menu_page_tx_limit sub_304f670 sub_304f758 sub_3050720 sub_3050d2c sub_3050ecc sub_30523ec sub_30526a8
+0x3f014,4,2,3,candidate_menu_page_confirm_delete_3046408 candidate_menu_page_encrypt_list,candidate_menu_page_none_30450ec candidate_menu_page_out_of_range_3050f78
+0x3f018,4,2,4,candidate_call_display_update sub_302c4fc,candidate_menu_page_encrypt_list candidate_menu_page_null_ch_3057790 sub_304cf64 sub_3057688
+0x3f020,4,2,2,sub_30562c4 sub_3056490,candidate_menu_page_null_ch_3057790 sub_3056490
+0x3f024,2,9,8,sub_305ef88 task_calldisp,sub_305ef88 task_calldisp
+0x3f034,2,1,0,sub_305ef88,
+0x3f348,4,5,2,sub_305ef88 task_calldisp,sub_305ef88
+0x3f34c,1,16,13,candidate_call_end_if_active candidate_menu_multi_page_302d838 candidate_menu_page_sending candidate_ptt_admission menu_state_090 menu_state_097 sub_302c54c sub_3031fd4 sub_305e3f0 sub_305e6dc,candidate_menu_page_sending candidate_ptt_admission menu_state_090 sub_3031fd4 sub_305e3f0 sub_305e6dc sub_305ed90 sub_305ee08
+0x3f34d,1,1,3,candidate_menu_page_sending,candidate_menu_multi_page_302d838 candidate_menu_page_sending
+0x3f350,4,2,1,sub_304f758 sub_3050d2c,sub_3054110
+0x3f354,1,1,4,candidate_menu_page_tx_limit,candidate_menu_page_name_30458e4 menu_go_back sub_3035bd4 sub_304274c
+0x3f355,1,1,5,candidate_menu_page_tx_limit,menu_go_back menu_state_026 menu_state_027 sub_3035bd4 sub_3041950
+0x3f358,1,2,3,candidate_tx_burst_build sub_30240e8,sub_301efcc
+0x3f359,1,2,1,candidate_tx_burst_build sub_30240e8,sub_305cdc4
+0x3f71c,1,5,1,candidate_menu_multi_page_303b6ac sub_305cfa8 sub_305cfcc,candidate_menu_page_none_30450ec
+0x3f720,1,3,3,sub_3027628 task_rxvoice,sub_301efcc
+0x3f721,1,5,1,sub_301efcc sub_3027628 task_rxvoice,sub_305cdc4
+0x3f722,1,4,5,candidate_burst_rx_handler sub_3027628 task_decrypt,sub_30234e8 sub_3027628 sub_3029318 task_rxvoice
+0x3f743,1,0,1,,task_rxvoice
+0x3f744,1,0,1,,task_rxvoice
+0x3f745,1,0,1,,task_rxvoice
+0x3f746,1,0,1,,task_rxvoice
+0x3fd40,4,1,1,sub_305d34c,candidate_menu_page_msg_send_failed
+0x3fd48,1,1,4,sub_305d34c,candidate_menu_page_msg_send_failed
+0x3fd49,1,0,1,,sub_305ef88
+0x3fd4a,1,9,7,candidate_ptt_admission menu_state_090 menu_state_097 sub_301f118 sub_302dbec sub_3031fd4 sub_305ee08,candidate_ptt_admission menu_state_090 menu_state_097 sub_301f118 sub_302dbec sub_3031fd4 sub_305ee08
+0x3fd4c,1,46,17,candidate_key_04_press candidate_key_07_press candidate_key_09_press candidate_key_10_press candidate_key_12_press candidate_keyfunc_sub_ptt candidate_menu_key_handler candidate_ptt_admission candidate_ptt_press_callback sub_301eac8 sub_302b834 sub_302c54c sub_302d178 sub_302d564 sub_302d6b4 sub_302,sub_302d178 sub_302d6b4 sub_305d8c0 sub_305de74 sub_305de8c sub_305df24 sub_305df38
+0x3fd4d,1,62,20,candidate_keyfunc_alarm candidate_menu_key_handler candidate_menu_page_alarm_siren candidate_menu_page_null_ch candidate_menu_page_tx_limit candidate_ptt_admission candidate_ptt_release_callback candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_3013940 sub_3013e78,candidate_menu_key_handler candidate_menu_page_null_ch candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_302d598 sub_302d6b4 sub_305dcd4 sub_305dd28 sub_305dd38 sub_305e2c0 sub_305e6dc sub_305eb8c sub_3068cc0 task_keys
+0x3fd4e,1,1,3,sub_302d674,sub_302d674 sub_302d6fc
+0x3fd50,4,1,1,candidate_menu_page_alarm_siren,sub_305eb8c
+0x3fd54,4,2,1,candidate_menu_page_alarm_siren candidate_menu_page_tx_limit,sub_305eb8c
+0x3fd68,4,2,0,sub_3013e9c sub_305f0f4,
+0x3fd69,1,30,17,candidate_menu_multi_page_302c880 sub_3013f00 sub_302c54c sub_302ccd0 sub_302ce14 sub_302ce54 sub_305dcd4 sub_305e2c0 sub_305e390 sub_305e3f0 sub_305e6dc sub_305eb8c,sub_302c54c sub_302ccd0 sub_302ce14 sub_302ce54 sub_305dcd4 sub_305e2c0 sub_305e390 sub_305e6dc sub_305eb8c
+0x3fd6a,1,25,8,candidate_menu_key_handler candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_tx_limit sub_302ccd0 sub_302ce14 sub_302ce54 sub_302dbec sub_305463c sub_305e390 sub_305e3f0 sub_305eb8c,sub_302ccd0 sub_302dbec sub_305e390 sub_305eb8c
+0x3fd6b,1,37,18,candidate_menu_multi_page_302d320 candidate_menu_page_alarm_siren candidate_ptt_admission sub_302c54c sub_302ccd0 sub_302d148 sub_302d178 sub_302d564 sub_302d598 sub_3055a1c sub_305dd38 sub_305e030 sub_305e0f4 sub_305e2c0 sub_305e314 sub_305e6dc sub_305eb8c sub_306133c,sub_302c54c sub_302ccd0 sub_302d148 sub_302d178 sub_305dd38 sub_305e030 sub_305e0f4 sub_305e2c0 sub_305e314 sub_305e6dc sub_305eb8c
+0x3fd6c,1,15,7,candidate_ptt_admission candidate_ptt_release_callback sub_302d148 sub_302d178 sub_302d598 sub_3055a1c sub_305dd38 sub_305e030 sub_305e0f4 sub_30624c0,sub_302d148 sub_302d178 sub_302d598 sub_305dd38 sub_305e030 sub_305e0f4
+0x3fd6d,1,1,5,sub_305e030,sub_302d148 sub_305e030 sub_305e0f4
+0x3fd70,4,2,1,candidate_menu_page_tx_limit sub_302d750,sub_305eb8c
+0x3fd74,4,3,4,candidate_menu_page_alarm_siren sub_305e030,sub_305dd38 sub_305e6dc sub_305eb8c
+0x3fd78,1,2,3,sub_3055a70 sub_305d8c0,sub_305d8c0
+0x3fd79,1,31,20,candidate_menu_key_handler candidate_menu_page_null_ch candidate_ptt_admission candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 menu_state_082 sub_3013f18 sub_302c54c sub_302cf08 sub_302d7fc sub_305dc98 sub_305dcb8 sub_305dcd4 sub_305dd00 sub_305de8c sub_305dec4 sub_,candidate_menu_key_handler candidate_menu_page_null_ch candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_302cf08 sub_302d7fc sub_305dc98 sub_305dcb8 sub_305dcd4 sub_305de8c sub_305dec4 sub_305eb8c sub_306133c sub_3068cc0 task_keys
+0x3fd7a,1,2,2,sub_306133c,sub_302cf08 sub_306133c
+0x3fd7b,1,21,12,candidate_menu_page_alarm_siren sub_305da8c sub_305dd38 sub_305e030 sub_305e134 sub_305e2c0 sub_305e314 sub_305e6dc sub_305eb8c,sub_305da8c sub_305e134 sub_305e2c0 sub_305e314
+0x3fd7c,1,11,9,sub_302d178 sub_302dbec sub_305dd38 sub_305e2c0 sub_305e314,sub_302d178 sub_302dbec sub_305dd38 sub_305e2c0 sub_305e314
+0x3fd7d,1,1,4,sub_302d178,sub_302d178
+0x3fd7e,1,15,3,candidate_menu_multi_page_302d320 candidate_menu_page_alarm_siren candidate_ptt_admission sub_302d598 sub_305dd38 sub_305e134 sub_305e8ac sub_305eb8c sub_30654f8,candidate_ptt_admission sub_305da8c
+0x3fd7f,1,4,2,candidate_ptt_admission sub_302d178 sub_305dd38,sub_305da8c
+0x3fd80,2,5,2,candidate_menu_page_null_ch_3057790 sub_3031fd4 sub_305e134,sub_305da8c
+0x3fd82,2,2,3,candidate_menu_page_null_ch_3057790 sub_305e134,sub_305e134
+0x3fd84,1,1,2,sub_305da8c,sub_305da8c
+0x3fd85,1,0,2,,sub_305da8c
+0x3fd86,1,2,4,sub_305da8c sub_305e030,sub_305da8c
+0x3fd87,1,3,3,sub_302d148 sub_305da8c sub_305e030,sub_305da8c
+0x3fd88,1,1,2,sub_305e030,sub_305da8c
+0x3fd89,1,2,3,sub_305e030,sub_302d148 sub_305e030
+0x3fd8a,1,4,2,sub_302d178 sub_305da8c sub_305dd38,sub_305da8c
+0x3fd8b,1,8,3,candidate_menu_multi_page_302d320 candidate_ptt_admission sub_302d178 sub_305da8c sub_306133c,candidate_ptt_admission sub_305da8c
+0x3fd8c,1,1,1,get_u8_3fd8c,sub_305df4c
+0x3fdbc,1,0,1,,task_keytime
+0x3fdd8,1,135,32,candidate_cable_test_mode candidate_key_04_press candidate_key_04_release candidate_key_07_press candidate_key_07_release candidate_key_09_press candidate_key_09_release candidate_key_10_press candidate_key_10_release candidate_key_12_press candidate_key_12_release candidate_keyfunc_sub_ptt candidat,candidate_cable_test_mode candidate_key_04_release candidate_key_07_press candidate_key_07_release candidate_key_09_release candidate_key_10_release candidate_key_12_release candidate_keyfunc_sub_ptt candidate_menu_page_null_ch_3057790 candidate_ptt_press_callback candidate_ptt_release_callback cand
+0x3fdd8,2,1,0,system_irq_collect,
+0x3fdd8,4,35,0,candidate_audio_amp_set candidate_keyfunc_fm_search candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_page_keypad_lock_303af48 candidate_menu_page_null_ch menu_state_000 menu_state_005 menu_state_006 menu_state_119 menu_state_124 menu_state_125 sub_300e2c0 sub_301a398 sub_3,
+0x3fdd9,1,76,38,candidate_audio_amp_set candidate_cable_test_mode candidate_keyfunc_fm_radio candidate_keyfunc_fm_search candidate_keyfunc_freq_search candidate_keyfunc_vfo_mr candidate_keyfunc_wait_mode candidate_menu_key_handler candidate_menu_multi_page_3044248 candidate_phy_rx_ber_test candidate_ptt_admission c,candidate_audio_amp_set candidate_cable_test_mode candidate_keyfunc_fm_radio candidate_ptt_admission candidate_uses_current_chan menu_state_098 menu_state_103 sub_3013940 sub_301ba8c sub_3039f30 sub_303a1d0 sub_30415dc sub_3053b28 sub_3053d74 sub_3053f9c sub_30569e4 sub_3065f58 sub_3065fd8 sub_3066b
+0x3fdda,1,33,18,candidate_key_03_press candidate_key_06_press candidate_key_07_press candidate_key_event_dispatch candidate_keyfunc_fm_search candidate_menu_key_handler candidate_menu_page_are_you_sure candidate_menu_page_null_ch_3057790 candidate_uses_seek_30661dc menu_state_005 menu_state_006 sub_3013940 sub_3015,candidate_keyfunc_fm_search candidate_menu_key_handler candidate_menu_page_are_you_sure candidate_menu_page_null_ch_3057790 menu_state_005 menu_state_006 sub_301bdb4 sub_301cbc0 sub_304a3fc sub_305463c sub_305489c sub_305f674 sub_3065e58 sub_3065f58 sub_3065ff0 sub_3066384
+0x3fddb,1,63,16,candidate_key_hook_call candidate_keyfunc_a_b_switch candidate_keyfunc_aprs_send candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_freq_search candidate_keyfunc_monitor candidate_keyfunc_roaming candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48 candidate_menu_page_list_is_empty candi,candidate_keyfunc_ctc_dcs_scan candidate_menu_page_list_is_empty candidate_menu_page_to candidate_uses_seek menu_state_001 menu_state_002 menu_state_027 sub_300d84c sub_3013940 sub_302fa24 sub_302fb70 sub_302fbfc sub_302fff8 sub_3060a74
+0x3fddc,1,48,34,candidate_key_event_dispatch candidate_keyfunc_ctc_dcs_scan candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty candidate_menu_page_to candidate_menu_page_tx_limit candidate_ptt_input_debounce menu_state_000 menu_state_027 menu_state_124 menu_state_125 sub_30130f0 sub_301bcc4 sub_301,candidate_key_event_dispatch candidate_keyfunc_ctc_dcs_scan candidate_menu_page_list_is_empty candidate_menu_page_to candidate_ptt_input_debounce menu_state_000 menu_state_027 menu_state_124 menu_state_125 sub_30130f0 sub_301bcc4 sub_301cbc0 sub_303009c sub_30301f4 sub_305953c sub_305fbdc task_usb
+0x3fddd,1,31,11,candidate_analog_tx_start candidate_key_04_release candidate_key_07_release candidate_key_09_release candidate_key_10_release candidate_key_12_release candidate_keyfunc_sub_ptt candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit candidate_radio_mode_apply candidate_tx_stop sub_3014c38 s,candidate_keyfunc_sub_ptt candidate_menu_page_tx_limit candidate_radio_mode_apply candidate_tx_stop sub_3014c38 sub_3014f54 sub_305f674 task_rxvoice
+0x3fde0,1,46,12,candidate_gpio_init candidate_keyfunc_aprs_send candidate_keyfunc_gps_info candidate_keyfunc_next_record candidate_keyfunc_previous_record candidate_menu_page_mandown_off candidate_menu_page_null_ch_3057790 candidate_menu_page_record_off candidate_rx_audio_start candidate_tx_audio_start candidate_tx,sub_305f308
+0x3fde1,1,1,0,sub_304a45c,
+0x3fde3,1,12,6,candidate_keyfunc_roaming candidate_menu_page_null_ch_3057790 sub_3018e68 sub_3049498 sub_305f308,sub_305f308
+0x3fde4,1,2,2,candidate_band_region_display sub_300d84c,sub_305f308
+0x3fde6,2,2,2,candidate_timer6_irq,candidate_timer6_irq sub_305fdec
+0x3fde8,1,0,1,,sub_305f308
+0x3fdec,1,131,24,candidate_analog_tx_start candidate_call_display_update candidate_key_03_press candidate_key_03_release candidate_key_10_press candidate_key_25_press candidate_key_26_press candidate_key_event_dispatch candidate_keyfunc_a_b_switch candidate_keyfunc_freq_search candidate_keyfunc_sub_ptt candidate_key,candidate_analog_tx_start candidate_menu_page_no_ack candidate_menu_page_null_ch_3057790 candidate_ptt_admission candidate_radio_mode_apply candidate_tx_stop menu_state_097 sub_300e2c0 sub_300e360 sub_3031fd4 sub_305e3f0 sub_305e5e4 sub_305e6dc sub_305e8ac sub_305ea58 sub_3068a88 sub_3068d04
+0x3fded,1,6,5,sub_302c54c sub_305e68c sub_305e6dc,sub_302c54c sub_305e68c sub_305e6dc
+0x3fdf0,1,1,3,sub_3013940,sub_3013940 sub_3060450 sub_3060468
+0x3fdf1,1,1,3,get_u8_3fdf1,sub_3013940 sub_3060450 sub_3060468
+0x3fdf2,2,1,4,sub_3013940,sub_3013940 sub_3060450 sub_3060468
+0x3fdf4,1,1,0,sub_30607a0,
+0x3fdfd,1,0,1,,sub_30607a0
+0x3fdfe,1,1,3,sub_3060700,candidate_uses_noaa_30309b8 menu_state_000 sub_3060700
+0x3fe00,4,0,2,,sub_306081c
+0x3fe04,1,2,1,candidate_sysint_dispatch,sub_30607a0
+0x3fe0a,2,1,2,sub_300e530,sub_300e530
+0x3fe0c,1,0,2,,sub_2b634 sub_306081c
+0x3fe14,4,0,2,,sub_2b634 sub_306081c
+0x3fe1c,1,0,2,,sub_2b634 sub_306081c
+0x3fe1d,1,1,3,sub_300dfd8,sub_2b634 sub_300dfd8 sub_306081c
+0x3fe1e,1,1,4,sub_300e530,sub_2b634 sub_300e530 sub_306081c
+0x3fe20,4,0,2,,sub_2b634 sub_306081c
+0x3fe24,1,1,3,sub_3060e60,sub_3060e60
+0x3fe25,1,31,16,candidate_menu_page_tx_limit sub_2b634 sub_300e530 sub_306081c sub_3060a3c sub_3060a74 sub_3060e60 sub_3068d04 task_sqlcheck,sub_2b634 sub_300e530 sub_306081c sub_3060a3c sub_3060a74 task_sqlcheck
+0x3fe28,1,20,11,candidate_call_display_update candidate_menu_page_iso_8bit candidate_menu_page_tx_with_alias sub_304a45c sub_304f198 sub_304f4ac sub_30610a8 sub_30610ec,sub_304a45c sub_304f198 sub_304f4ac sub_30610a8
+0x3fe29,1,1,0,sub_30610a8,
+0x3fe3d,1,1,3,sub_306133c,sub_302eca0 sub_306133c
+0x3fe3e,1,1,1,sub_306133c,sub_3061210
+0x3fe3f,1,2,4,sub_306133c,sub_306133c
+0x3fe40,1,10,7,sub_302eca0 sub_306133c,sub_302eca0 sub_306133c
+0x3ff5c,1,9,3,sub_3022dd4 sub_3022e04 sub_305e134 sub_3061648 sub_30644b8,sub_305e134 sub_3061648 sub_30644b8
+0x3ff5d,1,10,5,candidate_key_04_press candidate_key_07_press candidate_key_09_press candidate_key_09_release candidate_key_10_press candidate_key_12_press candidate_key_12_release candidate_menu_key_handler sub_3022dd4 sub_305e134,sub_306160c sub_3061648 sub_30644b8
+0x3ff5f,1,4,1,sub_3061648,sub_306160c
+0x3ff60,1,1,0,menu_state_077,
+0x3ff61,1,3,1,menu_state_077 sub_305986c,menu_state_077
+0x3ff62,1,5,2,menu_state_077 menu_state_082 sub_30130f0 sub_3060a74,menu_state_077 sub_30130f0
+0x3ffa4,4,2,3,sub_30104b0 sub_3067218,sub_3061a44 sub_3067218
+0x3ffaa,2,7,3,candidate_menu_page_record_off sub_3021844 sub_30618d4 sub_3061930 task_record,task_record
+0x3ffac,1,1,0,sub_3061d50,
+0x3ffb0,2,2,0,task_record,
+0x3ffb0,4,8,1,candidate_menu_page_record_off sub_3021844 sub_30618d4 sub_3061930 task_record,task_record
+0x3ffb4,2,2,0,task_record,
+0x3ffb4,4,9,2,candidate_menu_page_record_off sub_3021844 sub_30618d4 sub_3061930 task_record,task_record
+0x3ffb8,4,1,2,sub_3061d50,sub_3017278 sub_3061d50
+0x3ffbc,4,3,8,sub_3017278,candidate_rx_audio_start candidate_tx_audio_start candidate_tx_audio_start_with_setup sub_3017278
+0x3ffc0,4,1,1,sub_3061d50,sub_3061d50
+0x3ffc4,2,1,0,sub_3061d50,
+0x3ffc4,4,0,2,,sub_3061d50
+0x3ffcc,1,2,3,sub_3061d50,sub_3061d50
+0x3ffce,2,1,2,sub_3061d50,sub_3061d50
+0x3ffd0,2,2,3,sub_3061d50,sub_3061d50
+0x3ffd2,1,2,3,task_record,task_record
+0x3ffd3,1,45,15,candidate_key_06_press candidate_key_event_dispatch candidate_menu_page_keypad_lock_3035864 candidate_menu_page_record_off menu_state_021 sub_3010bd4 sub_30130f0 sub_30138c4 sub_3013940 sub_3018e68 sub_3021844 sub_3022410 sub_302dbec sub_304a45c sub_305463c sub_30618d4 sub_3061930 sub_3061d50 sub_30,candidate_menu_page_record_off sub_3021844 sub_304a45c sub_30618d4 sub_3061930 sub_3061d50 sub_3062204 sub_306224c task_record
+0x3ffdc,4,2,1,sub_3010bd4 sub_30622d0,sub_3061a44
+0x3ffe0,2,11,0,candidate_recordings_erase sub_300f624 sub_30106b4 sub_3061998 sub_3061a44,
+0x3ffe0,4,5,1,candidate_recordings_erase sub_300f52c sub_30106b4 sub_3061998,sub_3061a44
+0x3ffe4,2,2,0,sub_30392a4 sub_3039368,
+0x3ffe4,4,0,1,,menu_state_021
+0x3ffe8,4,4,1,sub_30104b0 sub_3010558 sub_3010978 sub_30622d0,sub_3061a44
+0x3ffec,2,8,0,candidate_recordings_erase sub_300f624 sub_30106b4 sub_3061998,
+0x3ffec,4,1,1,sub_300f52c,sub_3061a44
+0x3fff0,4,1,3,candidate_menu_multi_page_303b6ac,menu_state_021
+0x3fff4,2,1,0,sub_300f624,
+0x3fff4,4,10,1,candidate_recordings_erase sub_300f52c sub_30106b4 sub_3061998 sub_3061a44,sub_3061a44
+0x3fff8,2,1,0,sub_300f624,
+0x3fff8,4,16,1,candidate_recordings_erase sub_300f52c sub_30106b4 sub_3061998 sub_3061a44,sub_3061a44
+0x3fffc,2,3,0,menu_state_033 sub_30392a4 sub_3039368,
+0x3fffc,4,5,2,candidate_menu_multi_page_303b6ac candidate_menu_page_rx_record menu_state_021 menu_state_033,menu_state_021
+0x40000,1,1,2,sub_30624c0,sub_30624c0
+0x40001,1,16,9,candidate_menu_key_handler candidate_menu_page_tx_limit menu_state_001 sub_3014f54 sub_30376d8 sub_305e6dc sub_30624c0 task_keys,candidate_menu_key_handler candidate_menu_page_tx_limit sub_3014f54 sub_305e6dc sub_30624c0 task_keys
+0x40010,4,1,0,menu_state_021,
+0x40022,1,0,1,,candidate_gps_nmea_format
+0x4002f,1,0,1,,candidate_gps_nmea_format
+0x40046,1,0,1,,candidate_gps_nmea_format
+0x4009c,1,22,12,candidate_gps_nmea_format candidate_keyfunc_aprs_send candidate_menu_page_null_ch_3057790 candidate_setting_set_by_id menu_state_021 sub_304cf90 sub_304cfec sub_3062650 sub_3062cd4 sub_3062d80 task_scandisp,candidate_menu_page_null_ch_3057790 candidate_setting_set_by_id sub_304cf90 sub_304cfec sub_3062650
+0x4009e,2,8,2,candidate_menu_multi_page_302d838 candidate_menu_page_msg_send_failed candidate_menu_page_sending candidate_ptt_admission sub_301cbc0 sub_302dbec sub_3031fd4 sub_3062cd4,candidate_menu_page_null_ch_3057790 sub_3062828
+0x400a0,2,2,2,menu_state_021 sub_3062d80,candidate_setting_set_by_id sub_3062650
+0x400a4,4,2,2,menu_state_021 sub_3062cd4,sub_304cf70 sub_3062650
+0x400a8,2,1,3,sub_3062d80,sub_3062650 sub_3062d80
+0x400ac,2,1,0,candidate_gps_info_display_3063ea4,
+0x400be,1,0,1,,candidate_gps_info_display_3063ea4
+0x400c0,2,3,1,candidate_gps_info_display_3063ea4 sub_30634f0,candidate_gps_info_display_3063ea4
+0x400c4,4,0,1,,candidate_gps_info_display_3063ea4
+0x400c8,4,0,1,,candidate_gps_info_display_3063ea4
+0x400cc,1,5,0,sub_306461c sub_3064dbc,
+0x400cd,1,2,0,sub_306461c,
+0x400cf,1,1,0,sub_306461c,
+0x400dc,1,2,0,sub_306461c,
+0x400e4,1,7,3,sub_306461c sub_30648ac sub_3064dbc,sub_3013940 sub_30648ac
+0x400e8,1,3,1,candidate_menu_device_info sub_3061648 sub_30644b8,sub_304e684
+0x400e9,1,1,0,sub_30644b8,
+0x400ea,1,3,1,candidate_menu_device_info sub_3061648 sub_30644b8,sub_304e684
+0x400eb,1,3,1,candidate_menu_device_info sub_3061648 sub_30644b8,sub_304e684
+0x400ec,1,1,0,rfic_rx_tune,
+0x400ed,1,4,1,candidate_menu_device_info sub_304e684 sub_3061648 sub_30644b8,sub_304e684
+0x400ee,1,1,0,sub_3041698,
+0x400ef,1,1,0,sub_3041698,
+0x400f0,1,1,0,sub_3041698,
+0x400f1,1,1,0,sub_306461c,
+0x400f2,1,1,0,sub_306461c,
+0x400f3,1,3,1,candidate_menu_device_info sub_306461c sub_3064830,sub_304e684
+0x400f4,1,2,1,candidate_menu_device_info sub_306160c,sub_304e684
+0x400f8,4,1,6,sub_3064a84,candidate_analog_tx_start candidate_call_display_update sub_300e2c0 sub_3064960 sub_3064a84 task_ccltraffic
+0x400fc,1,2,3,get_u8_400fc sub_3054dc8,set_u8_400fc sub_3064960
+0x400fd,1,84,19,candidate_analog_tx_start candidate_call_display_update candidate_keyfunc_vfo_mr candidate_menu_key_handler candidate_menu_page_member_is_full candidate_menu_page_null_ch_3057790 candidate_menu_page_tx_limit candidate_radio_mode_apply menu_state_006 menu_state_070 menu_state_077 rf_rx_setup sub_300d,candidate_keyfunc_vfo_mr candidate_menu_key_handler candidate_menu_page_member_is_full candidate_menu_page_tx_limit menu_state_006 sub_301cbc0 sub_302fb70 sub_3039958 sub_305463c sub_3062cd4 sub_3064960 sub_3064a44 sub_3064a84 sub_3064cdc sub_3066608
+0x40100,1,3,0,sub_3041698 sub_3064dbc sub_3065290,
+0x40101,1,1,0,sub_3041698,
+0x40102,1,1,0,sub_3041698,
+0x40103,1,1,0,sub_3041698,
+0x40104,1,1,0,sub_3041698,
+0x40105,1,2,1,candidate_menu_device_info sub_3064db0,sub_304e684
+0x40106,1,4,1,candidate_menu_device_info sub_304e684 sub_3064dbc,sub_304e684
+0x40107,1,3,1,candidate_menu_device_info sub_3065114 sub_3065290,sub_304e684
+0x40108,1,2,1,candidate_menu_device_info rfic_rx_tune,sub_304e684
+0x4010a,1,1,1,candidate_menu_device_info,sub_304e684
+0x4010c,1,6,1,candidate_menu_device_info sub_304e684 sub_3065114 sub_3065290,sub_304e684
+0x40110,1,22,11,candidate_menu_key_handler candidate_menu_page_lone_work_off menu_state_070 sub_3013940 sub_305463c sub_30624c0 sub_3065478 sub_30654d8 sub_30654f8 task_usb,sub_3065478 sub_30654d8 sub_30654f8 task_usb
+0x40112,2,2,1,sub_30654f8,sub_3065478
+0x40114,2,3,10,sub_30654f8,sub_30654d8 sub_30654f8
+0x40116,1,1,1,sub_30654f8,sub_3065478
+0x40118,1,1,0,sub_3017084,
+0x40118,4,1,1,sub_3065934,sub_3065934
+0x40119,1,3,0,candidate_menu_multi_page_303b6ac candidate_menu_page_tx_limit sub_3017084,
+0x4011a,1,3,0,candidate_menu_multi_page_303b6ac candidate_menu_page_tx_limit sub_3017084,
+0x4011b,1,2,0,sub_3017084,
+0x4011c,1,1,0,sub_3017084,
+0x40120,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40121,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40122,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40123,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40124,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40125,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40126,1,3,0,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48,
+0x40128,2,13,12,candidate_keyfunc_fm_search candidate_menu_key_handler candidate_uses_seek_30661dc menu_state_005 menu_state_124 sub_301cbc0 sub_3065f58 sub_3066148 sub_3066384,menu_state_005 menu_state_124 sub_304a45c sub_3066148 sub_3066384
+0x4012a,1,1,8,sub_305463c,sub_304a3fc sub_305463c sub_3060a74 sub_3060e60 sub_3065ff0
+0x4012c,1,2,3,sub_3065e58,sub_3065eb8 sub_3065f8c sub_306602c
+0x4012d,1,1,3,sub_3065f8c,sub_3065eb8 sub_3065f8c sub_306602c
+0x4012e,1,0,2,,sub_3065eb8 sub_306602c
+0x4012f,1,0,2,,sub_3065eb8 sub_306602c
+0x40133,1,1,1,sub_3065e58,sub_3065e58
+0x40134,2,2,1,sub_30660b8 sub_3066148,sub_304a45c
+0x40138,1,13,6,candidate_keyfunc_fm_radio candidate_menu_multi_page_3044248 candidate_menu_page_setting_is_ok menu_state_005 sub_304a45c sub_3060a74 sub_3065eb8 sub_306602c sub_3066384 task_rxvoice,candidate_menu_page_setting_is_ok menu_state_005 sub_304a45c sub_3065eb8
+0x40139,1,1,1,sub_304a45c,sub_304a45c
+0x4013a,2,2,1,sub_30660b8 sub_3066148,sub_304a45c
+0x4013c,1,4,2,sub_3066e68 sub_3066e84,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304e960
+0x4013d,1,3,2,sub_301fe28 sub_3066608,sub_3066608
+0x4013e,1,10,2,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304e960 sub_3045554 sub_3066c68 sub_3066c9c sub_3066cb8 sub_3066dc0 sub_3066ea0,sub_3066dc0 sub_3066ea0
+0x40140,2,1,2,sub_3066824,sub_3066824
+0x40142,1,2,4,sub_3066824 task_scandisp,candidate_keyfunc_roaming menu_state_019 sub_3066424 sub_3066824
+0x40144,1,39,22,candidate_analog_tx_start candidate_menu_page_null_ch candidate_menu_page_null_ch_3057790 candidate_menu_page_select candidate_uses_noaa_30309b8 menu_state_124 menu_state_125 sub_3014f54 sub_3018e68 sub_301cbc0 sub_301fe28 sub_302c26c sub_302f418 sub_304eb34 sub_305e6dc sub_3066608 sub_3066884 task_,candidate_menu_page_null_ch_3057790 menu_state_124 menu_state_125 sub_301cbc0 sub_302f418 sub_304eb34 sub_3066608
+0x40144,4,2,1,sub_3066424 sub_3066824,sub_3066424
+0x40145,1,1,1,candidate_menu_page_select,sub_304eb34
+0x40146,1,1,1,candidate_menu_page_select,sub_304eb34
+0x40147,1,5,3,candidate_uses_noaa_30309b8 menu_state_021 sub_3066424 sub_3066b00,sub_3066424 sub_3066b00
+0x40148,1,2,1,candidate_uses_noaa_30309b8,sub_3066608
+0x40149,1,8,3,candidate_keyfunc_roaming candidate_menu_page_null_ch_3057790 menu_state_019 sub_3018e68 sub_3066608 task_scandisp,sub_3066424 sub_3066b00
+0x4014a,1,3,2,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304e960 sub_3066cb8,sub_3066424
+0x4014b,1,1,3,get_u8_4014b,candidate_menu_page_list_is_empty_304e960 sub_3066424
+0x4015c,1,4,5,candidate_menu_page_null_ch_3057790 sub_3066608,sub_3066424 sub_3066608 sub_3066b00
+0x4015d,1,11,1,candidate_menu_multi_page_303b6ac candidate_menu_page_list_is_empty_304e960 candidate_menu_page_select sub_3045554 sub_30505cc sub_305181c sub_3066c68 sub_3066c9c sub_3066d34,menu_state_026
+0x40188,1,2,1,sub_3067a5c,sub_3067928
+0x4018c,1,0,1,,sub_3067928
+0x40194,2,1,1,candidate_rfic_dtmf_setup,sub_3067928
+0x40196,2,1,1,candidate_rfic_dtmf_setup,sub_3067928
+0x40198,2,1,1,candidate_rfic_dtmf_setup,sub_3067928
+0x4019a,2,1,1,candidate_rfic_dtmf_setup,sub_3067928
+0x4019c,1,1,1,sub_3067a5c,sub_3067928
+0x401a0,1,0,1,,sub_3067928
+0x401a4,1,0,1,,sub_3067928
+0x401a8,1,3,2,sub_3067928 sub_3068d04,sub_3067928
+0x401ac,1,2,1,candidate_menu_device_info sub_3067764,sub_304e684
+0x401ad,1,2,1,candidate_menu_device_info sub_3067764,sub_304e684
+0x401ae,1,2,1,candidate_menu_device_info sub_3067764,sub_304e684
+0x401af,1,2,1,candidate_menu_device_info sub_3067764,sub_304e684
+0x401b0,1,3,1,candidate_menu_device_info sub_3067764,sub_304e684
+0x401b1,1,3,2,candidate_menu_device_info rfic_rx_tune sub_3067670,sub_304e684 sub_3067618
+0x401b2,1,7,3,candidate_menu_device_info sub_304e684 sub_3067618 sub_3067670 sub_3067764,sub_304e684 sub_3067618
+0x401b5,1,5,3,sub_302ed04 sub_3067a5c,sub_30648ac sub_30678f0 sub_3067a5c
+0x401b6,1,3,2,sub_3067a5c,sub_30648ac sub_30678f0
+0x401b7,1,1,4,sub_3067a5c,sub_30678f0 sub_3067a5c
+0x401bb,1,0,1,,sub_30678f0
+0x401bf,1,0,1,,sub_30678f0
+0x401c3,1,0,1,,sub_30678f0
+0x40204,1,1,1,sub_3068024,sub_3068024
+0x40205,1,0,1,,sub_3068024
+0x40206,1,1,1,sub_3068024,sub_3068024
+0x40208,4,1,1,sub_3068024,sub_3068024
+0x4020c,4,1,3,sub_3068024,sub_3068024
+0x40210,4,1,1,sub_3068024,sub_3068024
+0x40214,1,0,1,,sub_3068024
+0x40218,4,1,2,sub_3068024,sub_3068024
+0x4021c,1,1,0,sub_3068024,
+0x4021d,1,1,0,sub_3068024,
+0x4021e,1,1,0,sub_3068024,
+0x4021f,1,1,0,sub_3068024,
+0x40244,1,1,0,candidate_rfic_fsk_receive,
+0x40245,1,0,1,,candidate_rfic_fsk_receive
+0x40248,2,2,0,candidate_rfic_fsk_transmit sub_3041698,
+0x4024c,1,2,1,candidate_menu_device_info candidate_rfic_fsk_transmit,sub_304e684
+0x4024d,1,6,2,candidate_menu_device_info candidate_rfic_fsk_transmit sub_304e684,sub_304e684
+0x4024e,1,1,1,candidate_menu_device_info,sub_304e684
+0x4024f,1,1,0,rfic_rx_tune,
+0x40250,1,2,1,candidate_menu_device_info candidate_rfic_fsk_transmit,sub_304e684
+0x40254,1,1,0,candidate_rfic_fsk_receive,
+0x40255,1,1,0,candidate_rfic_fsk_setup_b,
+0x40256,1,1,0,candidate_rfic_fsk_setup_b,
+0x40257,1,1,0,candidate_rfic_fsk_setup_b,
+0x40258,1,1,0,candidate_rfic_fsk_setup_b,
+0x40259,1,1,0,candidate_rfic_fsk_receive,
+0x4025a,2,2,0,candidate_uses_ptt_id,
+0x4025c,1,31,20,candidate_menu_key_handler candidate_menu_page_null_ch candidate_radio_mode_apply candidate_rfic_fsk_transmit candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_30130f0 sub_301cbc0 sub_302dbec sub_306461c sub_3064830 sub_3064a84 sub_3064dbc sub_3067a5c sub_30689b0 ,candidate_menu_key_handler candidate_menu_page_null_ch candidate_radio_mode_apply candidate_uses_ptt_id menu_state_071 menu_state_072 menu_state_075 menu_state_076 sub_3064dbc sub_3067a5c sub_30689b0 sub_3068cc0 sub_3068d04 task_keys
+0x4025d,1,6,4,candidate_analog_tx_start sub_3014f54 sub_306160c task_scandisp,candidate_rfic_fsk_transmit sub_3031fd4 sub_306160c task_scandisp
+0x4025e,1,7,10,sub_30130f0 sub_3064830 sub_3064dbc sub_3068d04,sub_306461c sub_3064dbc
+0x4025f,1,3,9,sub_30130f0 sub_302dbec sub_3068d04,sub_30130f0 sub_306461c sub_3064830 sub_3064dbc sub_3067a5c sub_30689b0 sub_3068d04
+0x40260,1,2,11,candidate_uses_ptt_id,candidate_rfic_fsk_receive sub_306461c sub_3064dbc sub_3067a5c
+0x40261,1,1,2,task_scandisp,candidate_uses_ptt_id task_scandisp
+0x40278,1,6,5,candidate_radio_mode_apply candidate_rfic_fsk_transmit sub_3061648 sub_3065114 sub_3068948,candidate_radio_mode_apply candidate_rfic_fsk_transmit sub_3061648 sub_3065114 sub_3068948
+0x4027c,1,5,1,sub_306461c sub_3064830 sub_3064dbc sub_3067a5c,sub_3068948
+0x4027d,1,2,8,sub_3068d04,sub_306461c sub_3064830 sub_3064dbc sub_3067a5c sub_30689b0 sub_3068d04
+0x4027e,1,2,3,sub_30689f0,sub_3068930 sub_30689b0 sub_30689f0
+0x4027f,1,2,3,sub_30689f0,sub_3068930 sub_30689b0 sub_30689f0
+0x40280,1,2,4,sub_3068930,rfic_rx_tune
+0x40e8c,4,1,1,OS_PrioGetHighest,sub_119e0
+0x40e90,4,0,1,,sub_119e0
+0x411d8,2,0,1,,OS_TmrInit
+0x411da,2,0,2,,OS_TmrInit sub_306bb64
+0x411e8,4,0,1,,sub_306ba38
+0x420a0,2,0,1,,sub_13850
+0x420a2,2,0,2,,sub_13850 sub_13a84
+0x420b4,4,0,1,,candidate_OSTimeDlyResume
+0x42524,4,65,5,OSFlagPend OSMutexPend OSMutexPost OSQPend OSSched OSSemPend OSTaskSemPendAbort OSTimeDly OSTimeDlyHMSM candidate_OSTaskQPend candidate_OSTaskQPendAbort candidate_OSTaskSemPend sub_105be sub_105e6 sub_107c0 sub_108b0 sub_113bc sub_1216c sub_1232c sub_12688 sub_126e4 sub_129b0 sub_129f4 sub_12aa8 sub,sub_105be sub_105e6 sub_10620 sub_10a04 sub_10d5c
+0x42528,4,1,2,OS_StatTask,OS_StatTaskInit sub_306b560
+0x4252c,4,2,2,OS_TmrInit sub_116a4,OS_TmrInit
+0x42530,1,1,2,OS_StatTask,OS_StatTask OS_StatTaskInit
+0x42531,1,187,177,OSFlagCreate OSFlagDel OSFlagPend OSFlagPendAbort OSMutexCreate OSMutexDel OSMutexPend OSMutexPendAbort OSMutexPost OSQCreate OSQDel OSQPend OSQPendAbort OSSched OSSemCreate OSSemDel OSSemPend OSSemPendAbort OSTaskCreate OSTaskSemPendAbort OSTimeDly OSTimeDlyHMSM OSTmrCreate OS_SchedLockTimeMeasStar,OSFlagCreate OSFlagDel OSFlagPend OSFlagPendAbort OSMutexCreate OSMutexDel OSMutexPend OSMutexPendAbort OSMutexPost OSQCreate OSQDel OSQPend OSQPendAbort OSSemCreate OSSemDel OSSemPend OSSemPendAbort OSTaskCreate OSTaskSemPendAbort OSTimeDly OSTimeDlyHMSM OSTmrCreate candidate_OSQFlush candidate_OST
+0x42532,1,2,3,sub_11004 sub_112c8,sub_109b8 sub_10d5c
+0x42534,2,1,2,sub_3069bd0,sub_3069bd0 sub_3069cf8
+0x42538,4,1,2,OS_IdleTask,OS_IdleTask OS_IdleTaskInit
+0x42604,4,4,3,OSTaskCreate sub_11004 sub_112c8 sub_12aa8,sub_109b8 sub_10d5c
+0x42608,2,2,3,OSTaskCreate sub_12c3c,OSTaskCreate sub_12b70 sub_12c3c
+0x4260c,4,3,4,OS_IdleTask OS_StatTask sub_306b560,OS_IdleTask OS_StatTask OS_StatTaskInit sub_306b560
+0x426d8,4,1,1,sub_10854,sub_10d5c
+0x426dc,4,0,2,,OS_StatTask sub_306b108
+0x426e0,2,3,4,OSSemCreate OSSemDel,OSSemCreate OSSemDel sub_11fd8
+0x426e2,2,3,4,OSFlagCreate OSFlagDel,OSFlagCreate OSFlagDel sub_3069550
+0x426e4,4,1,3,OS_IntQTask,OS_IntQTask OS_IntQTaskInit sub_306b108
+0x426e8,4,1,1,sub_106cc,sub_10d5c
+0x426ec,4,1,1,sub_10738,sub_10d5c
+0x426f0,4,1,3,sub_306a4cc,sub_306a4cc sub_306a5b8 sub_306a8ac
+0x426f4,4,11,3,candidate_OSTimeDlyResume candidate_os_timestamp_get sub_13aa0 sub_140d8,OS_TickTaskInit sub_13aa0 sub_140fc
+0x426f8,4,1,3,sub_306b828,OS_TmrInit sub_306b828 sub_306b92c
+0x426fc,1,54,3,OSFlagCreate OSFlagDel OSFlagPend OSFlagPendAbort OSFlagPost OSMutexCreate OSMutexDel OSMutexPend OSMutexPendAbort OSMutexPost OSQCreate OSQDel OSQPend OSQPendAbort OSQPost OSSched OSSemCreate OSSemDel OSSemPend OSSemPendAbort OSSemPost OSTaskCreate OSTaskSemPendAbort OSTimeDly OSTimeDlyHMSM OSTmrCr,sub_10894 sub_108b0 sub_10d5c
+0x42700,4,1,2,OS_SchedLockTimeMeasStop,OS_SchedLockTimeMeasStart sub_10d5c
+0x42704,4,2,3,OS_SchedLockTimeMeasStop sub_107c0,OS_SchedLockTimeMeasStop sub_107c0 sub_10d5c
+0x42708,4,1,1,sub_10728,sub_10d5c
+0x4270c,2,0,2,,OS_StatTask
+0x4270e,2,1,3,sub_11604,OS_IntQTaskInit sub_11604 sub_306b108
+0x42710,1,1,2,sub_126a0,sub_10d5c sub_126a0
+0x42712,2,2,2,OSTmrCreate candidate_OSTmrDel,OSTmrCreate candidate_OSTmrDel
+0x42714,4,1,1,sub_10718,sub_10d5c
+0x42718,4,3,4,OSSched OS_Sched0 sub_108b0,OSSched OS_Sched0 sub_108b0 sub_12b70
+0x4271c,2,3,4,OSQCreate OSQDel,OSQCreate OSQDel sub_306af0c
+0x42720,4,4,3,OS_StatTask sub_12b08 sub_306b108,sub_12b08 sub_12b2c sub_12b70
+0x42724,1,1,2,sub_116a4,sub_10d5c sub_11604
+0x42728,4,1,3,OS_TmrTask,OS_TmrInit OS_TmrTask sub_306b108
+0x4272c,4,2,3,sub_306acac sub_306b108,sub_306acac sub_306ad94 sub_306af0c
+0x42730,4,8,2,OS_TmrTask sub_306b6d0 sub_306ba38,OS_TmrInit OS_TmrTask
+0x42734,1,7,2,OSTaskCreate OS_TickTask sub_10894 sub_108b0 sub_10a04 sub_11190 sub_11250,sub_10a04 sub_10d5c
+0x42738,4,1,3,sub_13aa0,OS_TickTaskInit sub_13aa0 sub_306b108
+0x4273c,4,2,2,sub_11604,OS_IntQTaskInit sub_11604
+0x42740,4,0,3,,OS_IntQTask sub_10d44 sub_11604
+0x42744,4,0,3,,OS_IntQTask sub_10d44 sub_11604
+0x42748,2,0,3,,OS_IntQTask sub_10d44 sub_11604
+0x4274c,4,0,1,,sub_110bc
+0x42754,4,0,1,,sub_110bc
+0x42a40,4,1,1,sub_107c0,sub_10d5c
+0x42a44,4,1,3,sub_11d9c,sub_11d9c sub_11e54 sub_11fd8
+0x42a48,2,1,2,OS_StatTask,OS_StatTask sub_306b108
+0x42a4c,4,1,3,sub_116a4,OS_TmrInit sub_116a4
+0x42a50,4,3,4,sub_3069d80 sub_3069dcc sub_3069e3c,sub_3069d10 sub_3069d80 sub_3069dcc sub_3069e3c
+0x42a54,2,3,4,sub_3069d80 sub_3069dcc sub_3069e3c,sub_3069d10 sub_3069d80 sub_3069dcc sub_3069e3c
+0x42a56,2,3,4,sub_3069d80 sub_3069dcc sub_3069e3c,sub_3069d10 sub_3069d80 sub_3069dcc sub_3069e3c
+0x42a58,2,1,3,sub_3069e3c,sub_3069d10 sub_3069e3c sub_306b108
+0x42a5c,2,3,4,OSMutexCreate OSMutexDel,OSMutexCreate OSMutexDel sub_306a8ac
+0x42a5e,2,71,3,OSFlagDel OSMutexDel OSMutexPend OSMutexPost OSTaskCreate OS_IntQTask OS_StatTask candidate_OSQFlush candidate_cable_receive candidate_codeplug_write candidate_codeplug_write_byte candidate_codeplug_write_variant_a candidate_codeplug_write_variant_b candidate_codeplug_write_variant_c candidate_menu_,OS_IntQTask OS_IntQTaskInit sub_11604
+0x42a60,4,3,2,OS_IntQTask sub_116a4,OS_IntQTask OS_IntQTaskInit
+0x42a64,2,1,2,sub_11604,OS_IntQTaskInit sub_11604
+0x42af8,4,1,1,OS_Sched0,OS_Sched0
+0x42b30,1,1,2,OS_StatTask,OS_StatTaskInit sub_306b560
+0x42b34,4,1,3,sub_3069560,sub_3069550 sub_3069560 sub_3069618
+0x42c00,4,1,1,sub_10708,sub_10d5c
+0x42ccc,1,0,5,,OSSched OS_Sched0 sub_108b0 sub_10a04 sub_10d5c
+0x42cd0,4,4,5,sub_105be sub_105e6 sub_10620 sub_107c0,OSSched OS_Sched0 sub_108b0 sub_10a04 sub_10d5c
+0x42cd4,4,1,3,OS_SchedLockTimeMeasStop,OS_SchedLockTimeMeasStop sub_10d5c sub_306b108
+0x42cd8,4,1,3,OS_StatTask,OS_StatTask sub_306b108 sub_306b560
+0x42cdc,4,1,2,OS_StatTask,OS_StatTask OS_StatTaskInit
+0x42ce0,4,1,2,sub_3069bb4,sub_3069bb4 sub_3069cf8
+0x42ce4,1,4,3,sub_10fa0 sub_11004 sub_11604 sub_14128,OSMutexPost sub_10a04 sub_10d5c
+0x42ce8,4,2,2,candidate_Mem_PoolCreate,candidate_Mem_PoolCreate sub_306c220
+0x454ec,4,0,1,,sub_306c220
+0x454f0,4,0,1,,sub_306c220
+0x454f4,4,0,1,,sub_306c220
+0x454f8,4,0,1,,sub_306c220
+0x454fc,4,0,1,,sub_306c220
+0x45500,4,0,1,,sub_306c220
+0x45504,4,0,1,,sub_306c220
+0x45508,4,0,1,,sub_306c220
+0x4550c,4,0,1,,sub_306c220
+0x45510,4,0,1,,sub_306c220
+0x45518,4,0,1,,sub_306c220
+0x4551c,4,0,1,,sub_306c220
+0x45524,4,0,1,,sub_306c220
+0x45528,4,3,1,candidate_Mem_PoolCreate sub_306c42c,sub_306c220
+0x4552c,4,0,1,,sub_306c220
+0x45530,4,4,1,candidate_Mem_PoolCreate sub_306c42c,sub_306c220
+0x45534,4,0,1,,sub_306d670
+0x45638,4,1,2,CPU_IntDisMeasStop,CPU_IntDisMeasStart sub_10368
+0x4563c,2,1,2,CPU_IntDisMeasStart,CPU_IntDisMeasStart sub_10368
+0x45640,4,1,2,sub_101c4,set_u32_45640 sub_10368
+0x45644,4,0,2,,CPU_IntDisMeasStop sub_10368
+0x45648,2,3,3,CPU_IntDisMeasStart CPU_IntDisMeasStop,CPU_IntDisMeasStart CPU_IntDisMeasStop sub_10368
+0x4565c,4,3,5,CPU_IntDisMeasStop sub_101f4 sub_10368,CPU_IntDisMeasStop sub_10208 sub_10368
+0x45660,4,2,3,CPU_IntDisMeasStop sub_10224,CPU_IntDisMeasStop sub_10368
+0x45664,4,1,2,sub_101a4,sub_10368
+0x45668,4,0,1,,sub_106dc
+0x46836,2,1,1,candidate_ambe_decode_burst,start_tasks_decoder_and_1_more
+0x46838,2,3,1,candidate_ambe_decode_burst,candidate_ambe_decode_burst
+0x46846,2,0,2,,start_tasks_decoder_and_1_more sub_16618
+0x46848,2,0,2,,start_tasks_decoder_and_1_more sub_16618
+0x4684a,2,0,3,,start_tasks_decoder_and_1_more sub_15f30
+0x4684c,2,3,3,candidate_ambe_decode_burst,start_tasks_decoder_and_1_more sub_15f30
+0x4684e,2,2,2,candidate_codec_decoder_param_b_set start_tasks_decoder_and_1_more,candidate_codec_decoder_param_a_set start_tasks_decoder_and_1_more
+0x46850,2,2,2,candidate_codec_decoder_param_a_set start_tasks_decoder_and_1_more,candidate_codec_decoder_param_b_set start_tasks_decoder_and_1_more
+0x46a32,2,0,2,,start_tasks_decoder_and_1_more sub_16618
+0x46a34,2,3,3,play_pcm_irq,play_pcm_irq start_tasks_decoder_and_1_more sub_16618
+0x46a36,2,2,3,play_pcm_irq,play_pcm_irq start_tasks_decoder_and_1_more sub_16618
+0x46a38,2,1,1,task_decoder,task_decoder
+0x46ac8,2,1,0,task_decoder,
+0x46b58,2,0,1,,start_tasks_decoder_and_1_more
+0x46b5a,2,0,1,,start_tasks_decoder_and_1_more
+0x48148,1,3,3,candidate_rx_voice_ring_push sub_1620c,candidate_rx_voice_ring_push start_tasks_decoder_and_1_more sub_16618
+0x498b0,2,0,1,,start_tasks_decoder_and_1_more
+0x498b4,2,0,1,,sub_165c0
+0x498b6,2,0,3,,start_tasks_decoder_and_1_more sub_165c0 task_encoder
+0x498b8,2,5,9,sub_166b8 task_encoder,start_tasks_decoder_and_1_more sub_165c0 sub_166b8 task_encoder
+0x498ba,2,3,3,sub_166b8 task_encoder,start_tasks_decoder_and_1_more sub_15f30
+0x498bc,2,6,3,sub_166b8 sub_16838 task_encoder,start_tasks_decoder_and_1_more sub_15f30
+0x498be,2,3,1,sub_166b8 task_encoder,start_tasks_decoder_and_1_more
+0x498c0,2,2,2,candidate_codec_encoder_param_b_set start_tasks_decoder_and_1_more,candidate_codec_encoder_param_a_set start_tasks_decoder_and_1_more
+0x498c2,2,2,2,candidate_codec_encoder_param_a_set start_tasks_decoder_and_1_more,candidate_codec_encoder_param_b_set start_tasks_decoder_and_1_more
+0x498c4,2,0,1,,start_tasks_decoder_and_1_more
+0x498c6,2,0,1,,start_tasks_decoder_and_1_more
+0x498c8,2,0,1,,start_tasks_decoder_and_1_more
+0x498ca,2,0,1,,start_tasks_decoder_and_1_more
+0x498cc,2,0,1,,start_tasks_decoder_and_1_more
+0x498ce,2,0,1,,start_tasks_decoder_and_1_more
+0x498d0,2,0,1,,start_tasks_decoder_and_1_more
+0x498d2,2,0,1,,start_tasks_decoder_and_1_more
+0x498d4,2,0,1,,start_tasks_decoder_and_1_more
+0x498d6,2,0,1,,start_tasks_decoder_and_1_more
+0x49a18,2,2,3,capture_pcm_irq,capture_pcm_irq start_tasks_decoder_and_1_more sub_165c0
+0x49a1a,2,4,3,sub_166b8 task_encoder,start_tasks_decoder_and_1_more sub_165c0 task_encoder
+0x49a1c,2,4,4,task_encoder,task_encoder
+0x49aac,2,4,0,task_encoder,
+0x49b5c,1,3,3,candidate_tx_voice_ring_push candidate_tx_voice_ring_read,candidate_tx_voice_ring_push start_tasks_decoder_and_1_more sub_165c0
+0x49b5d,1,18,6,candidate_ambe_decode_burst candidate_rx_voice_ring_read sub_15f84 task_decoder,start_tasks_decoder_and_1_more sub_16618 task_decoder
+0x4a7a0,1,1,2,sub_1f5b0,sub_1f5b0 sub_1f96c
+0x4a7a1,1,0,1,,sub_1f5b0
+0x4a7a3,1,0,1,,sub_1f5b0
+0x4a7a5,1,0,1,,sub_1f5b0
+0x4a7a7,1,0,1,,sub_1f5b0
+0x4a7a9,1,0,1,,sub_1f5b0
+0x4a7ab,1,0,1,,sub_1f5b0
+0x4a7ad,1,0,1,,sub_1f5b0
+0x4a7af,1,0,1,,sub_1f5b0
+0x4a7b0,1,1,0,sub_1f798,
+0x4a7b1,1,1,0,sub_1f798,
+0x4a7b2,1,1,0,sub_1f798,
+0x4a7b3,1,1,0,sub_1f798,
+0x4a7b4,1,1,0,sub_1f798,
+0x4a7b5,1,1,0,sub_1f798,
+0x4a7b6,1,1,0,sub_1f798,
+0x4a7b7,1,1,0,sub_1f798,
+0x4a7b8,1,0,3,,sub_1f5b0 sub_1f96c
+0x4a7b9,1,1,4,sub_1f798,sub_1f5b0 sub_1f798 sub_1f96c
+0x4a7be,1,1,0,sub_1f5b0,
+0x4a7bf,1,2,0,sub_1f96c,
+0x4a7c0,1,2,0,sub_1f96c,
+0x4a7c1,1,2,0,sub_1f96c,
+0x4a7c2,1,2,0,sub_1f96c,
+0x4a7c6,1,2,0,sub_1f96c,
+0x4a7c7,1,1,0,sub_1f5b0,
+0x4a7c8,1,2,0,sub_1f96c,
+0x4a7c9,1,2,0,sub_1f96c,
+0x4a7ca,1,2,0,sub_1f96c,
+0x4a7cc,4,1,3,candidate_uses_0000000000000000_null,sub_30706e4 sub_3070918 sub_307183c
+0x4b7e0,4,0,1,,sub_307050c
+0x4b7e4,4,0,1,,sub_307050c
+0x18000800,4,1,4,candidate_key_event_dispatch,application_entry sub_30133dc sub_3022f18 sub_3059904
+0x18000804,4,1,0,candidate_key_hook_call,
+0x18000838,4,1,0,candidate_ptt_input_debounce,
+0x1800084c,4,1,0,candidate_key_event_dispatch,
+0x18000868,4,1,0,candidate_key_event_dispatch,
+0x1800086c,4,1,0,candidate_key_event_dispatch,
+0x180008a4,4,1,0,candidate_ptt_input_debounce,
+0x18000a10,4,1,0,candidate_menu_page_number_is_err,
+0x18000a14,4,1,0,candidate_menu_add_member,
+0x18000a1c,4,1,0,candidate_menu_page_number_is_err,
+0x18000a20,4,1,0,candidate_menu_add_member,
+0x18000a60,1,1,0,candidate_rssi_measure,
+0x18000a64,4,4,1,sub_2bda0 sub_2bdec sub_2be7c sub_2bebc,sub_2bd24
+0x18000a68,4,0,1,,sub_2bd24
+0x18000a6c,4,0,1,,sub_2bd24
+0x18000a70,4,0,1,,sub_2bd24
+0x18000a74,4,2,1,sub_2be7c sub_2bebc,sub_2bd24
+0x18000a78,1,0,2,,sub_301c550 sub_301c738
+0x18000a78,4,3,0,sub_301c550 sub_301c738,
+0x18000a79,1,0,2,,sub_301c550 sub_301c738
+0x18000a7a,1,0,2,,sub_301c550 sub_301c738
+0x18000a7b,1,0,1,,sub_301c738
+0x18000a7c,1,0,2,,sub_301c550 sub_301c738
+0x18000a7c,4,3,0,sub_301c550 sub_301c738,
+0x18000a7d,1,0,2,,sub_301c550 sub_301c738
+0x18000a7e,2,0,2,,sub_301c550 sub_301c738
+0x18000a80,1,2,0,sub_2cef0 sub_2d05c,
+0x18000a88,1,0,1,,candidate_phy_rx_ber_test
+0x18000a8c,4,14,0,candidate_cable_password_command candidate_cable_program_mode candidate_cable_rtc_command candidate_cable_sysinfo candidate_cable_test_mode task_usb,
+0x18000a90,4,20,0,candidate_cable_password_command candidate_cable_program_mode candidate_cable_rtc_command task_usb,
+0x18000a94,4,1,0,candidate_cable_password_command,
+0x18000a98,1,58,353,candidate_band_region_display candidate_keyfunc_ctc_dcs_scan candidate_menu_draw_list_row candidate_menu_key_handler candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304ddb0 candidate_menu_page_encrypt_list candidate_menu_page_keypad_lock_303af48 candidate_menu_page_list_is_empty candidat,candidate_key_11_press candidate_keyfunc_ctc_dcs_scan candidate_keyfunc_ctc_dcs_set candidate_keyfunc_gps_info candidate_keyfunc_message candidate_menu_device_info candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304231c candidate_menu_multi_page_3042b88 candidate_menu_multi_page_3042f1c 
+0x18000a9c,4,2,0,candidate_menu_page_inbox_list candidate_menu_page_quick_text_empty,
+0x18000aa0,1,6,1,candidate_menu_multi_page_3042b88 candidate_menu_page_inbox_list candidate_menu_page_quick_text_empty sub_3050d2c sub_3053cbc sub_3054110,sub_3053b28
+0x18000aa1,1,2,0,candidate_menu_page_inbox_list candidate_menu_page_quick_text_empty,
+0x18000aa4,1,1,0,candidate_cable_program_mode,
+0x18000aa4,4,1,0,candidate_menu_multi_page_3042b88,
+0x18000aa8,1,4,2,candidate_menu_multi_page_3042b88 menu_state_075 sub_3053d74,sub_3053b28 sub_3053d74
+0x18000aa9,1,1,0,candidate_menu_multi_page_3042b88,
+0x18000aac,4,1,0,candidate_menu_multi_page_3042b88,
+0x18000ab0,1,4,2,candidate_menu_multi_page_3042b88 sub_3053f9c,sub_3053b28 sub_3053f9c
+0x18000ab1,1,1,0,candidate_menu_multi_page_3042b88,
+0x18000ab4,4,1,0,candidate_menu_multi_page_3042b88,
+0x18000ab8,1,4,2,candidate_menu_multi_page_3042b88 sub_305407c sub_3054404,sub_3053b28 sub_305407c
+0x18000ab9,1,1,0,candidate_menu_multi_page_3042b88,
+0x18000abc,2,10,1,sub_30376d8 sub_3053cbc sub_3059c90 sub_305a554 sub_305a648 sub_305a84c sub_305a990 task_inputalter,sub_3059c14
+0x18000ac0,4,1,0,sub_305587c,
+0x18000ac4,4,2,0,sub_30553c0 sub_305587c,
+0x18000ac8,4,2,0,sub_30553c0 sub_305587c,
+0x18000acc,4,1,0,sub_30553c0,
+0x18000ad0,4,2,0,sub_30553c0 sub_305587c,
+0x18000ad4,4,1,0,sub_305587c,
+0x18000ad8,4,1,0,sub_305587c,
+0x18000ae4,4,1,0,sub_305587c,
+0x18000b08,1,1,1,candidate_menu_page_null_ch_3057790,candidate_menu_page_null_ch_3057790
+0x18000b0a,1,44,18,candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_30507bc candidate_menu_page_calllog_deleted candidate_menu_page_encrypt_list candidate_menu_page_list_is_empty_304d46c candidate_menu_page_list_is_empty_304e960 candidate_menu_page_msg_is_deleted candidate_menu_page_msg_is_deleted_3051d3c c,sub_3037420 sub_3059c14 sub_3059f68 sub_3059fe4 sub_305a648 sub_305ae28 sub_305b3f8 sub_305b678 sub_305bb08 sub_305bb54 sub_305bd70
+0x18000b0b,1,2,4,sub_305934c,sub_305934c
+0x18000b0c,1,4,1,candidate_menu_key_handler candidate_menu_page_keypad_lock_303af48 sub_30376d8 sub_3059afc,set_u8_18000b0c
+0x18000b0d,1,16,6,candidate_menu_multi_page_303b6ac candidate_setting_set_by_id sub_30376d8 sub_3059c14 sub_3059fe4 sub_305a554 sub_305a648 sub_305a7d8 sub_305ae28 sub_305b258 sub_305b3bc sub_305b490 sub_305bd70,candidate_setting_set_by_id sub_304a45c sub_3059c14 sub_3059fe4
+0x18000b0e,1,2,6,task_inputalter,sub_3059fe4 task_inputalter
+0x18000b0f,1,3,27,sub_30376d8 task_inputalter,candidate_menu_multi_page_304ddb0 candidate_menu_multi_page_30507bc candidate_menu_page_calllog_deleted candidate_menu_page_encrypt_list candidate_menu_page_list_is_empty_304d46c candidate_menu_page_list_is_empty_304e960 candidate_menu_page_msg_is_deleted candidate_menu_page_out_of_range_3050f78 men
+0x18000b60,4,1,0,sub_304274c,
+0x18000b64,1,1,0,sub_304274c,
+0x18000b65,1,1,0,sub_304274c,
+0x18000b68,4,6,0,candidate_menu_page_remove_group menu_state_014 menu_state_021 sub_3041838 sub_3045f1c,
+0x18000b6c,1,6,0,candidate_menu_page_remove_group menu_state_014 menu_state_021 sub_3041838 sub_3045f1c,
+0x18000b6d,1,2,0,candidate_menu_page_remove_group sub_3041838,
+0x18000b70,4,1,0,menu_state_021,
+0x18000b74,1,1,0,menu_state_021,
+0x18000b78,4,3,0,sub_30425ac sub_3045554 sub_3045ad8,
+0x18000b7c,1,3,0,sub_30425ac sub_3045554 sub_3045ad8,
+0x18000b7d,1,2,0,sub_30425ac sub_3045ad8,
+0x18000b80,4,7,0,candidate_menu_page_confirm_delete_3046408 menu_state_021 menu_state_112 menu_state_119 sub_3041950 sub_30427c8,
+0x18000b84,1,7,0,candidate_menu_page_confirm_delete_3046408 menu_state_021 menu_state_112 menu_state_119 sub_3041950 sub_30427c8,
+0x18000b85,1,6,0,candidate_menu_page_confirm_delete_3046408 menu_state_021 menu_state_112 menu_state_119 sub_3041950 sub_30427c8,
+0x18000b88,4,4,0,candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_remove_group,
+0x18000b8c,1,4,0,candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_remove_group,
+0x18000b8d,1,4,0,candidate_menu_multi_page_30473b0 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_remove_group,
+0x18000b90,4,1,0,candidate_menu_page_empty_calllog,
+0x18000b94,1,1,0,candidate_menu_page_empty_calllog,
+0x18000b95,1,1,0,candidate_menu_page_empty_calllog,
+0x18000b98,4,1,0,candidate_menu_page_empty_calllog_3041c74,
+0x18000b9c,1,1,0,candidate_menu_page_empty_calllog_3041c74,
+0x18000b9d,1,1,0,candidate_menu_page_empty_calllog_3041c74,
+0x18000ba0,4,1,0,candidate_menu_page_empty_calllog_3041cc0,
+0x18000ba4,1,1,0,candidate_menu_page_empty_calllog_3041cc0,
+0x18000ba5,1,1,0,candidate_menu_page_empty_calllog_3041cc0,
+0x18000bb8,4,1,0,sub_3043658,
+0x18000bbc,1,1,0,sub_3043658,
+0x18000bbd,1,1,0,sub_3043658,
+0x18000bc0,4,1,0,sub_30193cc,
+0x18000bc4,4,1,0,sub_30193cc,
+0x18000bc8,4,1,0,sub_30432c4,
+0x18000bcc,1,1,0,sub_30432c4,
+0x18000bcd,1,1,0,sub_30432c4,
+0x18000bd0,4,1,0,menu_state_000,
+0x18000bd4,4,4,4,common_irq_entry sub_105be sub_105e6,common_irq_entry sub_105be sub_105e6
+0x18000bd8,1,1,1,get_u8_18000bd8,set_u8_18000bd8
+0x18000bd9,1,1,1,get_u8_18000bd9,set_u8_18000bd9
+0x18000c2c,4,1,1,sub_307050c,sub_307050c
+0x18000c30,4,2,3,sub_307050c sub_30705a8,sub_307050c sub_30705a8
+0x18000c34,4,1,2,sub_3070670,sub_3070670 sub_3070684
+0x18000c38,4,2,0,sub_306d7e0,
+0x18000c3c,4,2,0,sub_306d7e0,
+0x18000c40,4,3,0,sub_306d7e0,
+0x18000c44,4,3,0,sub_306d7e0,
+0x18000c48,4,1,0,sub_306d7e0,
+0x18000c4c,4,1,0,sub_306d7e0,
+0x18000c50,4,4,0,sub_306d7e0,
+0x18000c54,4,4,0,sub_306d7e0,
+0x18000c58,4,2,0,sub_306d7e0,
+0x18000c5c,4,2,0,sub_306d7e0,
+0x18000c60,4,2,0,sub_306d7e0,
+0x18000c64,4,2,0,sub_306d7e0,
+0x18000c68,4,2,0,sub_306d7e0,
+0x18000c6c,4,2,0,sub_306d7e0,
+0x18000c70,4,2,0,sub_306d7e0,
+0x18000c74,4,2,0,sub_306d7e0,
+0x18000c78,4,2,0,sub_306d7e0,
+0x18000c7c,4,2,0,sub_306d7e0,
+0x18000c80,4,2,0,sub_306d7e0,
+0x18000c84,4,2,0,sub_306d7e0,
+0x18000c88,4,2,0,sub_306d7e0,
+0x18000c8c,4,2,0,sub_306d7e0,
+0x18000c90,4,2,0,sub_306d7e0,
+0x18000c94,4,2,0,sub_306d7e0,
+0x18000c98,4,2,0,sub_306d7e0,
+0x18000c9c,4,2,0,sub_306d7e0,
+0x18000ca0,4,2,0,sub_306d7e0,
+0x18000ca4,4,2,0,sub_306d7e0,
+0x18000ca8,4,1,0,sub_306d7e0,
+0x18000cac,4,1,0,sub_306d7e0,
+0x18000cb0,4,2,0,sub_306d7e0,
+0x18000cb4,4,2,0,sub_306d7e0,
+0x18000cb8,4,2,0,candidate_math_trig_function,
+0x18000cbc,4,2,0,candidate_math_trig_function,
+0x18000cc0,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cc4,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cc8,4,2,0,candidate___ieee754_rem_pio2,
+0x18000ccc,4,2,0,candidate___ieee754_rem_pio2,
+0x18000cd0,4,2,0,candidate___ieee754_rem_pio2,
+0x18000cd4,4,2,0,candidate___ieee754_rem_pio2,
+0x18000cd8,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cdc,4,1,0,candidate___ieee754_rem_pio2,
+0x18000ce0,4,1,0,candidate___ieee754_rem_pio2,
+0x18000ce4,4,1,0,candidate___ieee754_rem_pio2,
+0x18000ce8,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cec,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cf0,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cf4,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cf8,4,1,0,candidate___ieee754_rem_pio2,
+0x18000cfc,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d00,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d04,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d08,4,2,0,candidate___ieee754_rem_pio2,
+0x18000d0c,4,2,0,candidate___ieee754_rem_pio2,
+0x18000d10,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d14,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d18,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d1c,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d20,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d24,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d28,4,1,0,candidate___ieee754_rem_pio2,
+0x18000d2c,4,1,0,candidate___ieee754_rem_pio2,
+0x18000dc0,4,1,0,candidate___kernel_sin,
+0x18000dc4,4,1,0,candidate___kernel_sin,
+0x18000dc8,4,1,0,candidate___kernel_sin,
+0x18000dcc,4,1,0,candidate___kernel_sin,
+0x18000dd0,4,1,0,candidate___kernel_sin,
+0x18000dd4,4,1,0,candidate___kernel_sin,
+0x18000dd8,4,1,0,candidate___kernel_sin,
+0x18000ddc,4,1,0,candidate___kernel_sin,
+0x18000de0,4,1,0,candidate___kernel_sin,
+0x18000de4,4,1,0,candidate___kernel_sin,
+0x18000de8,4,2,0,candidate___kernel_sin,
+0x18000dec,4,2,0,candidate___kernel_sin,
+0x18000df0,4,1,0,candidate___kernel_sin,
+0x18000df4,4,1,0,candidate___kernel_sin,
+0x18000df8,4,2,0,candidate___kernel_cos,
+0x18000dfc,4,2,0,candidate___kernel_cos,
+0x18000e00,4,1,0,candidate___kernel_cos,
+0x18000e04,4,1,0,candidate___kernel_cos,
+0x18000e08,4,1,0,candidate___kernel_cos,
+0x18000e0c,4,1,0,candidate___kernel_cos,
+0x18000e10,4,1,0,candidate___kernel_cos,
+0x18000e14,4,1,0,candidate___kernel_cos,
+0x18000e18,4,1,0,candidate___kernel_cos,
+0x18000e1c,4,1,0,candidate___kernel_cos,
+0x18000e20,4,1,0,candidate___kernel_cos,
+0x18000e24,4,1,0,candidate___kernel_cos,
+0x18000e28,4,1,0,candidate___kernel_cos,
+0x18000e2c,4,1,0,candidate___kernel_cos,
+0x18000e30,4,1,0,candidate___kernel_cos,
+0x18000e34,4,1,0,candidate___kernel_cos,
+0x180011a0,1,1,0,sub_1a4c8,
+0x180011a1,1,1,0,sub_1a4c8,
+0x180011a2,1,1,0,sub_1a4c8,
+0x180011a3,1,1,0,sub_1a4c8,
+0x180013cc,4,2,0,sub_205b8,
+0x180013d0,4,2,0,sub_205b8,
+0x180013d4,4,1,0,sub_217cc,
+0x180013d8,4,1,0,sub_217cc,
+0x1800145c,2,1,0,sub_23aa8,
+0x1800145e,2,1,0,sub_23aa8,
+0x18001460,2,1,0,sub_23aa8,
+0x18001462,2,1,0,sub_23aa8,
+0x18001464,2,1,0,sub_23aa8,
+0x18001466,2,1,0,sub_23aa8,
+0x18001468,2,1,0,sub_23aa8,
+0x1800146a,2,1,0,sub_23aa8,
+0x1800146c,2,1,0,sub_23aa8,
+0x1800146e,2,1,0,sub_23aa8,
+0x18001470,2,1,0,sub_23aa8,
+0x18001472,2,1,0,sub_23aa8,
+0x18001474,2,1,0,sub_23aa8,
+0x18001476,2,1,0,sub_23aa8,
+0x18001478,2,1,0,sub_23aa8,
+0x1800147a,2,1,0,sub_23aa8,
+0x1800147c,4,1,0,sub_23aa8,
+0x18001480,4,1,0,sub_23aa8,
+0x180014c4,2,1,0,sub_205b8,
+0x180014dc,2,2,0,candidate_ambe_fec_decode candidate_ambe_fec_encode,
+0x180014e8,2,1,0,sub_25224,
+0x1800151c,2,1,0,sub_25224,
+0x18001600,4,1,0,sub_257d0,
+0x18001604,4,1,0,sub_257d0,
+0x18001608,2,2,0,sub_1903c sub_190c0,
+0x1800160a,2,2,0,sub_1903c sub_190c0,
+0x1800160c,2,2,0,sub_1903c sub_190c0,
+0x1800160e,2,2,0,sub_1903c sub_190c0,
+0x18001610,2,2,0,sub_1903c sub_190c0,
+0x18001612,2,2,0,sub_1903c sub_190c0,
+0x18001614,2,2,0,sub_191c0 sub_19280,
+0x18001616,2,2,0,sub_191c0 sub_19280,
+0x18001618,2,2,0,sub_191c0 sub_19280,
+0x1800161a,2,2,0,sub_191c0 sub_19280,
+0x1800161c,2,2,0,sub_191c0 sub_19280,
+0x1800161e,2,2,0,sub_191c0 sub_19280,
+0x18001620,2,3,0,sub_19364 sub_193e0 sub_23aa8,
+0x18001622,2,3,0,sub_19364 sub_193e0 sub_23aa8,
+0x18001624,2,3,0,sub_19364 sub_193e0 sub_23aa8,
+0x18001626,2,2,0,sub_19364 sub_23aa8,
+0x18001628,2,1,0,sub_280d8,
+0x1800162a,2,1,0,sub_280d8,
+0x1800162c,2,1,0,sub_280d8,
+0x1800162e,2,1,0,sub_280d8,
+0x18001630,2,1,0,sub_280d8,
+0x18001a38,4,2,0,sub_2509c sub_25160,
+0x1800358c,2,1,0,sub_1afe0,
+0x1800362c,2,2,0,sub_1afe0,
+0x1800394c,2,1,0,sub_26cac,
+0x1800394e,2,1,0,sub_26cac,
+0x18003950,2,1,0,sub_26cac,
+0x18003952,2,1,0,sub_26cac,
+0x18003954,2,1,0,sub_26cac,
+0x18003956,2,1,0,sub_26cac,
+0x18003958,2,1,0,sub_26cac,
+0x1800395a,2,1,0,sub_26cac,
+0x1800395c,2,1,0,sub_26cac,
+0x18003960,2,1,0,sub_29d1c,
+0x180039f4,4,1,0,sub_2afe8,
+0x180039f8,4,1,0,sub_2afe8,
+0x180039fc,4,1,0,sub_2afe8,
+0x18003a00,4,1,0,sub_2afe8,
+0x18003a04,4,1,0,sub_2afe8,
+0x18003a08,4,1,0,sub_2afe8,
+0x18003a0c,4,1,0,sub_2afe8,
+0x18003a10,4,1,0,sub_2afe8,
+0x18003a14,4,1,0,sub_2afe8,
+0x18003a18,4,1,0,sub_2afe8,
+0x18003a1c,4,1,0,sub_2afe8,
+0x18003a20,4,1,0,sub_2afe8,
+0x18003a24,4,1,0,sub_2afe8,
+0x18003a28,4,1,0,sub_2afe8,
+0x18003a2c,4,1,0,sub_2afe8,
+0x18003a30,4,1,0,sub_2afe8,
+0x18003db4,4,2,0,sub_306eb40,
+0x18003db8,4,2,0,sub_306eb40,
+0x18003dcc,4,1,0,candidate___muldf3,
+0x18003dd0,4,1,0,candidate___muldf3,
+0x18003dd4,4,1,0,candidate___muldf3,
+0x18003dd8,4,1,0,candidate___muldf3,
+0x18003ddc,4,1,0,candidate___divdf3,
+0x18003de0,4,1,0,candidate___divdf3,
+0x18003df8,4,3,0,__pack_d,
+0x18003dfc,4,3,0,__pack_d,
+0x18003e00,4,1,0,__pack_d,
+0x18003e04,4,1,0,__pack_d,
+0x18003e08,4,3,0,__pack_d,
+0x18003e0c,4,3,0,__pack_d,
+0x18003e10,4,1,0,__unpack_d,
+0x18003e14,4,1,0,__unpack_d,
+0x18003e18,4,1,0,__unpack_d,
+0x18003e1c,4,1,0,__unpack_d,
+0x18003e20,4,1,0,__unpack_d,
+0x18003e24,4,1,0,__unpack_d,
+0x18003e28,4,1,0,sub_3070698,
+0x18003e2c,4,1,0,sub_3070698,
+0x18003e30,4,1,0,sub_30706e4,
+0x18003e34,4,1,0,sub_30706e4,
+0x18003e38,4,1,0,sub_30706e4,
+0x18003e3c,4,1,0,sub_30706e4,
+0x18003e40,4,1,0,sub_30706e4,
+0x18003e44,4,1,0,sub_30706e4,
+0x18004acc,4,1,0,sub_3071950,
+0x18004ad0,4,1,0,sub_3071950,
+0x18004ad4,4,1,0,sub_3071950,
+0x18004ad8,4,1,0,sub_3071950,
+0x18004adc,4,1,0,sub_3071950,
+0x18004ae0,4,1,0,sub_3071950,
+0x18004ae4,4,2,0,sub_3071950,
+0x18004ae8,4,2,0,sub_3071950,
+0x18004aec,4,1,0,sub_3071950,
+0x18004af0,4,1,0,sub_3071950,
+0x18004af4,4,2,0,sub_3071950,
+0x18004af8,4,2,0,sub_3071950,
+0x18004afc,4,1,0,sub_3071db0,
+0x18004b00,4,1,0,sub_3071db0,

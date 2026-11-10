@@ -1,0 +1,1270 @@
+name,dm32_049_address,nrf_address,address_shift,length,match_method,same_halfwords_pct,original_confidence,evidence,source
+vector_table,,0x10000,,,direct for this build,,,startup literal: vector base,this dump / RadioFoundry map
+CPU_SR_Save,,0x1018c,,,reviewed code behaviour,,,"reads PSR, clears interrupt-enable bits, returns the old PSR",code behaviour review
+CPU_SR_Restore,,0x1019c,,,reviewed code behaviour,,,writes r0 back to PSR,code behaviour review
+get_u32_45664,,0x101a4,,,code shape rule,,,getter: returns u32 at RAM 0x45664,morning rule 2026-11-10
+candidate_os_timestamp_get_thunk,,0x101b8,,,rule: thunk,,,only calls candidate_os_timestamp_get,rule-based
+set_u32_45640,,0x101e8,,,rule: setter,,,stores its argument to the u32 at RAM 0x45640,rule-based
+CPU_SR_Save_thunk_101f0,,0x101f0,,,code shape rule,,,thunk: only calls CPU_SR_Save,morning rule 2026-11-10
+CPU_IntDisMeasStart,,0x1023c,,,reviewed code behaviour,,,"uC/CPU interrupt-disable timing: counts, stores start time at nesting 0",code behaviour review
+CPU_IntDisMeasStop,,0x10260,,,reviewed code behaviour,,,uC/CPU interrupt-disable timing: updates maximum at nesting 0,code behaviour review
+common_irq_entry,0x1064a,0x1064a,0,106,"exact bytes, unique",100,direct instructions,"Saves68bytes, switchesIRQstack0x4b7b0, dispatches table0x45514[(PSRvector-32)], restores and rte","docs/modem-map.csv, ported"
+empty_stub_107bc,,0x107bc,,,rule: empty stub,,,returns immediately,rule-based
+OS_IdleTask,,0x10868,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Idle Task"" (created at 0x10a86)",strings/tasks analysis
+OSSched,,0x10934,,,reviewed code behaviour,,,"checks ISR and lock nesting, finds the highest ready priority, and switches context",voice path review
+OS_IdleTaskInit,,0x10a54,,,uC/OS-III standard string,,,"creates ""uC/OS-III Idle Task""",strings/tasks analysis
+candidate_OS_PendDbgNameAdd,,0x10b34,,,uC/OS-III standard string,,,references: Task Sem,strings/tasks analysis
+empty_stub_10b6a_thunk_10b3c,,0x10b3c,,,code shape rule,,,thunk: only calls empty_stub_10b6a,morning rule 2026-11-10
+empty_stub_10b6a_thunk_10b58,,0x10b58,,,code shape rule,,,thunk: only calls empty_stub_10b6a,morning rule 2026-11-10
+empty_stub_10b6a,,0x10b6a,,,rule: empty stub,,,returns immediately,rule-based
+set_u16_42740,,0x10d44,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x42740,morning rule 2026-11-10
+OS_Sched0,,0x11148,,,reviewed code behaviour,,,"selects priority 0 task, counts a context switch, and switches",code behaviour review
+OS_SchedLockTimeMeasStart,,0x1117c,,,reviewed code behaviour,,,stores start time when scheduler-lock nesting is 1,code behaviour review
+OS_SchedLockTimeMeasStop,,0x111ec,,,reviewed code behaviour,,,updates maximum scheduler-lock time when nesting is 0,code behaviour review
+OS_IntQTask,,0x1183c,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III ISR Queue Task"" (created at 0x11992)",strings/tasks analysis
+OS_IntQTaskInit,,0x118cc,,,uC/OS-III standard string,,,"creates ""uC/OS-III ISR Queue Task""",strings/tasks analysis
+set_u32_40e8c,,0x119e0,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x40e8c,morning rule 2026-11-10
+OS_PrioGetHighest,,0x119ec,,,reviewed code behaviour,,,scans the 32-bit ready-priority bitmap words,voice path review
+update_40e8c_field,,0x11a14,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x40e8c,morning rule 2026-11-10
+update_40e8c_field_11a34,,0x11a34,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x40e8c,morning rule 2026-11-10
+OSSemPend,,0x11a58,,,reviewed code behaviour,,,"pend primitive with (object, timeout, option, timestamp, error) arguments; wrapped by os_sem_pend_ms",code behaviour review
+OSSemPendAbort,,0x11c0c,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+candidate_OSSemSet,,0x11d0c,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+OS_SemClr,,0x11d84,,,uC/OS-III standard string,,,references: ?SEM,strings/tasks analysis
+set_u32_42a44,,0x11d9c,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x42a44,morning rule 2026-11-10
+OSSemCreate,,0x11dbc,,,reviewed code behaviour,,,"object create with (object, name, count, error); count 0 or 1 at call sites",code behaviour review
+OSSemDel,,0x11e84,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSSemPost,,0x120dc,,,reviewed code behaviour,,,post primitive with post-all option 0x200; used on objects posted from interrupts,code behaviour review
+candidate_OSTaskQPend,,0x123c4,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_OSTaskQPendAbort,,0x12580,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_OSTaskSemPend,,0x12720,,,reviewed code behaviour,,,"(timeout, option, timestamp, error) pend on the calling task's own semaphore; the encoder and decoder block here",voice path review
+OSTaskSemPendAbort,,0x128b8,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+set_u32_42720,,0x12b08,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x42720,morning rule 2026-11-10
+OS_TaskInitTCB,,0x12b84,,,uC/OS-III standard string,,,references: ?Task,strings/tasks analysis
+OSTaskCreate,,0x12dd8,,,uC/OS-III task-create call pattern,,,39 direct calls passing a task name in r1 and an entry point in r2,strings/tasks analysis
+OS_TickTaskInit,,0x13874,,,uC/OS-III standard string,,,"creates ""uC/OS-III Tick Task""",strings/tasks analysis
+candidate_OSTimeDlyResume,,0x138e8,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+set_u16_420a2,,0x13a84,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x420a2,morning rule 2026-11-10
+OS_TickTask,,0x13c34,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Tick Task"" (created at 0x138de)",strings/tasks analysis
+OSTimeDly,,0x13c6c,,,reviewed code behaviour,,,"(ticks, option, error) delay primitive called by os_delay_ms",code behaviour review
+OSTimeDlyHMSM,,0x13d60,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+pcm_pointer_init,0x14164,0x14164,0,26,"exact bytes, unique",100,direct instructions + manual pp269-270,After0x16bdc stores0x180000a0 at0x33c4c and0x18000000 at0x33c50,"docs/modem-map.csv, ported"
+candidate_bitbang_i2c_pin_select,,0x141c0,,,reviewed code behaviour,,,stores the pin index used by the bit-banged bus,audio glue review
+modem_reg_34_update_141c8,,0x141c8,,,rule: single modem register,,,"small function whose only modem register is reg_34: modify: ori:r2,384; modify: ori:r2,96",modem register rule
+candidate_bitbang_i2c_byte_read,,0x1420c,,,reviewed code behaviour,,,"bit-banged bus on a GPIO A pin pair selected by the variable at 0x33C70, with delays",audio glue review
+candidate_bitbang_i2c_byte_write,,0x14304,,,reviewed code behaviour,,,bit-banged bus on the same GPIO A pin pair,audio glue review
+candidate_bitbang_i2c_write_sequence,,0x14424,,,reviewed code behaviour,,,"start, address and data writes using the byte routine",audio glue review
+candidate_bitbang_i2c_read_sequence,,0x144fc,,,reviewed code behaviour,,,write-then-read sequence using the byte routines; called from init and the codec tasks,audio glue review
+candidate_cipher_block_function,,0x1496c,,,reviewed code behaviour,,,2.2 KB of table-free word arithmetic on a 264-byte stack frame with no calls,audio glue review
+candidate_voice_crypto_rx_block,,0x15728,,,reviewed code behaviour,,,same structure on the receive path,audio glue review
+candidate_voice_crypto_tx_block,,0x15bd4,,,reviewed code behaviour,,,builds a keyed block for an outgoing voice burst; calls the cipher helpers,audio glue review
+candidate_audio_codec_init,,0x15d8c,,,reviewed code behaviour,,,"creates three semaphores, sets FM modem mode, initialises PCM pointers, starts the encoder and decoder tasks",audio glue review
+candidate_codec_encoder_param_a_set,,0x15e14,,,reviewed code behaviour,,,calls codec_enc_set with one new field,audio glue review
+candidate_codec_encoder_param_b_set,,0x15e30,,,reviewed code behaviour,,,calls codec_enc_set with one new field,audio glue review
+candidate_codec_decoder_param_a_set,,0x15e4c,,,reviewed code behaviour,,,calls codec_dec_set with one new field,audio glue review
+candidate_codec_decoder_param_b_set,,0x15e68,,,reviewed code behaviour,,,calls codec_dec_set with one new field,audio glue review
+candidate_ambe_decode_burst_thunk,,0x16030,,,rule: thunk,,,only calls candidate_ambe_decode_burst,rule-based
+capture_pcm_enable,0x16088,0x16088,0,38,"exact bytes, unique",100,direct instructions + manual p96,"Setscaptureactiveflag, clearsPCM_WR IRQ bit4 at0x110003b0 and enablesAUDIO_CONTROL bit4","docs/modem-map.csv, ported"
+play_pcm_enable,0x160c0,0x160c0,0,38,"exact bytes, unique",100,direct instructions + manual p96,"Setsplayactiveflag, clearsPCM_RD IRQ bit5 at0x110003b0 and enablesAUDIO_CONTROL bit5","docs/modem-map.csv, ported"
+play_pcm_disable,,0x16104,,,reviewed code behaviour,,,clears AUDIO_CONTROL b5,voice path review
+capture_pcm_disable,,0x16120,,,reviewed code behaviour,,,clears AUDIO_CONTROL b4,voice path review
+set_u8_18000bd8,,0x16164,,,rule: setter,,,stores its argument to the u8 at RAM 0x18000bd8,rule-based
+get_u8_18000bd8,,0x1616c,,,rule: getter,,,returns the u8 at RAM 0x18000bd8,rule-based
+set_u8_18000bd9,,0x16174,,,rule: setter,,,stores its argument to the u8 at RAM 0x18000bd9,rule-based
+get_u8_18000bd9,,0x1617c,,,rule: getter,,,returns the u8 at RAM 0x18000bd9,rule-based
+candidate_rx_voice_ring_read,,0x161a8,,,reviewed code behaviour,,,reads part of a 27-byte burst from the ring at 0x4A760,voice path review
+start_tasks_decoder_and_1_more,,0x162a8,,,calls OSTaskCreate,,,"creates OS tasks: decoder, encoder",strings/tasks analysis
+candidate_ambe_decode_burst,,0x16890,,,reviewed code behaviour,,,"runs unpack, FEC decode, and pack over three AMBE frames in a burst",voice path review
+candidate_modem_fm_mode_setup,,0x169d8,,,reviewed code behaviour,,,"writes RF_MODE 0x10E0, sets WORK_MODE to the FM value 0x80, clears AUDIO_CONTROL b0",voice path review
+candidate_modem_mode_restore,,0x16ad0,,,reviewed code behaviour,,,"writes saved values back to RF_MODE, WORK_MODE, and AUDIO_CONTROL",voice path review
+codec_decode,,0x16cdc,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+codec_dec_set,,0x16d60,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+codec_dec_init,,0x16d90,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+codec_encode,,0x16f3c,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+codec_enc_set,,0x16fc0,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+codec_enc_init,,0x16ff0,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+get_u8_33c9c,,0x17298,,,code shape rule,,,getter: returns u8 at RAM 0x33c9c,morning rule 2026-11-10
+get_u8_33c9c_172b0,,0x172b0,,,code shape rule,,,getter: returns u8 at RAM 0x33c9c,morning rule 2026-11-10
+voice_ram_read,,0x172cc,,,reviewed code behaviour,,,copies bytes out of modem voice RAM at 0x16000960,voice path review
+voice_ram_write,,0x172f8,,,reviewed code behaviour,,,copies bytes into modem voice RAM at 0x16000960,voice path review
+candidate_ambe_fec_decode,,0x182bc,,,reviewed code behaviour,,,large decoder-side error correction before codec_decode,voice path review
+codec_fec_init,,0x188d4,,,direct for this build,,,RadioFoundry dm32-nrf-049 codec map; code window hash verified,this dump / RadioFoundry map
+candidate_ambe_fec_encode,,0x1893c,,,reviewed code behaviour,,,encoder-side frame coding between codec_encode and bit packing,voice path review
+candidate_codec_div_norm_s16,,0x18ef4,,,reviewed code behaviour,,,"AMBE window fixed-point divide with normalisation (divs, ff1)",morning review 2026-11-10
+mem_copy_halfwords,,0x1947c,,,reviewed code behaviour,,,16-bit copy loop,code behaviour review
+mem_set_halfwords,,0x19494,,,reviewed code behaviour,,,16-bit fill loop,code behaviour review
+empty_stub_1d4b8,,0x1d4b8,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_1d4bc,,0x1d4bc,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_1d4c4,,0x1d4c4,,,rule: empty stub,,,returns immediately,rule-based
+candidate_voice_crypto_tx_block_thunk_2b2dc,,0x2b2dc,,,code shape rule,,,thunk: only calls candidate_voice_crypto_tx_block,morning rule 2026-11-10
+candidate_voice_crypto_rx_block_thunk_2b320,,0x2b320,,,code shape rule,,,thunk: only calls candidate_voice_crypto_rx_block,morning rule 2026-11-10
+mem_copy_bytes,,0x2b338,,,reviewed code behaviour,,,"byte copy loop: destination r0, source r1, count r2",code behaviour review
+mem_set_bytes,,0x2b350,,,reviewed code behaviour,,,"byte fill loop: destination r0, value r1, count r2",code behaviour review
+tx_level_ramp,0x2b364,0x2b364,0,202,"masked code, unique",83,direct instructions + traced DAC consumer,Mutex0x3a4c4; ramp/direct uint8 targetr2 through0x2c3b4; r0 controls ramp andr1 selects up/down,"docs/modem-map.csv, ported"
+rf_tx_switch,0x2b440,0x2b440,0,94,"masked code, unique",87,direct instructions,"Disables RXband, waits, tunes TXword0x38468, enables TXband, ramps calibrated DACB up, sets TXflag0x3e1c0 bit0","docs/modem-map.csv, ported"
+rf_rx_restore,0x2b4a0,0x2b4a0,0,92,"masked code, unique",85,direct instructions,"IfTXflag set waits, ramps DACB tozero, disables TXband, clears flag, tunesRXword0x3846c and enables RXband","docs/modem-map.csv, ported"
+rfic_tuning_word_write,0x2b56c,0x2b56c,0,24,"masked code, unique",83,direct instructions,Writes low16 r1 toRFICreg0x38 and high16 r0 toreg0x39 via3wirewriter,"docs/modem-map.csv, ported"
+candidate_rfic_af_output_set,,0x2b584,,,reviewed code behaviour,,,writes RF chip register 0x47 with a mode value in bits 8 and up,misc review
+rfic_3wire_write_thunk_2b598,,0x2b598,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+rfic_3wire_write_thunk_2b5a8,,0x2b5a8,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+rfic_tx_mode,0x2b5b8,0x2b5b8,0,44,"masked code, unique",82,direct instructions + TX caller,"Writes RFIC37=1d0f 52=028f then30=0,c1fe","docs/modem-map.csv, ported"
+rfic_rx_mode,0x2b5e4,0x2b5e4,0,60,"masked code, unique",87,direct instructions + RX caller,"Writes RFIC37=1f1f or1f0f according to mode then30=0,bff1","docs/modem-map.csv, ported"
+rfic_tx_tune,0x2b674,0x2b678,4,42,"masked code, unique",71,direct instructions + mode writer trace,Writes32bit tuning wordr0 through0x2b56c then selectsRFIC TXmode; GPIO interrupt andmode state sideeffects,"docs/modem-map.csv, ported"
+rfic_rx_tune,0x2b6a0,0x2b6a4,4,318,"masked code, unique",91,direct instructions + mode writer trace,Writes32bit tuning wordr0 through0x2b56c then configures mode dependent RX/interrupt/subtone andRFIC RXmode,"docs/modem-map.csv, ported"
+dataflash_set_address,,0x2b89c,,,reviewed code behaviour,,,stores sector<<12 | offset for the next flash command,code behaviour review
+dataflash_page_program,,0x2b8ac,,,reviewed code behaviour,,,"write enable, then flash command 0x02 with data",code behaviour review
+dataflash_write,,0x2b904,,,reviewed code behaviour,,,splits a write at 256-byte page boundaries and programs each part,code behaviour review
+dataflash_read_bytes,,0x2b95c,,,reviewed code behaviour,,,flash command 0x03 and data read under chip select 0x12,code behaviour review
+dataflash_read,,0x2b9a0,,,reviewed code behaviour,,,sets the address then reads,code behaviour review
+dataflash_sector_erase_at_address,,0x2b9b8,,,reviewed code behaviour,,,"write enable, then flash command 0x20",voice path review
+dataflash_sector_erase,,0x2ba00,,,reviewed code behaviour,,,sets the sector address and erases it,voice path review
+candidate_dataflash_write_paged,,0x2ba60,,,reviewed code behaviour,,,splits a write on 256-byte boundaries using dataflash_write,misc review
+candidate_spi_transfer_byte,,0x2bf94,,,peripheral registers accessed,,,per-byte routine called in a loop by the SPI write function,board support review
+candidate_spi_read_bytes,,0x2bfc8,,,peripheral registers accessed,,,SPI read by controller index; used by flash read and the SD driver,board support review
+candidate_spi_write_bytes,,0x2c0a0,,,peripheral registers accessed,,,"SPI write by controller index, looping over the buffer",board support review
+lcd_write_command,,0x2c1d0,,,reviewed code behaviour,,,writes a byte to the LCD controller command register,display review
+lcd_write_byte,,0x2c1dc,,,reviewed code behaviour,,,writes a byte to the LCD controller data register 0x12000004,code behaviour review
+lcd_write_pixel,,0x2c1e8,,,reviewed code behaviour,,,"writes a 16-bit colour, high byte first",code behaviour review
+rfic_3wire_write,0x2c2f4,0x2c2f8,4,72,"masked code, unique",92,direct instructions; chip/net identity inference,Mutex0x3a49c; GPIOA24CS A7clock A8bidirectionaldata; emits8bit registerr0 and16bit valuer1 MSBfirst,"docs/modem-map.csv, ported"
+rfic_3wire_read,0x2c33c,0x2c340,4,72,"masked code, unique",92,direct instructions; not sideeffect free,"AssertsGPIOCS, sends uint8registerr0|0x80 and receives16bits; changes GPIO direction andmutex state","docs/modem-map.csv, ported"
+tx_level_dac_write,0x2c3b4,0x2c3b8,4,16,"exact bytes, unique",100,direct instructions + manual p243,Writes uint8r0<<4 through0x2c388 channel2 toDAC_DATA_B at0x140f000c; physical PA connection not traced,"docs/modem-map.csv, ported"
+candidate_rx_slot_irq,,0x2c3c8,,,reviewed code behaviour,,,"handler for vector 63, the 30 ms RX slot interrupt",voice path review
+rf_rx_irq,0x2c3d4,0x2c3d8,4,44,"masked code, unique",95,direct instructions + vector65 registration,ACKs RFRXbit3 at0x110003b0; unlessdisabled sets0x38465=2 andsignals0x38590,"docs/modem-map.csv, ported"
+rf_tx_irq,0x2c400,0x2c404,4,44,"masked code, unique",95,direct instructions + vector64 registration,ACKs RFTXbit2 at0x110003b0; unlessdisabled sets0x38464=1 andsignals0x38590,"docs/modem-map.csv, ported"
+candidate_tx_slot_irq,,0x2c430,,,reviewed code behaviour,,,registered interrupt handler that posts the txslot semaphore,voice path review
+system_irq_collect,0x2c454,0x2c458,4,70,manual: same 0x11000398/3a0/390/394 register sequence and length; state check moved to the end in this build,11,direct instructions,"AccumulatesSYS_INTERP_LIST0x11000398, clears0x110003a0, snapshotsRX_TYPE_INFO390 andRX_INFO394 then signalsworker","docs/modem-map.csv, ported"
+play_pcm_irq_wrapper,0x2c49c,0x2c4a0,4,8,"manual: push, bsr play_pcm_irq, pop",75,direct instructions + registration,Vector59 wrapper calls0x2e238,"docs/modem-map.csv, ported"
+capture_pcm_irq_wrapper,0x2c4a4,0x2c4a8,4,8,"manual: push, bsr capture_pcm_irq, pop",75,direct instructions + registration,Vector60 wrapper calls0x2e1d4,"docs/modem-map.csv, ported"
+gpio_a_irq,,0x2c4d0,,,reviewed code behaviour,,,"handler for vector 47, GPIO A",voice path review
+gpio_c_irq,,0x2c4e8,,,reviewed code behaviour,,,"handler for vector 49, GPIO C",voice path review
+gpio_output_high,0x2c500,0x2c504,4,68,"exact bytes, unique",100,direct instructions + manual pp218-219,"RMW GPIO data register; pin0..31 A14020000,32..63 B14100000,64.. C14110000","docs/modem-map.csv, ported"
+gpio_output_low,0x2c544,0x2c548,4,68,"exact bytes, unique",100,direct instructions + manual pp218-219,RMW GPIO data register clearing indexed bit withsame pinbank convention,"docs/modem-map.csv, ported"
+gpio_input_read,,0x2c58c,,,GPIO register operations,,,tests bit of GPIO bank register +0x50 (external port) by pin index,gpio analysis
+gpio_interrupt_disable,,0x2c5dc,,,GPIO register operations,,,clears the pin's bit in bank register +0x30 (interrupt enable),gpio analysis
+gpio_interrupt_config,,0x2c620,,,GPIO register operations,,,"clears +0x30 enable, sets +0x3c polarity from r1, sets +0x30 enable",gpio analysis
+gpio_b_irq,,0x2c6dc,,,reviewed code behaviour,,,"handler for vector 46, GPIO B; reads the rotary encoder pins",voice path review
+rf_tx_band_enable,0x2c838,0x2c83c,4,64,"exact bytes, unique",100,direct instructions + bandselector trace,Enable forTXbandbit4=1: B23low B3high; bit4=0: B3low B23high; disable clearsboth,"docs/modem-map.csv, ported"
+rf_rx_band_enable,0x2c878,0x2c87c,4,64,"exact bytes, unique",100,direct instructions + bandselector trace,Enable forRXbandbit3=1: B2low B4high; bit3=0: B4low B2high; disable clearsboth,"docs/modem-map.csv, ported"
+startup_clock_config,0x2c9b4,0x2c9b8,4,162,"masked code, unique",96,direct instructions + manual pp61-64; not measured,BPLL low24=040712 busdivlow4=2; softwareclockglobals168M168M84M24M; upper PLL flags preserved andfraction notwritten,"docs/modem-map.csv, ported"
+candidate_timer3_irq,,0x2ca7c,,,reviewed code behaviour,,,handler for vector 35,voice path review
+candidate_timer5_irq,,0x2ca8c,,,reviewed code behaviour,,,handler for vector 37,voice path review
+candidate_timer4_irq,,0x2ca94,,,reviewed code behaviour,,,handler for vector 36,voice path review
+candidate_timer2_irq,,0x2caa8,,,reviewed code behaviour,,,handler for vector 34,voice path review
+candidate_timer6_irq,,0x2cabc,,,reviewed code behaviour,,,handler for vector 38,voice path review
+cable_uart_irq,,0x2cc80,,,reviewed code behaviour,,,"handler for vector 44, UART0, the programming cable",voice path review
+gps_uart_irq,,0x2cce4,,,reviewed code behaviour,,,"handler for vector 42, UART1",voice path review
+task_encrypt,,0x2d2f0,,,OSTaskCreate arguments,,,"entry point of OS task ""encrypt"" (created at 0x300cc4a)",strings/tasks analysis
+task_decrypt,,0x2d324,,,OSTaskCreate arguments,,,"entry point of OS task ""decrypt"" (created at 0x300cc18)",strings/tasks analysis
+candidate_phy_rx_ber_test,,0x2d374,,,reviewed code behaviour,,,"reads a 36-byte PHY frame from RX RAM, does floating-point statistics, and draws the result",voice path review
+task_txslot,,0x2d620,,,OSTaskCreate arguments,,,"entry point of OS task ""txslot"" (created at 0x300c9fe)",strings/tasks analysis
+candidate_rx_slot_ready_handler,,0x2d6c0,,,reviewed code behaviour,,,"called for interrupt status bit 1, layer 2 RX processing point",voice path review
+task_sysint,,0x2d770,,,OSTaskCreate arguments,,,"entry point of OS task ""sysint"" (created at 0x300c9c4)",strings/tasks analysis
+candidate_rx_burst_ring_read,,0x2d7a8,,,reviewed code behaviour,,,reads a 27-byte received burst from the ring at 0x3C69C,voice path review
+candidate_tx_burst_build,,0x2d7c8,,,reviewed code behaviour,,,writes burst contents to modem TX RAM through txram_copy,voice path review
+candidate_tx_burst_ring_write,,0x2de88,,,reviewed code behaviour,,,stores a 27-byte burst in the transmit ring at 0x3C7D8,voice path review
+candidate_vfo_mode_nibble_get,,0x2ded4,,,reviewed code behaviour,,,"picks VFO record 0x3E374 or 0x3E238 by settings +0x2D bit 7, clears byte +8 bits 4-7 when the frequency is in the band window, returns them",morning review 2026-11-10
+delay_loop,,0x2df8c,,,reviewed code behaviour,,,busy-wait countdown on a 16-bit count,morning review 2026-11-10
+candidate_busy_delay,,0x2df9c,,,reviewed code behaviour,,,counted no-op delay loop,code behaviour review
+candidate_busy_delay_short,,0x2e110,,,reviewed code behaviour,,,no-op sled delay,code behaviour review
+start_task_init,,0x2e174,,,calls OSTaskCreate,,,"creates OS task ""task init""",strings/tasks analysis
+capture_pcm_irq,0x2e1d4,0x2e1f0,28,98,"masked code, unique",96,direct instructions + manual p269,"AcknowledgesPCM_WR, copies80 halfwords frompointer0x33c50 into160-sample ring, advances index80 modulo160, signalsworker","docs/modem-map.csv, ported"
+play_pcm_irq,0x2e238,0x2e254,28,190,"masked code, unique",96,direct instructions + manual p270,AcknowledgesPCM_RD; writes80 halfwords to pointer0x33c4c fromaudioqueue or fallbackbuffer; underflow behavior requires runtimecheck,"docs/modem-map.csv, ported"
+capture_pcm_ack,0x2e35c,0x2e378,28,16,"exact bytes, unique",100,direct instructions + manual p105,RMWbit4 thenwrites0x110003b0,"docs/modem-map.csv, ported"
+play_pcm_ack,0x2e36c,0x2e388,28,16,"exact bytes, unique",100,direct instructions + manual p105,RMWbit5 thenwrites0x110003b0,"docs/modem-map.csv, ported"
+candidate_tx_voice_ring_read,,0x2e398,,,reviewed code behaviour,,,reads part of a 27-byte burst from the ring at 0x46B80,voice path review
+candidate_bits_unpack,,0x2e40c,,,reviewed code behaviour,,,"unpacks bytes into a bit array, 72 bits per AMBE frame",voice path review
+candidate_bits_pack,,0x2e4b0,,,reviewed code behaviour,,,"packs a bit array into bytes, 72 bits per AMBE frame",voice path review
+candidate_tx_voice_ring_push,,0x2e574,,,reviewed code behaviour,,,copies a 27-byte burst into the ring at 0x46B80 and signals,voice path review
+task_encoder,,0x2e5bc,,,OSTaskCreate arguments,,,"entry point of OS task ""encoder"" (created at 0x16512)",strings/tasks analysis
+candidate_rx_voice_ring_push,,0x2ebfc,,,reviewed code behaviour,,,copies a 27-byte burst into the ring at 0x4814C and signals,voice path review
+task_decoder,,0x2ec4c,,,OSTaskCreate arguments,,,"entry point of OS task ""decoder"" (created at 0x1659a)",strings/tasks analysis
+mem_copy_bytes_ram,,0x2f088,,,reviewed code behaviour,,,"RAM copy of the byte-copy loop, used on real-time paths",voice path review
+application_entry,,0x300c000,,,direct for this build,,,startup code at the start of the application,this dump / RadioFoundry map
+empty_stub_300c0e4,,0x300c0e4,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_300c0e8,,0x300c0e8,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_300c0ec,,0x300c0ec,,,rule: empty stub,,,returns immediately,rule-based
+return_4_300c2c4,,0x300c2c4,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_3_300c2c8,,0x300c2c8,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+fm_play_enable,0x300c2dc,0x300c2dc,0,38,"exact bytes, unique",100,direct instructions + manual p96,RMW AUDIO_CONTROL bit6 at 0x11000080 from bool r0,"docs/modem-map.csv, ported"
+fm_ptt_set,0x300c304,0x300c304,0,34,"exact bytes, unique",100,direct instructions + manual p338,Writes bool r0 to FM_PTT 0x11000560; does not establish PA control,"docs/modem-map.csv, ported"
+empty_stub_300c3a8,,0x300c3a8,,,rule: empty stub,,,returns immediately,rule-based
+get_u8_33cdc,,0x300c3ac,,,rule: getter,,,returns the u8 at RAM 0x33cdc,rule-based
+set_u8_33cd0,,0x300c3b4,,,rule: setter,,,stores its argument to the u8 at RAM 0x33cd0,rule-based
+set_u8_33cdc,,0x300c3bc,,,rule: setter,,,stores its argument to the u8 at RAM 0x33cdc,rule-based
+set_u32_3a634_thunk_300c3d4,,0x300c3d4,,,code shape rule,,,thunk: only calls set_u32_3a634,morning rule 2026-11-10
+return_29401_300c42c,,0x300c42c,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_0_300c434,,0x300c434,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+candidate_uses_event,,0x300c438,,,rule: distinctive string reference,,,references: event,string rule 2
+os_flag_wait,,0x300c464,,,reviewed code behaviour,,,millisecond wrapper for the event-flag pend,voice path review
+candidate_os_flag_set,,0x300c494,,,reviewed code behaviour,,,"(group, bits) post with set option; used to signal task event bits",code behaviour review
+os_flag_clear,,0x300c4a8,,,reviewed code behaviour,,,event-flag post with the clear option,voice path review
+os_delay_ms,,0x300c4bc,,,reviewed code behaviour,,,converts milliseconds to 10 ms ticks and calls OSTimeDly,code behaviour review
+os_sem_create,,0x300c4d4,,,reviewed code behaviour,,,wrapper around OSSemCreate,code behaviour review
+os_sem_pend_ms,,0x300c500,,,reviewed code behaviour,,,converts a millisecond timeout to 10 ms ticks and calls OSSemPend,code behaviour review
+candidate_os_sem_post_from_irq,,0x300c520,,,reviewed code behaviour,,,semaphore post wrapper used by the slot interrupt signal functions,voice path review
+os_sem_post,,0x300c53c,,,reviewed code behaviour,,,wrapper around OSSemPost; returns its error code,code behaviour review
+candidate_uses_timer,,0x300c550,,,rule: distinctive string reference,,,references: timer,string rule 2
+candidate_uses_timer_300c5e4,,0x300c5e4,,,rule: distinctive string reference,,,references: timer,string rule 2
+candidate_call_flags_wait,,0x300c700,,,reviewed code behaviour,,,waits on bits in the event group at 0x3658C,voice path review
+candidate_call_flags_set,,0x300c724,,,reviewed code behaviour,,,sets bits in the event group at 0x3658C,voice path review
+candidate_call_flags_clear,,0x300c730,,,reviewed code behaviour,,,clears bits in the event group at 0x3658C,voice path review
+candidate_event_group_38330_wait,,0x300c73c,,,reviewed code behaviour,,,waits on bits in the event group at 0x38330,misc review
+candidate_event_group_38330_set,,0x300c78c,,,reviewed code behaviour,,,sets bits in the event group at 0x38330,misc review
+candidate_event_group_38330_clear,,0x300c798,,,reviewed code behaviour,,,clears bits in the event group at 0x38330,misc review
+ccl_traffic_flags_wait,,0x300c7a4,,,reviewed code behaviour,,,waits on the event group at 0x36F4C; only the CclTraffic task calls it,modem state review
+ccl_traffic_flags_set,,0x300c7c0,,,reviewed code behaviour,,,sets bits in the event group at 0x36F4C,modem state review
+ccl_traffic_flags_clear,,0x300c7cc,,,reviewed code behaviour,,,clears bits in the event group at 0x36F4C,modem state review
+obj_35f44_flags_wait,,0x300c7d8,,,rule: one OS call on one object,,,only calls os_flag_wait on the object at 0x35f44,os object rule
+obj_35f44_flags_clear,,0x300c808,,,rule: one OS call on one object,,,only calls os_flag_clear on the object at 0x35f44,os object rule
+rxslot_sem_post_from_irq,,0x300c814,,,rule: one OS call on one object,,,only calls candidate_os_sem_post_from_irq on the object at 0x36468,os object rule
+rxslot_wait,,0x300c820,,,reviewed code behaviour,,,waits on the rxslot semaphore 0x36468,voice path review
+candidate_rxslot_signal,,0x300c82c,,,reviewed code behaviour,,,posts the rxslot semaphore,voice path review
+txslot_wait,,0x300c838,,,reviewed code behaviour,,,waits on the txslot semaphore 0x35F6C,voice path review
+candidate_txslot_signal,,0x300c844,,,reviewed code behaviour,,,posts the txslot semaphore,voice path review
+sysint_wait,,0x300c850,,,reviewed code behaviour,,,waits on the sysint semaphore 0x3783C,voice path review
+candidate_slot_timer_signal,,0x300c85c,,,reviewed code behaviour,,,posts the SlotTimer semaphore 0x35F1C,voice path review
+slot_timer_wait,,0x300c868,,,reviewed code behaviour,,,waits on the SlotTimer semaphore 0x35F1C,voice path review
+start_task_txmsg,,0x300c898,,,calls OSTaskCreate,,,"creates OS task ""txmsg""",strings/tasks analysis
+start_tasks_ccltraffic_and_12_more,,0x300c904,,,calls OSTaskCreate,,,"creates OS tasks: CclTraffic, SlotTimer, cpchanscan, decrypt, encrypt, record, rxcsbk, rxmsg, rxslot, rxvoice, sysint, txmsg, txslot",strings/tasks analysis
+start_task_psint,,0x300cd6c,,,calls OSTaskCreate,,,"creates OS task ""task psint""",strings/tasks analysis
+candidate_psint_pending_set,,0x300cdb0,,,reviewed code behaviour,,,ORs bits into the pending byte and signals the psint event group,activity review
+candidate_activity_flag_read,,0x300cdc8,,,reviewed code behaviour,,,switch on an index below 21 returning one of the activity bytes at 0x2F6B4 onward,activity review
+candidate_activity_flag_clear,,0x300ce80,,,reviewed code behaviour,,,switch on an index below 21 clearing masked bits in one of the activity bytes,activity review
+candidate_psint_post_class0_event,,0x300cf8c,,,reviewed code behaviour,,,ORs a mask into the class 0 sub-event byte and sets pending bit 0 (transmit-start class),modem state review
+candidate_psint_post_class1_event,,0x300cfd8,,,reviewed code behaviour,,,ORs a mask into the class 1 sub-event bytes and sets pending bit 1 (transmit-end class),modem state review
+candidate_psint_post_class2_event,,0x300d028,,,reviewed code behaviour,,,sets pending bit 2 (call events),psint review
+candidate_psint_post_class3_event,,0x300d064,,,reviewed code behaviour,,,sets pending bit 3,psint review
+candidate_psint_post_class4_event,,0x300d08c,,,reviewed code behaviour,,,sets pending bit 4,psint review
+candidate_modem_state_change,,0x300d0a4,,,reviewed code behaviour,,,takes the lock at 0x38454 and switches on a state number below 33; called by modem_state_event_set,modem state review
+txram_copy,0x300d3ec,0x300d3ec,0,48,"exact bytes, unique",100,direct instructions,Byte copy r1 source to 0x16000000+r0; r2 truncated uint16 byte count,"docs/modem-map.csv, ported"
+rxram_copy,0x300d41c,0x300d41c,0,40,"exact bytes, unique",100,direct instructions,Byte copy 0x160004b0+r0 to r1; r2 truncated uint16 byte count,"docs/modem-map.csv, ported"
+vocoder_mailbox_copy,0x300d444,0x300d444,0,40,"exact bytes, unique",100,direct instructions,Byte copy 0x16000960+r0 to r1; r2 truncated uint16 byte count,"docs/modem-map.csv, ported"
+return_0_300d48c,,0x300d48c,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+set_u8_38480,,0x300d490,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x38480,morning rule 2026-11-10
+start_tasks_sqlcheck_and_1_more,,0x300d4b0,,,calls OSTaskCreate,,,"creates OS tasks: task SqlCheck, task rf",strings/tasks analysis
+candidate_settings_read_300d568,,0x300d568,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0xa6,codeplug block rule
+candidate_freq_in_band_window,,0x300d810,,,reviewed code behaviour,,,true when the 32-bit value lies between the limits at 0x3848C+0x20 and +0x24,morning review 2026-11-10
+channel_band_and_tuning_set,0x300da88,0x300da88,0,148,"masked code, unique",92,direct instructions,Compares TXr0 and RXr1 with20000000; sets0x3e31b bits4/3; stores TX/RX words0x38468/6c for supported mode branches,"docs/modem-map.csv, ported"
+channel_calibration_load,0x300db48,0x300db48,0,312,"masked code, unique",90,direct instructions + traced consumers,TX channel bytes4..7 and powerselector byte8 bits2:1 feed0x301b33c; stores DAC ramp target at0x38498; other calibration consumers remain separate,"docs/modem-map.csv, ported"
+rf_switch_worker,0x300dc94,0x300dc94,0,80,"exact bytes, unique",100,direct instructions + IRQ producer trace,"Waits on0x38590; for channel mode0x10 dispatches flags0x38464/65 to TX0x2b440 or RX0x2b4a0; entry point of OS task ""task rf"" (created at 0x300d540); entry point of OS task ""task rf"" (created at 0x300d540)","docs/modem-map.csv, ported"
+rf_restore_worker,0x300dce4,0x300dce4,0,56,"exact bytes, unique",100,direct instructions; event meaning unverified,Waits on0x3fd90 mask0x200 and ifTXflag0x3e1c0 bit0 set calls RXrestore0x2b4a0; no proven thermal/battery attribution,"docs/modem-map.csv, ported"
+candidate_rfic_ctcss_control_set,,0x300dd1c,,,RF chip register numbers,,,writes 0x51; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_tx_deviation_set,,0x300de60,,,RF chip register numbers,,,writes 0x40; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_squelch_threshold_set,,0x300de78,,,RF chip register numbers,,,writes 0x78; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+rf_rx_setup,0x300df08,0x300df08,0,62,"masked code, unique",87,direct instructions,Tunes RX word0x3846c through0x2b6a0 then enables RXband0x2c878; retains mode dependent stock processing,"docs/modem-map.csv, ported"
+candidate_rfic_tone1_frequency_set,,0x300df5c,,,RF chip register numbers,,,writes 0x71; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_tone1_tone2_frequency_set,,0x300df7c,,,RF chip register numbers,,,writes 0x71 and 0x72; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_tone_code_type,,0x300e3b4,,,reviewed code behaviour,,,"classifies a 16-bit tone code by its top bits: 0 none, 1 CTCSS, DCS normal 0x8000 or inverted 0xC000",morning review 2026-11-10
+rf_tx_setup,0x300e40c,0x300e40c,0,144,"masked code, unique",96,direct instructions,"Disables RXband, enables TXband, applies stock subtone/mode controls, tunesTX0x2b674 and ramps calibrated DACB target0x38498","docs/modem-map.csv, ported"
+task_cds,,0x300e49c,,,OSTaskCreate arguments,,,"entry point of OS task ""task cds"" (created at 0x301d5f8)",strings/tasks analysis
+candidate_rfic_mic_gain_set,,0x300e668,,,RF chip register numbers,,,writes 0x7D; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_agc_gain_table_init,,0x300e6e4,,,RF chip register numbers,,,"writes 0x10-0x14, 0x49, 0x7B, 0x7C, 0x20; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_filter_bandwidth_set,,0x300e794,,,RF chip register numbers,,,writes 0x43; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_ctcss_tone_set_a,,0x300e7e0,,,RF chip register numbers,,,writes 0x07; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_ctcss_tone_set_b,,0x300e7ec,,,RF chip register numbers,,,writes 0x07; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_dcs_code_set,,0x300e7fc,,,RF chip register numbers,,,writes 0x08; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_ctcss_control_write,,0x300e814,,,RF chip register numbers,,,writes 0x51; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_reg31_bit_change_a,,0x300e824,,,RF chip register numbers,,,read-modify-writes 0x31; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_reg31_bit_change_b,,0x300e83c,,,RF chip register numbers,,,read-modify-writes 0x31; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_reg31_bit_change_c,,0x300e854,,,RF chip register numbers,,,read-modify-writes 0x31; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_enables_reset,,0x300e8ec,,,RF chip register numbers,,,"writes 0x37, 0x52, 0x30; 10 callers; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+rfic_idle,0x300e918,0x300e918,0,12,"masked code, unique",83,direct instructions,Writes RFIC register0x30=0 through0x2c2f4; does not itself prove external PA disabled,"docs/modem-map.csv, ported"
+candidate_rfic_shutdown,,0x300e924,,,RF chip register numbers,,,writes 0x30 and 0x37 from the shutdown task; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+rfic_3wire_write_thunk_300e93c,,0x300e93c,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+candidate_rfic_register_block_init,,0x300e94c,,,RF chip register numbers,,,"writes 0x74, 0x44, 0x45, 0x75, 0x54, 0x55, 0x40, 0x41, 0x3B-0x3D; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_squelch_status_read_a,,0x300eb44,,,RF chip register numbers,,,reads 0x0C; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_squelch_status_read_b,,0x300eb54,,,RF chip register numbers,,,reads 0x0C; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_squelch_status_read_c,,0x300eb64,,,RF chip register numbers,,,reads 0x0C; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_squelch_status_read_d,,0x300eb74,,,RF chip register numbers,,,reads 0x0C; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_squelch_status_read_e,,0x300eb84,,,RF chip register numbers,,,reads 0x0C; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_voice_amplitude_read,,0x300eb94,,,RF chip register numbers,,,reads 0x64; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_rssi_read,,0x300ebb0,,,RF chip register numbers,,,reads 0x67; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_noise_read,,0x300ebc0,,,RF chip register numbers,,,reads 0x65; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_glitch_read,,0x300ebd0,,,RF chip register numbers,,,reads 0x63; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_gpio_init,,0x300ebdc,,,RF chip register numbers,,,"read-modify-writes 0x33, 0x34, 0x35; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_init,,0x300ecb8,,,RF chip register numbers,,,writes about 25 registers once from the init task; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_frequency_scan_read,,0x300eea4,,,RF chip register numbers,,,"reads 0x0D and 0x0E, writes 0x32; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_tone_scan_read,,0x300ef44,,,RF chip register numbers,,,"reads 0x68, 0x69, 0x6A; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_fsk_setup_a,,0x300efd0,,,RF chip register numbers,,,"writes 0x70, 0x72, 0x58, 0x5A-0x5D; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_register_block_write,,0x300f068,,,reviewed call sequence,,,ten or more fixed RF chip register writes,storage review
+rfic_3wire_write_thunk_300f124,,0x300f124,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+rfic_3wire_write_thunk_300f15c,,0x300f15c,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+rfic_3wire_write_thunk_300f2e4,,0x300f2e4,,,code shape rule,,,thunk: only calls rfic_3wire_write,morning rule 2026-11-10
+candidate_codeplug_set_block_tag,,0x300f2fc,,,reviewed code behaviour,,,"writes one byte at offset 4095 of a sector, the logical block tag",voice path review
+candidate_codeplug_block_tag_read,,0x300f318,,,reviewed call sequence,,,reads through dataflash_read; paired with the tag writer and used by the sector search,storage review
+candidate_codeplug_logical_to_physical,,0x300f364,,,reviewed code behaviour,,,"looks up a logical sector number, then used as the physical sector",code behaviour review
+candidate_codeplug_map_rebuild,,0x300f3d0,,,reviewed call sequence,,,"init-time scan that reads sectors, erases some, and fills the logical-to-physical map",storage review
+candidate_record_index_find_sector,,0x300f52c,,,reviewed code behaviour,,,scans one of the two recording index areas for the sector whose tag byte at +0xFFF matches,record review
+candidate_codeplug_sector_lookup_locked,,0x300f594,,,reviewed code behaviour,,,same lookup under the flash lock,code behaviour review
+candidate_codeplug_free_sector_find,,0x300f5b4,,,reviewed call sequence,,,used by the codeplug write functions before copying a block,storage review
+candidate_record_index_find_free,,0x300f624,,,reviewed code behaviour,,,scans a recording index area reading each sector tag,record review
+candidate_codeplug_sector_release,,0x300f6c0,,,reviewed call sequence,,,erases the old sector after a block is rewritten,storage review
+dataflash_sector_erase_locked,,0x300f700,,,reviewed call sequence,,,"takes the flash lock, erases a sector, releases",storage review
+dataflash_read_locked,,0x300f71c,,,reviewed code behaviour,,,"takes the flash lock and reads, in page-sized parts",code behaviour review
+candidate_codeplug_read,,0x300f780,,,reviewed code behaviour,,,"locks, maps logical sector to physical, reads",code behaviour review
+candidate_dataflash_write_locked_b,,0x300f7ac,,,reviewed call sequence,,,second locked write wrapper,storage review
+dataflash_read_raw_locked,,0x300f848,,,reviewed call sequence,,,"takes the flash lock, reads, releases",storage review
+candidate_codeplug_write,,0x300f878,,,reviewed code behaviour,,,"under lock: finds a free sector, copies, programs, updates the sector map",code behaviour review
+candidate_codeplug_write_byte,,0x300fa28,,,reviewed code behaviour,,,same copy-and-program sequence for a single value,code behaviour review
+candidate_codeplug_write_variant_a,,0x300fb58,,,reviewed call sequence,,,"same find, copy, program, retag sequence as candidate_codeplug_write",storage review
+candidate_codeplug_write_variant_b,,0x300fda4,,,reviewed call sequence,,,"same sequence, larger",storage review
+candidate_codeplug_write_variant_c,,0x30100a8,,,reviewed call sequence,,,"same sequence, largest",storage review
+candidate_record_index_load,,0x30104b0,,,reviewed code behaviour,,,finds the sector tagged 0xA5 and reads the index into RAM,record review
+candidate_record_index_update_a,,0x3010558,,,reviewed code behaviour,,,locked read-modify-write of the recording index,record review
+candidate_record_index_update_b,,0x30105d0,,,reviewed code behaviour,,,locked read-modify-write using both index areas,record review
+candidate_record_data_write,,0x3010680,,,reviewed code behaviour,,,locked raw flash write from the record task,record review
+candidate_record_index_rebuild,,0x30106b4,,,reviewed code behaviour,,,"init-time read, erase and rewrite of index sectors",record review
+dataflash_write_raw_locked,,0x3010818,,,reviewed call sequence,,,"takes the flash lock, writes, releases",storage review
+candidate_dataflash_write3_locked,,0x3010848,,,reviewed call sequence,,,three writes under one lock,storage review
+candidate_recordings_erase,,0x3010b40,,,cable command dispatch,,,called after DEL-RCD matches; erases sectors and rewrites headers,cable review
+candidate_record_storage_init,,0x3010bd4,,,reviewed code behaviour,,,"loads the index, checks it, and erases and rebuilds it when invalid",record review
+candidate_nmea_skip_fields,,0x3011420,,,reviewed code behaviour,,,advances past a given number of commas in a GPS sentence,voice path review
+candidate_gps_coordinate_convert,,0x3011450,,,reviewed call sequence,,,double arithmetic converting a coordinate value,gps review
+candidate_gps_coordinate_format_a,,0x30114d4,,,reviewed call sequence,,,converts then formats with sprintf,gps review
+candidate_gps_coordinate_format_b,,0x30114f4,,,reviewed call sequence,,,formats with sprintf,gps review
+candidate_menu_page_utc_12_00,,0x3011588,,,menu page descriptor,,,"loads menu pages: 0x30b9b20: UTC-12:00, UTC-11:00, UTC-10:00, UTC-9:00",menu tables analysis
+candidate_datetime_format,,0x3011620,,,string reference,,,references: 20%02d-%02d-%02d %02d:%02d:%02d,strings/tasks analysis
+start_task_gps,,0x3011804,,,calls OSTaskCreate,,,"creates OS task ""task gps""",strings/tasks analysis
+candidate_gps_power_cycle,,0x3011914,,,reviewed call sequence,,,toggles a GPIO low then high and clears the GPS buffers,gps review
+candidate_gps_sentence_store,,0x30119bc,,,reviewed call sequence,,,gps task: copies received data into the sentence buffers,gps review
+task_gps,,0x3011a80,,,OSTaskCreate arguments,,,"entry point of OS task ""task gps"" (created at 0x301187c)",strings/tasks analysis
+candidate_gps_field_extract,,0x3011d40,,,reviewed call sequence,,,picks fields out of a stored sentence with nmea_skip_fields and formats them,gps review
+candidate_gps_info_draw_a,,0x301200c,,,reviewed call sequence,,,draws list rows with extracted GPS fields,gps review
+candidate_gps_info_draw_b,,0x30120f4,,,reviewed call sequence,,,draws list rows with extracted GPS fields,gps review
+candidate_gps_info_draw_c,,0x30123ac,,,reviewed call sequence,,,draws list rows with extracted GPS fields,gps review
+candidate_gps_time_to_rtc,,0x3012678,,,reviewed call sequence,,,extracts time and date fields and calls the clock routines,gps review
+candidate_gps_nmea_parse,,0x3012774,,,string reference,,,references: $GNGGA,strings/tasks analysis
+task_keys,,0x3012d2c,,,OSTaskCreate arguments,,,"entry point of OS task ""keys"" (created at 0x3012f5c)",strings/tasks analysis
+modem_reg_3c_update_3012e30,,0x3012e30,,,rule: single modem register,,,"small function whose only modem register is reg_3c: modify: ori:r2,65024",modem register rule
+start_tasks_keytime_and_1_more,,0x3012ea0,,,calls OSTaskCreate,,,"creates OS tasks: keyTime, keys",strings/tasks analysis
+candidate_ptt_input_read,0x3012f48,0x3012f64,28,16,"masked code, unique",88,direct instructions; physical button identity inferred,Reads indexedGPIO43=B11 through0x2c588 and inverts result; active wheninputlow,"docs/modem-map.csv, ported"
+candidate_ptt_input_debounce,0x3012f58,0x3012f74,28,190,"masked code, unique",96,direct instructions + initial callback table,Debounces candidatePTT change afterfour differing polls; sets0x3e1c0 eventbits1/2 andinvokes callbacks initially0x3014e4c/0x3014e00,"docs/modem-map.csv, ported"
+candidate_key_get,,0x3013078,,,reviewed code behaviour,,,returns the key code the menu key handler switches on,voice path review
+candidate_keymsgq_post,,0x30130ac,,,reviewed code behaviour,,,posts a byte to the keymsgq queue,code behaviour review
+candidate_key_beep,,0x301340c,,,reviewed code behaviour,,,"checks a status flag and two settings, then requests a sound; 47 callers in key and menu code",misc review
+candidate_key_event_dispatch,,0x3013640,,,reviewed code behaviour,,,calls per-key handlers through the press and release tables in modem SRAM,voice path review
+test_3fd69_1,,0x3013f00,,,code shape rule,,,test: tests a field of RAM 0x3fd69,morning rule 2026-11-10
+test_3e0e3,,0x3013f40,,,code shape rule,,,test: tests a field of RAM 0x3e0e3,morning rule 2026-11-10
+return_1_3013f54,,0x3013f54,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+test_3e0e3_3013f58,,0x3013f58,,,code shape rule,,,test: tests a field of RAM 0x3e0e3,morning rule 2026-11-10
+candidate_key_hook_call,,0x30140e4,,,reviewed code behaviour,,,calls the function pointer stored at 0x18000804 unless a status bit is set,voice path review
+candidate_key_25_press,,0x3014130,,,key event table,,,"handler slots: press 25; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_14_press,,0x3014148,,,key event table,,,"handler slots: press 14; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_13_press,,0x3014160,,,key event table,,,"handler slots: press 13; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_05_press,,0x3014178,,,key event table,,,"handler slots: press 5; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_02_press,,0x3014184,,,key event table,,,"handler slots: press 2; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_11_press,,0x3014190,,,key event table,,,"handler slots: press 11; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_14_release,,0x30141d8,,,key event table,,,"handler slots: release 14; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_13_release,,0x3014210,,,key event table,,,"handler slots: release 13; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_06_release,,0x3014264,,,key event table,,,"handler slots: release 6; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_11_release,,0x30142a8,,,key event table,,,"handler slots: release 11; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_08_release,,0x30142cc,,,key event table,,,"handler slots: release 8; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_05_release,,0x30142f0,,,key event table,,,"handler slots: release 5; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_02_release,,0x3014314,,,key event table,,,"handler slots: release 2; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_12_release,,0x3014338,,,key event table,,,"handler slots: release 12; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_09_release,,0x30143d4,,,key event table,,,"handler slots: release 9; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_03_release,,0x3014450,,,key event table,,,"handler slots: release 3; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_10_release,,0x3014488,,,key event table,,,"handler slots: release 10; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_07_release,,0x3014514,,,key event table,,,"handler slots: release 7; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_04_release,,0x3014588,,,key event table,,,"handler slots: release 4; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_26_press,,0x30145fc,,,key event table,,,"handler slots: press 26; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_12_press,,0x301464c,,,key event table,,,"handler slots: press 12; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_09_press,,0x30146c4,,,key event table,,,"handler slots: press 9; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_10_press,,0x301473c,,,key event table,,,"handler slots: press 10; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_07_press,,0x30147dc,,,key event table,,,"handler slots: press 7; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_04_press,,0x3014870,,,key event table,,,"handler slots: press 4; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_06_press,,0x3014904,,,key event table,,,"handler slots: press 6; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_03_press,,0x3014958,,,key event table,,,"handler slots: press 3; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_08_press,,0x30149a4,,,key event table,,,"handler slots: press 8; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_ptt_admission,0x30149fc,0x30149e8,-20,592,"similar code, 88% same halfwords, near expected address",88,direct instructions; individual policy checks not named,Normal candidatePTTpress invokes withr0=0; substantial stock state/mode gating andsideeffects; nonzero return permits postingpress request,"docs/modem-map.csv, ported"
+candidate_keymsgq_post_thunk_3014ca8,,0x3014ca8,,,code shape rule,,,thunk: only calls candidate_keymsgq_post,morning rule 2026-11-10
+candidate_key_24_press,,0x3014cb4,,,key event table,,,"handler slots: press 24; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_23_press,,0x3014cc0,,,key event table,,,"handler slots: press 23; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_22_press,,0x3014ccc,,,key event table,,,"handler slots: press 22; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_21_press,,0x3014cd8,,,key event table,,,"handler slots: press 21; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_20_press,,0x3014ce4,,,key event table,,,"handler slots: press 20; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_19_press,,0x3014cf0,,,key event table,,,"handler slots: press 19; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_18_press,,0x3014cfc,,,key event table,,,"handler slots: press 18; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_17_press,,0x3014d08,,,key event table,,,"handler slots: press 17; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_16_press,,0x3014d14,,,key event table,,,"handler slots: press 16; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_15_press,,0x3014d20,,,key event table,,,"handler slots: press 15; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_24_release,,0x3014d50,,,key event table,,,"handler slots: release 24; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_23_release,,0x3014d6c,,,key event table,,,"handler slots: release 23; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_22_release,,0x3014d78,,,key event table,,,"handler slots: release 22; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_21_release,,0x3014d84,,,key event table,,,"handler slots: release 21; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_20_release,,0x3014d90,,,key event table,,,"handler slots: release 20; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_19_release,,0x3014d9c,,,key event table,,,"handler slots: release 19; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_18_release,,0x3014da8,,,key event table,,,"handler slots: release 18; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_17_release,,0x3014db4,,,key event table,,,"handler slots: release 17; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_16_release,,0x3014dc0,,,key event table,,,"handler slots: release 16; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_key_15_release,,0x3014dcc,,,key event table,,,"handler slots: release 15; press table at RAM 0x18000834 and release table at 0x180008A0, indexed by key number (PTT is key 1)",key event table
+candidate_ptt_release_callback,0x3014e00,0x3014dec,-20,76,"exact bytes, unique",100,direct instructions + initial callback table,"Checks stockstate, normallyposts0x08 through0x3014dec; callbacksource initially0x180008a4","docs/modem-map.csv, ported"
+candidate_ptt_press_callback,0x3014e4c,0x3014e38,-20,250,"masked code, unique",98,direct instructions + initial callback table,"Normal path calls0x30149fc(0), checks admission, sets statebit7 andposts0x04; servicecalibration branches maywrite storage","docs/modem-map.csv, ported"
+task_keytime,,0x30151d0,,,OSTaskCreate arguments,,,"entry point of OS task ""keyTime"" (created at 0x3012f2c)",strings/tasks analysis
+candidate_uses_alarm,,0x301532c,,,rule: distinctive string reference,,,references: ALARM,string rule 2
+candidate_uses_noaa,,0x30153a4,,,rule: distinctive string reference,,,references: NOAA,string rule 2
+candidate_keyfunc_flashlight,,0x3015514,,,key function table order,,,"entry 41 of the 43-entry handler table at 0x30728dc; item 41 of the 43-item key function list is ""Flashlight"" (pairing by position, unverified)",key function table
+candidate_keyfunc_scramb,,0x3015520,,,key function table order,,,"entry 39 of the 43-entry handler table at 0x30728dc; item 39 of the 43-item key function list is ""Scramb"" (pairing by position, unverified)",key function table
+candidate_keyfunc_call,,0x301552c,,,key function table order,,,"entry 5 of the 43-entry handler table at 0x30728dc; item 5 of the 43-item key function list is ""Call"" (pairing by position, unverified)",key function table
+candidate_keyfunc_none,,0x3015538,,,key function table order,,,"entry 0 of the 43-entry handler table at 0x30728dc; item 0 of the 43-item key function list is ""None"" (pairing by position, unverified)",key function table
+candidate_keyfunc_a_b_switch,,0x3015544,,,key function table order,,,"entry 26 of the 43-entry handler table at 0x30728dc; item 26 of the 43-item key function list is ""A/B Switch"" (pairing by position, unverified)",key function table
+candidate_keyfunc_roaming,,0x301560c,,,key function table order,,,"entry 37 of the 43-entry handler table at 0x30728dc; item 37 of the 43-item key function list is ""Roaming"" (pairing by position, unverified)",key function table
+candidate_keyfunc_aprs_send,,0x301571c,,,key function table order,,,"entry 31 of the 43-entry handler table at 0x30728dc; item 31 of the 43-item key function list is ""APRS Send"" (pairing by position, unverified)",key function table
+candidate_keyfunc_gps_info,,0x30157b8,,,key function table order,,,"entry 24 of the 43-entry handler table at 0x30728dc; item 24 of the 43-item key function list is ""GPS Info"" (pairing by position, unverified)",key function table
+candidate_keyfunc_message,,0x3015880,,,key function table order,,,"entry 14 of the 43-entry handler table at 0x30728dc; item 14 of the 43-item key function list is ""Message"" (pairing by position, unverified)",key function table
+candidate_keyfunc_ctc_dcs_set,,0x3015900,,,key function table order,,,"entry 35 of the 43-entry handler table at 0x30728dc; item 35 of the 43-item key function list is ""CTC/DCS Set"" (pairing by position, unverified)",key function table
+candidate_menu_page_mandown_off,,0x301596c,,,menu page descriptor,,,"loads menu pages: 0x30b9428: Mandown OFF, Mandown ON",menu tables analysis
+candidate_keyfunc_nuisance_delete,,0x3015a38,,,key function table order,,,"entry 29 of the 43-entry handler table at 0x30728dc; item 29 of the 43-item key function list is ""Nuisance Delete"" (pairing by position, unverified)",key function table
+candidate_keyfunc_tbst_send,,0x3015a7c,,,key function table order,,,"entry 30 of the 43-entry handler table at 0x30728dc; item 30 of the 43-item key function list is ""TBST Send"" (pairing by position, unverified)",key function table
+candidate_keyfunc_sub_ptt,,0x3015ac8,,,key function table order,,,"entry 38 of the 43-entry handler table at 0x30728dc; item 38 of the 43-item key function list is ""Sub PTT"" (pairing by position, unverified)",key function table
+candidate_menu_page_record_off,,0x3015b70,,,menu page descriptor,,,"loads menu pages: 0x30b9378: Record OFF, Record ON",menu tables analysis
+candidate_keyfunc_batt_indicator,,0x3015c58,,,key function table order,,,"entry 2 of the 43-entry handler table at 0x30728dc; item 2 of the 43-item key function list is ""BATT Indicator"" (pairing by position, unverified)",key function table
+candidate_keyfunc_switch_chtype,,0x3015cc0,,,key function table order,,,"entry 32 of the 43-entry handler table at 0x30728dc; item 32 of the 43-item key function list is ""Switch ChType"" (pairing by position, unverified)",key function table
+candidate_keyfunc_vox,,0x3015d78,,,key function table order,,,"entry 6 of the 43-entry handler table at 0x30728dc; item 6 of the 43-item key function list is ""Vox"" (pairing by position, unverified)",key function table
+candidate_keyfunc_digital_encrypt,,0x3015e08,,,key function table order,,,"entry 4 of the 43-entry handler table at 0x30728dc; item 4 of the 43-item key function list is ""Digital Encrypt"" (pairing by position, unverified)",key function table
+candidate_menu_page_lone_work_off,,0x3015fd4,,,menu page descriptor,,,"loads menu pages: 0x30b9448: Lone Work OFF, Lone Work ON",menu tables analysis
+candidate_keyfunc_talk_around,,0x30161a0,,,key function table order,,,"entry 3 of the 43-entry handler table at 0x30728dc; item 3 of the 43-item key function list is ""Talk Around"" (pairing by position, unverified)",key function table
+candidate_menu_page_keypad_lock,,0x3016224,,,menu page descriptor,,,loads menu pages: 0x30baa68: Keypad Lock!; 0x30badc0: keypad unlocked,menu tables analysis
+candidate_keyfunc_tx_power,,0x30162d0,,,key function table order,,,"entry 1 of the 43-entry handler table at 0x30728dc; item 1 of the 43-item key function list is ""Tx Power"" (pairing by position, unverified)",key function table
+candidate_keyfunc_mute,,0x3016354,,,key function table order,,,"entry 36 of the 43-entry handler table at 0x30728dc; item 36 of the 43-item key function list is ""Mute"" (pairing by position, unverified)",key function table
+candidate_keyfunc_fm_search,,0x30163bc,,,key function table order,,,"entry 23 of the 43-entry handler table at 0x30728dc; item 23 of the 43-item key function list is ""FM Search"" (pairing by position, unverified)",key function table
+candidate_keyfunc_fm_radio,,0x3016440,,,key function table order,,,"entry 22 of the 43-entry handler table at 0x30728dc; item 22 of the 43-item key function list is ""FM Radio"" (pairing by position, unverified)",key function table
+candidate_keyfunc_freq_search,,0x30164bc,,,key function table order,,,"entry 40 of the 43-entry handler table at 0x30728dc; item 40 of the 43-item key function list is ""Freq Search"" (pairing by position, unverified)",key function table
+candidate_keyfunc_ctc_dcs_scan,,0x3016580,,,key function table order,,,"entry 34 of the 43-entry handler table at 0x30728dc; item 34 of the 43-item key function list is ""CTC/DCS Scan"" (pairing by position, unverified)",key function table
+candidate_keyfunc_wait_mode,,0x3016688,,,key function table order,,,"entry 33 of the 43-entry handler table at 0x30728dc; item 33 of the 43-item key function list is ""Wait Mode"" (pairing by position, unverified)",key function table
+candidate_keyfunc_vfo_mr,,0x3016734,,,key function table order,,,"entry 7 of the 43-entry handler table at 0x30728dc; item 7 of the 43-item key function list is ""VFO/MR"" (pairing by position, unverified)",key function table
+candidate_key_function_dispatch,,0x30168cc,,,reviewed call sequence,,,"reads settings block offsets 0x87-0x90 and 0x93, and is the only user of the 43-entry key function table",radio state review
+candidate_uses_tmrkey,,0x3016cac,,,rule: distinctive string reference,,,references: TmrKey,string rule 2
+set_u8_307b9,,0x3016e20,,,rule: setter,,,stores its argument to the u8 at RAM 0x307b9,rule-based
+get_u8_307b9,,0x3016e28,,,rule: getter,,,returns the u8 at RAM 0x307b9,rule-based
+empty_stub_3016e30,,0x3016e30,,,rule: empty stub,,,returns immediately,rule-based
+candidate_keyfunc_alarm,,0x3016eb8,,,key function table order,,,"entry 8 of the 43-entry handler table at 0x30728dc; item 8 of the 43-item key function list is ""Alarm"" (pairing by position, unverified)",key function table
+candidate_scan_lists_write_3016edc,,0x3016edc,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x11; offsets 0xf00,codeplug block rule
+candidate_scan_lists_write_3016edc_thunk_3016fc0,,0x3016fc0,,,code shape rule,,,thunk: only calls candidate_scan_lists_write_3016edc,morning rule 2026-11-10
+candidate_keyfunc_scan,,0x3016fcc,,,key function table order,,,"entry 18 of the 43-entry handler table at 0x30728dc; item 18 of the 43-item key function list is ""Scan"" (pairing by position, unverified)",key function table
+candidate_keyfunc_contact,,0x3017074,,,key function table order,,,"entry 15 of the 43-entry handler table at 0x30728dc; item 15 of the 43-item key function list is ""Contact"" (pairing by position, unverified)",key function table
+candidate_keyfunc_hot_key_5,,0x3017140,,,key function table order,,,"entry 13 of the 43-entry handler table at 0x30728dc; item 13 of the 43-item key function list is ""Hot Key 5"" (pairing by position, unverified)",key function table
+candidate_keyfunc_hot_key_4,,0x301714c,,,key function table order,,,"entry 12 of the 43-entry handler table at 0x30728dc; item 12 of the 43-item key function list is ""Hot Key 4"" (pairing by position, unverified)",key function table
+candidate_keyfunc_hot_key_3,,0x3017158,,,key function table order,,,"entry 11 of the 43-entry handler table at 0x30728dc; item 11 of the 43-item key function list is ""Hot Key 3"" (pairing by position, unverified)",key function table
+candidate_keyfunc_hot_key_2,,0x3017164,,,key function table order,,,"entry 10 of the 43-entry handler table at 0x30728dc; item 10 of the 43-item key function list is ""Hot Key 2"" (pairing by position, unverified)",key function table
+candidate_keyfunc_hot_key_1,,0x3017170,,,key function table order,,,"entry 9 of the 43-entry handler table at 0x30728dc; item 9 of the 43-item key function list is ""Hot Key 1"" (pairing by position, unverified)",key function table
+candidate_keyfunc_zone_down,,0x3017244,,,key function table order,,,"entry 17 of the 43-entry handler table at 0x30728dc; item 17 of the 43-item key function list is ""Zone Down"" (pairing by position, unverified)",key function table
+candidate_keyfunc_zone_up,,0x3017250,,,key function table order,,,"entry 16 of the 43-entry handler table at 0x30728dc; item 16 of the 43-item key function list is ""Zone Up"" (pairing by position, unverified)",key function table
+candidate_keyfunc_next_record,,0x3017370,,,key function table order,,,"entry 21 of the 43-entry handler table at 0x30728dc; item 21 of the 43-item key function list is ""Next Record"" (pairing by position, unverified)",key function table
+candidate_keyfunc_previous_record,,0x30173ac,,,key function table order,,,"entry 20 of the 43-entry handler table at 0x30728dc; item 20 of the 43-item key function list is ""Previous Record"" (pairing by position, unverified)",key function table
+candidate_keyfunc_monitor,,0x3017560,,,key function table order,,,"entry 25 of the 43-entry handler table at 0x30728dc; item 25 of the 43-item key function list is ""Monitor"" (pairing by position, unverified)",key function table
+candidate_menu_page_member_is_full,,0x30175f4,,,menu page descriptor,,,loads menu pages: 0x30bae38: Member is full!; 0x30bb1a8: Saving...,menu tables analysis
+lcd_begin_memory_write,,0x30178a4,,,reviewed code behaviour,,,"sends LCD command 0x2C, the standard memory write command",display review
+lcd_write_command_thunk_30178b0,,0x30178b0,,,code shape rule,,,thunk: only calls lcd_write_command,morning rule 2026-11-10
+lcd_write_command_thunk_30178bc,,0x30178bc,,,code shape rule,,,thunk: only calls lcd_write_command,morning rule 2026-11-10
+candidate_lcd_set_cursor,,0x3017910,,,reviewed code behaviour,,,sets the drawing position before a single pixel,display review
+lcd_draw_pixel,,0x301793c,,,reviewed code behaviour,,,"sets position, starts a memory write, writes one colour",display review
+candidate_lcd_draw_line_locked,,0x3017954,,,reviewed code behaviour,,,takes the LCD lock and plots pixels between two points,display review
+candidate_lcd_draw_line,,0x30179e8,,,reviewed code behaviour,,,plots pixels between two points,display review
+candidate_lcd_set_window,,0x3017bd0,,,reviewed code behaviour,,,"takes x0, y0, x1, y1 before pixel streaming",code behaviour review
+candidate_lcd_fill_rect,,0x3017be8,,,reviewed code behaviour,,,"under the LCD lock, sets a window and repeats one colour",code behaviour review
+candidate_lcd_draw_rect_outline,,0x3017c54,,,reviewed code behaviour,,,four line draws under the LCD lock,display review
+candidate_lcd_fill_screen,,0x3017cbc,,,reviewed code behaviour,,,"fills from 0,0 with width 240",display review
+candidate_lcd_clear_screen,,0x3017cd8,,,reviewed code behaviour,,,fills the screen with colour 0,display review
+lcd_init,,0x3017ce4,,,reviewed code behaviour,,,"resets the panel, then sends commands 11, B2, 35, 3A=05, B7, BB, C0, C2, C3, C6, D0, D6, E0, E1, 21, 29, 2C: the ST7789-family initialisation sequence",display review
+candidate_lcd_fill_client_area,,0x3017eec,,,reviewed code behaviour,,,fills the 240 x 263 area from row 27,code behaviour review
+candidate_lcd_draw_glyph_8x16,,0x30184b4,,,reviewed code behaviour,,,sets an 8 by 16 window and writes pixels,display review
+candidate_lcd_draw_glyph_scaled,,0x3018644,,,reviewed code behaviour,,,sets a window and writes foreground or background pixels,display review
+candidate_lcd_draw_text_from_flash_font,,0x3018854,,,reviewed code behaviour,,,"takes the LCD lock, reads glyph data through the flash layer, draws it",display review
+candidate_lcd_draw_string,,0x3018930,,,reviewed code behaviour,,,draws ASCII and two-byte Chinese text with line wrap,code behaviour review
+candidate_lcd_printf_centered,,0x3018af4,,,reviewed code behaviour,,,"formats text, centers it on the 240-pixel width, draws it",code behaviour review
+candidate_menu_draw_list_row,,0x3018c70,,,reviewed code behaviour,,,"draws a list row at a position from a row table, with highlight colours",code behaviour review
+candidate_lcd_draw_mono_bitmap,,0x3018d78,,,reviewed code behaviour,,,plots set bits of a one-bit image,code behaviour review
+candidate_menu_page_menu,,0x3018dfc,,,menu page descriptor,,,loads menu pages: 0x30b8d40: Menu,menu tables analysis
+candidate_lcd_draw_glyph_24,,0x301989c,,,reviewed code behaviour,,,"under lcd_lock, writes a 24-pixel-high glyph pixel by pixel",morning review 2026-11-10
+candidate_lcd_clear_text_row,,0x3019ac0,,,reviewed code behaviour,,,fills a full-width 24- or 26-pixel row with a colour,morning review 2026-11-10
+candidate_popup_area_clear,,0x3019b80,,,reviewed code behaviour,,,fills the fixed popup rectangle,display review
+candidate_lcd_fill_screen_thunk_3019bc8,,0x3019bc8,,,code shape rule,,,thunk: only calls candidate_lcd_fill_screen,morning rule 2026-11-10
+candidate_menu_page_ok,,0x3019bd4,,,menu page descriptor,,,loads menu pages: 0x30ba698:  OK ,menu tables analysis
+candidate_menu_page_ok_3019c34,,0x3019c34,,,menu page descriptor,,,loads menu pages: 0x30ba698:  OK ,menu tables analysis
+candidate_lcd_draw_language_string,,0x3019c60,,,reviewed code behaviour,,,picks a string by the language setting and draws it,display review
+candidate_menu_page_del,,0x3019c98,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
+candidate_menu_page_option,,0x3019cc4,,,menu page descriptor,,,loads menu pages: 0x30ba6d8: Option,menu tables analysis
+candidate_lcd_printf,,0x3019f5c,,,reviewed code behaviour,,,formats with vsprintf and draws the string,display review
+empty_stub_301a428,,0x301a428,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_301a568,,0x301a568,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_301a570,,0x301a570,,,rule: empty stub,,,returns immediately,rule-based
+candidate_popup_icon_two_lines,,0x301ab40,,,reviewed code behaviour,,,shows an icon with one or two centered lines,code behaviour review
+candidate_uses_ptt_id,,0x301ac98,,,rule: distinctive string reference,,,references: PTT ID,string rule 2
+candidate_calibration_read_301af0c,,0x301af0c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x2; offsets var,codeplug block rule
+candidate_calibration_read_301b010,,0x301b010,,,rule: single codeplug block,,,all 5 codeplug accesses are to block 0x2; offsets 0x1c 0xab var,codeplug block rule
+candidate_calibration_read_301b0c8,,0x301b0c8,,,rule: single codeplug block,,,all 4 codeplug accesses are to block 0x2; offsets var,codeplug block rule
+candidate_calibration_read_301b1ac,,0x301b1ac,,,rule: single codeplug block,,,all 12 codeplug accesses are to block 0x2; offsets var,codeplug block rule
+tx_level_calibration_lookup,0x301b33c,0x301b3bc,128,308,"masked code, unique",94,direct instructions + channel/ramp dataflow,Clamps frequency byTXband; reads bank2 UHF levels0x40/45/4a or VHF0xd0/d5/da plus interval index; interpolates and returns uint8 target,"docs/modem-map.csv, ported"
+candidate_calibration_read_301b53c,,0x301b53c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x2; offsets var,codeplug block rule
+candidate_status_clock_draw,,0x301b5f0,,,reviewed code behaviour,,,reads the RTC and draws date and time strings with sprintf,morning review 2026-11-10
+candidate_power_latch_init,,0x301b760,,,peripheral registers accessed,,,configures a GPIO output from the init task; only non-shutdown user of pin 0x11,board support review
+candidate_power_switch_read,,0x301b778,,,peripheral registers accessed,,,reads one GPIO input; used by init and the shutdown task,board support review
+task_shutdown,,0x301b784,,,OSTaskCreate arguments,,,"entry point of OS task ""task ShutDown"" (created at 0x301b8d0)",strings/tasks analysis
+start_task_shutdown,,0x301b89c,,,calls OSTaskCreate,,,"creates OS task ""task ShutDown""",strings/tasks analysis
+candidate_battery_voltage_format,,0x301b97c,,,string reference,,,references: %01d.%02dV,strings/tasks analysis
+set_u16_309c4,,0x301bf24,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x309c4,morning rule 2026-11-10
+candidate_rssi_measure,,0x301bf40,,,peripheral registers accessed,,,reads RSSI from the RF chip and processes it,board support review
+modem_reg_34_update_301c0ec,,0x301c0ec,,,rule: single modem register,,,small function whose only modem register is reg_34: modify: clear b17,modem register rule
+candidate_bus_dev_e0_reg_write,,0x301c200,,,reviewed code behaviour,,,writes one byte to register r0 of bus device address 0xE0,morning review 2026-11-10
+candidate_bus_dev_e0_reg_read,,0x301c21c,,,reviewed code behaviour,,,reads one byte from register r0 of bus device address 0xE0,morning review 2026-11-10
+candidate_rtc_time_get,,0x301c238,,,reviewed call sequence,,,clock routine with 7 callers across 9 tasks,gps review
+candidate_rtc_time_set,,0x301c3e0,,,reviewed call sequence,,,clock routine called after GPS time extraction and from the cable task,gps review
+spi0_dataflash_init,,0x301c894,,,peripheral registers accessed,,,"writes SPI0 setup registers, configures the chip select pin, creates the flash lock",board support review
+candidate_spi3_enable_set,,0x301c914,,,peripheral registers accessed,,,read-modify-writes SPI3 register 0x10,board support review
+candidate_spi3_efuse_init,,0x301c950,,,peripheral registers accessed,,,writes SPI3 setup registers at 0x14150000,board support review
+modem_reg_3c_update_301ca18,,0x301ca18,,,rule: single modem register,,,small function whose only modem register is reg_3c: modify: and:r1,modem register rule
+adc_init,,0x301ca34,,,peripheral registers accessed,,,writes ADC controller setup registers and creates a lock,board support review
+candidate_adc_read,,0x301ca8c,,,peripheral registers accessed,,,"takes the ADC lock, starts a conversion, reads the data registers",board support review
+dac_init,,0x301cb88,,,peripheral registers accessed,,,writes the DAC controller registers,board support review
+irq_callback_registration,0x301d040,0x301d080,64,60,"masked code, unique",77,direct instructions + manual p106,Registers PCM capture vector60->0x2c4a4 and playback vector59->0x2c49c; system61->0x2c454,"docs/modem-map.csv, ported"
+gpio_configure_output,,0x301d0dc,,,reviewed code behaviour,,,"clears interrupt settings, sets direction to output, sets the level",code behaviour review
+candidate_gpio_bank_a_setup,,0x301d1d4,,,peripheral registers accessed,,,"read-modify-writes GPIO A direction, interrupt, and debounce registers",board support review
+candidate_gpio_read_all_banks,,0x301d3d0,,,peripheral registers accessed,,,reads the external port register of all three GPIO banks,board support review
+candidate_gpio_interrupt_enable_update,,0x301d420,,,peripheral registers accessed,,,read-modify-writes the interrupt enable register of all three banks,board support review
+candidate_gpio_init,,0x301d464,,,reviewed code behaviour,,,configures pins and installs the three GPIO bank handlers,voice path review
+start_task_cds,,0x301d550,,,calls OSTaskCreate,,,"creates OS task ""task cds""",strings/tasks analysis
+candidate_audio_amp_pin_init,,0x301d618,,,peripheral registers accessed,,,configures the audio amplifier enable pin,board support review
+candidate_audio_amp_set,,0x301d624,,,reviewed code behaviour,,,"switches GPIO 0x35, the audio amplifier enable, with state tracking",code behaviour review
+test_status_flags_1_1,,0x301d684,,,code shape rule,,,test: tests a field of RAM 0x3fdd9,morning rule 2026-11-10
+set_u32_3a628,,0x301d794,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x3a628,morning rule 2026-11-10
+set_u32_3a634,,0x301d7b0,,,rule: setter,,,stores its argument to the u32 at RAM 0x3a634,rule-based
+candidate_timers_init,,0x301d7b8,,,reviewed code behaviour,,,"installs handlers for vectors 34 to 38, timers 2 to 6",voice path review
+candidate_timer_0x14000000_start_ms,,0x301d858,,,reviewed code behaviour,,,loads clock*ms/1000 from 0x3A628 into the timer at 0x14000000 and sets enable bit 0,morning review 2026-11-10
+candidate_timer_0x14000000_stop,,0x301d878,,,reviewed code behaviour,,,clears enable bit 0 of the timer at 0x14000000,morning review 2026-11-10
+candidate_gps_uart_init,,0x301d8c4,,,reviewed code behaviour,,,configures UART1 for GPS and drives PTA10 low,voice path review
+candidate_gps_uart_read,,0x301d92c,,,peripheral registers accessed,,,copies received GPS bytes under a lock and touches the UART1 interrupt enable,board support review
+candidate_cable_uart_init,,0x301d9a0,,,reviewed code behaviour,,,installs the UART0 handler,voice path review
+i2c2_rtc_init,,0x301da24,,,peripheral registers accessed,,,writes I2C2 setup registers,board support review
+candidate_i2c2_rtc_write,,0x301da98,,,peripheral registers accessed,,,I2C2 write sequence with the non-standard START register,board support review
+candidate_i2c2_rtc_read,,0x301db74,,,peripheral registers accessed,,,I2C2 read sequence,board support review
+candidate_bitbang_bus_a,,0x301dc64,,,peripheral registers accessed,,,bit-banged serial sequence using GPIO high/low with delays,board support review
+candidate_bitbang_bus_b,,0x301dd60,,,peripheral registers accessed,,,bit-banged serial sequence using GPIO high/low with delays,board support review
+modem_reg_74_update_301e4d0,,0x301e4d0,,,rule: single modem register,,,"small function whose only modem register is reg_74: modify: ori:r2,384; modify: clear b7 clear b8",modem register rule
+candidate_prompt_audio_path_set,,0x301e4f0,,,reviewed code behaviour,,,"sets or clears AUDIO_CONTROL bit 7, the prompt audio path",voice path review
+modem_reg_88_update_301e514,,0x301e514,,,rule: single modem register,,,small function whose only modem register is reg_88: = 0x1; = 0x0,modem register rule
+empty_stub_301e554,,0x301e554,,,rule: empty stub,,,returns immediately,rule-based
+set_u32_33cec,,0x301e798,,,rule: setter,,,stores its argument to the u32 at RAM 0x33cec,rule-based
+set_u32_33d74,,0x301e7a0,,,rule: setter,,,stores its argument to the u32 at RAM 0x33d74,rule-based
+set_u32_33cf0,,0x301e7a8,,,rule: setter,,,stores its argument to the u32 at RAM 0x33cf0,rule-based
+modem_local_cc_update_301e7bc,,0x301e7bc,,,rule: single modem register,,,small function whose only modem register is LOCAL_CC: = variable,modem register rule
+set_u16_33ce8,,0x301e7d8,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x33ce8,morning rule 2026-11-10
+set_u8_33ce0,,0x301e7fc,,,rule: setter,,,stores its argument to the u8 at RAM 0x33ce0,rule-based
+set_u8_33cde,,0x301e804,,,rule: setter,,,stores its argument to the u8 at RAM 0x33cde,rule-based
+set_u8_33cdf,,0x301e80c,,,rule: setter,,,stores its argument to the u8 at RAM 0x33cdf,rule-based
+set_u16_33ce4,,0x301e814,,,rule: setter,,,stores its argument to the u16 at RAM 0x33ce4,rule-based
+set_u8_33ce1,,0x301e81c,,,rule: setter,,,stores its argument to the u8 at RAM 0x33ce1,rule-based
+set_u8_33cea,,0x301e824,,,rule: setter,,,stores its argument to the u8 at RAM 0x33cea,rule-based
+set_u8_33ceb,,0x301e82c,,,rule: setter,,,stores its argument to the u8 at RAM 0x33ceb,rule-based
+candidate_call_state_reset,,0x301e834,,,reviewed code behaviour,,,clears a counter and stores two arguments in the call state block at 0x3BA54,activity review
+get_u8_3ba68,,0x301e8a0,,,rule: getter,,,returns the u8 at RAM 0x3ba68,rule-based
+task_ccltraffic,,0x301e924,,,OSTaskCreate arguments,,,"entry point of OS task ""CclTraffic"" (created at 0x300cb40)",strings/tasks analysis
+candidate_call_control_event,,0x301eae8,,,reviewed code behaviour,,,"acts on command codes 1, 2, and 8: ends FM PTT or signals the modem state worker",voice path review
+get_u32_3ba64,,0x301ec14,,,rule: getter,,,returns the u32 at RAM 0x3ba64,rule-based
+update_3ba6c_field,,0x301ec1c,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6c,morning rule 2026-11-10
+update_3ba6c_field_301ec28,,0x301ec28,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6c,morning rule 2026-11-10
+update_3ba6d_field,,0x301ec34,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6d,morning rule 2026-11-10
+modem_local_cc_update_301ec40,,0x301ec40,,,rule: single modem register,,,small function whose only modem register is LOCAL_CC: modify: clear b8 clear b9 set b8,modem register rule
+test_3ba6c_4,,0x301ec7c,,,code shape rule,,,test: tests a field of RAM 0x3ba6c,morning rule 2026-11-10
+update_3ba6c_field_301ec88,,0x301ec88,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6c,morning rule 2026-11-10
+update_3ba6c_field_301ec94,,0x301ec94,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6c,morning rule 2026-11-10
+update_3ba6c_field_301eca0,,0x301eca0,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6c,morning rule 2026-11-10
+set_u8_3ba6b,,0x301ecac,,,rule: setter,,,stores its argument to the u8 at RAM 0x3ba6b,rule-based
+modem_work_mode_update_301ecc0,,0x301ecc0,,,rule: single modem register,,,small function whose only modem register is WORK_MODE: modify: set b0 and:r3,modem register rule
+update_3ba6d_field_301ecf0,,0x301ecf0,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba6d,morning rule 2026-11-10
+get_u8_3c614,,0x301ed30,,,code shape rule,,,getter: returns u8 at RAM 0x3c614,morning rule 2026-11-10
+update_3ba73_field,,0x301ef74,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3ba73,morning rule 2026-11-10
+set_u16_3bd30,,0x301f0b0,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x3bd30,morning rule 2026-11-10
+get_u8_3bd3c,,0x301f108,,,rule: getter,,,returns the u8 at RAM 0x3bd3c,rule-based
+get_u8_30e0c,,0x301f110,,,rule: getter,,,returns the u8 at RAM 0x30e0c,rule-based
+task_txmsg,,0x301fdd8,,,OSTaskCreate arguments,,,"entry point of OS task ""txmsg"" (created at 0x300c8cc); also task_txmsg",strings/tasks analysis
+get_u8_30e0d,,0x301ff94,,,rule: getter,,,returns the u8 at RAM 0x30e0d,rule-based
+task_rxmsg,,0x301ff9c,,,OSTaskCreate arguments,,,"entry point of OS task ""rxmsg"" (created at 0x300cb0e)",strings/tasks analysis
+set_u8_3bac0,,0x3020628,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x3bac0,morning rule 2026-11-10
+get_u16_3bad4,,0x3020664,,,rule: getter,,,returns the u16 at RAM 0x3bad4,rule-based
+get_u32_3bacc,,0x302067c,,,rule: getter,,,returns the u32 at RAM 0x3bacc,rule-based
+get_u8_3bac0,,0x30206a0,,,rule: getter,,,returns the u8 at RAM 0x3bac0,rule-based
+task_rxvoice,,0x30206d0,,,OSTaskCreate arguments,,,"entry point of OS task ""rxvoice"" (created at 0x300caaa)",strings/tasks analysis
+set_u8_3bd48,,0x30209c0,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x3bd48,morning rule 2026-11-10
+get_u32_3ba64_30209d4,,0x30209d4,,,rule: getter,,,returns the u32 at RAM 0x3ba64,rule-based
+get_u8_30e10,,0x30209dc,,,rule: getter,,,returns the u8 at RAM 0x30e10,rule-based
+task_rxcsbk,,0x30209e4,,,OSTaskCreate arguments,,,"entry point of OS task ""rxcsbk"" (created at 0x300ca6e)",strings/tasks analysis
+get_u32_3bd50,,0x3020d50,,,rule: getter,,,returns the u32 at RAM 0x3bd50,rule-based
+get_u32_3bd4c,,0x3020d80,,,rule: getter,,,returns the u32 at RAM 0x3bd4c,rule-based
+get_u8_3c61a,,0x3020d88,,,rule: getter,,,returns the u8 at RAM 0x3c61a,rule-based
+get_u32_3ba4c,,0x30211e4,,,rule: getter,,,returns the u32 at RAM 0x3ba4c,rule-based
+update_3bd57_field,,0x3021220,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3bd57,morning rule 2026-11-10
+set_u8_3bd54,,0x302122c,,,rule: setter,,,stores its argument to the u8 at RAM 0x3bd54,rule-based
+set_u8_3bd56,,0x3021234,,,rule: setter,,,stores its argument to the u8 at RAM 0x3bd56,rule-based
+set_u8_3bd55,,0x302123c,,,rule: setter,,,stores its argument to the u8 at RAM 0x3bd55,rule-based
+get_u8_3bd55,,0x3021244,,,rule: getter,,,returns the u8 at RAM 0x3bd55,rule-based
+task_record,,0x302124c,,,OSTaskCreate arguments,,,"entry point of OS task ""record"" (created at 0x300cbe6)",strings/tasks analysis
+modem_state_event_set,0x302150c,0x302154c,64,60,"masked code, unique",97,direct instructions; downstream worker not fully audited,"Sets uint8 state0x3bd3e and flags, posts event0x20 via0x300d0a4; not the physical test selector and not a direct PA instruction","docs/modem-map.csv, ported"
+set_u8_3bd64,,0x3021588,,,rule: setter,,,stores its argument to the u8 at RAM 0x3bd64,rule-based
+get_u32_3bd60,,0x3021590,,,rule: getter,,,returns the u32 at RAM 0x3bd60,rule-based
+update_3bd59_field,,0x3021598,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3bd59,morning rule 2026-11-10
+update_3bd59_field_30215a8,,0x30215a8,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3bd59,morning rule 2026-11-10
+get_u32_3bd68,,0x30215b8,,,rule: getter,,,returns the u32 at RAM 0x3bd68,rule-based
+physical_test_select,0x3021588,0x30215c8,64,300,"masked code, unique",95,direct instructions + manual p295,"Selectors1/3 fill0x5f selector2 fill0x55; writes36bytes to each TX half, WORK_MODE2 L2_CONTROL82 TXRX81; PA context unverified","docs/modem-map.csv, ported"
+candidate_layer2_autotest_set,,0x30216f4,,,modem register values,,,sets or clears LAYER2_TXRX_CTRL bit 0,layer 2 review
+candidate_modem_layer2_stop,,0x3021710,,,reviewed code behaviour,,,"writes 0 to LAYER2_CONTROL and LAYER2_TXRX_CTRL, and turns off FM PTT",voice path review
+modem_fm_dev_coef_read_3021730,,0x3021730,,,rule: single modem register,,,small function whose only modem register is FM_DEV_COEF: reads only,modem register rule
+modem_rf_mod_bias_ctrl_update_3021748,,0x3021748,,,rule: single modem register,,,small function whose only modem register is RF_MOD_BIAS_CTRL: = 0xffff,modem register rule
+modem_sig_center_update_3021764,,0x3021764,,,rule: single modem register,,,small function whose only modem register is SIG_CENTER: = 0xffff,modem register rule
+modulation_amplitude_set,0x3021748,0x3021788,64,28,"exact bytes, unique",100,direct instructions + manual p282,"Replaces low16 RF_MOD_BIAS_CTRL at0x11000114 with repeated uint8(r0), preserves high16","docs/modem-map.csv, ported"
+empty_stub_30217a4,,0x30217a4,,,rule: empty stub,,,returns immediately,rule-based
+modem_reg_84_update_30217a8,,0x30217a8,,,rule: single modem register,,,small function whose only modem register is reg_84: modify: set b0,modem register rule
+candidate_tx_audio_start,,0x30217f8,,,reviewed code behaviour,,,prepares buffers and enables microphone PCM capture,voice path review
+candidate_rx_audio_start,,0x30218b0,,,reviewed code behaviour,,,enables PCM playback for received voice,voice path review
+candidate_rx_audio_stop,,0x302197c,,,reviewed call sequence,,,"turns the amplifier off, disables PCM playback, resets audio state",dmr control review
+candidate_tx_audio_start_with_setup,,0x30219e8,,,reviewed code behaviour,,,same microphone capture start with extra codec setup,voice path review
+empty_stub_3021ac4,,0x3021ac4,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_3021ac8,,0x3021ac8,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_3021acc,,0x3021acc,,,rule: empty stub,,,returns immediately,rule-based
+return_1_3021ad0,,0x3021ad0,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+modem_reg_88_update_3021ad8,,0x3021ad8,,,rule: single modem register,,,small function whose only modem register is reg_88: = 0x3; = 0x1,modem register rule
+start_task_sound,,0x3021bd4,,,calls OSTaskCreate,,,"creates OS task ""task sound""",strings/tasks analysis
+candidate_sound_request,,0x3021c1c,,,reviewed code behaviour,,,stores an id for the sound task and sets its event bit,code behaviour review
+candidate_sound_request_with_arg,,0x3021c60,,,reviewed code behaviour,,,stores an id and argument for the sound task and sets its event bit,voice path review
+candidate_prompt_fifo_write,,0x3021c88,,,reviewed code behaviour,,,feeds audio to the modem prompt FIFO at 0x16000980,voice path review
+modem_audio_control_read_302215c,,0x302215c,,,rule: single modem register,,,small function whose only modem register is AUDIO_CONTROL: reads only,modem register rule
+candidate_wav_header_check,,0x302225c,,,string reference,,,references: RIFF,strings/tasks analysis
+task_sound,,0x3022fb0,,,OSTaskCreate arguments,,,"entry point of OS task ""task sound"" (created at 0x3021c12)",strings/tasks analysis
+candidate_layer2_reset,,0x30231a8,,,modem register values,,,"writes sync-fail to LAYER2_TXRX_CTRL, then zeroes LAYER2_CONTROL, LAYER2_SLOTON, LAYER2_TXRX_CTRL",layer 2 review
+candidate_layer2_slot_mode_set,,0x30231c0,,,modem register values,,,"selects among slot setups: LAYER2_CONTROL 0x40 or 0xD3, slot-on bits, slot counter",layer 2 review
+candidate_layer2_rx_enable,,0x3023258,,,modem register values,,,LAYER2_CONTROL = 0x40 (rxen) and LAYER2_TXRX_CTRL = 0x41,layer 2 review
+candidate_layer2_mode_select,,0x3023290,,,reviewed call sequence,,,chooses between slot mode set and receive enable by mode number,dmr control review
+candidate_layer2_sync_drop,,0x3023394,,,modem register values,,,"sets LAYER2_TXRX_CTRL bits 23 and 22, the RX and TX sync-fail bits",layer 2 review
+candidate_modem_dmr_mode_setup,,0x3023574,,,reviewed code behaviour,,,"writes LAYER2_SLOTON 0x11, adjusts RF_MODE, and sets WORK_MODE to the DMR value 0x6E",voice path review
+test_3c616,,0x30237ac,,,code shape rule,,,test: tests a field of RAM 0x3c616,morning rule 2026-11-10
+get_u8_3bead,,0x3023820,,,rule: getter,,,returns the u8 at RAM 0x3bead,rule-based
+candidate_layer2_voice_begin_update,,0x3023828,,,modem register values,,,sets or clears LAYER2_TXRX_CTRL bit 15,layer 2 review
+task_rxslot,,0x302386c,,,OSTaskCreate arguments,,,"entry point of OS task ""rxslot"" (created at 0x300ca36)",strings/tasks analysis
+candidate_rx_slot_abnormal_handler,,0x3023880,,,reviewed code behaviour,,,"called for interrupt status bit 6, RX timeslot boundary abnormal",voice path review
+candidate_layer2_max_cnt_set_a,,0x3023894,,,modem register values,,,writes LAYER2_MAX_CNT,layer 2 review
+candidate_layer2_max_cnt_set_b,,0x3023928,,,modem register values,,,writes LAYER2_MAX_CNT,layer 2 review
+candidate_phy_rx_handler,,0x30239c4,,,reviewed code behaviour,,,"called for interrupt status bit 11, PHY test reception",voice path review
+candidate_sysint_dispatch,,0x30239d4,,,reviewed code behaviour,,,acts on the interrupt status snapshot saved by system_irq_collect,voice path review
+test_33cc9,,0x3023a54,,,code shape rule,,,test: tests a field of RAM 0x33cc9,morning rule 2026-11-10
+set_u8_33cdd_to_1,,0x3023a60,,,rule: constant setter,,,stores constant 1 at RAM 0x33cdd,rule-based
+set_u8_33cdd_to_0,,0x3023a68,,,rule: constant setter,,,stores constant 0 at RAM 0x33cdd,rule-based
+test_33cd3,,0x3023a70,,,code shape rule,,,test: tests a field of RAM 0x33cd3,morning rule 2026-11-10
+test_33cd3_3023a7c,,0x3023a7c,,,code shape rule,,,test: tests a field of RAM 0x33cd3,morning rule 2026-11-10
+candidate_layer2_slot_timing_slave,,0x3023a88,,,modem register values,,,clears LAYER2_CONTROL bit 4 and sets slot-on strobes,layer 2 review
+candidate_layer2_slot_timing_master,,0x3023ad8,,,modem register values,,,sets LAYER2_CONTROL bit 4 (TX timing master) and loads the slot counter,layer 2 review
+set_u8_33d7c,,0x3023b2c,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x33d7c,morning rule 2026-11-10
+task_cpchanscan,,0x3023b3c,,,OSTaskCreate arguments,,,"entry point of OS task ""cpchanscan"" (created at 0x300cb7c)",strings/tasks analysis
+get_u8_33ded,,0x3023c04,,,code shape rule,,,getter: returns u8 at RAM 0x33ded,morning rule 2026-11-10
+candidate_rx_sync_miss_count,,0x3023c10,,,reviewed call sequence,,,compares a miss counter with a limit and drops layer 2 sync,dmr control review
+test_33dee,,0x3023c5c,,,code shape rule,,,test: tests a field of RAM 0x33dee,morning rule 2026-11-10
+candidate_tx_queue_burst_simple,,0x3024794,,,reviewed call sequence,,,"allocate, fill, commit",dmr control review
+modem_reg_390_read_3024868,,0x3024868,,,rule: single modem register,,,small function whose only modem register is reg_390: reads only,modem register rule
+candidate_layer2_tx_master_clear,,0x3024908,,,modem register values,,,clears LAYER2_CONTROL bit 1,layer 2 review
+candidate_rx_control_burst_handler_3024e7c,,0x3024e7c,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_rx_data_block_handler,,0x3025480,,,modem RAM copy arguments,,,reads a variable-length block at RX RAM offset 0 and runs the data decode helpers,rx burst review
+candidate_tx_queue_data_burst_a,,0x3025dac,,,reviewed call sequence,,,"allocate, fill, commit from the message tasks",dmr control review
+candidate_tx_queue_data_burst_b,,0x30260c4,,,reviewed call sequence,,,"allocate, fill with coding helpers, commit from the message tasks",dmr control review
+candidate_tx_queue_data_burst_c,,0x30268cc,,,reviewed call sequence,,,"allocate, fill, commit from the message tasks",dmr control review
+test_3beaf,,0x30272d4,,,code shape rule,,,test: tests a field of RAM 0x3beaf,morning rule 2026-11-10
+test_3beb1,,0x30272e0,,,code shape rule,,,test: tests a field of RAM 0x3beb1,morning rule 2026-11-10
+test_33df1,,0x3027310,,,code shape rule,,,test: tests a field of RAM 0x33df1,morning rule 2026-11-10
+return_0_3027358,,0x3027358,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_0_302735c,,0x302735c,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+test_3c61d,,0x3027360,,,code shape rule,,,test: tests a field of RAM 0x3c61d,morning rule 2026-11-10
+modem_reg_390_read_302736c,,0x302736c,,,rule: single modem register,,,small function whose only modem register is reg_390: reads only,modem register rule
+candidate_short_lc_rx_handler,,0x3027388,,,reviewed code behaviour,,,"called for interrupt status bit 4, short LC received",voice path review
+candidate_rx_control_burst_handler_3027584,,0x3027584,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_rx_control_burst_handler_3027b9c,,0x3027b9c,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_rx_control_burst_handler_30280c0,,0x30280c0,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_rx_control_burst_handler_3028180,,0x3028180,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_rx_control_burst_handler_30282a4,,0x30282a4,,,modem RAM copy arguments,,,reads the 12-byte deframed control burst at RX RAM offset 0,rx burst review
+candidate_burst_rx_handler,,0x3028644,,,reviewed code behaviour,,,"called for interrupt status bit 3, a burst was deframed; reads RX RAM",voice path review
+candidate_late_entry_rx_handler,,0x3028be4,,,reviewed code behaviour,,,"called for interrupt status bit 2, voice late entry",voice path review
+task_slottimer,,0x30293c8,,,OSTaskCreate arguments,,,"entry point of OS task ""SlotTimer"" (created at 0x300cbb4)",strings/tasks analysis
+candidate_tx_queue_slot_alloc,,0x3029464,,,reviewed call sequence,,,scans the table at 0x3C834 for a free entry and clears it; 12 callers,dmr control review
+candidate_tx_queue_slot_free,,0x30294c0,,,reviewed call sequence,,,clears the first byte of an entry,dmr control review
+candidate_tx_queue_commit,,0x30294c8,,,reviewed call sequence,,,called after each queued burst is filled; selects the layer 2 mode,dmr control review
+candidate_tx_queue_control_burst,,0x3029878,,,reviewed call sequence,,,"allocates an entry, waits and retries, fills it, commits",dmr control review
+candidate_tx_queue_control_burst_wrapper,,0x3029b3c,,,reviewed call sequence,,,packs arguments and queues a control burst,dmr control review
+candidate_layer2_tx_next_slot_arm,,0x3029c78,,,modem register values,,,"clears then sets LAYER2_TXRX_CTRL bit 7, transmit in the next slot",layer 2 review
+start_task_usb,,0x3029f44,,,calls OSTaskCreate,,,"creates OS task ""task usb""",strings/tasks analysis
+candidate_cable_sysinfo,,0x3029fb0,,,string reference,,,called after the SYSINFO command matches; returns version strings; references: C1.00.01.001,strings/tasks analysis
+candidate_cable_program_mode,,0x302a448,,,string reference,,,called after the PROGRAM command matches; block read and write loop; references: C1.00.01.001,strings/tasks analysis
+candidate_cable_rtc_command,,0x302a9a8,,,cable command dispatch,,,called after RTCITEM matches,cable review
+candidate_cable_test_mode,,0x302aa58,,,reviewed code behaviour,,,"cable-task handler that drives RF, band select, and modem test functions",voice path review
+candidate_cable_password_command,,0x302b224,,,cable command dispatch,,,called after PASWORD matches,cable review
+task_usb,,0x302b340,,,OSTaskCreate arguments,,,"entry point of OS task ""task usb"" (created at 0x3029f78)",strings/tasks analysis
+candidate_cable_receive,,0x302b680,,,reviewed code behaviour,,,default receive function pointer at 0x18000A8C used by the cable command code,voice path review
+cable_uart_write_bytes,,0x302b798,,,reviewed code behaviour,,,waits for UART0 transmit space and writes each byte,voice path review
+start_task_calldisp,,0x302b7dc,,,calls OSTaskCreate,,,"creates OS task ""task CallDisp""",strings/tasks analysis
+candidate_uses_talkeralias,,0x302b8a4,,,rule: distinctive string reference,,,references: TalkerAlias,string rule 2
+candidate_call_display_update,,0x302b9a4,,,string reference,,,references: %d->,strings/tasks analysis
+candidate_menu_page_no_ack,,0x302c494,,,menu page descriptor,,,loads menu pages: 0x30ba830: No ACK,menu tables analysis
+candidate_menu_multi_page_302c880,,0x302c880,,,menu page descriptor,,,loads 6 menu pages: 0x30ba6a8: CANCEL; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_menu_page_alarm_siren,,0x302cfa0,,,menu page descriptor,,,loads menu pages: 0x30ba3fc: Alarm Siren,menu tables analysis
+candidate_menu_multi_page_302d320,,0x302d320,,,menu page descriptor,,,loads 5 menu pages: 0x30ba3fc: Alarm Siren; 0x30ba800: Send Success ; 0x30ba830: No ACK; 0x30ba848: Alarm Sending; 0x30ba860: Cancel Alarm,menu tables analysis
+candidate_menu_multi_page_302d838,,0x302d838,,,menu page descriptor,,,"loads 5 menu pages: 0x30ba6a8: CANCEL; 0x30ba7a0: Sending...; 0x30ba7b8: Message Sent; 0x30ba7d0: Msg Send Failed; 0x30bc938: Sending Digit, Aprs Data",menu tables analysis
+candidate_menu_page_sending,,0x302da30,,,menu page descriptor,,,loads menu pages: 0x30ba7a0: Sending...; 0x30ba7b8: Message Sent; 0x30ba7d0: Msg Send Failed,menu tables analysis
+task_calldisp,,0x302df18,,,OSTaskCreate arguments,,,"entry point of OS task ""task CallDisp"" (created at 0x302b81a)",strings/tasks analysis
+get_u8_3e0e5,,0x302e0cc,,,rule: getter,,,returns the u8 at RAM 0x3e0e5,rule-based
+get_u8_3e0e3,,0x302e0d4,,,rule: getter,,,returns the u8 at RAM 0x3e0e3,rule-based
+candidate_scan_lists_read_302e17c,,0x302e17c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_channel_load,,0x302e1a4,,,reviewed call sequence,,,880-byte routine from init and the CodeSw task that reads several codeplug areas for the selected channel,channel review
+candidate_scan_lists_write_302e54c,,0x302e54c,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_scan_lists_write_302e6c8,,0x302e6c8,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_menu_page_member_is_full_302e7c0,,0x302e7c0,,,menu page descriptor,,,loads menu pages: 0x30bae38: Member is full!,menu tables analysis
+get_u8_3e161,,0x302e810,,,code shape rule,,,getter: returns u8 at RAM 0x3e161,morning rule 2026-11-10
+candidate_scan_lists_read_302e820,,0x302e820,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_menu_channel_list,,0x302e9c4,,,string reference,,,references: CH List %d/%d,strings/tasks analysis
+update_3e16f_field,,0x302ec68,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3e16f,morning rule 2026-11-10
+test_3e16f_3,,0x302ec78,,,code shape rule,,,test: tests a field of RAM 0x3e16f,morning rule 2026-11-10
+update_3e16f_field_302ec84,,0x302ec84,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3e16f,morning rule 2026-11-10
+test_3e16f_2,,0x302ec94,,,code shape rule,,,test: tests a field of RAM 0x3e16f,morning rule 2026-11-10
+candidate_work_mode_set,,0x302eca0,,,reviewed call sequence,,,stores a new value at 0x3E172 and keeps the previous one at 0x3E173,channel review
+get_u8_3e172,,0x302ece0,,,rule: getter,,,returns the u8 at RAM 0x3e172,rule-based
+candidate_codesw_request_thunk_302ecf8,,0x302ecf8,,,code shape rule,,,thunk: only calls candidate_codesw_request,morning rule 2026-11-10
+candidate_channel_switch,,0x302f418,,,reviewed call sequence,,,"sets the mode byte, calls the channel load and record read, and copies records with memcpy",channel review
+candidate_scan_lists_read_302f780,,0x302f780,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets 0x0,codeplug block rule
+candidate_scan_lists_read_302f91c,,0x302f91c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets 0x1,codeplug block rule
+candidate_uses_seek,,0x302fc84,,,rule: distinctive string reference,,,references: SEEK...,string rule 2
+start_task_codesw,,0x3030314,,,calls OSTaskCreate,,,"creates OS task ""task CodeSw""",strings/tasks analysis
+candidate_current_channel_set,,0x3030370,,,reviewed code behaviour,,,copies a 64-byte record passed by value into the current channel record 0x3E1F8,morning review 2026-11-10
+candidate_codesw_request,,0x3030560,,,reviewed code behaviour,,,"stores a request, sets an event bit, and waits on the event group used by the CodeSw task",voice path review
+candidate_block41_write_303073c,,0x303073c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_block41_read_30308bc,,0x30308bc,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_block41_write_30308f8,,0x30308f8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_uses_noaa_30309b8,,0x30309b8,,,rule: distinctive string reference,,,references: NOAA,string rule 2
+candidate_block41_update_3030e80,,0x3030e80,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_block41_update_3030fc8,,0x3030fc8,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_channel_record_write,,0x30312a0,,,reviewed call sequence,,,"takes a lock, writes a channel record through the codeplug layer, then requests a CodeSw update",channel review
+candidate_block41_write_3031364,,0x3031364,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_channel_record_read,,0x3031658,,,reviewed call sequence,,,computes a channel location and reads the record through the codeplug layer,channel review
+candidate_menu_page_null_ch,,0x30317bc,,,menu page descriptor,,,loads menu pages: 0x30bad90: Null Ch.,menu tables analysis
+task_codesw,,0x30323c8,,,OSTaskCreate arguments,,,"entry point of OS task ""task CodeSw"" (created at 0x3030352)",strings/tasks analysis
+candidate_codeplug_factory_defaults,,0x30323f4,,,string reference,,,references: How are you?,strings/tasks analysis
+candidate_uses_dlyhnd,,0x303316c,,,rule: distinctive string reference,,,references: DlyHnd,string rule 2
+obj_3e42c_create,,0x3033268,,,rule: one OS call on one object,,,only calls os_sem_create on the object at 0x3e42c,os object rule
+candidate_menu_page_view_contact,,0x3033464,,,menu page descriptor,,,"loads menu pages: 0x30b9240: View Contact, Add, Edit Contact, Delete",menu tables analysis
+candidate_menu_page_number_is_err,,0x3033730,,,menu page descriptor,,,loads menu pages: 0x30bb040: Number is err,menu tables analysis
+candidate_menu_tx_contact_list,,0x3033ffc,,,string reference,,,references: Tx Contact %d/%d,strings/tasks analysis
+candidate_menu_contacts,,0x3034268,,,string reference,,,references: Contacts %d/%d,strings/tasks analysis
+return_1_30345bc,,0x30345bc,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+set_u8_3e454,,0x3034fac,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x3e454,morning rule 2026-11-10
+set_u8_320c4,,0x3034fb8,,,rule: setter,,,stores its argument to the u8 at RAM 0x320c4,rule-based
+get_u8_320c4,,0x3034fc0,,,rule: getter,,,returns the u8 at RAM 0x320c4,rule-based
+candidate_menu_page_contacts_existed,,0x3035060,,,menu page descriptor,,,loads menu pages: 0x30baf28: Contacts Existed; 0x30bafc8: Number is empty; 0x30bb028: Number is err,menu tables analysis
+candidate_menu_multi_page_3035398,,0x3035398,,,menu page descriptor,,,loads 4 menu pages: 0x30baaf8: Saving...; 0x30bae20: Contacts is full; 0x30bafc8: Number is empty; 0x30bb028: Number is err,menu tables analysis
+candidate_menu_multi_page_3035588,,0x3035588,,,menu page descriptor,,,loads 4 menu pages: 0x30baf28: Contacts Existed; 0x30bafc8: Number is empty; 0x30bb028: Number is err; 0x30bb1a8: Saving...,menu tables analysis
+set_u8_3e4dc,,0x3035858,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x3e4dc,morning rule 2026-11-10
+candidate_menu_page_keypad_lock_3035864,,0x3035864,,,menu page descriptor,,,loads menu pages: 0x30baa68: Keypad Lock!,menu tables analysis
+get_u8_3e4dd,,0x30359b4,,,rule: getter,,,returns the u8 at RAM 0x3e4dd,rule-based
+candidate_menu_page_press_menu_and,,0x30359bc,,,menu page descriptor,,,"loads menu pages: 0x30bad38: Press Menu and *, to Unlock; 0x30bad78: Keypad Lock",menu tables analysis
+candidate_menu_page_keypad_unlocked,,0x3035ae0,,,menu page descriptor,,,loads menu pages: 0x30badc0: keypad unlocked,menu tables analysis
+menu_state_083,,0x3035b74,,,menu dispatch table,,,"handler for menu state 83 (group 11, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_047,,0x3035b8c,,,menu dispatch table,,,"handler for menu state 47 (group 6, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_077,,0x3035d2c,,,menu dispatch table,,,"handler for menu state 77 (group 11, slot 0) in table at 0x30b1184; also loads menu pages: 0x30ba748: Missed Call",menu tables analysis
+start_task_menu,,0x3035e18,,,calls OSTaskCreate,,,"creates OS task ""task menu""",strings/tasks analysis
+menu_set_state,,0x3035e68,,,reviewed code behaviour,,,writes menu state byte 0x320C8+3 and optional refresh flag +4 read by the dispatcher,code behaviour review
+menu_state_123,,0x3035ec0,,,menu dispatch table,,,"handler for menu state 123 (group 17, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_122,,0x3035ecc,,,menu dispatch table,,,"handler for menu state 122 (group 17, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_121,,0x3035ed8,,,menu dispatch table,,,"handler for menu state 121 (group 17, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_120,,0x3035ee4,,,menu dispatch table,,,"handler for menu state 120 (group 17, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_118,,0x3035ef0,,,menu dispatch table,,,"handler for menu state 118 (group 16, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_117,,0x3035f30,,,menu dispatch table,,,"handler for menu state 117 (group 16, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_116,,0x3035f70,,,menu dispatch table,,,"handler for menu state 116 (group 16, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_115,,0x3035f7c,,,menu dispatch table,,,"handler for menu state 115 (group 16, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_114,,0x3035f88,,,menu dispatch table,,,"handler for menu state 114 (group 16, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_113,,0x3035fc8,,,menu dispatch table,,,"handler for menu state 113 (group 16, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_110,,0x3036008,,,menu dispatch table,,,"handler for menu state 110 (group 15, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_109,,0x303601c,,,menu dispatch table,,,"handler for menu state 109 (group 15, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_108,,0x3036030,,,menu dispatch table,,,"handler for menu state 108 (group 15, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_107,,0x3036044,,,menu dispatch table,,,"handler for menu state 107 (group 15, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_106,,0x3036058,,,menu dispatch table,,,"handler for menu state 106 (group 15, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_085,,0x303606c,,,menu dispatch table,,,"handler for menu state 85 (group 12, slot 1) in table at 0x30b1184; also handler for menu state 86 (group 12, slot 2) in table at 0x30b1184; also handler for menu state 87 (group 12, slot 3) in table at 0x30b1184; also handler for menu state 88 (group 12, slot 4) in table at 0x30b1184; also handler for menu state 89 (group 12, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_084,,0x3036078,,,menu dispatch table,,,"handler for menu state 84 (group 12, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_102,,0x3036090,,,menu dispatch table,,,"handler for menu state 102 (group 14, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_101,,0x30360a8,,,menu dispatch table,,,"handler for menu state 101 (group 14, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_097,,0x30360c0,,,menu dispatch table,,,"handler for menu state 97 (group 13, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_096,,0x3036168,,,menu dispatch table,,,"handler for menu state 96 (group 13, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_095,,0x3036180,,,menu dispatch table,,,"handler for menu state 95 (group 13, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_094,,0x3036198,,,menu dispatch table,,,"handler for menu state 94 (group 13, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_091,,0x30361c8,,,menu dispatch table,,,"handler for menu state 91 (group 13, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_081,,0x3036204,,,menu dispatch table,,,"handler for menu state 81 (group 11, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_080,,0x3036210,,,menu dispatch table,,,"handler for menu state 80 (group 11, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_079,,0x303621c,,,menu dispatch table,,,"handler for menu state 79 (group 11, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_078,,0x3036228,,,menu dispatch table,,,"handler for menu state 78 (group 11, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_074,,0x3036234,,,menu dispatch table,,,"handler for menu state 74 (group 10, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_073,,0x3036240,,,menu dispatch table,,,"handler for menu state 73 (group 10, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_068,,0x303624c,,,menu dispatch table,,,"handler for menu state 68 (group 9, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_067,,0x3036278,,,menu dispatch table,,,"handler for menu state 67 (group 9, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_066,,0x3036290,,,menu dispatch table,,,"handler for menu state 66 (group 9, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_061,,0x30362a8,,,menu dispatch table,,,"handler for menu state 61 (group 8, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_060,,0x30362d4,,,menu dispatch table,,,"handler for menu state 60 (group 8, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_059,,0x30362ec,,,menu dispatch table,,,"handler for menu state 59 (group 8, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_054,,0x303631c,,,menu dispatch table,,,"handler for menu state 54 (group 7, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_053,,0x3036364,,,menu dispatch table,,,"handler for menu state 53 (group 7, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_052,,0x303637c,,,menu dispatch table,,,"handler for menu state 52 (group 7, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_046,,0x3036394,,,menu dispatch table,,,"handler for menu state 46 (group 6, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_045,,0x30363ac,,,menu dispatch table,,,"handler for menu state 45 (group 6, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_040,,0x30363c4,,,menu dispatch table,,,"handler for menu state 40 (group 5, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_039,,0x3036440,,,menu dispatch table,,,"handler for menu state 39 (group 5, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_038,,0x3036468,,,menu dispatch table,,,"handler for menu state 38 (group 5, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_032,,0x3036480,,,menu dispatch table,,,"handler for menu state 32 (group 4, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_031,,0x3036498,,,menu dispatch table,,,"handler for menu state 31 (group 4, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_025,,0x30364b0,,,menu dispatch table,,,"handler for menu state 25 (group 3, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_024,,0x30364c8,,,menu dispatch table,,,"handler for menu state 24 (group 3, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_018,,0x30364e0,,,menu dispatch table,,,"handler for menu state 18 (group 2, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_017,,0x30364f8,,,menu dispatch table,,,"handler for menu state 17 (group 2, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_012,,0x3036510,,,menu dispatch table,,,"handler for menu state 12 (group 1, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_011,,0x303651c,,,menu dispatch table,,,"handler for menu state 11 (group 1, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_010,,0x3036534,,,menu dispatch table,,,"handler for menu state 10 (group 1, slot 3) in table at 0x30b1184",menu tables analysis
+menu_state_005,,0x303654c,,,menu dispatch table,,,"handler for menu state 5 (group 0, slot 5) in table at 0x30b1184; also loads menu pages: 0x30bb1d8: Wrong pw.",menu tables analysis
+menu_state_004,,0x30368dc,,,menu dispatch table,,,"handler for menu state 4 (group 0, slot 4) in table at 0x30b1184",menu tables analysis
+menu_state_003,,0x30368f4,,,menu dispatch table,,,"handler for menu state 3 (group 0, slot 3) in table at 0x30b1184",menu tables analysis
+candidate_menu_screen_prepare,,0x30369f8,,,menu slot comparison,,,called first by the slot 0 (show) handlers of 13 menu screens,menu slot review
+menu_state_082,,0x3036a20,,,menu dispatch table,,,"handler for menu state 82 (group 11, slot 5) in table at 0x30b1184; also loads menu pages: 0x30b9050: Missed, Answered, Sent, Delete",menu tables analysis
+menu_go_back,,0x3036bb0,,,reviewed code behaviour,,,pops the saved state from the menu stack back into the state byte,code behaviour review
+menu_state_125,,0x3036c58,,,menu dispatch table,,,"handler for menu state 125 (group 17, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_124,,0x3036ccc,,,menu dispatch table,,,"handler for menu state 124 (group 17, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_111,,0x3036fb8,,,menu dispatch table,,,"handler for menu state 111 (group 15, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_090,,0x3036fd0,,,menu dispatch table,,,"handler for menu state 90 (group 12, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_104,,0x3037020,,,menu dispatch table,,,"handler for menu state 104 (group 14, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_076,,0x3037078,,,menu dispatch table,,,"handler for menu state 76 (group 10, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_075,,0x30370c0,,,menu dispatch table,,,"handler for menu state 75 (group 10, slot 5) in table at 0x30b1184; also loads menu pages: 0x30b9020: InBox, New Msg, Quick Text, OutBox; 0x30bc77c: InBox List, Delete All; 0x30bc918: Main chan is, Ana!",menu tables analysis
+menu_state_072,,0x3037328,,,menu dispatch table,,,"handler for menu state 72 (group 10, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_071,,0x303737c,,,menu dispatch table,,,"handler for menu state 71 (group 10, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_069,,0x30373d0,,,menu dispatch table,,,"handler for menu state 69 (group 9, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_020,,0x30373e4,,,menu dispatch table,,,"handler for menu state 20 (group 2, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_013,,0x30373ec,,,menu dispatch table,,,"handler for menu state 13 (group 1, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_062,,0x3037598,,,menu dispatch table,,,"handler for menu state 62 (group 8, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_055,,0x30375b4,,,menu dispatch table,,,"handler for menu state 55 (group 7, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_048,,0x30375d0,,,menu dispatch table,,,"handler for menu state 48 (group 6, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_041,,0x3037628,,,menu dispatch table,,,"handler for menu state 41 (group 5, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_034,,0x3037658,,,menu dispatch table,,,"handler for menu state 34 (group 4, slot 6) in table at 0x30b1184",menu tables analysis
+menu_state_027,,0x3037674,,,menu dispatch table,,,"handler for menu state 27 (group 3, slot 6) in table at 0x30b1184",menu tables analysis
+candidate_rssi_sql_display,,0x3037d54,,,string reference,,,references: RSSI:%d,strings/tasks analysis
+menu_state_103,,0x3037db0,,,menu dispatch table,,,"handler for menu state 103 (group 14, slot 5) in table at 0x30b1184",menu tables analysis
+menu_state_100,,0x3037ec4,,,menu dispatch table,,,"handler for menu state 100 (group 14, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_099,,0x3037f70,,,menu dispatch table,,,"handler for menu state 99 (group 14, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_098,,0x3038034,,,menu dispatch table,,,"handler for menu state 98 (group 14, slot 0) in table at 0x30b1184",menu tables analysis
+candidate_menu_multi_page_3038500,,0x3038500,,,menu page descriptor,,,"loads 26 menu pages: 0x30b8d40: Menu; 0x30b8da8: Talk Group, Scan, Zone, SMS; 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b8e98: Alias Tx Set, Alias Rx Display; 0x30b8eb8: Tx With Alias, Tx Alias Form; 0x30b8f10: Encrypt Switch, Encrypt List; 0x30b9020: InBox, New Msg, Quick Text, OutBox",menu tables analysis
+candidate_lcd_draw_image_locked,,0x3038f5c,,,reviewed code behaviour,,,"takes the LCD lock, sets a window, streams pixels",misc review
+candidate_lcd_draw_bitmap,,0x303900c,,,reviewed code behaviour,,,clips to 240 x 320 and draws a pixel image,code behaviour review
+candidate_list_cursor_up,,0x30393b8,,,reviewed code behaviour,,,"(row, index, count): moves a list cursor up with wrap; eight rows per screen",morning review 2026-11-10
+candidate_list_cursor_down,,0x3039420,,,reviewed code behaviour,,,"(row, index, count): moves a list cursor down with wrap; eight rows per screen",morning review 2026-11-10
+menu_state_092,,0x30394cc,,,menu dispatch table,,,"handler for menu state 92 (group 13, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_001,,0x30394e8,,,menu dispatch table,,,"handler for menu state 1 (group 0, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_093,,0x30395a8,,,menu dispatch table,,,"handler for menu state 93 (group 13, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_002,,0x30395c4,,,menu dispatch table,,,"handler for menu state 2 (group 0, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_070,,0x303989c,,,menu dispatch table,,,"handler for menu state 70 (group 10, slot 0) in table at 0x30b1184; also loads menu pages: 0x30ba730: Msg Received",menu tables analysis
+menu_state_006,,0x3039a0c,,,menu dispatch table,,,"handler for menu state 6 (group 0, slot 6) in table at 0x30b1184",menu tables analysis
+candidate_popup_setting_ok,,0x303a4ac,,,reviewed code behaviour,,,"shows the OK icon and a Setting is OK message, waits 1 s, goes back",code behaviour review
+candidate_popup_status,,0x303a4f4,,,reviewed code behaviour,,,"shows an icon and message, waits 1 s, goes back",code behaviour review
+menu_state_033,,0x303a54c,,,menu dispatch table,,,"handler for menu state 33 (group 4, slot 5) in table at 0x30b1184; also loads menu pages: 0x30bb130: Delete...",menu tables analysis
+menu_state_026,,0x303a748,,,menu dispatch table,,,"handler for menu state 26 (group 3, slot 5) in table at 0x30b1184; also loads menu pages: 0x30baf58: ID existed; 0x30bb130: Delete...",menu tables analysis
+menu_state_019,,0x303ab30,,,menu dispatch table,,,"handler for menu state 19 (group 2, slot 5) in table at 0x30b1184; also loads menu pages: 0x30b8f90: ContactsCSV, Empty",menu tables analysis
+candidate_menu_page_keypad_lock_303af48,,0x303af48,,,menu page descriptor,,,loads menu pages: 0x30baa68: Keypad Lock!,menu tables analysis
+menu_state_000,,0x303b374,,,menu dispatch table,,,"handler for menu state 0 (group 0, slot 0) in table at 0x30b1184; also loads menu pages: 0x30bb1c0: Password",menu tables analysis
+candidate_menu_multi_page_303b6ac,,0x303b6ac,,,menu page descriptor,,,"loads 11 menu pages: 0x30b8da8: Talk Group, Scan, Zone, SMS; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b8f10: Encrypt Switch, Encrypt List; 0x30b8f50: ContactsCSVList, Search ID; 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b98d8: Device Info, VerSions; 0x30b9fa0: Rx Fre, Tx Fre; 0x30ba708: Send",menu tables analysis
+menu_state_119,,0x303c82c,,,menu dispatch table,,,"handler for menu state 119 (group 17, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_112,,0x303c90c,,,menu dispatch table,,,"handler for menu state 112 (group 16, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_105,,0x303c9c4,,,menu dispatch table,,,"handler for menu state 105 (group 15, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_063,,0x303ca00,,,menu dispatch table,,,"handler for menu state 63 (group 9, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_056,,0x303ca34,,,menu dispatch table,,,"handler for menu state 56 (group 8, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_049,,0x303ca54,,,menu dispatch table,,,"handler for menu state 49 (group 7, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_042,,0x303cab4,,,menu dispatch table,,,"handler for menu state 42 (group 6, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_035,,0x303cb04,,,menu dispatch table,,,"handler for menu state 35 (group 5, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_028,,0x303cb78,,,menu dispatch table,,,"handler for menu state 28 (group 4, slot 0) in table at 0x30b1184",menu tables analysis
+menu_state_021,,0x303cda8,,,menu dispatch table,,,"handler for menu state 21 (group 3, slot 0) in table at 0x30b1184; also loads 9 menu pages: 0x30b8e40: GPS, BDS, GPS + BDS; 0x30b93a8: Rx Record, Tx Record, Rx/Tx Record; 0x30b9b20: UTC-12:00, UTC-11:00, UTC-10:00, UTC-9:00; 0x30b9b58: DDD, DMS; 0x30b9e88: Confirm delete?; 0x30bac18: List is empty; 0x30bb298: Private Call, Group Call; 0x30bb93c: GPS Beacon, Fixed Beacon",menu tables analysis
+menu_state_014,,0x303d880,,,menu dispatch table,,,"handler for menu state 14 (group 2, slot 0) in table at 0x30b1184; also loads 8 menu pages: 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format; 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts; 0x30b9020: InBox, New Msg, Quick Text, OutBox; 0x30b9050: Missed, Answered, Sent, Delete; 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b9118: Radio Settings, Channel Set, Device Info, DTMF; 0x30b9338: Record Switch, Record Sel, Record List, Record Delete; 0x30bb91c: APRS On/Off, Upload ID, Upload Type, Report Channel",menu tables analysis
+menu_state_007,,0x303dd68,,,menu dispatch table,,,"handler for menu state 7 (group 1, slot 0) in table at 0x30b1184; also loads menu pages: 0x30b8b68: Empty Menu!; 0x30b8da8: Talk Group, Scan, Zone, SMS",menu tables analysis
+candidate_menu_page_tx_ctc_dcs,,0x303e070,,,menu page descriptor,,,"loads menu pages: 0x30b9140: Tx CTC/DCS, Rx CTC/DCS, RxTx CTC/DCS",menu tables analysis
+candidate_menu_page_missed,,0x303ec8c,,,menu page descriptor,,,"loads menu pages: 0x30b9050: Missed, Answered, Sent, Delete",menu tables analysis
+candidate_menu_page_gnss_on_off,,0x303f158,,,menu page descriptor,,,"loads menu pages: 0x30b8e18: GNSS On/Off, GNSS Info, Time Zone, Disp Format",menu tables analysis
+candidate_menu_page_contact_list,,0x303f65c,,,menu page descriptor,,,"loads menu pages: 0x30b8e78: Contact List, New Contact, Manual Dial, CSV Contacts",menu tables analysis
+candidate_menu_key_handler,,0x303f9bc,,,reviewed code behaviour,,,"menu task: gets a key code, switches on it, and calls the current state handler",voice path review
+task_menu,,0x3040a38,,,OSTaskCreate arguments,,,"entry point of OS task ""task menu"" (created at 0x3035e4e)",strings/tasks analysis
+candidate_menu_list_move_a,,0x3040b20,,,menu slot comparison,,,shared by the slot 1 handlers of nine menu screens,menu slot review
+menu_state_064,,0x3040d64,,,menu dispatch table,,,"handler for menu state 64 (group 9, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_057,,0x3040d6c,,,menu dispatch table,,,"handler for menu state 57 (group 8, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_050,,0x3040d74,,,menu dispatch table,,,"handler for menu state 50 (group 7, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_043,,0x3040d7c,,,menu dispatch table,,,"handler for menu state 43 (group 6, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_036,,0x3040ef0,,,menu dispatch table,,,"handler for menu state 36 (group 5, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_029,,0x3040ef8,,,menu dispatch table,,,"handler for menu state 29 (group 4, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_022,,0x3040f00,,,menu dispatch table,,,"handler for menu state 22 (group 3, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_015,,0x3040f34,,,menu dispatch table,,,"handler for menu state 15 (group 2, slot 1) in table at 0x30b1184",menu tables analysis
+menu_state_008,,0x3040f3c,,,menu dispatch table,,,"handler for menu state 8 (group 1, slot 1) in table at 0x30b1184",menu tables analysis
+candidate_menu_list_move_b,,0x3040f68,,,menu slot comparison,,,shared by the slot 2 handlers of nine menu screens,menu slot review
+menu_state_065,,0x30411c4,,,menu dispatch table,,,"handler for menu state 65 (group 9, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_058,,0x30411cc,,,menu dispatch table,,,"handler for menu state 58 (group 8, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_051,,0x30411d4,,,menu dispatch table,,,"handler for menu state 51 (group 7, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_044,,0x30411dc,,,menu dispatch table,,,"handler for menu state 44 (group 6, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_037,,0x3041350,,,menu dispatch table,,,"handler for menu state 37 (group 5, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_030,,0x3041358,,,menu dispatch table,,,"handler for menu state 30 (group 4, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_023,,0x3041360,,,menu dispatch table,,,"handler for menu state 23 (group 3, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_016,,0x3041398,,,menu dispatch table,,,"handler for menu state 16 (group 2, slot 2) in table at 0x30b1184",menu tables analysis
+menu_state_009,,0x30413a0,,,menu dispatch table,,,"handler for menu state 9 (group 1, slot 2) in table at 0x30b1184",menu tables analysis
+candidate_menu_page_iso_8bit,,0x3041408,,,menu page descriptor,,,"loads menu pages: 0x30b8ed0: ISO 8bit, Unicode",menu tables analysis
+candidate_menu_draw_list,,0x3041530,,,reviewed code behaviour,,,"loops over visible rows, highlighting the selected one",code behaviour review
+candidate_menu_page_contactscsvlist,,0x3041a00,,,menu page descriptor,,,"loads menu pages: 0x30b8f50: ContactsCSVList, Search ID",menu tables analysis
+candidate_menu_page_alias_tx_set,,0x3041a3c,,,menu page descriptor,,,"loads menu pages: 0x30b8e98: Alias Tx Set, Alias Rx Display",menu tables analysis
+candidate_menu_page_inbox_list,,0x3041a78,,,menu page descriptor,,,"loads menu pages: 0x30bc77c: InBox List, Delete All; 0x30bc79c: OutBox List, Delete All; 0x30bc7bc: DraftBox List, Delete All",menu tables analysis
+candidate_menu_page_empty_calllog,,0x3041be4,,,menu page descriptor,,,loads menu pages: 0x30bb0a0: Empty CallLog!,menu tables analysis
+candidate_menu_page_empty_calllog_3041c74,,0x3041c74,,,menu page descriptor,,,loads menu pages: 0x30bb0a0: Empty CallLog!,menu tables analysis
+candidate_menu_page_empty_calllog_3041cc0,,0x3041cc0,,,menu page descriptor,,,loads menu pages: 0x30bb0a0: Empty CallLog!,menu tables analysis
+candidate_menu_page_missed_3041d0c,,0x3041d0c,,,menu page descriptor,,,"loads menu pages: 0x30b9268: Missed, Answered, Sent",menu tables analysis
+candidate_menu_page_to,,0x3041d50,,,menu page descriptor,,,"loads menu pages: 0x30b90d0: TO, CO, SE; 0x30b94a0: Tx CTCSS/DCS, Rx CTCSS/DCS, ALL",menu tables analysis
+candidate_menu_page_pre_time,,0x30421e0,,,menu page descriptor,,,"loads menu pages: 0x30bc8d0: Select, Channel List, Add Channel, Edit Name; 0x30bcb88: Pre Time, Standard, Response, Side Tone",menu tables analysis
+candidate_menu_multi_page_304231c,,0x304231c,,,menu page descriptor,,,"loads 6 menu pages: 0x30b9478: Voice Func, Key Func, Display Func, Other Func; 0x30b98d8: Device Info, VerSions; 0x30bca10: TX Pretime, PTT ID Decode , PTT ID Pause, Bit Sync; 0x30bcad8: Duration Time, Gap Time, Pre Time, PTT ID Pause; 0x30bcb48: Pre Time, 1st Tone Time, 2nd Tone Time, Long Tone Time; 0x30bcb88: Pre Time, Standard, Response, Side Tone",menu tables analysis
+candidate_menu_page_apply,,0x3042560,,,menu page descriptor,,,"loads menu pages: 0x30b9d88: Apply, Edit/View List, Edit Name",menu tables analysis
+candidate_menu_page_view_contact_3042854,,0x3042854,,,menu page descriptor,,,"loads menu pages: 0x30b9200: Name, Number, Save; 0x30b9240: View Contact, Add, Edit Contact, Delete",menu tables analysis
+candidate_menu_page_tx_with_alias,,0x3042a94,,,menu page descriptor,,,"loads menu pages: 0x30b8eb8: Tx With Alias, Tx Alias Form; 0x30b8ef0: Contact First, Alias First",menu tables analysis
+candidate_menu_multi_page_3042b88,,0x3042b88,,,menu page descriptor,,,"loads 7 menu pages: 0x30b9ccc: Search Contact, Manual Dial, Add Quick Text, Save; 0x30b9d2c: Delete Inbox?; 0x30b9d44: Delete Outbox?; 0x30bab88: Empty Inbox!; 0x30baba0: Empty Outbox!; 0x30babb8: Empty Draft Box!; 0x30babd0: Quick Text empty",menu tables analysis
+candidate_menu_multi_page_3042f1c,,0x3042f1c,,,menu page descriptor,,,"loads 4 menu pages: 0x30b9ef8: View, Message, Delete; 0x30b9f08: View, Message, Delete; 0x30b9f18: View, Message, Delete; 0x30ba324: Confirm delete?",menu tables analysis
+candidate_menu_page_none,,0x3043040,,,menu page descriptor,,,"loads menu pages: 0x30bb4d0: None, Tx Power, BATT Indicator, Talk Around",menu tables analysis
+candidate_menu_multi_page_3043164,,0x3043164,,,menu page descriptor,,,"loads 4 menu pages: 0x30b9508: Radio Silent, Battery Low, Key Tone, SMS Prompt; 0x30b95a0: Key Lock, Press SK1 Short, Press SK1 Long, Press SK2 Short; 0x30b9640: Back Light, Light Time, Start Display, Start Character Edit; 0x30b9700: Auto PowerOff, TX Timer, TOT Predict, VOX",menu tables analysis
+candidate_menu_page_play,,0x304337c,,,menu page descriptor,,,"loads menu pages: 0x30b93d0: Play, Delete, Detail",menu tables analysis
+candidate_menu_page_select,,0x30433d0,,,menu page descriptor,,,"loads menu pages: 0x30bc8d0: Select, Channel List, Add Channel, Edit Name",menu tables analysis
+empty_stub_3043684,,0x3043684,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_page_name,,0x3043710,,,menu page descriptor,,,"loads menu pages: 0x30b9e60: Name, Number, Save; 0x30b9e70: Name, Number, Save; 0x30b9e88: Confirm delete?",menu tables analysis
+candidate_menu_page_view_contact_3043968,,0x3043968,,,menu page descriptor,,,"loads menu pages: 0x30b8f70: View Contact, Application; 0x30b8f90: ContactsCSV, Empty",menu tables analysis
+candidate_scan_lists_read_3043b00,,0x3043b00,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_menu_page_del_3043bd4,,0x3043bd4,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
+candidate_menu_page_confirm_delete,,0x3043ed8,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
+candidate_menu_page_confirm_delete_3043f90,,0x3043f90,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
+candidate_menu_page_confirm_delete_3044070,,0x3044070,,,menu page descriptor,,,loads menu pages: 0x30ba324: Confirm delete?,menu tables analysis
+candidate_menu_page_white,,0x3044150,,,menu page descriptor,,,"loads menu pages: 0x30b9750: White, Gray, Orange, Red",menu tables analysis
+candidate_menu_multi_page_3044248,,0x3044248,,,menu page descriptor,,,"loads 17 menu pages: 0x30b92a8: VOX SW, Gain Level; 0x30b92c8: Switch, Delay Time; 0x30b9530: OFF, TONE, 1200; 0x30b9778: Single Mode, Double Wait, Single Wait; 0x30b9798: Normal, Revers; 0x30b97d8: Off, 30Min, 60Min, 120Min; 0x30b9848: Level 1, Level 2, Level 3, Level 4; 0x30b9ff8: OFF, ON",menu tables analysis
+candidate_menu_page_none_30450ec,,0x30450ec,,,menu page descriptor,,,"loads menu pages: 0x30b9170: None, CTCSS, DCS_N, DCS_I; 0x30b9d88: Apply, Edit/View List, Edit Name; 0x30bcc10: Select, Edit ID, Edit Name, Save",menu tables analysis
+candidate_roaming_zones_read_3045554,,0x3045554,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+empty_stub_30456ec,,0x30456ec,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_page_name_30458e4,,0x30458e4,,,menu page descriptor,,,"loads menu pages: 0x30b8f70: View Contact, Application; 0x30b8fe0: Name:, ID:, Callsign:, City:; 0x30ba2f4: SendMsg, Add Quick Text, Save, Exit",menu tables analysis
+candidate_menu_page_pri_setting,,0x3045b20,,,menu page descriptor,,,"loads menu pages: 0x30b9da8: PRI Setting, Delete",menu tables analysis
+candidate_menu_page_confirm_delete_3045b84,,0x3045b84,,,menu page descriptor,,,loads menu pages: 0x30ba4bc: Confirm delete?,menu tables analysis
+candidate_menu_page_resend,,0x3045d20,,,menu page descriptor,,,"loads menu pages: 0x30ba228: Resend, Forward, Detail, Delete",menu tables analysis
+candidate_menu_page_search_contact,,0x3045d64,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
+candidate_menu_page_reply,,0x3045dfc,,,menu page descriptor,,,"loads menu pages: 0x30ba1e8: Reply, Forward, Edit, Delete",menu tables analysis
+candidate_menu_page_sendmsg,,0x3045ec8,,,menu page descriptor,,,"loads menu pages: 0x30ba5ac: SendMsg, Add Quick Text, Exit",menu tables analysis
+candidate_menu_multi_page_3046064,,0x3046064,,,menu page descriptor,,,"loads 4 menu pages: 0x30ba198: Manual, Auto; 0x30bb5f0: Time, Date, Time Display, Display Format; 0x30bb610: yyyy/mm/dd, dd/mm/yyy; 0x30bb6d8: Level 1, Level 2, Level 3, Level 4",menu tables analysis
+candidate_menu_page_confirm_delete_3046408,,0x3046408,,,menu page descriptor,,,loads menu pages: 0x30ba4bc: Confirm delete?,menu tables analysis
+candidate_menu_page_del_30466d8,,0x30466d8,,,menu page descriptor,,,loads menu pages: 0x30ba6c8: Del,menu tables analysis
+candidate_menu_page_name_3046728,,0x3046728,,,menu page descriptor,,,"loads menu pages: 0x30b8fe0: Name:, ID:, Callsign:, City:",menu tables analysis
+candidate_menu_page_pri_cancel,,0x3046848,,,menu page descriptor,,,"loads menu pages: 0x30b9dd0: PRI Cancel, PRI CH1, PRI CH2",menu tables analysis
+candidate_menu_page_quick_text_empty_thunk,,0x3046894,,,rule: thunk,,,only calls candidate_menu_page_quick_text_empty,rule-based
+candidate_menu_page_confirm_delete_304689c,,0x304689c,,,menu page descriptor,,,loads menu pages: 0x30ba4bc: Confirm delete?,menu tables analysis
+candidate_menu_page_confirm_delete_3046a4c,,0x3046a4c,,,menu page descriptor,,,loads menu pages: 0x30ba4dc: Confirm delete?,menu tables analysis
+candidate_menu_page_confirm_delete_3046b14,,0x3046b14,,,menu page descriptor,,,loads menu pages: 0x30ba4dc: Confirm delete?,menu tables analysis
+candidate_menu_page_remove_group,,0x3046c08,,,menu page descriptor,,,loads menu pages: 0x30bb160: Remove Group,menu tables analysis
+candidate_menu_page_search_contact_3046de8,,0x3046de8,,,menu page descriptor,,,"loads menu pages: 0x30ba5ac: SendMsg, Add Quick Text, Exit; 0x30ba618: Search Contact, Manual Dial, Add Quick Text, Save",menu tables analysis
+candidate_menu_page_search_contact_3046e8c,,0x3046e8c,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
+candidate_menu_page_search_contact_3047074,,0x3047074,,,menu page descriptor,,,"loads menu pages: 0x30ba51c: Search Contact, Manual Dial",menu tables analysis
+candidate_menu_page_radio_id,,0x3047108,,,menu page descriptor,,,"loads menu pages: 0x30b98d8: Device Info, VerSions; 0x30b9a20: Radio ID, Group ID, Firmware Ver:, CPS Ver:",menu tables analysis
+candidate_popup_printf_a,,0x304735c,,,reviewed code behaviour,,,formats with vsprintf and posts to the key message queue,misc review
+candidate_menu_multi_page_30473b0,,0x30473b0,,,menu page descriptor,,,"loads 11 menu pages: 0x30b8f10: Encrypt Switch, Encrypt List; 0x30b9140: Tx CTC/DCS, Rx CTC/DCS, RxTx CTC/DCS; 0x30b99b8: Carrier, Opt Signal; 0x30b99e8: CTCSS/DCS, Opt Signal, Opt & Signal, Opt | Signal; 0x30b9f60: High Power, Low Power, Middle Power; 0x30b9f80: Slot 1, Slot 2; 0x30bc83c: Analog, Digital, A+D TX A, D+A TX D; 0x30bc88c: Narrow, Wide",menu tables analysis
+candidate_menu_device_info,,0x3047dd0,,,string reference,,,"references: 430-440, DM32.NRF.01.049",strings/tasks analysis
+candidate_popup_printf_b,,0x3048554,,,reviewed code behaviour,,,formats with vsprintf and posts to the key message queue,misc review
+candidate_band_region_display,,0x3048608,,,string reference,,,references: 144-148,strings/tasks analysis
+candidate_menu_multi_page_3048f50,,0x3048f50,,,menu page descriptor,,,"loads 10 menu pages: 0x30b90a8: Scan Switch, Scan List, VFO ScanRange(V), VFO ScanRange(U); 0x30b95a0: Key Lock, Press SK1 Short, Press SK1 Long, Press SK2 Short; 0x30b9640: Back Light, Light Time, Start Display, Start Character Edit; 0x30b9700: Auto PowerOff, TX Timer, TOT Predict, VOX; 0x30bad00: Lock Time Delay:; 0x30bb91c: APRS On/Off, Upload ID, Upload Type, Report Channel; 0x30bc980: On/Off, Fixed Time Set; 0x30bca10: TX Pretime, PTT ID Decode , PTT ID Pause, Bit Sync",menu tables analysis
+candidate_settings_read_30493f8,,0x30493f8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x501,codeplug block rule
+candidate_menu_fill_index_list,,0x304a1e8,,,reviewed code behaviour,,,fills an array with 0..n-1 and stores the count,code behaviour review
+candidate_setting_set_by_id,,0x304b158,,,reviewed code behaviour,,,"switch on an id, updating settings and writing them to flash",code behaviour review
+candidate_setting_get_by_id,,0x304c434,,,reviewed code behaviour,,,"switch on an id, returning fields of the settings block at 0x3E9D4",code behaviour review
+candidate_menu_page_current_volume,,0x304ca48,,,menu page descriptor,,,"loads menu pages: 0x30ba070: Ring 1, Ring 2, Ring 3, Ring 4; 0x30ba158: Current Volume, Level 1, Level 2, Level 3",menu tables analysis
+candidate_settings_update_304cca0,,0x304cca0,,,rule: single codeplug block,,,all 8 codeplug accesses are to block 0x4; offsets 0x20 0x21,codeplug block rule
+candidate_settings_write_304cf70,,0x304cf70,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x332,codeplug block rule
+candidate_settings_update_304cf90,,0x304cf90,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x331,codeplug block rule
+candidate_settings_update_304cfec,,0x304cfec,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x302,codeplug block rule
+candidate_menu_page_list_is_empty,,0x304d07c,,,menu page descriptor,,,loads menu pages: 0x30bac18: List is empty,menu tables analysis
+candidate_menu_page_list_is_empty_304d46c,,0x304d46c,,,menu page descriptor,,,loads menu pages: 0x30bac18: List is empty; 0x30bae38: Member is full!,menu tables analysis
+candidate_settings_update_304d6b0,,0x304d6b0,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x40,codeplug block rule
+candidate_menu_page_out_of_range,,0x304d7e0,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range,menu tables analysis
+empty_stub_304d96c,,0x304d96c,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_page_msg_is_deleted,,0x304db58,,,menu page descriptor,,,loads menu pages: 0x30bab40: Msg is Deleted,menu tables analysis
+candidate_menu_page_del_call_logs,,0x304dd48,,,menu page descriptor,,,loads menu pages: 0x30ba980: Del Call Logs,menu tables analysis
+candidate_menu_multi_page_304ddb0,,0x304ddb0,,,menu page descriptor,,,loads 4 menu pages: 0x30ba3e4: Setting is OK; 0x30ba42c: Out of Range; 0x30baa50: Tx Power is set; 0x30baa80: Slot is set,menu tables analysis
+candidate_block06_write_304e684,,0x304e684,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x6; offsets 0x100 0xa20,codeplug block rule
+candidate_menu_page_list_is_empty_304e960,,0x304e960,,,menu page descriptor,,,loads menu pages: 0x30bac18: List is empty; 0x30bae38: Member is full!,menu tables analysis
+candidate_roaming_zones_update_304eb34,,0x304eb34,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets 0x1 0x2,codeplug block rule
+empty_stub_304ec6c,,0x304ec6c,,,rule: empty stub,,,returns immediately,rule-based
+candidate_scan_lists_write_304ec70,,0x304ec70,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_menu_multi_page_304ee0c,,0x304ee0c,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_menu_page_calllog_deleted,,0x304f948,,,menu page descriptor,,,loads menu pages: 0x30ba998: CallLog deleted,menu tables analysis
+candidate_menu_page_setting_is_ok,,0x304fbdc,,,menu page descriptor,,,loads menu pages: 0x30ba3e4: Setting is OK; 0x30ba778: Language set ,menu tables analysis
+candidate_menu_page_encrypt_list,,0x3050238,,,menu page descriptor,,,"loads menu pages: 0x30b8f30: Encrypt List, Empty",menu tables analysis
+candidate_roaming_zones_write_30505cc,,0x30505cc,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+empty_stub_30507ac,,0x30507ac,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_multi_page_30507bc,,0x30507bc,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_menu_page_out_of_range_3050f78,,0x3050f78,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range; 0x30ba7e8: KeyLock set ; 0x30bb1a8: Saving...,menu tables analysis
+candidate_menu_multi_page_305182c,,0x305182c,,,menu page descriptor,,,loads 6 menu pages: 0x30b9b38: GPS Invalid; 0x30bb2c8: Radio Check...; 0x30bb2e0: Call Alert...; 0x30bb2f8: Remote Mon...; 0x30bb350: Radio Disable...; 0x30bb368: Radio Active...,menu tables analysis
+candidate_scan_lists_update_3051b30,,0x3051b30,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_menu_page_msg_is_deleted_3051d3c,,0x3051d3c,,,menu page descriptor,,,loads menu pages: 0x30bab40: Msg is Deleted,menu tables analysis
+candidate_menu_page_out_of_range_3052034,,0x3052034,,,menu page descriptor,,,loads menu pages: 0x30ba42c: Out of Range; 0x30baf28: Contacts Existed; 0x30bb1a8: Saving...,menu tables analysis
+candidate_menu_quick_text,,0x30529d0,,,string reference,,,references: Quick Text %d/%d,strings/tasks analysis
+candidate_menu_page_quick_text_empty,,0x3052e28,,,menu page descriptor,,,loads menu pages: 0x30bac30: Quick Text empty!,menu tables analysis
+candidate_menu_page_empty_draft_box,,0x3053018,,,menu page descriptor,,,loads menu pages: 0x30babb8: Empty Draft Box!,menu tables analysis
+candidate_menu_page_empty_outbox,,0x3053310,,,menu page descriptor,,,loads menu pages: 0x30baba0: Empty Outbox!,menu tables analysis
+candidate_menu_message_boxes,,0x3053698,,,string reference,,,references: Inbox %d/%d,strings/tasks analysis
+candidate_uses_wlt_cmd,,0x3054564,,,rule: distinctive string reference,,,references: WLT CMD ,string rule 2
+start_task_scandisp,,0x30545fc,,,calls OSTaskCreate,,,"creates OS task ""task ScanDisp""",strings/tasks analysis
+task_scandisp,,0x305490c,,,OSTaskCreate arguments,,,"entry point of OS task ""task ScanDisp"" (created at 0x3054632)",strings/tasks analysis
+candidate_rfic_squelch_threshold_set_thunk_3055004,,0x3055004,,,code shape rule,,,thunk: only calls candidate_rfic_squelch_threshold_set,morning rule 2026-11-10
+modem_rf_mod_bias_ctrl_update_3021748_thunk_3055050,,0x3055050,,,code shape rule,,,thunk: only calls modem_rf_mod_bias_ctrl_update_3021748,morning rule 2026-11-10
+empty_stub_30217a4_thunk_305505c,,0x305505c,,,code shape rule,,,thunk: only calls empty_stub_30217a4,morning rule 2026-11-10
+modulation_amplitude_set_thunk_3055068,,0x3055068,,,code shape rule,,,thunk: only calls modulation_amplitude_set,morning rule 2026-11-10
+modem_sig_center_update_3021764_thunk_3055074,,0x3055074,,,code shape rule,,,thunk: only calls modem_sig_center_update_3021764,morning rule 2026-11-10
+tx_level_dac_write_thunk_3055080,,0x3055080,,,code shape rule,,,thunk: only calls tx_level_dac_write,morning rule 2026-11-10
+candidate_calibration_read_30553c0,,0x30553c0,,,rule: single codeplug block,,,all 10 codeplug accesses are to block 0x2; offsets 0x16 0x1d 0x27 0x40 0xac 0xd0 var,codeplug block rule
+task_tmrhnd,,0x3055918,,,OSTaskCreate arguments,,,"entry point of OS task ""task TmrHnd"" (created at 0x30559de)",strings/tasks analysis
+start_task_tmrhnd,,0x30559a8,,,calls OSTaskCreate,,,"creates OS task ""task TmrHnd""",strings/tasks analysis
+candidate_zone_record_location,,0x3055c90,,,reviewed code behaviour,,,"zone number to (block, offset): 145-byte records, 28 per block from block 0x5C",morning review 2026-11-10
+candidate_channel_data_location,,0x3055ccc,,,reviewed code behaviour,,,"channel number 1..4000 to (block, offset): 48-byte records, 84 in block 18 from +0x20, then 85 per block; offset is record +16",morning review 2026-11-10
+candidate_channel_record_location,,0x3055d3c,,,reviewed code behaviour,,,"channel_data_location minus 16, the start of the record (16-byte name)",morning review 2026-11-10
+candidate_rx_group_lists_read_3055d58,,0x3055d58,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0xf; offsets 0x0,codeplug block rule
+candidate_rx_group_lists_read_3055da0,,0x3055da0,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0xf; offsets var,codeplug block rule
+candidate_rx_group_lists_read_3055dec,,0x3055dec,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0xf; offsets var,codeplug block rule
+candidate_menu_add_list,,0x3055e4c,,,string reference,,,references: Add List,strings/tasks analysis
+candidate_rx_group_lists_update_3055ff4,,0x3055ff4,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0xf; offsets var,codeplug block rule
+candidate_rx_group_lists_update_3056068,,0x3056068,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0xf; offsets var,codeplug block rule
+candidate_menu_add_member,,0x30560cc,,,string reference,,,references: Add Member,strings/tasks analysis
+candidate_rx_group_lists_update_3056260,,0x3056260,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0xf; offsets 0x0 var,codeplug block rule
+candidate_channel_name_read,,0x305655c,,,reviewed code behaviour,,,reads the 16 bytes at the channel record start,morning review 2026-11-10
+candidate_zone_member_channel_get,,0x305660c,,,reviewed code behaviour,,,reads zone member count at +16 and the 2-byte channel number at +17+2(n-1); values over 4000 become 1,morning review 2026-11-10
+candidate_active_channel_location,,0x3056680,,,reviewed code behaviour,,,channel mode (settings +0x2D bit 2): zone member to channel location; otherwise the fixed VFO slots 4015/4063,morning review 2026-11-10
+candidate_zones_read_30567ec,,0x30567ec,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x5c; offsets 0x0,codeplug block rule
+candidate_menu_zone_list,,0x305680c,,,string reference,,,references: Zone List %d/%d,strings/tasks analysis
+candidate_rx_group_lists_read_3056dd8,,0x3056dd8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0xf; offsets 0x11,codeplug block rule
+candidate_scan_lists_read_3056e2c,,0x3056e2c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x11; offsets var,codeplug block rule
+candidate_block41_read_3057484,,0x3057484,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x41; offsets var,codeplug block rule
+candidate_radio_ids_read_3057620,,0x3057620,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets 0x0,codeplug block rule
+candidate_radio_ids_write_305763c,,0x305763c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets 0x0,codeplug block rule
+candidate_radio_ids_read_3057654,,0x3057654,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_menu_page_null_ch_3057790,,0x3057790,,,menu page descriptor,,,loads menu pages: 0x30bad90: Null Ch.,menu tables analysis
+candidate_radio_ids_write_3058670,,0x3058670,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_radio_ids_read_305868c,,0x305868c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_radio_ids_write_30586a8,,0x30586a8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_menu_dmr_id_list,,0x3058708,,,string reference,,,references: DMR ID List %d/%d,strings/tasks analysis
+candidate_menu_page_missed_3058ec0,,0x3058ec0,,,menu page descriptor,,,"loads menu pages: 0x30b9268: Missed, Answered, Sent; 0x30bb0a0: Empty CallLog!",menu tables analysis
+candidate_menu_page_missed_30591ec,,0x30591ec,,,menu page descriptor,,,"loads menu pages: 0x30b9268: Missed, Answered, Sent",menu tables analysis
+start_task_inputalter,,0x3059448,,,calls OSTaskCreate,,,"creates OS task ""task InputAlter""",strings/tasks analysis
+candidate_text_cursor_save_and_home,,0x3059a64,,,reviewed code behaviour,,,"saves the text cursor position and moves it to (32, 5)",morning review 2026-11-10
+set_u8_18000b0c,,0x3059a84,,,rule: setter,,,stores its argument to the u8 at RAM 0x18000b0c,rule-based
+candidate_text_input_reset,,0x3059c14,,,reviewed code behaviour,,,"homes the text cursor to (32, 5), clears the 340-byte edit buffer at 0x3EEB8 and input state",morning review 2026-11-10
+candidate_menu_page_search_contact_3059d5c,,0x3059d5c,,,menu page descriptor,,,"loads menu pages: 0x30b8f50: ContactsCSVList, Search ID; 0x30b9ccc: Search Contact, Manual Dial, Add Quick Text, Save; 0x30bb190: Invalid Number",menu tables analysis
+task_inputalter,,0x305aa50,,,OSTaskCreate arguments,,,"entry point of OS task ""task InputAlter"" (created at 0x305947e)",strings/tasks analysis
+candidate_input_method_next,,0x305ae28,,,reviewed code behaviour,,,"steps the input method byte at 0x18000B0A through 1, 2, 4 and redraws",morning review 2026-11-10
+candidate_sub_301e558_thunk,,0x305be0c,,,reviewed code behaviour,,,zero-extends two byte arguments and calls 0x301E558,morning review 2026-11-10
+candidate_tx_stop,,0x305be18,,,reviewed code behaviour,,,clears transmit status bits and sends call control command 1,voice path review
+candidate_analog_tx_start,,0x305be64,,,reviewed code behaviour,,,PTT path: sets up RF transmit and turns on the FM PTT and audio path,voice path review
+candidate_menu_page_tx_limit,,0x305c334,,,menu page descriptor,,,"loads menu pages: 0x30bad60: Tx Limit!, 136-174, 400-470; 0x30bae50: Style is err; 0x30baee0: No Contact",menu tables analysis
+candidate_menu_result_show,,0x305cd20,,,reviewed code behaviour,,,"sets a menu state, requests a sound, and shows a result page",radio state review
+modem_audio_control_update_305d1d8,,0x305d1d8,,,rule: single modem register,,,small function whose only modem register is AUDIO_CONTROL: modify: set b0; modify: clear b0,modem register rule
+candidate_menu_page_msg_send_failed,,0x305d200,,,menu page descriptor,,,loads menu pages: 0x30ba7d0: Msg Send Failed,menu tables analysis
+candidate_call_end_if_active,,0x305d338,,,reviewed code behaviour,,,sends call control command 8 when a state byte is set,radio state review
+candidate_encryption_keys_read_305da8c,,0x305da8c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x10; offsets var,codeplug block rule
+update_3fd79_field,,0x305dc98,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3fd79,morning rule 2026-11-10
+update_3fd4d_field,,0x305dd28,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3fd4d,morning rule 2026-11-10
+candidate_settings_read_305df4c,,0x305df4c,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets var,codeplug block rule
+test_3fd4c_2,,0x305df8c,,,code shape rule,,,test: tests a field of RAM 0x3fd4c,morning rule 2026-11-10
+get_u8_3fd8c,,0x305df9c,,,rule: getter,,,returns the u8 at RAM 0x3fd8c,rule-based
+candidate_settings_write_305dfa4,,0x305dfa4,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets var,codeplug block rule
+candidate_call_control_event_thunk_305e308,,0x305e308,,,code shape rule,,,thunk: only calls candidate_call_control_event,morning rule 2026-11-10
+test_3fd4d_3,,0x305e3e0,,,code shape rule,,,test: tests a field of RAM 0x3fd4d,morning rule 2026-11-10
+candidate_psint_handler_bit3,,0x305e654,,,reviewed call sequence,,,pending bit 3: clears buffers and resets call state,psint review
+candidate_tx_end_event_c,,0x305e6dc,,,reviewed call sequence,,,"red LED off, popups, sound",psint review
+candidate_tx_voice_start_event,,0x305e8ac,,,reviewed call sequence,,,"red LED on, buffers cleared, transmit audio started",psint review
+candidate_tx_end_event_a,,0x305ea58,,,reviewed call sequence,,,"red LED off, sound, optional popup",psint review
+candidate_psint_led_and_timing_events,,0x305eb8c,,,reviewed call sequence,,,pending bit 5: red LED on/off sequences with delays and sounds,psint review
+candidate_psint_tx_start_events,,0x305edbc,,,reviewed call sequence,,,pending bit 0: its sub-handlers turn the red LED on and start transmit audio,psint review
+candidate_tx_end_event_b,,0x305ee08,,,reviewed call sequence,,,"red LED off, sound, optional popup",psint review
+candidate_psint_tx_end_events,,0x305ef3c,,,reviewed call sequence,,,"pending bit 1: its sub-handlers turn the red LED off, play sounds, and show result popups",psint review
+candidate_psint_call_events,,0x305f0f4,,,reviewed call sequence,,,"pending bit 2: sub-handlers work with call records, GPS text, and end active calls",psint review
+candidate_psint_handler_bit4,,0x305f1c0,,,reviewed call sequence,,,pending bit 4: sets event flags and requests a sound,psint review
+task_psint,,0x305f234,,,OSTaskCreate arguments,,,"entry point of OS task ""task psint"" (created at 0x300cda6)",strings/tasks analysis
+candidate_menu_page_are_you_sure,,0x305f4d4,,,menu page descriptor,,,"loads menu pages: 0x30b9c88: Are you sure, restoring fac-, tory settings?; 0x30ba698:  OK ",menu tables analysis
+bcd_bytes_to_uint,,0x305f904,,,reviewed code behaviour,,,"converts packed BCD digits, last byte most significant",code behaviour review
+candidate_spi3_efuse_init_thunk_305fb7c,,0x305fb7c,,,code shape rule,,,thunk: only calls candidate_spi3_efuse_init,morning rule 2026-11-10
+system_event_flags_flags_wait,,0x305fdd4,,,rule: one OS call on one object,,,only calls os_flag_wait on the object at 0x3fdb0,os object rule
+set_u16_3fde6,,0x305fdec,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x3fde6,morning rule 2026-11-10
+candidate_radio_mode_apply,,0x30601cc,,,reviewed code behaviour,,,reprograms the RF chip and audio paths for the current mode,voice path review
+set_u16_3fdf0,,0x3060450,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x3fdf0,morning rule 2026-11-10
+get_u8_3fdf1,,0x3060460,,,rule: getter,,,returns the u8 at RAM 0x3fdf1,rule-based
+task_sqlcheck,,0x3060f18,,,OSTaskCreate arguments,,,"entry point of OS task ""task SqlCheck"" (created at 0x300d51e)",strings/tasks analysis
+candidate_radio_ids_read_3061088,,0x3061088,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x67; offsets var,codeplug block rule
+candidate_settings_write_30610d8,,0x30610d8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x50,codeplug block rule
+candidate_settings_update_30610ec,,0x30610ec,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x67,codeplug block rule
+start_task_led_manage,,0x3061170,,,calls OSTaskCreate,,,"creates OS task ""Led Manage""",strings/tasks analysis
+led_green_on,,0x30611b0,,,reviewed code behaviour,,,drives GPIO 0x20 high unless settings bit 4 at offset 0x32 blocks it,radio state review
+led_green_off,,0x30611cc,,,reviewed code behaviour,,,drives GPIO 0x20 low,radio state review
+led_red_on,,0x30611d8,,,reviewed code behaviour,,,drives GPIO 0x21 high unless the same settings bit blocks it,radio state review
+led_red_off,,0x30611f4,,,reviewed code behaviour,,,drives GPIO 0x21 low,radio state review
+empty_stub_3061334,,0x3061334,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_3061338,,0x3061338,,,rule: empty stub,,,returns immediately,rule-based
+task_led_manage,,0x30614d8,,,OSTaskCreate arguments,,,"entry point of OS task ""Led Manage"" (created at 0x30611a6)",strings/tasks analysis
+obj_3ff0c_wait,,0x30615f4,,,rule: one OS call on one object,,,only calls os_sem_pend_ms on the object at 0x3ff0c,os object rule
+obj_3ff0c_post,,0x3061600,,,rule: one OS call on one object,,,only calls os_sem_post on the object at 0x3ff0c,os object rule
+empty_stub_3061644,,0x3061644,,,rule: empty stub,,,returns immediately,rule-based
+candidate_menu_recordings,,0x3061b60,,,string reference,,,references: Record %d/%d,strings/tasks analysis
+candidate_menu_page_rx_record,,0x3061fb4,,,menu page descriptor,,,"loads menu pages: 0x30b93a8: Rx Record, Tx Record, Rx/Tx Record",menu tables analysis
+candidate_settings_update_3062204,,0x3062204,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x45,codeplug block rule
+candidate_settings_update_306224c,,0x306224c,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x4; offsets 0x45,codeplug block rule
+candidate_settings_read_3062650,,0x3062650,,,rule: single codeplug block,,,all 7 codeplug accesses are to block 0x4; offsets 0x301 0x302 0x306 0x30f 0x310 0x319 0x331,codeplug block rule
+candidate_gps_nmea_format,,0x3062a54,,,string reference,,,references: %04.4f,strings/tasks analysis
+candidate_gps_info_display_3062e98,,0x3062e98,,,string reference,,,references: Course:,strings/tasks analysis
+candidate_menu_aprs_info,,0x30633d8,,,string reference,,,references: APRS Info %d/%d,strings/tasks analysis
+candidate_uses_current_chan,,0x306369c,,,rule: distinctive string reference,,,"references: Current Chan, VFO A, VFO B",string rule 2
+candidate_gps_info_display_3063ea4,,0x3063ea4,,,string reference,,,references: Course:,strings/tasks analysis
+set_u8_3e3a8,,0x306499c,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x3e3a8,morning rule 2026-11-10
+get_u8_400fc,,0x30649a8,,,rule: getter,,,returns the u8 at RAM 0x400fc,rule-based
+set_u8_400fc,,0x30649b0,,,rule: setter,,,stores its argument to the u8 at RAM 0x400fc,rule-based
+candidate_block03_read_3064d28,,0x3064d28,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x3; offsets 0x73a var,codeplug block rule
+candidate_block03_write_3064d4c,,0x3064d4c,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x3; offsets 0x73a var,codeplug block rule
+candidate_block03_read_3064dbc,,0x3064dbc,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x3; offsets 0x750,codeplug block rule
+candidate_block03_read_3065114,,0x3065114,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x3; offsets var,codeplug block rule
+candidate_block03_read_3065290,,0x3065290,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x3; offsets var,codeplug block rule
+candidate_encryption_keys_read_3065478,,0x3065478,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x10; offsets 0xb00,codeplug block rule
+update_40110_field,,0x30654d8,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x40110,morning rule 2026-11-10
+candidate_settings_read_3065718,,0x3065718,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets var,codeplug block rule
+candidate_fm_i2c_bit_delay,,0x3065bfc,,,reviewed code behaviour,,,short delay used by the RDA5807 bit-banged bus code,code behaviour review
+candidate_fm_i2c_start,,0x3065c08,,,reviewed call sequence,,,bit-banged start condition on GPIO 0x19/0x1A,fm receiver review
+candidate_fm_i2c_stop,,0x3065c48,,,reviewed call sequence,,,bit-banged stop condition,fm receiver review
+candidate_fm_i2c_ack,,0x3065c9c,,,reviewed call sequence,,,clock pulse with data high or low,fm receiver review
+candidate_fm_i2c_nack,,0x3065cd8,,,reviewed call sequence,,,clock pulse variant used once at init,fm receiver review
+candidate_fm_i2c_write_byte,,0x3065d0c,,,reviewed call sequence,,,shifts a byte out; 7 callers,fm receiver review
+candidate_fm_i2c_start_write,,0x3065d60,,,reviewed call sequence,,,start condition followed by a byte write,fm receiver review
+candidate_fm_i2c_read_byte,,0x3065d70,,,reviewed call sequence,,,shifts a byte in through GPIO A,fm receiver review
+candidate_fm_chip_read_status,,0x3065dfc,,,reviewed call sequence,,,"start, read bytes, stop",fm receiver review
+candidate_fm_chip_pins_init,,0x3065e20,,,reviewed call sequence,,,configures the two FM receiver pins and sends a first write,fm receiver review
+candidate_fm_chip_write_4_bytes,,0x3065eb8,,,reviewed call sequence,,,locked write of four bytes: the tune sequence,fm receiver review
+candidate_fm_radio_tune,,0x3065f58,,,reviewed call sequence,,,writes the tune sequence and switches the audio amplifier,fm receiver review
+candidate_fm_chip_write_2_bytes,,0x3065f8c,,,reviewed call sequence,,,locked write of two bytes: control word,fm receiver review
+candidate_fm_radio_mute_a,,0x3065fd8,,,reviewed call sequence,,,amplifier change plus a two-byte control write,fm receiver review
+candidate_fm_radio_mute_b,,0x3065ff0,,,reviewed call sequence,,,amplifier change plus a two-byte control write,fm receiver review
+candidate_fm_chip_write_4_bytes_b,,0x306602c,,,reviewed call sequence,,,second locked four-byte write,fm receiver review
+candidate_settings_write_30660d0,,0x30660d0,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x700,codeplug block rule
+candidate_settings_write_30660e4,,0x30660e4,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x4; offsets 0x702,codeplug block rule
+candidate_uses_seek_3066194,,0x3066194,,,rule: distinctive string reference,,,references: Seek...,string rule 2
+candidate_uses_seek_30661dc,,0x30661dc,,,rule: distinctive string reference,,,references: Seek...,string rule 2
+get_u8_4014b,,0x3066600,,,rule: getter,,,returns the u8 at RAM 0x4014b,rule-based
+candidate_side_flag_test,,0x3066884,,,reviewed code behaviour,,,tests 0x40144 bit 3 or bit 4 according to the selected side (settings +0x2D bit 7),morning review 2026-11-10
+candidate_menu_roam_zone_list,,0x30668c8,,,string reference,,,references: Roam Zone %d/%d,strings/tasks analysis
+candidate_roaming_zones_read_3066a90,,0x3066a90,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x65; offsets 0x10,codeplug block rule
+candidate_roaming_zones_update_3066b00,,0x3066b00,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets 0x3 var,codeplug block rule
+candidate_roaming_zones_read_3066b90,,0x3066b90,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+candidate_roaming_zones_read_3066cb8,,0x3066cb8,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+candidate_roaming_zones_update_3066dc0,,0x3066dc0,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+candidate_roaming_zones_update_3066ea0,,0x3066ea0,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x65; offsets var,codeplug block rule
+candidate_sd_spi1_init,,0x3066f18,,,reviewed code behaviour,,,"routes SPI1 pins, configures GPIO 0x17, sets the SPI1 clock",voice path review
+candidate_sd_deselect,,0x3066fb4,,,reviewed code behaviour,,,raises GPIO 0x17 and clocks one 0xFF byte,voice path review
+candidate_sd_select,,0x3066fdc,,,reviewed code behaviour,,,lowers GPIO 0x17 and waits for the card,voice path review
+candidate_sd_send_command,,0x3067134,,,reviewed code behaviour,,,sends a six-byte SD command and waits for its response,voice path review
+candidate_sd_card_init,,0x30672ac,,,reviewed code behaviour,,,"SD card startup sequence: CMD0, CMD8, ACMD41, CMD58",voice path review
+candidate_sd_read_blocks,,0x3067474,,,reviewed code behaviour,,,"SD single and multiple block read, CMD17/CMD18",voice path review
+candidate_block03_update_3067670,,0x3067670,,,rule: single codeplug block,,,all 3 codeplug accesses are to block 0x3; offsets 0x30 0x3f,codeplug block rule
+candidate_block03_read_3067764,,0x3067764,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x3; offsets var,codeplug block rule
+candidate_block03_read_3067928,,0x3067928,,,rule: single codeplug block,,,all 2 codeplug accesses are to block 0x3; offsets 0x36 0x41,codeplug block rule
+candidate_rfic_dtmf_setup,,0x30679f0,,,RF chip register numbers,,,"writes 0x09, 0x21, 0x24; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_block06_read_3067d04,,0x3067d04,,,rule: single codeplug block,,,all 1 codeplug accesses are to block 0x6; offsets 0xa20,codeplug block rule
+candidate_rfic_fsk_setup_b,,0x3067d30,,,RF chip register numbers,,,"writes 0x70, 0x72, 0x58-0x5E, 0x02; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_fsk_receive,,0x3068144,,,RF chip register numbers,,,"reads 0x0B, 0x59, 0x5E, 0x5F in the cds task; meaning read from the BK4819-style register map this chip appears to follow (inference)",rf chip registers
+candidate_rfic_fsk_transmit,,0x3068494,,,RF chip register numbers,,,writes FSK registers 0x58-0x5D with delays; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+set_u8_40278,,0x3068930,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x40278,morning rule 2026-11-10
+candidate_rfic_tone_transmit_a,,0x3068b4c,,,RF chip register numbers,,,writes 0x70 and 0x30 around TX/RX mode switches; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+candidate_rfic_tone_transmit_b,,0x3068c1c,,,RF chip register numbers,,,writes 0x70 and 0x30 around TX/RX mode switches; meaning read from the BK4819-style register map this chip appears to follow (inference),rf chip registers
+task_init,,0x3068e54,,,OSTaskCreate arguments,,,"entry point of OS task ""task init"" (created at 0x2e1bc)",strings/tasks analysis
+empty_stub_3068e68,,0x3068e68,,,rule: empty stub,,,returns immediately,rule-based
+empty_stub_3068e6c,,0x3068e6c,,,rule: empty stub,,,returns immediately,rule-based
+OSFlagPendAbort,,0x3068e70,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSFlagPend,,0x3068fe0,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_FlagClr,,0x3069538,,,uC/OS-III standard string,,,references: ?FLAG,strings/tasks analysis
+set_u32_42b34,,0x3069560,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x42b34,morning rule 2026-11-10
+OSFlagCreate,,0x3069580,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSFlagDel,,0x3069648,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSFlagPost,,0x3069a78,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+set_u32_42ce0,,0x3069bb4,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x42ce0,morning rule 2026-11-10
+OSMutexPend,,0x3069f04,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSMutexPendAbort,,0x306a19c,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSMutexPost,,0x306a2ac,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_MutexClr,,0x306a4a8,,,uC/OS-III standard string,,,references: ?MUTEX,strings/tasks analysis
+set_u32_426f0,,0x306a4cc,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x426f0,morning rule 2026-11-10
+OSMutexCreate,,0x306a4ec,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSMutexDel,,0x306a5e8,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+candidate_OSQFlush,,0x306a8cc,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+OSQPend,,0x306a984,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSQPendAbort,,0x306ab78,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+set_u32_4272c,,0x306acac,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x4272c,morning rule 2026-11-10
+OSQCreate,,0x306accc,,,reviewed code behaviour,,,creates the queues named keymsgq and inputq,code behaviour review
+OSQDel,,0x306adc4,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OSQPost,,0x306b03c,,,reviewed code behaviour,,,"(queue, message, size, option, error) post to keymsgq",code behaviour review
+OS_StatTask,,0x306b1f8,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Stat Task"" (created at 0x306b682)",strings/tasks analysis
+OS_StatTaskInit,,0x306b610,,,uC/OS-III standard string,,,"creates ""uC/OS-III Stat Task""",strings/tasks analysis
+candidate_OSTmrStateGet,,0x306b78c,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+set_u32_426f8,,0x306b828,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x426f8,morning rule 2026-11-10
+OSTmrCreate,,0x306b844,,,uC/OS-III object tag and error codes,,,"object type tag plus the error-code set and position within its object family (create 12001, delete 13001, pend 25006, pend-abort 25002)",uC/OS signature
+OS_TmrInit,,0x306b970,,,uC/OS-III standard string,,,"creates ""uC/OS-III Timer Task""",strings/tasks analysis
+set_u16_411da,,0x306bb64,,,code shape rule,,,setter: stores its argument to u16 at RAM 0x411da,morning rule 2026-11-10
+OS_TmrTask,,0x306bbd4,,,OSTaskCreate arguments,,,"entry point of OS task ""uC/OS-III Timer Task"" (created at 0x306ba30)",strings/tasks analysis
+candidate_OSTmr_op_22_callers,,0x306bc6c,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_OSTmrStart,,0x306bd74,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_OSTmrDel,,0x306be28,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_Mem_PoolClr,,0x306c4f8,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_Mem_PoolCreate,,0x306c608,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_Mem_PoolBlkGet,,0x306ca10,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+candidate_Mem_PoolBlkFree,,0x306cb80,,,uC/OS-III object tag and error codes,,,"object type tag and error codes fit, exact routine uncertain",uC/OS signature
+get_u32_3a628,,0x306d668,,,rule: getter,,,returns the u32 at RAM 0x3a628,rule-based
+set_u32_45640_thunk_306d694,,0x306d694,,,code shape rule,,,thunk: only calls set_u32_45640,morning rule 2026-11-10
+candidate_os_timestamp_get,,0x306d6a0,,,reviewed code behaviour,,,reads a 32-bit timestamp inside a critical section,voice path review
+set_3a628_bit0,,0x306d6c0,,,code shape rule,,,bitwrite: read-modify-write of RAM 0x3a628,morning rule 2026-11-10
+candidate_os_tick_irq,,0x306d6ec,,,reviewed code behaviour,,,"handler installed on vector 33, the first timer",voice path review
+irq_handler_install,,0x306d73c,,,reviewed code behaviour,,,stores a handler for a vector number; all 18 interrupt installations call it,voice path review
+candidate_os_tick_init,,0x306d7b0,,,reviewed code behaviour,,,installs the vector 33 handler,voice path review
+candidate_math_trig_function,,0x306e0bc,,,libgcc fp-bit call structure,,,calls the reduction and kernel routines,libgcc review
+candidate___ieee754_rem_pio2,,0x306e16c,,,libgcc fp-bit call structure,,,argument reduction using pi/2 constants 0x3FF921FB,libgcc review
+candidate___kernel_sin,,0x306e57c,,,libgcc fp-bit call structure,,,polynomial evaluation paired with the cosine kernel,libgcc review
+candidate___kernel_cos,,0x306e6fc,,,libgcc fp-bit call structure,,,polynomial with the 0x3FD33332 threshold used by kernel cosine,libgcc review
+candidate___fixunsdfsi,,0x306eb40,,,reviewed code behaviour,,,"compare against a constant, then fix, subtract, fix: the unsigned double-to-integer pattern",misc review
+candidate__fpadd_parts_f,,0x306eb7c,,,libgcc fp-bit call structure,,,shared core of single-float add and subtract,libgcc review
+candidate___addsf3,,0x306ecbc,,,libgcc fp-bit call structure,,,"unpack two floats, add parts, pack",libgcc review
+candidate___subsf3,,0x306ecf0,,,libgcc fp-bit call structure,,,as add with one extra sign step,libgcc review
+candidate___mulsf3,,0x306ed30,,,libgcc fp-bit call structure,,,"unpack two floats, 32x32 multiply helper, pack",libgcc review
+candidate___divsf3,,0x306ee44,,,libgcc fp-bit call structure,,,"unpack two floats, pack; division loop",libgcc review
+candidate___cmpsf2_a,,0x306ef30,,,libgcc fp-bit call structure,,,single-float compare wrapper,libgcc review
+candidate___cmpsf2_b,,0x306ef70,,,libgcc fp-bit call structure,,,single-float compare wrapper,libgcc review
+candidate___floatsisf,,0x306efb0,,,libgcc fp-bit call structure,,,integer sign split then single-float pack,libgcc review
+candidate___fixsfsi,,0x306f004,,,libgcc fp-bit call structure,,,single-float unpack then integer result,libgcc review
+candidate___extendsfdf2,,0x306f064,,,libgcc fp-bit call structure,,,single-float unpack then double pack,libgcc review
+candidate__fpadd_parts,,0x306f10c,,,reviewed code behaviour,,,shared core of the double add and subtract helpers,code behaviour review
+__adddf3,,0x306f458,,,reviewed code behaviour,,,"unpack two doubles, add parts, pack",code behaviour review
+__subdf3,,0x306f494,,,reviewed code behaviour,,,"unpack two doubles, flip sign of second, add parts, pack",code behaviour review
+candidate___muldf3,,0x306f4dc,,,reviewed code behaviour,,,soft-float binary operation; special-case order matches multiply,code behaviour review
+candidate___divdf3,,0x306f784,,,libgcc fp-bit call structure,,,"unpack two doubles, long loop, pack",libgcc review
+candidate___cmpdf2_a,,0x306f97c,,,libgcc fp-bit call structure,,,double compare wrapper,libgcc review
+candidate___cmpdf2_b,,0x306f9c4,,,libgcc fp-bit call structure,,,double compare wrapper,libgcc review
+candidate___cmpdf2_c,,0x306fa10,,,libgcc fp-bit call structure,,,double compare wrapper,libgcc review
+candidate___cmpdf2_d,,0x306fa5c,,,libgcc fp-bit call structure,,,double compare wrapper,libgcc review
+candidate___cmpdf2_e,,0x306faa4,,,libgcc fp-bit call structure,,,double compare wrapper,libgcc review
+candidate___floatsidf,,0x306faec,,,libgcc fp-bit call structure,,,integer sign split then double pack; 18 callers,libgcc review
+candidate___fixdfsi,,0x306fb70,,,libgcc fp-bit call structure,,,double unpack then integer result,libgcc review
+candidate___truncdfsf2,,0x306fc1c,,,libgcc fp-bit call structure,,,double unpack then single-float pack,libgcc review
+__pack_f,,0x306fddc,,,libgcc fp-bit call structure,,,single-float pack helper,libgcc review
+__unpack_f,,0x306feb8,,,libgcc fp-bit call structure,,,single-float unpack helper used by all single-float routines,libgcc review
+__fpcmp_parts_f,,0x306ff5c,,,libgcc fp-bit call structure,,,shared compare core of the single-float comparisons,libgcc review
+__pack_d,,0x3070000,,,reviewed code behaviour,,,libgcc soft-float pack used by the double helpers,code behaviour review
+__unpack_d,,0x30702fc,,,reviewed code behaviour,,,libgcc soft-float unpack used by the double helpers,code behaviour review
+__fpcmp_parts_d,,0x30703d0,,,libgcc fp-bit call structure,,,shared compare core of the double comparisons,libgcc review
+candidate___lshrdi3,,0x3070474,,,libgcc fp-bit call structure,,,64-bit shift helper,libgcc review
+candidate___ashldi3,,0x307049c,,,libgcc fp-bit call structure,,,64-bit shift helper,libgcc review
+sprintf,,0x30704c4,,,reviewed code behaviour,,,variadic wrapper around vsprintf,code behaviour review
+vsprintf,,0x30704e0,,,reviewed code behaviour,,,calls the formatter with unlimited size,code behaviour review
+set_u32_18000c34,,0x3070670,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x18000c34,morning rule 2026-11-10
+set_u32_18000c34_3070684,,0x3070684,,,code shape rule,,,setter: stores its argument to u32 at RAM 0x18000c34,morning rule 2026-11-10
+candidate_memcmp,,0x3070a3c,,,cable command dispatch,,,called with two buffers and length 7 for every command word,cable review
+memcpy,,0x3070b88,,,reviewed code behaviour,,,newlib-style word-optimized copy,code behaviour review
+memset,,0x3070c08,,,reviewed code behaviour,,,newlib-style word-optimized fill,code behaviour review
+strcpy,,0x3070cd8,,,reviewed code behaviour,,,newlib-style word-at-a-time string copy,morning review 2026-11-10
+strlen,,0x3070da4,,,reviewed code behaviour,,,newlib-style word-at-a-time scan for NUL,code behaviour review
+return_0_3070e40,,0x3070e40,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_0_3070e44,,0x3070e44,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_0_3070e48,,0x3070e48,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+return_0_3070e4c,,0x3070e4c,,,code shape rule,,,const: returns a constant,morning rule 2026-11-10
+candidate_uses_0000000000000000_null,,0x3070ef0,,,rule: distinctive string reference,,,"references: 0000000000000000(null),                 0000000000000000(null), (null)",string rule 2
+set_u8_18004090,,0x3071930,,,code shape rule,,,setter: stores its argument to u8 at RAM 0x18004090,morning rule 2026-11-10

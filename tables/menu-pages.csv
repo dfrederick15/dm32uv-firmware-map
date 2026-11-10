@@ -1,0 +1,277 @@
+descriptor,count,flags,english_array,chinese_array,loaded_by,items
+0x30b8b68,1,0x2,0x30b8b64,0x30b8b60,menu_state_007,Empty Menu!
+0x30b8d40,1,0x2,0x30b8d3c,0x30b8d38,candidate_menu_page_menu candidate_menu_multi_page_3038500,Menu
+0x30b8da8,11,0x2,0x30b8d7c,0x30b8d50,candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac menu_state_007,Talk Group | Scan | Zone | SMS | Call Log | Settings | Record | Roaming | GNSS | APRS | Bluetooth
+0x30b8de0,5,0x2,0x30b8dcc,0x30b8db8,,Vibration | GPS | Bluetooth | Record | Man Down
+0x30b8e18,5,0x2,0x30b8e04,0x30b8df0,candidate_menu_multi_page_3038500 menu_state_014 candidate_menu_page_gnss_on_off,GNSS On/Off | GNSS Info | Time Zone | Disp Format | GNSS Mode
+0x30b8e40,3,0x2,0x30b8e34,0x30b8e28,menu_state_021,GPS | BDS | GPS + BDS
+0x30b8e78,5,0x2,0x30b8e64,0x30b8e50,candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac menu_state_014 candidate_menu_page_contact_list,Contact List | New Contact | Manual Dial | CSV Contacts | Talker Alias
+0x30b8e98,2,0x2,0x30b8e90,0x30b8e88,candidate_menu_multi_page_3038500 candidate_menu_page_alias_tx_set,Alias Tx Set | Alias Rx Display
+0x30b8eb8,2,0x2,0x30b8eb0,0x30b8ea8,candidate_menu_multi_page_3038500 candidate_menu_page_tx_with_alias,Tx With Alias | Tx Alias Form
+0x30b8ed0,2,0x2,0x30b8ec8,0x30b8ec8,candidate_menu_page_iso_8bit,ISO 8bit | Unicode
+0x30b8ef0,2,0x2,0x30b8ee8,0x30b8ee0,candidate_menu_page_tx_with_alias,Contact First | Alias First
+0x30b8f10,2,0x2,0x30b8f08,0x30b8f00,candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac candidate_menu_multi_page_30473b0,Encrypt Switch | Encrypt List
+0x30b8f30,2,0x2,0x30b8f28,0x30b8f20,candidate_menu_page_encrypt_list,Encrypt List | Empty
+0x30b8f50,2,0x2,0x30b8f48,0x30b8f40,candidate_menu_multi_page_303b6ac candidate_menu_page_contactscsvlist candidate_menu_page_search_contact_3059d5c,ContactsCSVList | Search ID
+0x30b8f70,2,0x2,0x30b8f68,0x30b8f60,candidate_menu_page_view_contact_3043968 candidate_menu_page_name_30458e4,View Contact | Application
+0x30b8f90,2,0x2,0x30b8f88,0x30b8f80,menu_state_019 candidate_menu_page_view_contact_3043968,ContactsCSV | Empty
+0x30b8fe0,7,0x22,0x30b8fc4,0x30b8fa8,candidate_menu_page_name_30458e4 candidate_menu_page_name_3046728,Name: | ID: | Callsign: | City: | State: | Country: | Remarks:
+0x30b9020,5,0x2,0x30b900c,0x30b8ff8,menu_state_075 candidate_menu_multi_page_3038500 menu_state_014,InBox | New Msg | Quick Text | OutBox | DraftBox
+0x30b9050,4,0x2,0x30b9040,0x30b9030,menu_state_082 candidate_menu_multi_page_3038500 menu_state_014 candidate_menu_page_missed,Missed | Answered | Sent | Delete
+0x30b90a8,9,0x2,0x30b9084,0x30b9060,candidate_menu_multi_page_3038500 candidate_menu_multi_page_303b6ac menu_state_014 candidate_menu_multi_page_3048f50,Scan Switch | Scan List | VFO ScanRange(V) | VFO ScanRange(U) | VFO Scan Mode | Scan CTCSS | Scan DCS | Scan Memory | Hang Time
+0x30b90d0,3,0x2,0x30b90c4,0x30b90b8,candidate_menu_page_to,TO | CO | SE
+0x30b9118,7,0x2,0x30b90fc,0x30b90e0,candidate_menu_multi_page_3038500 menu_state_014,Radio Settings | Channel Set | Device Info | DTMF | BDC1200 | TWO TONE | FIVE TONE
+0x30b9140,3,0x2,0x30b9134,0x30b9128,candidate_menu_multi_page_3038500 candidate_menu_page_tx_ctc_dcs candidate_menu_multi_page_30473b0,Tx CTC/DCS | Rx CTC/DCS | RxTx CTC/DCS
+0x30b9170,4,0x2,0x30b9160,0x30b9150,candidate_menu_page_none_30450ec,None | CTCSS | DCS_N | DCS_I
+0x30b91a8,5,0x2,0x30b9194,0x30b9180,candidate_menu_device_info,DMR ID: | Radio Name: | DTMF ID: | BDC ID: | 5 Tone ID:
+0x30b91d8,3,0x2,0x30b91cc,0x30b91c0,,Inbox | Outbox | DraftBox
+0x30b9200,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_view_contact_3042854,Name | Number | Save
+0x30b9240,6,0x2,0x30b9228,0x30b9210,candidate_menu_page_view_contact candidate_menu_multi_page_3038500 candidate_menu_page_view_contact_3042854,View Contact | Add | Edit Contact | Delete | SendMsg | Application
+0x30b9268,3,0x2,0x30b925c,0x30b9250,candidate_menu_page_missed_3041d0c candidate_menu_page_missed_3058ec0 candidate_menu_page_missed_30591ec,Missed | Answered | Sent
+0x30b9288,2,0x2,0x30b9280,0x30b9278,0x301abe4 menu_state_021 candidate_menu_page_iso_8bit candidate_menu_page_to candidate_menu_page_select candidate_menu_multi_page_3044248 candidate_menu_page_none_30450ec candidate_menu_multi_page_3046064 candidate_menu_multi_page_30473b0 0x304c86c,ON | OFF
+0x30b92a8,2,0x2,0x30b92a0,0x30b9298,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3044248,VOX SW | Gain Level
+0x30b92c8,2,0x2,0x30b92c0,0x30b92b8,candidate_menu_multi_page_3044248,Switch | Delay Time
+0x30b92e8,2,0x2,0x30b92e0,0x30b92d8,,Vox OFF | Vox ON
+0x30b9308,2,0x2,0x30b9300,0x30b92f8,,Vibration OFF | Vibration ON
+0x30b9338,4,0x2,0x30b9328,0x30b9318,candidate_menu_multi_page_3038500 menu_state_014,Record Switch | Record Sel | Record List | Record Delete
+0x30b9358,2,0x2,0x30b9350,0x30b9348,,ON/OFF | Record Sel
+0x30b9378,2,0x2,0x30b9370,0x30b9368,candidate_menu_page_record_off,Record OFF | Record ON
+0x30b93a8,3,0x2,0x30b939c,0x30b9390,menu_state_021 candidate_menu_page_rx_record,Rx Record | Tx Record | Rx/Tx Record
+0x30b93d0,3,0x2,0x30b93c4,0x30b93b8,candidate_menu_page_play,Play | Delete | Detail
+0x30b93e8,1,0x2,0x30b93e4,0x30b93e0,, Record Roomis full
+0x30b9408,2,0x2,0x30b9400,0x30b93f8,,Setting | Bluetooth Vox
+0x30b9428,2,0x2,0x30b9420,0x30b9418,candidate_menu_page_mandown_off,Mandown OFF | Mandown ON
+0x30b9448,2,0x2,0x30b9440,0x30b9438,candidate_menu_page_lone_work_off,Lone Work OFF | Lone Work ON
+0x30b9478,4,0x2,0x30b9468,0x30b9458,candidate_menu_multi_page_3038500 candidate_menu_multi_page_304231c,Voice Func | Key Func | Display Func | Other Func
+0x30b94a0,3,0x2,0x30b9494,0x30b9488,candidate_menu_page_to,Tx CTCSS/DCS | Rx CTCSS/DCS | ALL
+0x30b9508,11,0x2,0x30b94dc,0x30b94b0,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3043164,Radio Silent | Battery Low | Key Tone | SMS Prompt | Group Call | Private Call | Call End | Talk Permit | StartUp Sound | Voice Prompt | Ana Roger
+0x30b9530,3,0x2,0x30b9524,0x30b9518,candidate_menu_multi_page_3044248,OFF | TONE | 1200
+0x30b95a0,12,0x2,0x30b9570,0x30b9540,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3043164 candidate_menu_multi_page_3048f50,Key Lock | Press SK1 Short | Press SK1 Long | Press SK2 Short | Press SK2 Long | Press TK Short | Press TK Long | Press P1 Short | Press P1 Long | Press P2 Short | Press P2 Long | Long Press Time
+0x30b9640,18,0x2,0x30b95f8,0x30b95b0,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3043164 candidate_menu_multi_page_3048f50,Back Light | Light Time | Start Display | Start Character Edit | CallSign Color | CHG Font Color | CH Color A | CH Color B | Zone Color A | Zone Color B | Display CHL Num | CH Mode Display | Dual Watch | Language | Display DIR | LED Indicator | Menu Exit Time | Time Set
+0x30b9700,22,0x2,0x30b96a8,0x30b9650,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3043164 candidate_menu_multi_page_3048f50,Auto PowerOff | TX Timer | TOT Predict | VOX | VOX Delay | Talk Around | Ana MIC Gain | Digi MIC Gain | Freq Step | PowerSave | Lone Worker | Man Down | FM Radio | FM Radio Moni | Weather Alarm | TBST Sel | Tail | Ana SQL Level | SMS Format | PCall Match | GCall Match | MOTO
+0x30b9750,8,0x2,0x30b9730,0x30b9710,candidate_menu_page_white,White | Gray | Orange | Red | Yellow | Green | Cyan | Blue
+0x30b9778,3,0x2,0x30b976c,0x30b9760,candidate_menu_multi_page_3044248,Single Mode | Double Wait | Single Wait
+0x30b9798,2,0x2,0x30b9790,0x30b9788,candidate_menu_multi_page_3044248,Normal | Revers
+0x30b97d8,6,0x2,0x30b97c0,0x30b97a8,candidate_menu_multi_page_3044248,Off | 30Min | 60Min | 120Min | 240Min | 480Min
+0x30b97f8,2,0x2,0x30b97f0,0x30b97e8,,Normal | Enhance
+0x30b9848,8,0x2,0x30b9828,0x30b9808,candidate_menu_multi_page_3044248,Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Enhance 1 | Enhance 2 | Enhance 3
+0x30b98d8,2,0x2,0x30b98d0,0x30b98c8,candidate_menu_multi_page_303b6ac candidate_menu_multi_page_304231c candidate_menu_page_radio_id,Device Info | VerSions
+0x30b99b8,2,0x2,0x30b99b0,0x30b99a8,candidate_menu_multi_page_30473b0,Carrier | Opt Signal
+0x30b99e8,4,0x2,0x30b99d8,0x30b99c8,candidate_menu_multi_page_30473b0,CTCSS/DCS | Opt Signal | Opt & Signal | Opt | Signal
+0x30b9a20,5,0x2,0x30b9a0c,0x30b99f8,candidate_menu_page_radio_id,Radio ID | Group ID | Firmware Ver: | CPS Ver: | Model Number
+0x30b9a48,3,0x2,0x30b9a3c,0x30b9a30,,TOT | Tx Power | Time Slot
+0x30b9a60,1,0x2,0x30b9a5c,0x30b9a58,,Zone 1
+0x30b9aa8,7,0x13,0x30b9a8c,0x30b9a70,0x3012b28 menu_state_021 candidate_gps_info_display_3062e98 0x3063960 candidate_gps_info_display_3063ea4,Lat: | Long: | Speed: | Altitude: | SA: | Time: | Date:
+0x30b9b20,26,0x2,0x30b9ab8,0x30b9ab8,candidate_menu_page_utc_12_00 menu_state_021,UTC-12:00 | UTC-11:00 | UTC-10:00 | UTC-9:00 | UTC-8:00 | UTC-7:00 | UTC-6:00 | UTC-5:00 | UTC-4:00 | UTC-3:00 | UTC-2:00 | UTC-1:00 | UTC | UTC+1:00 | UTC+2:00 | UTC+3:00 | UTC+4:00 | UTC+5:00 | UTC+6:00 | UTC+7:00 | UTC+8:00 | UTC+9:00 | UTC+10:00 | UTC+11:00 | UTC+12:00 | UTC+13:00
+0x30b9b38,1,0x2,0x30b9b34,0x30b9b30,candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,GPS Invalid
+0x30b9b58,2,0x2,0x30b9b50,0x30b9b48,menu_state_021,DDD | DMS
+0x30b9bc8,1,0x2,0x30b9bc4,0x30b9bc0,,ON/OFF
+0x30b9bf0,3,0x2,0x30b9be4,0x30b9bd8,,ON/OFF | Tone Volume | Tone List
+0x30b9c30,6,0x2,0x30b9c18,0x30b9c00,,Tone Of Key | Tone Of Msg | Tone Of Group | Tone Of Private | Tone Of Call End | Tone Of Talk Permit
+0x30b9c60,4,0x2,0x30b9c50,0x30b9c40,,Language | Keypad Lock | Screen Set | Keypad Led Set
+0x30b9c88,3,0x6,0x30b9c7c,0x30b9c70,candidate_menu_page_are_you_sure,Are you sure | restoring fac- | tory settings?
+0x30b9ccc,5,0x2,0x30b9cb8,0x30b9ca4,candidate_menu_multi_page_3042b88 candidate_menu_page_search_contact_3059d5c,Search Contact | Manual Dial | Add Quick Text | Save | Exit
+0x30b9d0c,5,0x2,0x30b9cf8,0x30b9ce4,,Display | Add | Edit | Delete | Send
+0x30b9d2c,1,0x6,0x30b9d28,0x30b9d24,candidate_menu_multi_page_3042b88,Delete Inbox?
+0x30b9d44,1,0x6,0x30b9d40,0x30b9d3c,candidate_menu_multi_page_3042b88,Delete Outbox?
+0x30b9d88,3,0x2,0x30b9d7c,0x30b9d70,candidate_menu_page_apply candidate_menu_page_none_30450ec,Apply | Edit/View List | Edit Name
+0x30b9da8,2,0x2,0x30b9da0,0x30b9d98,candidate_menu_multi_page_3038500 candidate_menu_page_pri_setting,PRI Setting | Delete
+0x30b9dd0,3,0x2,0x30b9dc4,0x30b9db8,candidate_menu_page_pri_cancel,PRI Cancel | PRI CH1 | PRI CH2
+0x30b9e48,11,0x2,0x30b9e1c,0x30b9df0,,PATCS | Group | All Calls | PATCS | Group | All Calls | No Addr | RawData | DefineData | SPDATA | DuplexSeparation
+0x30b9e60,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_name,Name | Number | Save
+0x30b9e70,3,0x2,0x30b91f4,0x30b91e8,candidate_menu_page_name,Name | Number | Save
+0x30b9e88,1,0x6,0x30b9e84,0x30b9e80,menu_state_021 candidate_menu_page_name,Confirm delete?
+0x30b9ed0,6,0x2,0x30b9eb8,0x30b9ea0,candidate_menu_multi_page_302c880 candidate_menu_multi_page_302d838 menu_state_000 0x3042a08 candidate_menu_page_name candidate_menu_page_name_30458e4 candidate_menu_page_name_3046728 candidate_menu_multi_page_304ee0c,Radio Check | Call Alert | Remote Mon. | Radio Disable | Radio Enable | Measure Period
+0x30b9ef8,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
+0x30b9f08,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
+0x30b9f18,3,0x2,0x30b9eec,0x30b9ee0,candidate_menu_multi_page_3042f1c,View | Message | Delete
+0x30b9f60,3,0x2,0x30b9f54,0x30b9f48,candidate_menu_multi_page_30473b0,High Power | Low Power | Middle Power
+0x30b9f80,2,0x2,0x30b9f78,0x30b9f70,candidate_menu_multi_page_30473b0,Slot 1 | Slot 2
+0x30b9fa0,2,0x5,0x30b9f98,0x30b9f90,candidate_menu_multi_page_303b6ac,Rx Fre | Tx Fre
+0x30b9fd8,3,0x2,0x30b9fcc,0x30b9fc0,,Y/M/D | M/D/Y | D/M/Y
+0x30b9ff8,2,0x2,0x30b9ff0,0x30b9fe8,candidate_menu_multi_page_3044248,OFF | ON
+0x30ba018,2,0x2,0x30ba010,0x30ba008,,KeyTone ON/OFF | KeyTone UP/DWN
+0x30ba038,2,0x2,0x30ba030,0x30ba028,,BatTone ON/OFF | BatTone UP/DWN
+0x30ba070,5,0x2,0x30ba05c,0x30ba048,candidate_menu_page_current_volume,Ring 1 | Ring 2 | Ring 3 | Ring 4 | Ring 5
+0x30ba0a8,5,0x2,0x30ba094,0x30ba080,,Ring 1 | Ring 2 | Ring 3 | Ring 4 | Ring 5
+0x30ba0e0,5,0x2,0x30ba0cc,0x30ba0b8,,Ring 1 | Ring 2 | Ring 3 | Ring 4 | Ring 5
+0x30ba118,5,0x2,0x30ba104,0x30ba0f0,,Ring 1 | Ring 2 | Ring 3 | Ring 4 | Ring 5
+0x30ba158,6,0x2,0x30ba140,0x30ba128,candidate_menu_page_current_volume,Current Volume | Level 1 | Level 2 | Level 3 | Level 4 | Level 5
+0x30ba178,2,0x2,0x30ba170,0x30ba168,candidate_menu_multi_page_3044248,Chinese | English
+0x30ba198,2,0x2,0x30ba190,0x30ba188,candidate_menu_multi_page_3046064,Manual | Auto
+0x30ba1b8,2,0x2,0x30ba1b0,0x30ba1a8,,Backlight Level | Backlight Time
+0x30ba1e8,4,0x2,0x30ba1d8,0x30ba1c8,candidate_menu_page_reply,Reply | Forward | Edit | Delete
+0x30ba228,4,0x2,0x30ba218,0x30ba208,candidate_menu_page_resend,Resend | Forward | Detail | Delete
+0x30ba25c,1,0x6,0x30ba258,0x30ba254,,Confirm delete?
+0x30ba284,2,0x2,0x30ba27c,0x30ba274,,Save | Exit
+0x30ba2a4,11,0x2,0x30b9e1c,0x30b9df0,,PATCS | Group | All Calls | PATCS | Group | All Calls | No Addr | RawData | DefineData | SPDATA | DuplexSeparation
+0x30ba2f4,4,0x2,0x30ba2e4,0x30ba2d4,candidate_menu_page_name_30458e4,SendMsg | Add Quick Text | Save | Exit
+0x30ba324,1,0x6,0x30ba320,0x30ba31c,candidate_menu_multi_page_3042f1c candidate_menu_page_confirm_delete candidate_menu_page_confirm_delete_3043f90 candidate_menu_page_confirm_delete_3044070,Confirm delete?
+0x30ba344,2,0x2,0x30ba33c,0x30ba334,,KeyTone ON | KeyTone OFF
+0x30ba364,2,0x2,0x30ba35c,0x30ba354,,Low Power Tone ON | Low Power Tone OFF
+0x30ba3cc,6,0x2,0x30ba3b4,0x30ba39c,candidate_menu_multi_page_3044248,Brightness 1 | Brightness 2 | Brightness 3 | Brightness 4 | Brightness 5 | Brightness 6
+0x30ba3e4,1,0x2,0x30ba3e0,0x30ba3dc,candidate_menu_multi_page_304ddb0 candidate_menu_page_setting_is_ok,Setting is OK
+0x30ba3fc,1,0x2,0x30ba3f8,0x30ba3f4,candidate_menu_page_alarm_siren candidate_menu_multi_page_302d320,Alarm Siren
+0x30ba414,1,0x2,0x30ba410,0x30ba40c,candidate_popup_setting_ok candidate_menu_page_list_is_empty candidate_menu_multi_page_304ddb0 candidate_block06_write_304e684 candidate_menu_page_list_is_empty_304e960 candidate_roaming_zones_update_304eb34 candidate_menu_page_encrypt_list candidate_menu_page_out_of_range_3050f78,Setting is OK
+0x30ba42c,1,0x2,0x30ba428,0x30ba424,candidate_menu_page_out_of_range candidate_menu_multi_page_304ddb0 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Out of Range
+0x30ba44c,2,0x2,0x30ba444,0x30ba43c,candidate_menu_multi_page_3044248,OFF | ON
+0x30ba49c,2,0x2,0x30ba494,0x30ba48c,0x30435bc candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_304689c candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14,Search Contact | Manual Dial
+0x30ba4bc,1,0x6,0x30ba4b8,0x30ba4b4,candidate_menu_page_confirm_delete_3045b84 candidate_menu_page_confirm_delete_3046408 candidate_menu_page_confirm_delete_304689c,Confirm delete?
+0x30ba4dc,1,0x6,0x30ba4b8,0x30ba4b4,candidate_menu_page_confirm_delete_3046a4c candidate_menu_page_confirm_delete_3046b14,Confirm delete?
+0x30ba4ec,2,0x2,0x30ba27c,0x30ba274,,Save | Exit
+0x30ba4fc,2,0x2,0x30ba27c,0x30ba274,,Save | Exit
+0x30ba51c,2,0x2,0x30ba514,0x30ba50c,candidate_menu_page_search_contact candidate_menu_page_search_contact_3046e8c candidate_menu_page_search_contact_3047074,Search Contact | Manual Dial
+0x30ba544,3,0x2,0x30ba538,0x30ba52c,candidate_menu_page_view_contact_3043968 0x3043cb0 0x3043e40 0x3045db8 0x3046f24,Send | Save | Delete
+0x30ba57c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
+0x30ba58c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
+0x30ba59c,3,0x2,0x30ba570,0x30ba564,,SendMsg | Add Quick Text | Exit
+0x30ba5ac,3,0x2,0x30ba570,0x30ba564,candidate_menu_page_sendmsg candidate_menu_page_search_contact_3046de8,SendMsg | Add Quick Text | Exit
+0x30ba618,5,0x2,0x30b9cb8,0x30b9ca4,candidate_menu_page_search_contact_3046de8,Search Contact | Manual Dial | Add Quick Text | Save | Exit
+0x30ba698,1,0x2,0x30ba65c,0x30ba658,candidate_menu_page_ok candidate_menu_page_ok_3019c34 candidate_menu_page_are_you_sure, OK 
+0x30ba6a8,1,0x2,0x30ba664,0x30ba660,candidate_menu_multi_page_302c880 candidate_menu_multi_page_302d838,CANCEL
+0x30ba6b8,1,0x2,0x30ba66c,0x30ba668,candidate_menu_page_ok candidate_lcd_draw_language_string 0x302d750 candidate_menu_multi_page_303b6ac candidate_menu_page_are_you_sure,BACK
+0x30ba6c8,1,0x2,0x30ba674,0x30ba670,candidate_menu_page_del candidate_menu_page_del_3043bd4 candidate_menu_page_del_30466d8,Del
+0x30ba6d8,1,0x2,0x30ba67c,0x30ba678,candidate_menu_page_option,Option
+0x30ba6e8,1,0x2,0x30ba684,0x30ba680,,Digit Monitor
+0x30ba6f8,1,0x2,0x30ba68c,0x30ba688,,Ignore?
+0x30ba708,1,0x2,0x30ba694,0x30ba690,candidate_menu_multi_page_303b6ac,Send
+0x30ba730,1,0x2,0x30ba72c,0x30ba728,menu_state_070,Msg Received
+0x30ba748,1,0x2,0x30ba744,0x30ba740,menu_state_077,Missed Call
+0x30ba760,1,0x2,0x30ba75c,0x30ba758,,Date is setted
+0x30ba778,1,0x2,0x30ba774,0x30ba770,candidate_menu_page_setting_is_ok,Language set 
+0x30ba7a0,1,0x2,0x30ba79c,0x30ba798,candidate_menu_multi_page_302d838 candidate_menu_page_sending,Sending...
+0x30ba7b8,1,0x2,0x30ba7b4,0x30ba7b0,candidate_menu_multi_page_302d838 candidate_menu_page_sending,Message Sent
+0x30ba7d0,1,0x2,0x30ba7cc,0x30ba7c8,candidate_menu_multi_page_302d838 candidate_menu_page_sending candidate_menu_page_msg_send_failed,Msg Send Failed
+0x30ba7e8,1,0x2,0x30ba7e4,0x30ba7e0,candidate_menu_page_out_of_range_3050f78,KeyLock set 
+0x30ba800,1,0x2,0x30ba7fc,0x30ba7f8,candidate_menu_multi_page_302d320,Send Success 
+0x30ba830,1,0x2,0x30ba82c,0x30ba828,candidate_menu_page_no_ack candidate_menu_multi_page_302d320,No ACK
+0x30ba848,1,0x2,0x30ba844,0x30ba840,candidate_menu_multi_page_302d320,Alarm Sending
+0x30ba860,1,0x2,0x30ba85c,0x30ba858,candidate_menu_multi_page_302d320,Cancel Alarm
+0x30ba878,1,0x2,0x30ba874,0x30ba870,,KeyLock open
+0x30ba890,1,0x2,0x30ba88c,0x30ba888,,No Zone set
+0x30ba8a8,1,0x2,0x30ba8a4,0x30ba8a0,,KeyLock closed
+0x30ba8c0,1,0x2,0x30ba8bc,0x30ba8b8,,Succeeded!
+0x30ba8d8,1,0x2,0x30ba8d4,0x30ba8d0,,Succeed!
+0x30ba908,1,0x2,0x30ba904,0x30ba900,,KeyTone is set
+0x30ba920,1,0x2,0x30ba91c,0x30ba918,,Tone is set
+0x30ba968,1,0x2,0x30ba964,0x30ba960,,Tone is set
+0x30ba980,1,0x2,0x30ba97c,0x30ba978,candidate_menu_page_del_call_logs,Del Call Logs
+0x30ba998,1,0x2,0x30ba994,0x30ba990,candidate_menu_page_calllog_deleted,CallLog deleted
+0x30ba9b0,1,0x2,0x30ba9ac,0x30ba9a8,,My Num is Saved
+0x30ba9c8,1,0x2,0x30ba9c4,0x30ba9c0,,Group num saved
+0x30ba9e0,1,0x2,0x30ba9dc,0x30ba9d8,,Layer mode is set
+0x30ba9f8,1,0x2,0x30ba9f4,0x30ba9f0,,Zone is set
+0x30baa10,1,0x2,0x30baa0c,0x30baa08,,Initialized
+0x30baa28,1,0x2,0x30baa24,0x30baa20,,Time is set
+0x30baa50,1,0x2,0x30baa4c,0x30baa48,candidate_menu_multi_page_304ddb0,Tx Power is set
+0x30baa68,1,0x2,0x30baa64,0x30baa60,candidate_menu_page_keypad_lock candidate_menu_page_keypad_lock_3035864 candidate_menu_page_keypad_lock_303af48,Keypad Lock!
+0x30baa80,1,0x2,0x30baa7c,0x30baa78,candidate_menu_multi_page_304ddb0,Slot is set
+0x30baa98,1,0x2,0x30baa94,0x30baa90,,Time is invalid
+0x30baab0,1,0x2,0x30baaac,0x30baaa8,,Date is set
+0x30baac8,1,0x2,0x30baac4,0x30baac0,,Date is invalid
+0x30baae0,1,0x2,0x30baadc,0x30baad8,candidate_menu_page_msg_is_deleted 0x304f7b8 0x304f86c candidate_menu_multi_page_30507bc 0x3050d2c 0x30523ec 0x30526a8,Save to Draft
+0x30baaf8,1,0x2,0x30baaf4,0x30baaf0,candidate_menu_multi_page_3035398,Saving...
+0x30bab10,1,0x2,0x30bab0c,0x30bab08,,No Message
+0x30bab28,1,0x2,0x30bab24,0x30bab20,,Can not run
+0x30bab40,1,0x2,0x30bab3c,0x30bab38,candidate_menu_page_msg_is_deleted candidate_menu_page_msg_is_deleted_3051d3c,Msg is Deleted
+0x30bab58,1,0x2,0x30bab54,0x30bab50,,Deleted
+0x30bab70,1,0x2,0x30bab6c,0x30bab68,,Delete err
+0x30bab88,1,0x2,0x30bab84,0x30bab80,candidate_menu_multi_page_3042b88 candidate_menu_message_boxes,Empty Inbox!
+0x30baba0,1,0x2,0x30bab9c,0x30bab98,candidate_menu_multi_page_3042b88 candidate_menu_page_empty_outbox,Empty Outbox!
+0x30babb8,1,0x2,0x30babb4,0x30babb0,candidate_menu_multi_page_3042b88 candidate_menu_page_empty_draft_box,Empty Draft Box!
+0x30babd0,1,0x2,0x30babcc,0x30babc8,candidate_menu_multi_page_3042b88,Quick Text empty
+0x30babe8,1,0x2,0x30babe4,0x30babe0,candidate_menu_quick_text,"Empty, Add?"
+0x30bac00,1,0x2,0x30babfc,0x30babf8,candidate_menu_tx_contact_list candidate_menu_contacts,NO Contact
+0x30bac18,1,0x2,0x30bac14,0x30bac10,menu_state_021 candidate_menu_page_list_is_empty candidate_menu_page_list_is_empty_304d46c candidate_menu_page_list_is_empty_304e960,List is empty
+0x30bac30,1,0x2,0x30bac2c,0x30bac28,candidate_menu_page_quick_text_empty,Quick Text empty!
+0x30bac48,1,0x2,0x30bac44,0x30bac40,,TOT(S):
+0x30bac60,1,0x2,0x30bac5c,0x30bac58,,Call Time is Set
+0x30bac78,1,0x2,0x30bac74,0x30bac70,,Time Delay:
+0x30bace8,12,0x2,0x30bacb8,0x30bac88,candidate_menu_multi_page_3044248,Always On | 5S | 10S | 15S | 20S | 25S | 30S | 1Min | 2Min | 3Min | 4Min | 5Min
+0x30bad00,1,0x2,0x30bacfc,0x30bacf8,candidate_menu_multi_page_3048f50,Lock Time Delay:
+0x30bad18,1,0x2,0x30bad14,0x30bad10,,Luminance:
+0x30bad38,2,0x2,0x30bad30,0x30bad28,candidate_menu_page_press_menu_and,Press Menu and * | to Unlock
+0x30bad60,3,0x2,0x30bad54,0x30bad48,candidate_menu_page_tx_limit,Tx Limit! | 136-174 | 400-470
+0x30bad78,1,0x2,0x30bad74,0x30bad70,candidate_menu_page_press_menu_and,Keypad Lock
+0x30bad90,1,0x2,0x30bad8c,0x30bad88,candidate_menu_page_null_ch candidate_menu_page_null_ch_3057790,Null Ch.
+0x30bada8,1,0x2,0x30bada4,0x30bada0,,Unlock
+0x30badc0,1,0x2,0x30badbc,0x30badb8,candidate_menu_page_keypad_lock candidate_menu_page_keypad_unlocked,keypad unlocked
+0x30badd8,1,0x2,0x30badd4,0x30badd0,,Powering up
+0x30badf0,1,0x2,0x30badec,0x30bade8,,Contact saved
+0x30bae08,1,0x2,0x30bae04,0x30bae00,,Del Contact err
+0x30bae20,1,0x2,0x30bae1c,0x30bae18,candidate_menu_multi_page_3035398,Contacts is full
+0x30bae38,1,0x2,0x30bae34,0x30bae30,candidate_menu_page_member_is_full candidate_menu_page_member_is_full_302e7c0 candidate_menu_page_list_is_empty_304d46c candidate_menu_page_list_is_empty_304e960,Member is full!
+0x30bae50,1,0x2,0x30bae4c,0x30bae48,candidate_menu_page_tx_limit,Style is err
+0x30bae68,1,0x2,0x30bae64,0x30bae60,,Scan On
+0x30bae80,1,0x2,0x30bae7c,0x30bae78,,Scan Off
+0x30baea0,2,0x2,0x30bae98,0x30bae90,,Normal | Tight
+0x30baec8,3,0x2,0x30baebc,0x30baeb0,candidate_battery_voltage_format candidate_menu_multi_page_3044248,Picture | Char String | Voltage
+0x30baee0,1,0x2,0x30baedc,0x30baed8,candidate_menu_page_tx_limit,No Contact
+0x30baef8,1,0x2,0x30baef4,0x30baef0,,Channel Busy!
+0x30baf10,1,0x2,0x30baf0c,0x30baf08,,Can Not Send!
+0x30baf28,1,0x2,0x30baf24,0x30baf20,candidate_menu_page_contacts_existed candidate_menu_multi_page_3035588 candidate_menu_page_out_of_range_3052034,Contacts Existed
+0x30baf40,1,0x2,0x30baf3c,0x30baf38,,Contacts existed
+0x30baf58,1,0x2,0x30baf54,0x30baf50,menu_state_026,ID existed
+0x30baf70,1,0x2,0x30baf6c,0x30baf68,candidate_menu_multi_page_303b6ac,Manual Dial
+0x30bafb0,1,0x2,0x30bafac,0x30bafa8,candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588 candidate_menu_page_list_is_empty_304d46c 0x304d9c4 candidate_menu_multi_page_304ddb0 candidate_menu_page_list_is_empty_304e960 candidate_scan_lists_write_304ec70 candidate_menu_page_encrypt_list candidate_roaming_zones_write_30505cc candidate_menu_multi_page_30507bc candidate_menu_page_out_of_range_3050f78,Name is empty
+0x30bafc8,1,0x2,0x30bafc4,0x30bafc0,candidate_menu_page_contacts_existed candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588,Number is empty
+0x30bafe0,1,0x2,0x30bafdc,0x30bafd8,,No room
+0x30baff8,1,0x2,0x30baff4,0x30baff0,,No seq
+0x30bb010,1,0x2,0x30bb00c,0x30bb008,,Back Seq Err
+0x30bb028,1,0x2,0x30bb024,0x30bb020,candidate_menu_page_contacts_existed candidate_menu_multi_page_3035398 candidate_menu_multi_page_3035588,Number is err
+0x30bb040,1,0x2,0x30bb03c,0x30bb038,candidate_menu_page_number_is_err candidate_menu_tx_contact_list candidate_menu_contacts,Number is err
+0x30bb058,1,0x2,0x30bb054,0x30bb050,,Name:
+0x30bb070,1,0x2,0x30bb06c,0x30bb068,,Num:
+0x30bb088,1,0x2,0x30bb084,0x30bb080,,Type:
+0x30bb0a0,1,0x2,0x30bb09c,0x30bb098,candidate_menu_page_empty_calllog candidate_menu_page_empty_calllog_3041c74 candidate_menu_page_empty_calllog_3041cc0 candidate_menu_page_missed_3058ec0,Empty CallLog!
+0x30bb0b8,1,0x2,0x30bb0b4,0x30bb0b0,,Time of call is:
+0x30bb0d0,1,0x2,0x30bb0cc,0x30bb0c8,,Call duration :
+0x30bb0e8,1,0x2,0x30bb0e4,0x30bb0e0,task_shutdown,Powering down...
+0x30bb100,1,0x2,0x30bb0fc,0x30bb0f8,task_shutdown,Low battery voltage
+0x30bb118,1,0x2,0x30bb114,0x30bb110,,Power On...
+0x30bb130,1,0x2,0x30bb12c,0x30bb128,menu_state_033 menu_state_026,Delete...
+0x30bb148,1,0x2,0x30bb144,0x30bb140,menu_state_033 menu_state_026 candidate_menu_page_out_of_range 0x304f198 0x3050cc0 candidate_menu_page_out_of_range_3052034 0x3056ca8 candidate_roaming_zones_update_3066dc0,Delete OK!
+0x30bb160,1,0x2,0x30bb15c,0x30bb158,candidate_menu_page_remove_group,Remove Group
+0x30bb178,1,0x2,0x30bb174,0x30bb170,candidate_menu_page_member_is_full candidate_menu_page_member_is_full_302e7c0 candidate_menu_page_list_is_empty_304d46c 0x304d9c4 candidate_menu_page_list_is_empty_304e960 candidate_roaming_zones_write_30505cc candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Add Success!
+0x30bb190,1,0x2,0x30bb18c,0x30bb188,candidate_menu_page_search_contact_3059d5c,Invalid Number
+0x30bb1a8,1,0x2,0x30bb1a4,0x30bb1a0,candidate_menu_page_member_is_full candidate_menu_multi_page_3035588 candidate_menu_page_out_of_range_3050f78 candidate_menu_page_out_of_range_3052034,Saving...
+0x30bb1c0,1,0x2,0x30bb1bc,0x30bb1b8,menu_state_000,Password
+0x30bb1d8,1,0x2,0x30bb1d4,0x30bb1d0,menu_state_005,Wrong pw.
+0x30bb218,1,0x2,0x30bb214,0x30bb210,candidate_keyfunc_roaming menu_state_019 candidate_roaming_zones_update_304eb34 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c candidate_menu_page_tx_limit candidate_menu_page_msg_send_failed 0x306574c,Rx Only
+0x30bb298,2,0x2,0x30bb290,0x30bb288,menu_state_021,Private Call | Group Call
+0x30bb2b0,1,0x2,0x30bb2ac,0x30bb2a8,,Volume:%02d
+0x30bb2c8,1,0x5,0x30bb2c4,0x30bb2c0,candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,Radio Check...
+0x30bb2e0,1,0x5,0x30bb2dc,0x30bb2d8,candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,Call Alert...
+0x30bb2f8,1,0x5,0x30bb2f4,0x30bb2f0,candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,Remote Mon...
+0x30bb350,1,0x5,0x30bb34c,0x30bb348,candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,Radio Disable...
+0x30bb368,1,0x5,0x30bb364,0x30bb360,candidate_menu_multi_page_302c880 candidate_menu_multi_page_304ee0c candidate_menu_multi_page_30507bc candidate_menu_multi_page_305182c,Radio Active...
+0x30bb4d0,43,0x2,0x30bb424,0x30bb378,candidate_menu_page_none,None | Tx Power | BATT Indicator | Talk Around | Digital Encrypt | Call | Vox | VFO/MR | Alarm | Hot Key 1 | Hot Key 2 | Hot Key 3 | Hot Key 4 | Hot Key 5 | Message | Contact | Zone Up | Zone Down | Scan | Record Switch | Previous Record | Next Record | FM Radio | FM Search | GPS Info | Monitor | A/B Switch | Work Alone | KeyPad Lock | Nuisance Delete | TBST Send | APRS Send | Switch ChType | Wait Mode | CTC/DCS Scan | CTC/DCS Set | Mute | Roaming | Sub PTT | Scramb | Freq Search | Flashlight | ManDown
+0x30bb5f0,4,0x2,0x30bb5e0,0x30bb5d0,candidate_menu_multi_page_3038500 candidate_menu_multi_page_3044248 candidate_menu_multi_page_3046064,Time | Date | Time Display | Display Format
+0x30bb610,2,0x2,0x30bb608,0x30bb600,candidate_menu_multi_page_3046064,yyyy/mm/dd | dd/mm/yyy
+0x30bb6d8,9,0x2,0x30bb6b4,0x30bb690,candidate_menu_multi_page_3046064,Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Level 8 | Level 9
+0x30bb91c,8,0x2,0x30bb8fc,0x30bb8dc,candidate_menu_multi_page_303b6ac menu_state_014 candidate_menu_multi_page_3048f50,APRS On/Off | Upload ID | Upload Type | Report Channel | Intervals Set | APRS Info | Upload Beacon | Delete All
+0x30bb93c,2,0x2,0x30bb934,0x30bb92c,menu_state_021,GPS Beacon | Fixed Beacon
+0x30bc77c,2,0x2,0x30bc774,0x30bc76c,menu_state_075 candidate_menu_page_inbox_list,InBox List | Delete All
+0x30bc79c,2,0x2,0x30bc794,0x30bc78c,candidate_menu_page_inbox_list,OutBox List | Delete All
+0x30bc7bc,2,0x2,0x30bc7b4,0x30bc7ac,candidate_menu_page_inbox_list,DraftBox List | Delete All
+0x30bc804,2,0x2,0x30bc7fc,0x30bc7f4,candidate_menu_multi_page_3044248,FREQ  | CH Name
+0x30bc83c,5,0x2,0x30bc828,0x30bc814,candidate_menu_multi_page_30473b0,Analog | Digital | A+D TX A | D+A TX D | AM
+0x30bc86c,4,0x2,0x30bc85c,0x30bc84c,candidate_menu_multi_page_3044248,Save Off | Save 1:1 | Save 1:2 | Save 1:4
+0x30bc88c,2,0x2,0x30bc884,0x30bc87c,candidate_menu_multi_page_30473b0,Narrow | Wide
+0x30bc8d0,4,0x2,0x30bc8c0,0x30bc8b0,candidate_menu_multi_page_303b6ac candidate_menu_page_pre_time candidate_menu_page_select,Select | Channel List | Add Channel | Edit Name
+0x30bc918,2,0x2,0x30bc910,0x30bc908,menu_state_075,Main chan is | Ana!
+0x30bc938,2,0x2,0x30bc930,0x30bc928,candidate_menu_multi_page_302d838,Sending Digit | Aprs Data
+0x30bc960,3,0x2,0x30bc954,0x30bc948,candidate_keyfunc_roaming candidate_menu_multi_page_3038500 menu_state_019 candidate_menu_multi_page_303b6ac menu_state_014,One time Roam | Roaming Zone | Auto Roaming
+0x30bc980,2,0x2,0x30bc978,0x30bc970,menu_state_021 candidate_menu_multi_page_3048f50,On/Off | Fixed Time Set
+0x30bc9c0,2,0x2,0x30bc9b8,0x30bc9b0,,Pls plug in | the earphone!
+0x30bca10,5,0x2,0x30bc9fc,0x30bc9e8,candidate_menu_multi_page_3038500 candidate_menu_multi_page_304231c candidate_menu_multi_page_3048f50,TX Pretime | PTT ID Decode  | PTT ID Pause | Bit Sync | SideTone
+0x30bca40,4,0x2,0x30bca30,0x30bca20,candidate_menu_multi_page_30473b0,None | Pre Only | Post Only | Pre & Post
+0x30bca60,2,0x2,0x30bca58,0x30bca50,candidate_menu_multi_page_3044248 candidate_menu_multi_page_30473b0 candidate_menu_device_info,OFF | ON
+0x30bca98,5,0x2,0x30bca84,0x30bca70,candidate_menu_multi_page_30473b0,OFF | DTMF | Two Tone | Five Tone | BDC1200
+0x30bcad8,6,0x2,0x30bcac0,0x30bcaa8,candidate_menu_multi_page_3038500 candidate_menu_multi_page_304231c candidate_menu_multi_page_3048f50,Duration Time | Gap Time | Pre Time | PTT ID Pause | Side Tone | Response
+0x30bcb00,3,0x2,0x30bcaf4,0x30bcae8,candidate_menu_device_info,OFF | Prompt | Prompt and reply
+0x30bcb48,7,0x2,0x30bcb2c,0x30bcb10,candidate_menu_multi_page_3038500 candidate_menu_multi_page_304231c candidate_menu_multi_page_3048f50,Pre Time | 1st Tone Time | 2nd Tone Time | Long Tone Time | Gap Time | Side Tone | Auto Reset Time
+0x30bcb88,6,0x2,0x30bcb70,0x30bcb58,candidate_menu_multi_page_3038500 candidate_menu_page_pre_time candidate_menu_multi_page_304231c,Pre Time | Standard | Response | Side Tone | PTT ID Pause | Auto Reset Time
+0x30bcbb0,3,0x2,0x30bcba4,0x30bcb98,candidate_menu_device_info,None | Tone | Tone & Respond
+0x30bcbe0,8,0x2,0x30bcbc0,0x30bcbc0,candidate_menu_device_info,ZVEI1 | ZVEI2 | ZVEI3 | CCIR1 | CCIR2 | CCIR3 | EEA | EIA
+0x30bcc10,4,0x2,0x30bcc00,0x30bcbf0,candidate_menu_page_none_30450ec,Select | Edit ID | Edit Name | Save

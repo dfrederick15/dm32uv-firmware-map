@@ -1,0 +1,40 @@
+os_task_name,label,entry_point,created_at,created_by,tcb
+uC/OS-III Idle Task,OS_IdleTask,0x10868,0x10a86,OS_IdleTaskInit,0x42b38
+uC/OS-III ISR Queue Task,OS_IntQTask,0x1183c,0x11992,OS_IntQTaskInit,0x42a68
+uC/OS-III Tick Task,OS_TickTask,0x13c34,0x138de,OS_TickTaskInit,0x4253c
+encoder,task_encoder,0x2e5bc,0x16512,start_tasks_decoder_and_1_more,0x48080
+decoder,task_decoder,0x2ec4c,0x1659a,start_tasks_decoder_and_1_more,0x47fb8
+task init,task_init,0x3068e54,0x2e1bc,start_task_init,0x40dc4
+txmsg,task_txmsg,0x301fdd8,0x300c8cc,start_task_txmsg,
+sysint,task_sysint,0x2d770,0x300c9c4,start_tasks_ccltraffic_and_12_more,0x341f8
+txslot,task_txslot,0x2d620,0x300c9fe,start_tasks_ccltraffic_and_12_more,0x354c0
+rxslot,task_rxslot,0x302386c,0x300ca36,start_tasks_ccltraffic_and_12_more,0x37e68
+rxcsbk,task_rxcsbk,0x30209e4,0x300ca6e,start_tasks_ccltraffic_and_12_more,0x36e80
+rxvoice,task_rxvoice,0x30206d0,0x300caaa,start_tasks_ccltraffic_and_12_more,0x364c4
+txmsg,task_txmsg,0x301fdd8,0x300cadc,start_tasks_ccltraffic_and_12_more,0x346c0
+rxmsg,task_rxmsg,0x301ff9c,0x300cb0e,start_tasks_ccltraffic_and_12_more,0x35588
+CclTraffic,task_ccltraffic,0x301e924,0x300cb40,start_tasks_ccltraffic_and_12_more,0x36f74
+cpchanscan,task_cpchanscan,0x3023b3c,0x300cb7c,start_tasks_ccltraffic_and_12_more,0x35a50
+SlotTimer,task_slottimer,0x30293c8,0x300cbb4,start_tasks_ccltraffic_and_12_more,0x34b88
+record,task_record,0x302124c,0x300cbe6,start_tasks_ccltraffic_and_12_more,0x353c4
+decrypt,task_decrypt,0x2d324,0x300cc18,start_tasks_ccltraffic_and_12_more,0x365b4
+encrypt,task_encrypt,0x2d2f0,0x300cc4a,start_tasks_ccltraffic_and_12_more,0x35f9c
+task psint,task_psint,0x305f234,0x300cda6,start_task_psint,0x38384
+task SqlCheck,task_sqlcheck,0x3060f18,0x300d51e,start_tasks_sqlcheck_and_1_more,0x384e4
+task rf,rf_switch_worker,0x300dc94,0x300d540,start_tasks_sqlcheck_and_1_more,0x385dc
+task gps,task_gps,0x3011a80,0x301187c,start_task_gps,0x38bc0
+keyTime,task_keytime,0x30151d0,0x3012f2c,start_tasks_keytime_and_1_more,0x38f14
+keys,task_keys,0x3012d2c,0x3012f5c,start_tasks_keytime_and_1_more,0x38e4c
+task ShutDown,task_shutdown,0x301b784,0x301b8d0,start_task_shutdown,0x39390
+task cds,task_cds,0x300e49c,0x301d5f8,start_task_cds,0x3a534
+task sound,task_sound,0x3022fb0,0x3021c12,start_task_sound,0x3bd9c
+task usb,task_usb,0x302b340,0x3029f78,start_task_usb,0x3df24
+task CallDisp,task_calldisp,0x302df18,0x302b81a,start_task_calldisp,0x3dfec
+task CodeSw,task_codesw,0x30323c8,0x3030352,start_task_codesw,0x3e26c
+task menu,task_menu,0x3040a38,0x3035e4e,start_task_menu,0x3e51c
+task ScanDisp,task_scandisp,0x305490c,0x3054632,start_task_scandisp,0x3eb20
+task TmrHnd,task_tmrhnd,0x3055918,0x30559de,start_task_tmrhnd,0x3ec18
+task InputAlter,task_inputalter,0x305aa50,0x305947e,start_task_inputalter,0x3ed4c
+Led Manage,task_led_manage,0x30614d8,0x30611a6,start_task_led_manage,0x3fe44
+uC/OS-III Stat Task,OS_StatTask,0x306b1f8,0x306b682,OS_StatTaskInit,0x42c04
+uC/OS-III Timer Task,OS_TmrTask,0x306bbd4,0x306ba30,OS_TmrInit,0x42610
