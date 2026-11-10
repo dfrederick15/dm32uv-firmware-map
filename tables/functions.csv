@@ -1,15 +1,15 @@
 address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,callees,indirect_jump,ends_cleanly,found_by,module,hardware,reached_by_tasks,reachable
 0x1018c,iram-init,CPU_SR_Save,yes,16,0x1019c,6,114,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (38 tasks),yes
 0x1019c,iram-init,CPU_SR_Restore,yes,6,0x101a2,2,115,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (38 tasks),yes
-0x101a4,iram-init,get_u32_45664,yes,16,0x101b4,8,2,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
+0x101a4,iram-init,candidate_CPU_IntDisMeasMaxCalc,yes,16,0x101b4,8,2,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
 0x101b4,iram-init,sub_101b4,,2,0x101b6,1,12,0,,,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x101b8,iram-init,candidate_os_timestamp_get_thunk,yes,8,0x101c0,3,0,1,,yes,unreferenced prologue,uC/OS-III kernel and CPU port (RAM),,,no
 0x101c4,iram-init,sub_101c4,,36,0x101e8,14,0,1,,yes,unreferenced prologue,uC/OS-III kernel and CPU port (RAM),,,no
 0x101e8,iram-init,set_u32_45640,yes,6,0x101ee,3,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
-0x101f0,iram-init,CPU_SR_Save_thunk_101f0,yes,4,0x101f4,2,1,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
+0x101f0,iram-init,candidate_CPU_IntDisMeasMaxCurGet,yes,4,0x101f4,2,1,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x101f4,iram-init,sub_101f4,,18,0x10206,6,2,2,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x10208,iram-init,sub_10208,,26,0x10222,10,1,3,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
-0x10224,iram-init,sub_10224,,22,0x1023a,8,3,3,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
+0x10224,iram-init,candidate_CPU_IntDisMeasMaxGet,yes,22,0x1023a,8,3,3,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
 0x1023c,iram-init,CPU_IntDisMeasStart,yes,36,0x10260,16,103,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (37 tasks),yes
 0x10260,iram-init,CPU_IntDisMeasStop,yes,56,0x10298,26,105,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (37 tasks),yes
 0x10298,iram-init,sub_10298,,80,0x102e8,31,0,7,,yes,unreferenced prologue,uC/OS-III kernel and CPU port (RAM),,,no
@@ -66,7 +66,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x10ccc,iram-init,sub_10ccc,,2,0x10cce,1,1,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x10cd0,iram-init,sub_10cd0,,52,0x10d04,18,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x10d04,iram-init,sub_10d04,,64,0x10d44,22,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (6 tasks),yes
-0x10d44,iram-init,set_u16_42740,yes,24,0x10d5c,11,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
+0x10d44,iram-init,candidate_OS_RdyListInit,yes,24,0x10d5c,11,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x10d5c,iram-init,sub_10d5c,,298,0x10e86,116,1,17,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x10eec,iram-init,sub_10eec,,96,0x10f4c,33,3,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (7 tasks),yes
 0x10f4c,iram-init,sub_10f4c,,84,0x10fa0,33,5,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (8 tasks),yes
@@ -90,7 +90,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x116a4,iram-init,sub_116a4,,318,0x117e2,115,1,9,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III ISR Queue Task,yes
 0x1183c,iram-init,OS_IntQTask,yes,142,0x118ca,47,0,8,,,code pointer in instruction; existing label,uC/OS-III kernel and CPU port (RAM),,uC/OS-III ISR Queue Task,yes
 0x118cc,iram-init,OS_IntQTaskInit,yes,206,0x1199a,91,1,1,,yes,direct call; existing label,uC/OS-III kernel and CPU port (RAM),,,yes
-0x119e0,iram-init,set_u32_40e8c,yes,10,0x119ea,5,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
+0x119e0,iram-init,candidate_OS_PrioInit,yes,10,0x119ea,5,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x119ec,iram-init,OS_PrioGetHighest,yes,38,0x11a12,16,3,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,irq:common_irq_entry,yes
 0x11a14,iram-init,update_40e8c_field,yes,30,0x11a32,12,7,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (9 tasks),yes
 0x11a34,iram-init,update_40e8c_field_11a34,yes,30,0x11a52,13,2,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (31 tasks),yes
@@ -103,7 +103,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x11d38,iram-init,sub_11d38,,8,0x11d40,3,1,1,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x11d80,iram-init,sub_11d80,,2,0x11d82,1,2,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x11d84,iram-init,OS_SemClr,yes,24,0x11d9c,11,1,1,,yes,direct call; existing label,uC/OS-III kernel and CPU port (RAM),,,no
-0x11d9c,iram-init,set_u32_42a44,yes,30,0x11dba,14,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,task init,yes
+0x11d9c,iram-init,OS_SemDbgListAdd,yes,30,0x11dba,14,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,task init,yes
 0x11dbc,iram-init,OSSemCreate,yes,152,0x11e54,59,2,8,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,task init,yes
 0x11e54,iram-init,sub_11e54,,48,0x11e84,21,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x11e84,iram-init,OSSemDel,yes,306,0x11fd6,116,1,11,,yes,direct call; unreferenced prologue,uC/OS-III kernel and CPU port (RAM),,,no
@@ -135,7 +135,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x12a58,iram-init,sub_12a58,,76,0x12aa4,29,2,3,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,no
 0x12aa4,iram-init,sub_12aa4,,2,0x12aa6,1,3,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
 0x12aa8,iram-init,sub_12aa8,,82,0x12afa,33,0,4,,yes,unreferenced prologue,uC/OS-III kernel and CPU port (RAM),,,no
-0x12b08,iram-init,set_u32_42720,yes,34,0x12b2a,12,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,task init,yes
+0x12b08,iram-init,OS_TaskDbgListAdd,yes,34,0x12b2a,12,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,task init,yes
 0x12b2c,iram-init,sub_12b2c,,68,0x12b70,21,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x12b70,iram-init,sub_12b70,,18,0x12b82,9,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,,yes
 0x12b84,iram-init,OS_TaskInitTCB,yes,182,0x12c3a,65,2,2,,yes,direct call; existing label,uC/OS-III kernel and CPU port (RAM),,task init,yes
@@ -154,7 +154,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x13874,iram-init,OS_TickTaskInit,yes,114,0x138e6,51,1,2,,yes,direct call; existing label,uC/OS-III kernel and CPU port (RAM),,,yes
 0x138e8,iram-init,candidate_OSTimeDlyResume,yes,296,0x13a46,125,3,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (30 tasks),yes
 0x13a48,iram-init,sub_13a48,,58,0x13a82,26,7,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,shared (7 tasks),yes
-0x13a84,iram-init,set_u16_420a2,yes,28,0x13aa0,13,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
+0x13a84,iram-init,candidate_os_list_clear_420a2,yes,28,0x13aa0,13,1,0,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
 0x13aa0,iram-init,sub_13aa0,,376,0x13c32,145,1,11,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Tick Task,yes
 0x13c34,iram-init,OS_TickTask,yes,40,0x13c5c,17,0,2,,,code pointer in instruction; existing label,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Tick Task,yes
 0x13c6c,iram-init,OSTimeDly,yes,242,0x13d5e,91,3,9,,yes,direct call,uC/OS-III kernel and CPU port (RAM),,uC/OS-III Stat Task,yes
@@ -741,7 +741,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x300c438,application,candidate_uses_event,yes,22,0x300c44e,10,4,1,,yes,direct call,OS wrappers and signal helpers,,task init,yes
 0x300c450,application,sub_300c450,,20,0x300c464,9,0,1,,yes,unreferenced prologue,OS wrappers and signal helpers,,,no
 0x300c464,application,os_flag_wait,yes,48,0x300c494,17,25,1,,yes,direct call,OS wrappers and signal helpers,,shared (20 tasks),yes
-0x300c494,application,candidate_os_flag_set,yes,20,0x300c4a8,9,29,1,,yes,direct call,OS wrappers and signal helpers,,shared (24 tasks),yes
+0x300c494,application,os_flag_set,yes,20,0x300c4a8,9,29,1,,yes,direct call,OS wrappers and signal helpers,,shared (24 tasks),yes
 0x300c4a8,application,os_flag_clear,yes,20,0x300c4bc,9,26,1,,yes,direct call,OS wrappers and signal helpers,,shared (23 tasks),yes
 0x300c4bc,application,os_delay_ms,yes,24,0x300c4d4,10,70,1,,yes,direct call,OS wrappers and signal helpers,,shared (20 tasks),yes
 0x300c4d4,application,os_sem_create,yes,22,0x300c4ea,10,25,1,,yes,direct call,OS wrappers and signal helpers,,task init,yes
@@ -799,7 +799,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x300d444,application,vocoder_mailbox_copy,yes,40,0x300d46c,16,0,0,,yes,existing label,modem and RF control,modem_buffers,,no
 0x300d47c,application,sub_300d47c,,14,0x300d48a,6,0,1,,yes,unreferenced prologue,modem and RF control,modem_buffers,,no
 0x300d48c,application,return_0_300d48c,yes,4,0x300d490,2,1,0,,yes,direct call,modem and RF control,,task init,yes
-0x300d490,application,set_u8_38480,yes,22,0x300d4a6,11,0,0,,yes,"leaf code in gap, no known reference",modem and RF control,,,no
+0x300d490,application,candidate_flag_38480_38481_set,yes,22,0x300d4a6,11,0,0,,yes,"leaf code in gap, no known reference",modem and RF control,,,no
 0x300d4b0,application,start_tasks_sqlcheck_and_1_more,yes,152,0x300d548,61,1,10,,yes,direct call; existing label,modem and RF control,,task init,yes
 0x300d568,application,candidate_settings_read_300d568,yes,642,0x300d7ea,234,1,8,,yes,direct call,modem and RF control,,task init,yes
 0x300d810,application,candidate_freq_in_band_window,yes,22,0x300d826,11,6,0,,yes,direct call,modem and RF control,,shared (7 tasks),yes
@@ -892,13 +892,13 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x300f3d0,application,candidate_codeplug_map_rebuild,yes,278,0x300f4e6,106,1,7,,yes,direct call,codeplug storage layer,,task init,yes
 0x300f4fc,application,sub_300f4fc,,46,0x300f52a,21,1,1,,yes,direct call,codeplug storage layer,,task init,yes
 0x300f52c,application,candidate_record_index_find_sector,yes,104,0x300f594,45,8,1,,yes,direct call,codeplug storage layer,,keys record task init,yes
-0x300f594,application,candidate_codeplug_sector_lookup_locked,yes,32,0x300f5b4,13,75,3,,yes,direct call,codeplug storage layer,,shared (9 tasks),yes
+0x300f594,application,codeplug_sector_lookup_locked,yes,32,0x300f5b4,13,75,3,,yes,direct call,codeplug storage layer,,shared (9 tasks),yes
 0x300f5b4,application,candidate_codeplug_free_sector_find,yes,110,0x300f622,44,9,4,,yes,direct call,codeplug storage layer,,task CallDisp task menu,yes
 0x300f624,application,candidate_record_index_find_free,yes,102,0x300f6be,44,2,1,,yes,direct call,codeplug storage layer,,record task init,yes
 0x300f6c0,application,candidate_codeplug_sector_release,yes,62,0x300f6fe,26,4,1,,yes,direct call,codeplug storage layer,,task CallDisp,yes
 0x300f700,application,dataflash_sector_erase_locked,yes,28,0x300f71c,11,3,3,,yes,direct call,codeplug storage layer,,record task init task usb,yes
 0x300f71c,application,dataflash_read_locked,yes,98,0x300f77e,38,76,3,,yes,direct call,codeplug storage layer,,shared (9 tasks),yes
-0x300f780,application,candidate_codeplug_read,yes,44,0x300f7ac,18,125,4,,yes,direct call,codeplug storage layer,,shared (8 tasks),yes
+0x300f780,application,codeplug_read,yes,44,0x300f7ac,18,125,4,,yes,direct call,codeplug storage layer,,shared (8 tasks),yes
 0x300f7ac,application,candidate_dataflash_write_locked_b,yes,48,0x300f7dc,18,2,3,,yes,direct call,codeplug storage layer,,task init task menu,yes
 0x300f7dc,application,sub_300f7dc,,96,0x300f83c,38,0,3,,yes,unreferenced prologue,codeplug storage layer,,,no
 0x300f848,application,dataflash_read_raw_locked,yes,42,0x300f872,16,9,3,,yes,direct call,codeplug storage layer,,shared (11 tasks),yes
@@ -966,7 +966,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3012f64,application,candidate_ptt_input_read,yes,14,0x3012f72,6,5,1,,yes,direct call; existing label,keys and key functions,,task init,yes
 0x3012f74,application,candidate_ptt_input_debounce,yes,190,0x3013032,79,1,4,,yes,direct call; existing label,keys and key functions,,task init,yes
 0x3013078,application,candidate_key_get,yes,50,0x30130aa,21,1,1,,yes,direct call,keys and key functions,,task menu,yes
-0x30130ac,application,candidate_keymsgq_post,yes,68,0x30130f0,31,58,1,,yes,direct call,keys and key functions,,shared (10 tasks),yes
+0x30130ac,application,keymsgq_post,yes,68,0x30130f0,31,58,1,,yes,direct call,keys and key functions,,shared (10 tasks),yes
 0x30130f0,application,sub_30130f0,,496,0x3013312,183,1,14,,yes,direct call,keys and key functions,,task init,yes
 0x3013314,application,sub_3013314,,146,0x30133dc,62,1,0,,yes,direct call,keys and key functions,,task init,yes
 0x30133dc,application,sub_30133dc,,48,0x301340c,21,1,0,,yes,direct call,keys and key functions,,task init,yes
@@ -993,7 +993,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301409c,application,sub_301409c,,56,0x30140d4,20,17,3,,yes,direct call,keys and key functions,,task menu,yes
 0x30140e4,application,candidate_key_hook_call,yes,46,0x3014112,19,33,0,,yes,direct call,keys and key functions,,task ScanDisp task menu,yes
 0x3014114,application,sub_3014114,,10,0x301411e,4,0,1,,yes,unreferenced prologue,keys and key functions,,,no
-0x3014124,application,sub_3014124,,6,0x301412a,3,0,0,,yes,"leaf code in gap, no known reference",keys and key functions,,,no
+0x3014128,application,empty_stub_3014128,yes,2,0x301412a,3,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",keys and key functions,,,yes
 0x3014130,application,candidate_key_25_press,yes,24,0x3014148,9,0,1,,yes,code pointer in data,keys and key functions,,,yes
 0x3014148,application,candidate_key_14_press,yes,22,0x301415e,10,0,1,,yes,code pointer in data,keys and key functions,,,yes
 0x3014160,application,candidate_key_13_press,yes,24,0x3014178,9,0,1,,yes,code pointer in data,keys and key functions,,,yes
@@ -1137,12 +1137,12 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3017b80,application,sub_3017b80,,38,0x3017ba6,14,1,2,,yes,direct call,display drawing,,shared (9 tasks),yes
 0x3017ba8,application,sub_3017ba8,,38,0x3017bce,14,1,2,,yes,direct call,display drawing,,shared (9 tasks),yes
 0x3017bd0,application,candidate_lcd_set_window,yes,24,0x3017be8,10,16,2,,yes,direct call,display drawing,,shared (9 tasks),yes
-0x3017be8,application,candidate_lcd_fill_rect,yes,106,0x3017c52,42,98,5,,yes,direct call,display drawing,,shared (14 tasks),yes
+0x3017be8,application,lcd_fill_rect,yes,106,0x3017c52,42,98,5,,yes,direct call,display drawing,,shared (14 tasks),yes
 0x3017c54,application,candidate_lcd_draw_rect_outline,yes,104,0x3017cbc,43,3,3,,yes,direct call,display drawing,,task init task menu,yes
 0x3017cbc,application,candidate_lcd_fill_screen,yes,26,0x3017cd6,12,3,1,,yes,direct call,display drawing,,shared (6 tasks),yes
 0x3017cd8,application,candidate_lcd_clear_screen,yes,10,0x3017ce2,4,5,1,,yes,direct call,display drawing,,shared (5 tasks),yes
 0x3017ce4,application,lcd_init,yes,506,0x3017ede,173,1,9,,yes,direct call,display drawing,lcd modem_sys_regs,task init,yes
-0x3017eec,application,candidate_lcd_fill_client_area,yes,72,0x3017f34,28,26,5,,yes,direct call,display drawing,,shared (7 tasks),yes
+0x3017eec,application,lcd_fill_client_area,yes,72,0x3017f34,28,26,5,,yes,direct call,display drawing,,shared (7 tasks),yes
 0x3017f34,application,sub_3017f34,,142,0x3017fc2,59,0,5,,yes,unreferenced prologue,display drawing,,,no
 0x3017fc4,application,sub_3017fc4,,240,0x30180b4,95,1,6,,yes,direct call,display drawing,,task init,yes
 0x30180c0,application,sub_30180c0,,166,0x3018166,66,1,1,,yes,direct call,display drawing,,shared (6 tasks),yes
@@ -1161,7 +1161,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3018930,application,candidate_lcd_draw_string,yes,254,0x3018a2e,102,46,8,,yes,direct call,display drawing,,shared (11 tasks),yes
 0x3018a30,application,sub_3018a30,,100,0x3018a94,45,2,3,,yes,direct call,display drawing,,shared (6 tasks),yes
 0x3018aa0,application,sub_3018aa0,,84,0x3018af4,36,0,3,,yes,unreferenced prologue,display drawing,,,no
-0x3018af4,application,candidate_lcd_printf_centered,yes,90,0x3018b4e,39,87,3,,yes,direct call,display drawing,,shared (10 tasks),yes
+0x3018af4,application,lcd_printf_centered,yes,90,0x3018b4e,39,87,3,,yes,direct call,display drawing,,shared (10 tasks),yes
 0x3018b54,application,sub_3018b54,,88,0x3018bac,38,0,3,,yes,unreferenced prologue,display drawing,,,no
 0x3018bac,application,sub_3018bac,,194,0x3018c6e,76,6,3,,yes,direct call,display drawing,,shared (6 tasks),yes
 0x3018c70,application,candidate_menu_draw_list_row,yes,116,0x3018ce4,44,31,2,,yes,direct call,display drawing,,keys task ScanDisp,yes
@@ -1243,7 +1243,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301bdb4,application,sub_301bdb4,,278,0x301beca,116,2,6,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,,yes
 0x301bedc,application,sub_301bedc,,56,0x301bf14,21,0,2,,yes,unreferenced prologue,"board support: power, GPIO, timers, UART, ADC, DAC",,,no
 0x301bf14,application,sub_301bf14,,16,0x301bf24,8,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,task init,yes
-0x301bf24,application,set_u16_309c4,yes,26,0x301bf3e,12,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (6 tasks),yes
+0x301bf24,application,candidate_slot_state_reset_309cc,yes,26,0x301bf3e,12,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (6 tasks),yes
 0x301bf40,application,candidate_rssi_measure,yes,374,0x301c0b6,150,2,2,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (6 tasks),yes
 0x301c0ec,application,modem_reg_34_update_301c0ec,yes,24,0x301c104,10,1,2,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",modem_sys_regs,task init,yes
 0x301c104,application,sub_301c104,,118,0x301c17a,49,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (10 tasks),yes
@@ -1269,7 +1269,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301c914,application,candidate_spi3_enable_set,yes,60,0x301c950,24,1,1,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",spi3_efuse,task init task usb,yes
 0x301c950,application,candidate_spi3_efuse_init,yes,60,0x301c98c,26,1,3,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",spi3_efuse,task init task usb,yes
 0x301c98c,application,sub_301c98c,,132,0x301ca10,49,1,7,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,task usb,yes
-0x301ca10,application,sub_301ca10,,6,0x301ca16,3,0,0,,yes,"leaf code in gap, no known reference","board support: power, GPIO, timers, UART, ADC, DAC",,,no
+0x301ca14,application,empty_stub_301ca14,yes,2,0x301ca16,3,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)","board support: power, GPIO, timers, UART, ADC, DAC",,,no
 0x301ca18,application,modem_reg_3c_update_301ca18,yes,18,0x301ca2a,8,2,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",modem_sys_regs,task init,yes
 0x301ca34,application,adc_init,yes,88,0x301ca8c,37,1,1,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",adc modem_sys_regs,task init,yes
 0x301ca8c,application,candidate_adc_read,yes,216,0x301cb6c,75,7,3,yes,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",adc,task ShutDown task init task usb,yes
@@ -1284,13 +1284,13 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301d464,application,candidate_gpio_init,yes,208,0x301d534,78,1,7,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",gpio_a gpio_b gpio_c,task init,yes
 0x301d550,application,start_task_cds,yes,176,0x301d600,76,1,7,,yes,direct call; existing label,"board support: power, GPIO, timers, UART, ADC, DAC",modem_sys_regs,task init,yes
 0x301d618,application,candidate_audio_amp_pin_init,yes,12,0x301d624,5,1,1,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,task init,yes
-0x301d624,application,candidate_audio_amp_set,yes,96,0x301d684,37,33,2,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (14 tasks),yes
+0x301d624,application,audio_amp_set,yes,96,0x301d684,37,33,2,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,shared (14 tasks),yes
 0x301d684,application,test_status_flags_1_1,yes,10,0x301d68e,4,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,,no
 0x301d698,application,sub_301d698,,74,0x301d6e8,36,4,0,yes,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,shared (6 tasks),yes
 0x301d6e8,application,sub_301d6e8,,96,0x301d762,47,2,0,yes,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,shared (6 tasks),yes
 0x301d764,application,sub_301d764,,36,0x301d788,15,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,,no
 0x301d788,application,sub_301d788,,12,0x301d794,6,1,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,task CodeSw task init task usb,yes
-0x301d794,application,set_u32_3a628,yes,26,0x301d7ae,10,0,0,,yes,"leaf code in gap, no known reference","board support: power, GPIO, timers, UART, ADC, DAC",timers,,no
+0x301d794,application,candidate_timer_28_period_us_set,yes,26,0x301d7ae,10,0,0,,yes,"leaf code in gap, no known reference","board support: power, GPIO, timers, UART, ADC, DAC",timers,,no
 0x301d7b0,application,set_u32_3a634,yes,6,0x301d7b6,3,2,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",,task CodeSw task init task usb,yes
 0x301d7b8,application,candidate_timers_init,yes,122,0x301d832,46,1,3,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,task init,yes
 0x301d858,application,candidate_timer_0x14000000_start_ms,yes,32,0x301d878,15,9,0,,yes,direct call,"board support: power, GPIO, timers, UART, ADC, DAC",timers,keyTime keys task menu task sound,yes
@@ -1323,7 +1323,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301e7a8,application,set_u32_33cf0,yes,6,0x301e7ae,3,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x301e7b0,application,sub_301e7b0,,12,0x301e7bc,5,1,0,,yes,direct call,DMR call control and layer 2,,task CodeSw task init,yes
 0x301e7bc,application,modem_local_cc_update_301e7bc,yes,26,0x301e7d6,10,2,0,,yes,direct call,DMR call control and layer 2,modem_sys_regs,task CodeSw task init task menu,yes
-0x301e7d8,application,set_u16_33ce8,yes,14,0x301e7e6,7,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
+0x301e7d8,application,candidate_set_33ce8_index_x50,yes,14,0x301e7e6,7,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
 0x301e7fc,application,set_u8_33ce0,yes,6,0x301e802,3,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
 0x301e804,application,set_u8_33cde,yes,6,0x301e80a,3,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
 0x301e80c,application,set_u8_33cdf,yes,6,0x301e812,3,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
@@ -1372,7 +1372,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x301fe28,application,sub_301fe28,,332,0x301ff94,127,1,9,,yes,direct call,DMR call control and layer 2,,task ScanDisp,yes
 0x301ff94,application,get_u8_30e0d,yes,6,0x301ff9a,3,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x301ff9c,application,task_rxmsg,yes,1600,0x3020626,635,0,17,,,code pointer in instruction; existing label,DMR call control and layer 2,,rxmsg,yes
-0x3020628,application,set_u8_3bac0,yes,28,0x3020644,14,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
+0x3020628,application,candidate_copy_out_3bac0,yes,28,0x3020644,14,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x3020644,application,sub_3020644,,30,0x3020662,13,0,1,,yes,unreferenced prologue,DMR call control and layer 2,,,no
 0x3020664,application,get_u16_3bad4,yes,6,0x302066a,3,1,0,,yes,direct call,DMR call control and layer 2,,task psint,yes
 0x302067c,application,get_u32_3bacc,yes,6,0x3020682,3,1,0,,yes,direct call,DMR call control and layer 2,,task psint,yes
@@ -1380,7 +1380,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x30206a0,application,get_u8_3bac0,yes,6,0x30206a6,3,1,0,,yes,direct call,DMR call control and layer 2,,task psint,yes
 0x30206a8,application,sub_30206a8,,12,0x30206b4,5,1,1,,yes,direct call,DMR call control and layer 2,,task psint,yes
 0x30206d0,application,task_rxvoice,yes,702,0x30209be,247,0,21,,,code pointer in instruction; existing label,DMR call control and layer 2,,rxvoice,yes
-0x30209c0,application,set_u8_3bd48,yes,20,0x30209d4,10,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
+0x30209c0,application,candidate_copy_out_3bd48,yes,20,0x30209d4,10,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x30209d4,application,get_u32_3ba64_30209d4,yes,6,0x30209da,3,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x30209dc,application,get_u8_30e10,yes,6,0x30209e2,3,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x30209e4,application,task_rxcsbk,yes,842,0x3020d50,339,0,8,,,code pointer in instruction; existing label,DMR call control and layer 2,,rxcsbk,yes
@@ -1411,7 +1411,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x30215c8,application,physical_test_select,yes,298,0x30216f2,125,2,3,,yes,direct call; existing label,DMR call control and layer 2,modem_sys_regs,task usb,yes
 0x30216f4,application,candidate_layer2_autotest_set,yes,28,0x3021710,11,1,0,,yes,direct call,DMR call control and layer 2,,task init,yes
 0x3021710,application,candidate_modem_layer2_stop,yes,30,0x302172e,13,2,1,,yes,direct call,DMR call control and layer 2,modem_sys_regs,task usb,yes
-0x3021730,application,modem_fm_dev_coef_read_3021730,yes,24,0x3021748,8,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
+0x3021730,application,modem_fm_dev_coef_update_3021730,yes,24,0x3021748,8,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x3021748,application,modem_rf_mod_bias_ctrl_update_3021748,yes,26,0x3021762,10,2,0,,yes,direct call,DMR call control and layer 2,modem_sys_regs,task init,yes
 0x3021764,application,modem_sig_center_update_3021764,yes,32,0x3021784,13,2,0,,yes,direct call,DMR call control and layer 2,modem_sys_regs,task init,yes
 0x3021788,application,modulation_amplitude_set,yes,26,0x30217a2,11,2,0,,yes,direct call; existing label,DMR call control and layer 2,modem_sys_regs,shared (5 tasks),yes
@@ -1430,7 +1430,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3021ad8,application,modem_reg_88_update_3021ad8,yes,30,0x3021af6,13,1,0,,yes,direct call,DMR call control and layer 2,modem_sys_regs,task init,yes
 0x3021af8,application,sub_3021af8,,212,0x3021bcc,68,1,2,,yes,direct call,DMR call control and layer 2,modem_buffers modem_sys_regs,task init,yes
 0x3021bd4,application,start_task_sound,yes,70,0x3021c1a,32,1,3,,yes,direct call; existing label,DMR call control and layer 2,,task init,yes
-0x3021c1c,application,candidate_sound_request,yes,40,0x3021c44,17,96,3,,yes,direct call,DMR call control and layer 2,,shared (9 tasks),yes
+0x3021c1c,application,sound_request,yes,40,0x3021c44,17,96,3,,yes,direct call,DMR call control and layer 2,,shared (9 tasks),yes
 0x3021c44,application,sub_3021c44,,26,0x3021c5e,9,1,1,,yes,direct call,DMR call control and layer 2,,task init,yes
 0x3021c60,application,candidate_sound_request_with_arg,yes,40,0x3021c88,17,9,3,,yes,direct call,DMR call control and layer 2,,shared (5 tasks),yes
 0x3021c88,application,candidate_prompt_fifo_write,yes,300,0x3021dde,112,1,1,,yes,direct call,DMR call control and layer 2,modem_buffers,task sound,yes
@@ -1466,7 +1466,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3023880,application,candidate_rx_slot_abnormal_handler,yes,14,0x302388e,6,1,0,,yes,direct call,DMR call control and layer 2,,sysint,yes
 0x3023894,application,candidate_layer2_max_cnt_set_a,yes,148,0x3023928,64,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
 0x3023928,application,candidate_layer2_max_cnt_set_b,yes,140,0x30239b4,60,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
-0x30239b8,application,sub_30239b8,,6,0x30239be,3,0,0,,yes,"leaf code in gap, no known reference",DMR call control and layer 2,,,no
+0x30239bc,application,empty_stub_30239bc,yes,2,0x30239be,3,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",DMR call control and layer 2,,,no
 0x30239c4,application,candidate_phy_rx_handler,yes,12,0x30239d0,4,1,2,,yes,direct call,DMR call control and layer 2,,sysint,yes
 0x30239d4,application,candidate_sysint_dispatch,yes,112,0x3023a44,35,1,8,,yes,direct call,DMR call control and layer 2,,sysint,yes
 0x3023a54,application,test_33cc9,yes,12,0x3023a60,5,1,0,,yes,direct call,DMR call control and layer 2,,,no
@@ -1477,7 +1477,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3023a88,application,candidate_layer2_slot_timing_slave,yes,78,0x3023ad6,33,2,0,,yes,direct call,DMR call control and layer 2,,sysint,yes
 0x3023ad8,application,candidate_layer2_slot_timing_master,yes,26,0x3023af2,12,1,0,,yes,direct call,DMR call control and layer 2,,task CodeSw task init task usb,yes
 0x3023afc,application,sub_3023afc,,48,0x3023b2c,19,1,0,,yes,direct call,DMR call control and layer 2,,CclTraffic rxmsg txmsg,yes
-0x3023b2c,application,set_u8_33d7c,yes,14,0x3023b3a,6,1,0,,yes,direct call,DMR call control and layer 2,,CclTraffic rxmsg txmsg,yes
+0x3023b2c,application,clear_33dee_33df4,yes,14,0x3023b3a,6,1,0,,yes,direct call,DMR call control and layer 2,,CclTraffic rxmsg txmsg,yes
 0x3023b3c,application,task_cpchanscan,yes,198,0x3023c02,70,0,5,,,code pointer in instruction; existing label,DMR call control and layer 2,,cpchanscan,yes
 0x3023c04,application,get_u8_33ded,yes,12,0x3023c10,5,5,0,,yes,direct call,DMR call control and layer 2,,sysint,yes
 0x3023c10,application,candidate_rx_sync_miss_count,yes,58,0x3023c4a,24,5,2,,yes,direct call,DMR call control and layer 2,,sysint,yes
@@ -1746,7 +1746,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3034e8c,application,sub_3034e8c,,90,0x3034ee6,40,1,2,,yes,direct call,"call display, channel and codeplug logic",,,yes
 0x3034ef0,application,sub_3034ef0,,90,0x3034f4a,41,1,2,,yes,direct call,"call display, channel and codeplug logic",,,yes
 0x3034f4c,application,sub_3034f4c,,94,0x3034faa,42,1,2,,yes,direct call,"call display, channel and codeplug logic",,,yes
-0x3034fac,application,set_u8_3e454,yes,12,0x3034fb8,6,2,0,,yes,direct call,"call display, channel and codeplug logic",,,yes
+0x3034fac,application,clear_3e454_3e465_3e46e,yes,12,0x3034fb8,6,2,0,,yes,direct call,"call display, channel and codeplug logic",,,yes
 0x3034fb8,application,set_u8_320c4,yes,6,0x3034fbe,3,4,0,,yes,direct call,"call display, channel and codeplug logic",,,yes
 0x3034fc0,application,get_u8_320c4,yes,6,0x3034fc6,3,3,0,,yes,direct call,"call display, channel and codeplug logic",,keys,yes
 0x3034fc8,application,sub_3034fc8,,38,0x3034fee,15,1,1,,yes,direct call,"call display, channel and codeplug logic",,,yes
@@ -1756,7 +1756,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3035398,application,candidate_menu_multi_page_3035398,yes,440,0x3035588,167,2,9,,yes,direct call; existing label,"call display, channel and codeplug logic",,,yes
 0x3035588,application,candidate_menu_multi_page_3035588,yes,578,0x303581a,223,1,13,,yes,direct call; existing label,"call display, channel and codeplug logic",,,yes
 0x303581c,application,sub_303581c,,56,0x3035854,21,1,2,,yes,direct call,"call display, channel and codeplug logic",,,yes
-0x3035858,application,set_u8_3e4dc,yes,10,0x3035862,5,2,0,,yes,direct call,"call display, channel and codeplug logic",,task CallDisp task init,yes
+0x3035858,application,clear_3e4dc_3e4dd,yes,10,0x3035862,5,2,0,,yes,direct call,"call display, channel and codeplug logic",,task CallDisp task init,yes
 0x3035864,application,candidate_menu_page_keypad_lock_3035864,yes,310,0x303599a,136,1,4,,yes,direct call; existing label,"call display, channel and codeplug logic",,task ScanDisp,yes
 0x30359b4,application,get_u8_3e4dd,yes,6,0x30359ba,3,1,0,,yes,direct call,"call display, channel and codeplug logic",,task menu,yes
 0x30359bc,application,candidate_menu_page_press_menu_and,yes,290,0x3035ade,126,2,2,,yes,direct call; existing label,"call display, channel and codeplug logic",,keyTime task init task menu,yes
@@ -1859,7 +1859,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3038500,application,candidate_menu_multi_page_3038500,yes,2114,0x3038eb6,822,1,3,yes,yes,direct call; existing label,menu system,,keys,yes
 0x3038eb8,application,sub_3038eb8,,164,0x3038f5c,68,0,5,,yes,unreferenced prologue,menu system,,,no
 0x3038f5c,application,candidate_lcd_draw_image_locked,yes,156,0x303900c,65,11,5,,yes,direct call,menu system,,keys,yes
-0x303900c,application,candidate_lcd_draw_bitmap,yes,150,0x30390a2,63,26,5,,yes,direct call,menu system,,shared (8 tasks),yes
+0x303900c,application,lcd_draw_bitmap,yes,150,0x30390a2,63,26,5,,yes,direct call,menu system,,shared (8 tasks),yes
 0x30390a4,application,sub_30390a4,,34,0x30390c6,14,0,2,,yes,unreferenced prologue,menu system,,,no
 0x30390c8,application,sub_30390c8,,170,0x3039172,69,1,6,,yes,direct call,menu system,,task menu,yes
 0x303918c,application,sub_303918c,,24,0x30391a4,10,1,1,,yes,direct call,menu system,,task CallDisp,yes
@@ -1893,7 +1893,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x303a1d0,application,sub_303a1d0,,594,0x303a43e,247,1,2,,yes,direct call,menu system,,,yes
 0x303a440,application,sub_303a440,,70,0x303a486,30,1,1,,yes,direct call,menu system,,keys,yes
 0x303a4ac,application,candidate_popup_setting_ok,yes,70,0x303a4f2,26,16,5,,yes,direct call,menu system,,,yes
-0x303a4f4,application,candidate_popup_status,yes,86,0x303a54a,34,43,5,,yes,direct call,menu system,,,yes
+0x303a4f4,application,popup_status,yes,86,0x303a54a,34,43,5,,yes,direct call,menu system,,,yes
 0x303a54c,application,menu_state_033,yes,440,0x303a748,176,0,16,,yes,existing label,menu system,,,yes
 0x303a748,application,menu_state_026,yes,840,0x303ab30,333,0,24,,yes,existing label,menu system,,,yes
 0x303ab30,application,menu_state_019,yes,914,0x303af46,365,0,9,,yes,existing label,menu system,,,yes
@@ -2179,7 +2179,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3054eb8,application,sub_3054eb8,,188,0x3054f8e,80,1,3,,yes,direct call,menu system,,task init,yes
 0x3054f90,application,sub_3054f90,,32,0x3054fb0,15,11,1,,yes,direct call,menu system,,shared (5 tasks),yes
 0x3054fb0,application,sub_3054fb0,,32,0x3054fd0,15,1,1,,yes,direct call,menu system,,task SqlCheck,yes
-0x3054fd0,application,sub_3054fd0,,10,0x3054fda,3,0,1,,yes,"leaf code in gap, no known reference",menu system,,,no
+0x3054fd8,application,empty_stub_3054fd8,yes,2,0x3054fda,3,0,1,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",menu system,,,yes
 0x3054fec,application,sub_3054fec,,24,0x3055004,9,0,3,,yes,code pointer in data,menu system,,,yes
 0x3055004,application,candidate_rfic_squelch_threshold_set_thunk_3055004,yes,10,0x305500e,4,0,1,,yes,code pointer in data,menu system,,,yes
 0x3055010,application,sub_3055010,,22,0x3055026,8,0,1,,yes,code pointer in data,menu system,,,yes
@@ -2438,7 +2438,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x30601cc,application,candidate_radio_mode_apply,yes,422,0x3060396,151,3,20,,yes,direct call,"radio state, LEDs, records, sound",,keys task CodeSw task menu,yes
 0x3060398,application,sub_3060398,,66,0x30603da,25,2,7,,yes,direct call,"radio state, LEDs, records, sound",,task sound,yes
 0x30603dc,application,sub_30603dc,,114,0x306044e,44,10,6,,yes,direct call,"radio state, LEDs, records, sound",,task CodeSw task init,yes
-0x3060450,application,set_u16_3fdf0,yes,14,0x306045e,7,2,0,,yes,direct call,"radio state, LEDs, records, sound",,keys task SqlCheck task sound,yes
+0x3060450,application,candidate_request_3fdf0_start,yes,14,0x306045e,7,2,0,,yes,direct call,"radio state, LEDs, records, sound",,keys task SqlCheck task sound,yes
 0x3060460,application,get_u8_3fdf1,yes,6,0x3060466,3,6,0,,yes,direct call,"radio state, LEDs, records, sound",,shared (9 tasks),yes
 0x3060468,application,sub_3060468,,34,0x306048a,14,1,1,,yes,direct call,"radio state, LEDs, records, sound",,task CodeSw,yes
 0x306048c,application,sub_306048c,,152,0x3060548,55,1,3,,yes,direct call,"radio state, LEDs, records, sound",,task init,yes
@@ -2522,7 +2522,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3064830,application,sub_3064830,,124,0x30648ac,50,1,3,,yes,direct call,broadcast FM receiver and misc,,task init,yes
 0x30648ac,application,sub_30648ac,,140,0x3064938,55,1,1,,yes,direct call,broadcast FM receiver and misc,,task cds,yes
 0x3064960,application,sub_3064960,,60,0x306499c,26,3,0,,yes,direct call,broadcast FM receiver and misc,,task init,yes
-0x306499c,application,set_u8_3e3a8,yes,10,0x30649a6,5,0,0,,yes,"leaf code in gap, no known reference",broadcast FM receiver and misc,,,no
+0x306499c,application,clear_3e3c6_3e3c7,yes,10,0x30649a6,5,0,0,,yes,"leaf code in gap, no known reference",broadcast FM receiver and misc,,,no
 0x30649a8,application,get_u8_400fc,yes,6,0x30649ae,3,34,0,,yes,direct call,broadcast FM receiver and misc,,shared (10 tasks),yes
 0x30649b0,application,set_u8_400fc,yes,6,0x30649b6,3,26,0,,yes,direct call,broadcast FM receiver and misc,,shared (10 tasks),yes
 0x30649b8,application,sub_30649b8,,140,0x3064a44,45,4,1,,yes,direct call,broadcast FM receiver and misc,,shared (8 tasks),yes
@@ -2640,7 +2640,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3068780,application,sub_3068780,,106,0x30687ea,45,1,4,,yes,direct call,RF chip setup,,task init task menu,yes
 0x3068808,application,sub_3068808,,36,0x306882c,14,1,2,,yes,direct call,RF chip setup,,task init task menu,yes
 0x306882c,application,sub_306882c,,260,0x3068930,109,2,4,,yes,direct call,RF chip setup,,task init,yes
-0x3068930,application,set_u8_40278,yes,22,0x3068946,10,2,0,,yes,direct call,RF chip setup,,keys task ScanDisp task init,yes
+0x3068930,application,candidate_copy_40280_by_side,yes,22,0x3068946,10,2,0,,yes,direct call,RF chip setup,,keys task ScanDisp task init,yes
 0x3068948,application,sub_3068948,,102,0x30689ae,38,4,3,,yes,direct call,RF chip setup,,keys task init,yes
 0x30689b0,application,sub_30689b0,,64,0x30689f0,26,0,0,,yes,"leaf code in gap, no known reference",RF chip setup,,,no
 0x30689f0,application,sub_30689f0,,132,0x3068a74,50,1,1,,yes,direct call,RF chip setup,,task ScanDisp,yes
@@ -2658,7 +2658,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3068fe0,application,OSFlagPend,yes,1338,0x3069538,469,1,8,,yes,direct call,uC/OS-III kernel (flash),,shared (20 tasks),yes
 0x3069538,application,OS_FlagClr,yes,22,0x306954e,10,1,1,,yes,direct call; existing label,uC/OS-III kernel (flash),,,no
 0x3069550,application,sub_3069550,,14,0x306955e,7,1,0,,yes,direct call,uC/OS-III kernel (flash),,,yes
-0x3069560,application,set_u32_42b34,yes,30,0x306957e,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,task init,yes
+0x3069560,application,OS_FlagDbgListAdd,yes,30,0x306957e,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,task init,yes
 0x3069580,application,OSFlagCreate,yes,152,0x3069618,59,1,8,,yes,direct call,uC/OS-III kernel (flash),,task init,yes
 0x3069618,application,sub_3069618,,48,0x3069648,21,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x3069648,application,OSFlagDel,yes,498,0x3069868,182,1,12,,yes,direct call; unreferenced prologue,uC/OS-III kernel (flash),,,no
@@ -2667,7 +2667,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3069a78,application,OSFlagPost,yes,128,0x3069af8,55,2,3,,yes,direct call,uC/OS-III kernel (flash),,,yes
 0x3069b00,application,sub_3069b00,,84,0x3069b54,32,0,4,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x3069b54,application,sub_3069b54,,96,0x3069bb4,37,0,4,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
-0x3069bb4,application,set_u32_42ce0,yes,26,0x3069bce,12,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
+0x3069bb4,application,candidate_OS_DbgListAdd_42ce0,yes,26,0x3069bce,12,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x3069bd0,application,sub_3069bd0,,274,0x3069ce2,102,0,7,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x3069cf8,application,sub_3069cf8,,14,0x3069d06,7,1,0,,yes,direct call,uC/OS-III kernel (flash),,,yes
 0x3069d10,application,sub_3069d10,,110,0x3069d7e,47,1,0,,yes,direct call,uC/OS-III kernel (flash),,,yes
@@ -2679,7 +2679,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x306a19c,application,OSMutexPendAbort,yes,256,0x306a2ac,96,0,9,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306a2ac,application,OSMutexPost,yes,484,0x306a4a6,171,0,13,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306a4a8,application,OS_MutexClr,yes,34,0x306a4ca,14,1,1,,yes,direct call; existing label,uC/OS-III kernel (flash),,,no
-0x306a4cc,application,set_u32_426f0,yes,30,0x306a4ea,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
+0x306a4cc,application,OS_MutexDbgListAdd,yes,30,0x306a4ea,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x306a4ec,application,OSMutexCreate,yes,160,0x306a58c,61,0,8,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306a5b8,application,sub_306a5b8,,48,0x306a5e8,21,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x306a5e8,application,OSMutexDel,yes,684,0x306a8ac,243,0,16,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
@@ -2688,7 +2688,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x306a984,application,OSQPend,yes,482,0x306ab78,170,2,9,,yes,direct call,uC/OS-III kernel (flash),,task InputAlter task menu,yes
 0x306ab78,application,OSQPendAbort,yes,256,0x306ac84,96,0,9,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306ac84,application,sub_306ac84,,38,0x306acaa,15,1,3,,yes,direct call; unreferenced prologue,uC/OS-III kernel (flash),,,no
-0x306acac,application,set_u32_4272c,yes,30,0x306acca,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,task InputAlter task init,yes
+0x306acac,application,OS_QDbgListAdd,yes,30,0x306acca,14,1,0,,yes,direct call,uC/OS-III kernel (flash),,task InputAlter task init,yes
 0x306accc,application,OSQCreate,yes,168,0x306ad74,63,2,9,,yes,direct call,uC/OS-III kernel (flash),,task InputAlter task init,yes
 0x306ad94,application,sub_306ad94,,48,0x306adc4,21,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x306adc4,application,OSQDel,yes,306,0x306aef6,116,0,11,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
@@ -2702,18 +2702,18 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x306b6d0,application,sub_306b6d0,,188,0x306b78c,79,0,2,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306b78c,application,candidate_OSTmrStateGet,yes,100,0x306b7f0,37,3,4,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
 0x306b7f0,application,sub_306b7f0,,36,0x306b814,17,1,0,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
-0x306b828,application,set_u32_426f8,yes,26,0x306b842,12,1,0,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
+0x306b828,application,OS_TmrDbgListAdd,yes,26,0x306b842,12,1,0,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
 0x306b844,application,OSTmrCreate,yes,232,0x306b92c,85,5,7,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
 0x306b92c,application,sub_306b92c,,48,0x306b95c,21,1,0,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
 0x306b970,application,OS_TmrInit,yes,200,0x306ba38,87,1,1,,yes,direct call; existing label,uC/OS-III kernel (flash),,,yes
 0x306ba38,application,sub_306ba38,,228,0x306bb64,96,2,0,,yes,direct call,uC/OS-III kernel (flash),,shared (7 tasks),yes
-0x306bb64,application,set_u16_411da,yes,28,0x306bb80,13,1,0,,yes,direct call,uC/OS-III kernel (flash),,uC/OS-III Stat Task,yes
+0x306bb64,application,candidate_os_list_clear_411da,yes,28,0x306bb80,13,1,0,,yes,direct call,uC/OS-III kernel (flash),,uC/OS-III Stat Task,yes
 0x306bb80,application,sub_306bb80,,82,0x306bbd2,35,4,0,,yes,direct call,uC/OS-III kernel (flash),,shared (9 tasks),yes
 0x306bbd4,application,OS_TmrTask,yes,152,0x306bc6c,59,0,6,,,code pointer in instruction; existing label,uC/OS-III kernel (flash),,uC/OS-III Timer Task,yes
-0x306bc6c,application,candidate_OSTmr_op_22_callers,yes,234,0x306bd72,95,22,3,,yes,direct call,uC/OS-III kernel (flash),,shared (5 tasks),yes
+0x306bc6c,application,OSTmrStop,yes,234,0x306bd72,95,22,3,,yes,direct call,uC/OS-III kernel (flash),,shared (5 tasks),yes
 0x306bd74,application,candidate_OSTmrStart,yes,170,0x306be1e,69,6,4,,yes,direct call,uC/OS-III kernel (flash),,shared (6 tasks),yes
 0x306be28,application,candidate_OSTmrDel,yes,180,0x306bedc,73,2,5,,yes,direct call,uC/OS-III kernel (flash),,sysint task CodeSw task init task usb,yes
-0x306bedc,application,sub_306bedc,,42,0x306bf06,19,0,0,,yes,"leaf code in gap, no known reference",uC/OS-III kernel (flash),,,no
+0x306bee8,application,candidate_isalpha,yes,30,0x306bf06,19,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",uC/OS-III kernel (flash),,,no
 0x306bf08,application,sub_306bf08,,46,0x306bf36,20,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x306bf38,application,sub_306bf38,,14,0x306bf46,6,1,0,,yes,direct call,uC/OS-III kernel (flash),,,no
 0x306bf48,application,sub_306bf48,,14,0x306bf56,6,0,0,,yes,"leaf code in gap, no known reference",uC/OS-III kernel (flash),,,no
@@ -2773,13 +2773,13 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x306d630,application,sub_306d630,,56,0x306d668,21,0,1,,yes,unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306d668,application,get_u32_3a628,yes,6,0x306d66e,3,1,0,,yes,direct call,uC/OS-III kernel (flash),,,yes
 0x306d670,application,sub_306d670,,36,0x306d694,12,1,3,,yes,direct call,uC/OS-III kernel (flash),,,yes
-0x306d694,application,set_u32_45640_thunk_306d694,yes,10,0x306d69e,4,1,1,,yes,direct call; unreferenced prologue,uC/OS-III kernel (flash),,,no
+0x306d694,application,set_u32_45640_to_100,yes,10,0x306d69e,4,1,1,,yes,direct call; unreferenced prologue,uC/OS-III kernel (flash),,,no
 0x306d6a0,application,candidate_os_timestamp_get,yes,18,0x306d6b2,7,32,2,,yes,direct call,uC/OS-III kernel (flash),,shared (11 tasks),yes
-0x306d6c0,application,set_3a628_bit0,yes,26,0x306d6da,12,3,0,,yes,direct call,uC/OS-III kernel (flash),timers,shared (6 tasks),yes
+0x306d6c0,application,candidate_timer0_start_rate,yes,26,0x306d6da,12,3,0,,yes,direct call,uC/OS-III kernel (flash),timers,shared (6 tasks),yes
 0x306d6dc,application,sub_306d6dc,,8,0x306d6e4,4,1,0,,yes,direct call,uC/OS-III kernel (flash),timers,irq:candidate_os_tick_irq,yes
 0x306d6e4,application,sub_306d6e4,,8,0x306d6ec,4,0,0,,yes,"leaf code in gap, no known reference",uC/OS-III kernel (flash),timers,,no
 0x306d6ec,application,candidate_os_tick_irq,yes,14,0x306d6fa,5,0,2,,yes,code pointer in instruction,uC/OS-III kernel (flash),,irq:candidate_os_tick_irq,yes
-0x306d6fc,application,sub_306d6fc,,6,0x306d702,3,0,0,,yes,"leaf code in gap, no known reference",uC/OS-III kernel (flash),,,no
+0x306d700,application,empty_stub_306d700,yes,2,0x306d702,3,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",uC/OS-III kernel (flash),,,yes
 0x306d704,application,sub_306d704,,56,0x306d73c,23,1,2,,yes,direct call,uC/OS-III kernel (flash),,task init,yes
 0x306d73c,application,irq_handler_install,yes,86,0x306d792,37,6,3,,yes,direct call,uC/OS-III kernel (flash),,task init,yes
 0x306d794,application,sub_306d794,,26,0x306d7ae,13,1,0,,yes,direct call,uC/OS-III kernel (flash),,,yes
@@ -2843,8 +2843,8 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x30705a8,application,sub_30705a8,,112,0x3070618,54,2,2,,yes,direct call,C library and soft-float,,task CallDisp,yes
 0x3070620,application,sub_3070620,,28,0x307063c,12,0,2,,yes,unreferenced prologue,C library and soft-float,,,no
 0x307063c,application,sub_307063c,,42,0x3070666,19,0,2,,yes,unreferenced prologue,C library and soft-float,,,no
-0x3070670,application,set_u32_18000c34,yes,20,0x3070684,9,6,0,,yes,direct call,C library and soft-float,,shared (6 tasks),yes
-0x3070684,application,set_u32_18000c34_3070684,yes,14,0x3070692,7,0,0,,yes,"leaf code in gap, no known reference",C library and soft-float,,,no
+0x3070670,application,rand,yes,20,0x3070684,9,6,0,,yes,direct call,C library and soft-float,,shared (6 tasks),yes
+0x307068c,application,srand,yes,6,0x3070692,7,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",C library and soft-float,,,no
 0x3070698,application,sub_3070698,,66,0x30706da,24,2,2,,yes,direct call,C library and soft-float,,shared (6 tasks),yes
 0x30706e4,application,sub_30706e4,,548,0x3070918,201,3,12,,yes,direct call,C library and soft-float,,shared (6 tasks),yes
 0x3070918,application,sub_3070918,,288,0x3070a38,112,1,4,,yes,direct call,C library and soft-float,,task init,yes
@@ -2869,7 +2869,7 @@ address,segment,name,labeled,size_bytes,span_end,instructions,direct_callers,cal
 0x3070ef0,application,candidate_uses_0000000000000000_null,yes,150,0x3070f86,61,1,0,yes,yes,direct call,C library and soft-float,,shared (10 tasks),yes
 0x3071834,application,sub_3071834,,6,0x307183a,2,1,0,,yes,direct call,C library and soft-float,,shared (6 tasks),yes
 0x307183c,application,sub_307183c,,244,0x3071930,99,0,4,,yes,unreferenced prologue,C library and soft-float,,,no
-0x3071930,application,set_u8_18004090,yes,18,0x3071942,7,0,0,,yes,"leaf code in gap, no known reference",C library and soft-float,,,no
+0x3071934,application,candidate_ptr_table_18004084_get,yes,14,0x3071942,7,0,0,,yes,"leaf code in gap, no known reference; start moved past literal pool (ghidra review)",C library and soft-float,,,no
 0x3071942,application,sub_3071942,,4,0x3071946,2,0,0,,yes,"leaf code in gap, no known reference",C library and soft-float,,,no
 0x3071950,application,sub_3071950,,1046,0x3071d8c,384,1,12,,yes,direct call; unreferenced prologue,C library and soft-float,,,no
 0x3071d90,application,sub_3071d90,,32,0x3071db0,13,1,0,,yes,direct call,C library and soft-float,,,no

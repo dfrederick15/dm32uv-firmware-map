@@ -48,8 +48,8 @@ Addresses are runtime addresses: application code at `0x0300C000` (executed in p
 
 ## Coverage
 
-1,268 of 2,881 functions are named, and 75.7% of direct call sites reach a named function. About 70% of the names are
-`candidate_` or rule-based.
+1,275 of 2,881 functions are named, and 75.7% of direct call sites reach a named function. 709 names are `candidate_`;
+the rest have direct code evidence or come from code-shape rules checked against decompiled code.
 
 ## Credits
 

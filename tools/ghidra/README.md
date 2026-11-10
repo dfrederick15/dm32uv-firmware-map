@@ -23,6 +23,25 @@ ghidra    # File > Open Project > <project-dir>/DM32_NRF_01_049.gpr
 `TABLES` points at this repository's `tables/` folder (default: `<split-dir>`). The project contains firmware bytes,
 so keep it out of version control.
 
+## Bringing Ghidra edits back into the tables
+
+Rename functions, edit function comments or name RAM variables in Ghidra, save, then:
+
+```
+analyzeHeadless <project-dir> DM32_NRF_01_049 -process application.bin -noanalysis -readOnly \
+  -scriptPath tools/ghidra -postScript Dm32ExportNames.java <project-dir>/export
+python3 -I tools/ghidra/sync_from_ghidra.py <project-dir>/export <tables-dir>            # dry run
+python3 -I tools/ghidra/sync_from_ghidra.py <project-dir>/export <tables-dir> --apply
+```
+
+`Dm32ExportNames.java` can also be run from the Script Manager; it asks for the export prefix.
+
+- A rename replaces the name in `labels.csv` and `functions.csv`, with source `ghidra review`.
+- The evidence comes from the function comment, ignoring the `basis:`, `module:`, `tasks:` lines the import adds.
+- A function set back to `FUN_`/`sub_` in Ghidra is only reported, unless `--allow-removals` is given.
+- New or renamed user labels in RAM go to `ram-names.csv` with confidence `ghidra review`.
+- Names that are already used at another address are skipped and reported.
+
 ## Processor module
 
 Ghidra has no C-SKY support. The build fetches the SLEIGH files from
@@ -32,7 +51,23 @@ user extension. The Java part of that project (ELF relocations) is not built or 
 
 Local additions, with encodings inferred from the fixed bits of every occurrence in the GNU objdump listing:
 `tst`, `tstnbz`, `ff0`, `ff1`, `xtrb0-3`, `mfcr`, `mtcr`, `rte`, `psrclr`, `psrset`, `muls`, `mulsa`, `mulsha`,
-`srs.b/h/w`. Fix: 16-bit `mulsh` is signed (upstream used unsigned).
+`srs.b/h/w`.
+
+Semantic fixes, found by auditing every constructor body against the ISA (each one silently corrupted decompiled
+output):
+
+| Instruction | Upstream behaviour | Fixed |
+| --- | --- | --- |
+| `movih` | truncated the immediate to 16 bits before shifting, so every result was 0 (peripheral bases vanished) | `zext(imm) << 16` |
+| `zext rz, rx, msb, lsb` | mask `(1 << msb) - 1` dropped bit `msb` (32-bit `zextb` became `& 0x7f`) | extract bits `msb..lsb` |
+| `sext rz, rx, msb, lsb` | never sign-extended the field | arithmetic shift of the field |
+| `andn` (16 and 32-bit) | NAND, and a negated NAND | `rz & ~rx`, `rx & ~ry` |
+| `mvcv` (16-bit) | bitwise NOT of a one-bit flag gave 0xFE/0xFF | 0 or 1 |
+| `mulsh` (16-bit) | unsigned | signed |
+| `mulu`, `mulua`, `mulus` | 4-byte temporary | 64-bit product into hi:lo |
+
+The import also turns off Ghidra's "Non-Returning Functions - Discovered" analyzer: it marked the uC/CPU
+critical-section helpers as non-returning, cutting every function after its first critical section.
 
 Still not decoded: DSP and coprocessor instructions (`bloop`, `cprgr`, `cpop`, `pkg`, vector ops), used mainly inside
 the AMBE codec, so a few large codec functions are only partly disassembled.
@@ -46,7 +81,9 @@ the AMBE codec, so a few large codec functions are only partly disassembled.
 | `Dm32ImportMap.java` | Pre-analysis: memory blocks, functions, names, comments, RAM and register labels, tables, bookmarks |
 | `Dm32FixFlow.java` | Post-analysis: clears wrong no-return and `bsr` flow overrides, disassembles unreached code inside known functions, marks literal pools constant, recomputes bodies |
 | `Dm32CheckDisasm.java` | Compares Ghidra's disassembly with the reference |
-| `Dm32Decompile.java` | Decompiles named functions to a file (uses the program's decompiler options) |
+| `Dm32Decompile.java` | Decompiles named functions to a file (uses the program's decompiler options); `--all` decompiles every function |
+| `Dm32ExportNames.java`, `sync_from_ghidra.py` | Export names and comments from Ghidra and merge them into the tables |
+| `review_names.py`, `show_c.py` | Flag names whose claimed area the decompiled code does not support; print decompiled functions |
 | `Dm32BodySizes.java`, `Dm32GapStarts.java`, `Dm32ListNoReturn.java`, `Dm32Probe.java` | Diagnostics |
 
 ## Results on the analysed image
@@ -55,5 +92,5 @@ the AMBE codec, so a few large codec functions are only partly disassembled.
   `not`/`nor`).
 - 96% of sampled reference instructions are disassembled; most of the remainder are literal pools that objdump decodes
   as code.
-- 94% of the bytes in known function spans are inside Ghidra function bodies.
+- 95% of the bytes in known function spans are inside Ghidra function bodies.
 - Decompiled output uses the map's names for functions and RAM variables, for example `menu_state = param_1;`.

@@ -10,7 +10,7 @@ address,name,confidence,basis
 0x385ac,rf_switch_sem,firm,posted by rf_tx_irq and rf_rx_irq
 0x386b8,dataflash_current_address,firm,set by dataflash_set_address
 0x38d8c,keymsgq,firm,queue created with that name
-0x39360,lcd_lock,firm,semaphore held around drawing
+0x39360,lcd_keypad_bus_lock,firm,taken by the LCD drawing code and by the key scan; RadioFoundry hardware-dm32.md: LCD DB0-DB4 are shared with keypad rows 0-4
 0x39468,dataflash_lock,firm,semaphore held around every flash access
 0x3bd70,sound_request_lock,likely,
 0x3be64,sound_request_id,likely,
@@ -45,3 +45,18 @@ address,name,confidence,basis
 0x3bd5a,modem_requested_state,likely,written by modem_state_event_set
 0x38330,event_group_38330,firm,"third event group, purpose not known"
 0x3e1f8,current_channel_record,firm,"RAM copy of the active channel from flash record offset 0x10 on: RX frequency at +0, TX at +4, flags at +8"
+0x18000c34,rand_seed,firm,state of rand()/srand()
+0x42a44,OSSemDbgListPtr,likely,head written by OS_SemDbgListAdd
+0x42720,OSTaskDbgListPtr,likely,head written by OS_TaskDbgListAdd
+0x42b34,OSFlagDbgListPtr,likely,head written by OS_FlagDbgListAdd
+0x426f0,OSMutexDbgListPtr,likely,head written by OS_MutexDbgListAdd
+0x4272c,OSQDbgListPtr,likely,head written by OS_QDbgListAdd
+0x426f8,OSTmrDbgListPtr,likely,head written by OS_TmrDbgListAdd
+0x42740,OSRdyList,likely,64 x 12-byte entries cleared by candidate_OS_RdyListInit
+0x40e8c,OSPrioTbl,likely,two words cleared by candidate_OS_PrioInit
+0x4565c,CPU_IntDisMeasMaxCur_cnts,likely,"updated in CPU_IntDisMeasStop, read by MaxCurGet"
+0x45660,CPU_IntDisMeasMax_cnts,likely,"updated in CPU_IntDisMeasStop, read by MaxGet"
+0x45664,CPU_IntDisMeasOvrhd_cnts,likely,subtracted by MaxCalc
+0x45648,CPU_IntDisNestCtr,likely,"incremented by Start, decremented by Stop"
+0x45638,CPU_IntDisMeasStart_cnts,likely,timestamp taken at nesting 0
+0x4563c,CPU_IntDisMeasCtr,likely,incremented by every Start

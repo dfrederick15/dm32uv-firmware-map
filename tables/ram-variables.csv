@@ -60,7 +60,7 @@ address,references,functions,example_functions,tasks
 0x3c6f0,52,12,candidate_tx_burst_build candidate_tx_queue_commit sub_3029674 sub_30234e8 sub_2d500 sub_30297a4,CclTraffic rxmsg txmsg; CclTraffic sysint; encrypt; shared (14 tasks); shared (5 tasks); shared (7 tasks); task CodeSw task init; task init; txslot
 0x3ffa8,51,29,sub_3017278 candidate_key_event_dispatch candidate_menu_page_record_off sub_304a45c sub_3061d50 candidate_settings_update_306224c,record; record task init; rxvoice task init task sound; shared (16 tasks); shared (5 tasks); shared (7 tasks); task CallDisp; task ScanDisp; task SqlCheck; task
 0x3bd58,47,19,sub_3020dc8 candidate_rx_control_burst_handler_3027b9c sub_30214f0 sub_300d284 task_rxvoice candidate_tx_burst_build,CclTraffic; CclTraffic task init; keys task CodeSw task init task psint; rxcsbk; rxvoice; shared (10 tasks); shared (13 tasks); shared (5 tasks); shared (6 task
-0x39360,47,24,sub_3019618 sub_301a16c candidate_key_event_dispatch candidate_lcd_draw_line_locked candidate_lcd_fill_rect candidate_lcd_fill_client_area,keys; keys task InputAlter task menu; shared (10 tasks); shared (11 tasks); shared (14 tasks); shared (5 tasks); shared (6 tasks); shared (7 tasks); shared (8 t
+0x39360,47,24,sub_3019618 sub_301a16c candidate_key_event_dispatch candidate_lcd_draw_line_locked lcd_fill_rect lcd_fill_client_area,keys; keys task InputAlter task menu; shared (10 tasks); shared (11 tasks); shared (14 tasks); shared (5 tasks); shared (6 tasks); shared (7 tasks); shared (8 t
 0x2f0b4,44,10,candidate_activity_flag_read candidate_activity_flag_clear candidate_psint_post_class0_event candidate_psint_post_class1_event application_entry candidate_psint_post_class2_event,CclTraffic rxvoice; rxmsg rxvoice; shared (13 tasks); shared (14 tasks); task CodeSw task init; task init; task psint
 0x33d7c,44,17,sub_3023eb8 candidate_burst_rx_handler candidate_short_lc_rx_handler candidate_late_entry_rx_handler candidate_rx_sync_miss_count candidate_rx_control_burst_handler_3027b9c,CclTraffic rxmsg txmsg; cpchanscan; sysint; txslot
 0x3e1d8,44,21,candidate_menu_page_null_ch_3057790 sub_305e3f0 sub_302edc8 candidate_menu_page_tx_limit sub_3064a84 sub_300e2c0,keys; shared (5 tasks); shared (6 tasks); task CallDisp; task CodeSw; task CodeSw task init; task SqlCheck; task SqlCheck task sound; task init; task menu; task
@@ -98,7 +98,7 @@ address,references,functions,example_functions,tasks
 0x401ac,27,6,candidate_menu_device_info candidate_block06_write_304e684 candidate_block03_read_3067764 sub_3067618 candidate_block03_update_3067670 rfic_rx_tune,shared (7 tasks); task init; task menu
 0x3e238,26,16,candidate_menu_page_null_ch_3057790 candidate_vfo_mode_nibble_get sub_301a464 candidate_current_channel_set candidate_uses_noaa_30309b8 candidate_menu_page_null_ch,keyTime keys task ScanDisp task menu; keys; shared (5 tasks); shared (7 tasks); task CodeSw task init; task CodeSw task init task menu; task ScanDisp
 0x309e4,26,4,sub_301cbc0 gpio_b_irq sub_3039478 sub_3039588,irq:gpio_b_irq; task init
-0x3e454,26,21,candidate_menu_multi_page_3038500 candidate_menu_page_none_30450ec candidate_scan_lists_read_302e820 set_u8_3e454 sub_3034fc8 sub_3034ff0,keys
+0x3e454,26,21,candidate_menu_multi_page_3038500 candidate_menu_page_none_30450ec candidate_scan_lists_read_302e820 clear_3e454_3e465_3e46e sub_3034fc8 sub_3034ff0,keys
 0x3e34c,26,14,candidate_block41_write_303073c sub_30307c8 candidate_block41_write_30308f8 candidate_channel_record_write candidate_block41_write_3031364 sub_30566cc,shared (11 tasks); task init; task init task menu
 0x3ff5c,25,14,sub_3061648 sub_30644b8 sub_305e134 candidate_key_12_release sub_3022e04 candidate_key_09_release,keyTime keys; keyTime keys task menu task sound; task ScanDisp; task menu; task sound
 0x3e47f,25,20,candidate_menu_tx_contact_list candidate_menu_contacts sub_3041838 sub_30432c4 candidate_menu_multi_page_304ee0c candidate_keyfunc_gps_info,keyTime keys task ScanDisp task menu; keys; task menu
@@ -129,7 +129,7 @@ address,references,functions,example_functions,tasks
 0x3ea6b,17,11,candidate_menu_page_inbox_list candidate_menu_multi_page_3042b88 candidate_menu_multi_page_303b6ac sub_3043cf8 sub_3019e54 menu_state_075,keys
 0x3fd40,16,10,candidate_menu_page_msg_send_failed sub_302dbec candidate_tx_end_event_b candidate_ptt_admission sub_301f118 sub_3031fd4,task CallDisp; task CodeSw; task ScanDisp task menu task psint; task init; task psint; txmsg
 0x334dc,16,9,candidate_menu_page_tx_limit candidate_menu_page_record_off candidate_menu_page_keypad_lock sub_30390c8 candidate_menu_page_msg_send_failed candidate_menu_page_lone_work_off,keys; shared (6 tasks); task ScanDisp task menu task psint; task menu
-0x3a628,16,14,sub_3054b44 sub_3054c7c sub_301d764 set_u32_3a628 candidate_timers_init candidate_timer_0x14000000_start_ms,keyTime keys task menu task sound; shared (6 tasks); task ShutDown task init; task init
+0x3a628,16,14,sub_3054b44 sub_3054c7c sub_301d764 candidate_timer_28_period_us_set candidate_timers_init candidate_timer_0x14000000_start_ms,keyTime keys task menu task sound; shared (6 tasks); task ShutDown task init; task init
 0x3ee14,16,9,sub_305a648 sub_305bb08 sub_3059fe4 sub_305a1d0 candidate_input_method_next candidate_text_input_reset,task menu
 0x1800145c,16,1,sub_23aa8,encoder
 0x38e3c,15,7,candidate_ptt_input_debounce sub_3013314 candidate_menu_key_handler sub_3061648 sub_3068a88 start_tasks_keytime_and_1_more,task init; task menu; task sound
@@ -163,9 +163,9 @@ address,references,functions,example_functions,tasks
 0x3ed29,12,9,candidate_menu_page_out_of_range_3052034 candidate_menu_page_confirm_delete_3046408 candidate_menu_multi_page_303b6ac candidate_menu_page_none_30450ec candidate_menu_multi_page_304ddb0 candidate_menu_page_encrypt_list,keys
 0x454ec,12,5,candidate_Mem_PoolCreate sub_306c42c sub_306c220 candidate_Mem_PoolClr sub_306c5ac,
 0x2fecd,11,2,sub_300f1b4 candidate_rfic_frequency_scan_read,task CodeSw task init task menu task usb; task init
-0x303a4,11,6,candidate_key_event_dispatch sub_30130f0 sub_30133dc task_keys candidate_key_get candidate_keymsgq_post,keys; shared (10 tasks); task init; task menu
+0x303a4,11,6,candidate_key_event_dispatch sub_30130f0 sub_30133dc task_keys candidate_key_get keymsgq_post,keys; shared (10 tasks); task init; task menu
 0x3ff60,11,8,menu_state_077 sub_30130f0 menu_state_082 sub_305953c sub_305986c sub_3059afc,keys task menu; task SqlCheck; task init; task menu; task sound
-0x309c4,11,3,candidate_rssi_measure sub_301bf14 set_u16_309c4,shared (6 tasks); task init
+0x309c4,11,3,candidate_rssi_measure sub_301bf14 candidate_slot_state_reset_309cc,shared (6 tasks); task init
 0x18000a8c,11,6,candidate_cable_password_command candidate_cable_program_mode candidate_cable_sysinfo candidate_cable_rtc_command candidate_cable_test_mode task_usb,task usb
 0x3e10a,11,5,candidate_call_display_update candidate_menu_page_alarm_siren sub_302d4e4 sub_302d750 sub_305dd38,task CallDisp; task ScanDisp
 0x3e5e4,11,4,candidate_menu_key_handler menu_state_090 sub_303f834 sub_305292c,task menu
@@ -214,7 +214,7 @@ address,references,functions,example_functions,tasks
 0x4012a,8,5,sub_305463c sub_304a3fc sub_3060a74 sub_3060e60 candidate_fm_radio_mute_b,shared (9 tasks); task ScanDisp; task SqlCheck
 0x3ee90,8,4,sub_305b3bc sub_305b490 candidate_input_method_next sub_305b258,
 0x42a50,8,6,sub_3069e3c sub_3069d10 sub_3069d80 sub_3069dcc OSQDel sub_306b108,task InputAlter task menu; task menu uC/OS-III ISR Queue Task; uC/OS-III Stat Task
-0x42720,8,6,OS_StatTask set_u32_42720 OSQDel sub_306b108 sub_12b2c sub_12b70,task init; uC/OS-III Stat Task
+0x42720,8,6,OS_StatTask OS_TaskDbgListAdd OSQDel sub_306b108 sub_12b2c sub_12b70,task init; uC/OS-III Stat Task
 0x42730,8,4,sub_306ba38 sub_306b6d0 OS_TmrInit OS_TmrTask,shared (7 tasks); uC/OS-III Timer Task
 0x18000a64,8,5,sub_2bebc sub_2be7c sub_2bd24 sub_2bda0 sub_2bdec,task init; task init task usb; task usb
 0x38484,7,5,channel_band_and_tuning_set rf_rx_setup rf_tx_setup rf_tx_switch rf_rx_restore,shared (5 tasks); shared (6 tasks); task rf
@@ -225,7 +225,7 @@ address,references,functions,example_functions,tasks
 0x3935e,7,4,sub_3019cf0 sub_3052d20 sub_3052d94 sub_3052ce4,
 0x40264,7,3,candidate_block03_read_3064dbc candidate_uses_ptt_id sub_306461c,task init; task init task menu
 0x30e02,7,6,candidate_gps_uart_read candidate_cable_uart_init sub_3029f80 candidate_cable_receive cable_uart_irq gps_uart_irq,irq:cable_uart_irq; irq:gps_uart_irq; task init; task usb
-0x3bd48,7,6,sub_3020d58 task_rxvoice set_u8_3bd48 get_u32_3bd50 get_u32_3bd4c task_record,keys task CallDisp; record; rxvoice; task psint
+0x3bd48,7,6,sub_3020d58 task_rxvoice candidate_copy_out_3bd48 get_u32_3bd50 get_u32_3bd4c task_record,keys task CallDisp; record; rxvoice; task psint
 0x3becc,7,7,candidate_rx_control_burst_handler_3024e7c candidate_short_lc_rx_handler candidate_rx_control_burst_handler_3027584 candidate_rx_control_burst_handler_3028180 candidate_burst_rx_handler candidate_late_entry_rx_handler,irq:system_irq_collect; sysint
 0x3cf22,7,2,candidate_cable_program_mode candidate_cable_sysinfo,task usb
 0x3f018,7,7,candidate_uses_talkeralias candidate_call_display_update sub_302c4fc sub_304cf64 candidate_menu_page_encrypt_list sub_3057688,task CallDisp; task CodeSw task init
@@ -252,7 +252,7 @@ address,references,functions,example_functions,tasks
 0x3ed1e,6,6,sub_300e2c0 sub_3022410 sub_30390c8 sub_3055b90 candidate_menu_page_null_ch_3057790 sub_3061d50,task CodeSw task init; task SqlCheck task sound; task init; task menu; task sound
 0x3a66b,6,3,gps_uart_irq candidate_gps_power_cycle sub_3054b44,irq:gps_uart_irq; task ShutDown task init
 0x307b4,6,5,candidate_key_06_release candidate_key_event_dispatch candidate_key_06_press sub_3014dd8 task_keytime,keyTime; task TmrHnd task init; task init
-0x3fdf0,6,4,sub_3013940 set_u16_3fdf0 get_u8_3fdf1 sub_3060468,keys task SqlCheck task sound; shared (9 tasks); task CodeSw; task init
+0x3fdf0,6,4,sub_3013940 candidate_request_3fdf0_start get_u8_3fdf1 sub_3060468,keys task SqlCheck task sound; shared (9 tasks); task CodeSw; task init
 0x40142,6,5,sub_3066824 candidate_keyfunc_roaming menu_state_019 task_scandisp sub_3066424,task ScanDisp; task init
 0x3938a,6,4,sub_3052d20 sub_3052d94 sub_3019cf0 sub_3052ce4,
 0x3e1e0,6,1,sub_301a574,
@@ -290,7 +290,7 @@ address,references,functions,example_functions,tasks
 0x3658c,5,5,candidate_call_flags_wait candidate_call_flags_set candidate_call_flags_clear sub_300c874 start_tasks_ccltraffic_and_12_more,shared (11 tasks); shared (6 tasks); task CodeSw task init; task init
 0x38330,5,5,candidate_event_group_38330_wait candidate_event_group_38330_set candidate_event_group_38330_clear sub_300c874 start_tasks_ccltraffic_and_12_more,shared (11 tasks); shared (5 tasks); task CodeSw task init; task init
 0x35f44,5,5,obj_35f44_flags_wait sub_300c7fc obj_35f44_flags_clear sub_300c874 start_tasks_ccltraffic_and_12_more,task CodeSw task init; task init
-0x38480,5,4,set_u8_38480 rf_switch_worker rf_rx_irq rf_tx_irq,irq:rf_rx_irq; irq:rf_tx_irq; task rf
+0x38480,5,4,candidate_flag_38480_38481_set rf_switch_worker rf_rx_irq rf_tx_irq,irq:rf_rx_irq; irq:rf_tx_irq; task rf
 0x385ac,5,5,start_tasks_sqlcheck_and_1_more channel_band_and_tuning_set rf_switch_worker rf_rx_irq rf_tx_irq,irq:rf_rx_irq; irq:rf_tx_irq; shared (5 tasks); task init; task rf
 0x3fde4,5,4,sub_305f308 sub_300d84c candidate_menu_device_info candidate_band_region_display,task CodeSw task init; task init; task menu
 0x386bf,5,4,candidate_codeplug_map_rebuild candidate_codeplug_block_tag_read sub_300f4fc candidate_codeplug_free_sector_find,task CallDisp task init task menu; task CallDisp task menu; task init
@@ -304,7 +304,7 @@ address,references,functions,example_functions,tasks
 0x40118,5,4,sub_3017084 candidate_menu_multi_page_303b6ac candidate_menu_page_tx_limit sub_3065934,keys; task menu
 0x3e218,5,5,sub_301a768 candidate_channel_load sub_302edc8 candidate_menu_page_null_ch sub_3031b7c,shared (5 tasks); shared (6 tasks); task CodeSw task init; task init
 0x30e0c,5,5,sub_301ed00 get_u8_30e0c task_txmsg get_u8_30e0d task_rxmsg,rxmsg; shared (7 tasks); txmsg
-0x3bac0,5,5,task_rxmsg set_u8_3bac0 get_u16_3bad4 get_u32_3bacc get_u8_3bac0,rxmsg; task psint
+0x3bac0,5,5,task_rxmsg candidate_copy_out_3bac0 get_u16_3bad4 get_u32_3bacc get_u8_3bac0,rxmsg; task psint
 0x3bad8,5,2,task_rxmsg sub_3020644,rxmsg
 0x3c6d4,5,1,candidate_rx_control_burst_handler_3027b9c,sysint
 0x3c7a8,5,2,candidate_late_entry_rx_handler candidate_rx_control_burst_handler_30282a4,sysint
@@ -332,10 +332,10 @@ address,references,functions,example_functions,tasks
 0x3ee48,5,3,sub_3059fe4 candidate_text_input_reset task_inputalter,task InputAlter; task menu
 0x3ee18,5,3,sub_305a7d8 task_inputalter sub_305a648,task InputAlter; task menu
 0x40160,5,3,candidate_sd_read_blocks sub_30674f0 candidate_sd_spi1_init,task usb
-0x4272c,5,4,set_u32_4272c sub_306ad94 sub_306af0c sub_306b108,task InputAlter task init; uC/OS-III Stat Task
+0x4272c,5,4,OS_QDbgListAdd sub_306ad94 sub_306af0c sub_306b108,task InputAlter task init; uC/OS-III Stat Task
 0x411d8,5,3,sub_306ba38 OS_TmrInit sub_306bb80,shared (7 tasks); shared (9 tasks)
 0x45648,5,4,CPU_IntDisMeasStart sub_3072780 CPU_IntDisMeasStop sub_10368,shared (37 tasks); shared (6 tasks)
-0x45660,5,4,CPU_IntDisMeasStop sub_3072780 sub_10224 sub_10368,shared (37 tasks); shared (6 tasks); uC/OS-III Stat Task
+0x45660,5,4,CPU_IntDisMeasStop sub_3072780 candidate_CPU_IntDisMeasMaxGet sub_10368,shared (37 tasks); shared (6 tasks); uC/OS-III Stat Task
 0x42704,5,3,sub_107c0 OS_SchedLockTimeMeasStop sub_10d5c,shared (35 tasks)
 0x42ccc,5,5,sub_108b0 OSSched sub_10a04 sub_10d5c OS_Sched0,irq:common_irq_entry; shared (11 tasks); shared (35 tasks)
 0x42532,5,4,sub_109b8 sub_10d5c sub_11004 sub_112c8,uC/OS-III ISR Queue Task
@@ -351,7 +351,7 @@ address,references,functions,example_functions,tasks
 0x3847c,4,2,sub_300d284 task_rxmsg,rxmsg; task init
 0x2fed0,4,3,candidate_codeplug_logical_to_physical candidate_codeplug_block_tag_read candidate_codeplug_sector_release,task CallDisp; task CallDisp task init task menu
 0x386b4,4,4,sub_300f4fc candidate_wav_header_check sub_302236c sub_3022410,task init; task sound
-0x38d8c,4,3,candidate_keymsgq_post start_tasks_keytime_and_1_more candidate_key_get,shared (10 tasks); task init; task menu
+0x38d8c,4,3,keymsgq_post start_tasks_keytime_and_1_more candidate_key_get,shared (10 tasks); task init; task menu
 0x3a508,4,2,sub_30130f0 sub_301cbc0,task init
 0x38e45,4,1,sub_301355c,task init
 0x3e156,4,3,sub_302fa24 sub_3013940 sub_302fb70,task init; task init task menu; task menu
@@ -362,7 +362,7 @@ address,references,functions,example_functions,tasks
 0x4013d,4,2,sub_301fe28 sub_3066608,task ScanDisp
 0x30e0f,4,4,sub_30206a8 task_rxvoice get_u8_30e10 task_rxcsbk,rxcsbk; rxvoice; task psint
 0x30e14,4,1,physical_test_select,task usb
-0x3bd98,4,3,sub_3022410 candidate_sound_request candidate_sound_request_with_arg,shared (5 tasks); shared (9 tasks); task sound
+0x3bd98,4,3,sub_3022410 sound_request candidate_sound_request_with_arg,shared (5 tasks); shared (9 tasks); task sound
 0x3ed1c,4,2,sub_3055b90 sub_3023028,task CodeSw task SqlCheck task init task sound; task init
 0x31294,4,4,sub_3023364 task_rxslot task_txslot task_sysint,rxslot; shared (5 tasks); sysint; txslot
 0x3c628,4,2,candidate_late_entry_rx_handler candidate_burst_rx_handler,sysint
@@ -389,9 +389,9 @@ address,references,functions,example_functions,tasks
 0x3a630,4,4,sub_3054b44 sub_3054c7c sub_2c8c0 startup_clock_config,shared (6 tasks); task ShutDown task init
 0x3ed44,4,4,sub_305a0f0 sub_305a1d0 sub_305a648 sub_305ac48,task menu
 0x40204,4,2,sub_3068024 sub_3067ca0,task cds; task cds task init
-0x42b34,4,3,set_u32_42b34 sub_3069550 sub_3069618,task init
+0x42b34,4,3,OS_FlagDbgListAdd sub_3069550 sub_3069618,task init
 0x426e2,4,3,OSFlagDel sub_3069550 OSFlagCreate,task init
-0x426f0,4,3,set_u32_426f0 sub_306a5b8 sub_306a8ac,
+0x426f0,4,3,OS_MutexDbgListAdd sub_306a5b8 sub_306a8ac,
 0x42a5c,4,3,OSMutexDel OSMutexCreate sub_306a8ac,
 0x4271c,4,3,OSQDel OSQCreate sub_306af0c,task InputAlter task init
 0x42b30,4,4,OSQDel OS_StatTask sub_306b560 OS_StatTaskInit,uC/OS-III Stat Task
@@ -401,7 +401,7 @@ address,references,functions,example_functions,tasks
 0x42cd4,4,3,OS_SchedLockTimeMeasStop sub_306b108 sub_10d5c,shared (35 tasks); uC/OS-III Stat Task
 0x42530,4,2,OS_StatTask OS_StatTaskInit,uC/OS-III Stat Task
 0x42610,4,3,sub_306b560 OS_TmrInit sub_116a4,uC/OS-III ISR Queue Task
-0x426f8,4,3,set_u32_426f8 sub_306b92c OS_TmrInit,sysint task CodeSw task init task usb
+0x426f8,4,3,OS_TmrDbgListAdd sub_306b92c OS_TmrInit,sysint task CodeSw task init task usb
 0x4252c,4,2,OS_TmrInit sub_116a4,uC/OS-III ISR Queue Task
 0x42ce8,4,2,candidate_Mem_PoolCreate sub_306c220,
 0x4a7d0,4,2,sub_307050c sub_30705a8,task CallDisp
@@ -413,8 +413,8 @@ address,references,functions,example_functions,tasks
 0x42718,4,4,sub_108b0 OSSched OS_Sched0 sub_12b70,irq:common_irq_entry; shared (11 tasks); shared (35 tasks)
 0x42748,4,4,sub_10eec sub_10f4c sub_11004 sub_110bc,shared (31 tasks); shared (7 tasks); shared (8 tasks)
 0x42a60,4,3,sub_116a4 OS_IntQTask OS_IntQTaskInit,uC/OS-III ISR Queue Task
-0x40e8c,4,4,set_u32_40e8c OS_PrioGetHighest update_40e8c_field update_40e8c_field_11a34,irq:common_irq_entry; shared (31 tasks); shared (9 tasks)
-0x42a44,4,3,set_u32_42a44 sub_11e54 sub_11fd8,task init
+0x40e8c,4,4,candidate_OS_PrioInit OS_PrioGetHighest update_40e8c_field update_40e8c_field_11a34,irq:common_irq_entry; shared (31 tasks); shared (9 tasks)
+0x42a44,4,3,OS_SemDbgListAdd sub_11e54 sub_11fd8,task init
 0x426e0,4,3,OSSemDel OSSemCreate sub_11fd8,task init
 0x420a0,4,2,candidate_OSTimeDlyResume sub_13850,shared (30 tasks)
 0x33c68,4,3,play_pcm_irq pcm_pointer_init capture_pcm_irq,irq:capture_pcm_irq; irq:play_pcm_irq; task init
@@ -439,7 +439,7 @@ address,references,functions,example_functions,tasks
 0x3ffdc,3,3,candidate_record_storage_init sub_3061a44 sub_30622d0,record task init; task init
 0x38ac0,3,2,sub_3011cc4 sub_3011c78,
 0x3e61b,3,3,candidate_gps_info_draw_c sub_3033d04 sub_3039f30,
-0x38e46,3,1,candidate_keymsgq_post,shared (10 tasks)
+0x38e46,3,1,keymsgq_post,shared (10 tasks)
 0x4025a,3,2,candidate_uses_ptt_id candidate_rfic_fsk_receive,task cds; task init task menu
 0x307bc,3,1,candidate_status_clock_draw,shared (7 tasks)
 0x39458,3,2,sub_301bbf8 task_shutdown,task ShutDown; task ShutDown task init
@@ -452,8 +452,8 @@ address,references,functions,example_functions,tasks
 0x3b9c2,3,3,candidate_cable_uart_init sub_3029f80 cable_uart_irq,irq:cable_uart_irq; task init; task usb
 0x3b8d8,3,3,candidate_cable_uart_init candidate_cable_receive candidate_timer6_irq,irq:candidate_timer6_irq; task init
 0x3ba14,3,3,i2c2_rtc_init sub_2ce94 sub_2cec4,shared (10 tasks); task init; task init task usb
-0x3bd70,3,3,start_task_sound candidate_sound_request candidate_sound_request_with_arg,shared (5 tasks); shared (9 tasks); task init
-0x3be64,3,3,candidate_sound_request candidate_sound_request_with_arg task_sound,shared (5 tasks); shared (9 tasks); task sound
+0x3bd70,3,3,start_task_sound sound_request candidate_sound_request_with_arg,shared (5 tasks); shared (9 tasks); task init
+0x3be64,3,3,sound_request candidate_sound_request_with_arg task_sound,shared (5 tasks); shared (9 tasks); task sound
 0x3c7d8,3,3,candidate_layer2_sync_drop candidate_tx_burst_build candidate_tx_burst_ring_write,encrypt; shared (5 tasks); txslot
 0x3fe04,3,2,candidate_sysint_dispatch sub_30607a0,sysint; task init
 0x3fadc,3,2,candidate_burst_rx_handler sub_3027628,sysint
@@ -495,7 +495,7 @@ address,references,functions,example_functions,tasks
 0x400cd,3,2,sub_306461c candidate_block03_read_3064dbc,task init
 0x40254,3,3,candidate_block06_read_3067d04 candidate_rfic_fsk_setup_b candidate_rfic_fsk_receive,shared (7 tasks); task cds; task init
 0x401f0,3,1,candidate_rfic_fsk_receive,task cds
-0x42ce0,3,2,set_u32_42ce0 sub_3069cf8,
+0x42ce0,3,2,candidate_OS_DbgListAdd_42ce0 sub_3069cf8,
 0x426e4,3,3,sub_306b108 OS_IntQTask OS_IntQTaskInit,uC/OS-III ISR Queue Task; uC/OS-III Stat Task
 0x42728,3,3,sub_306b108 OS_TmrInit OS_TmrTask,uC/OS-III Stat Task; uC/OS-III Timer Task
 0x42cdc,3,2,OS_StatTask OS_StatTaskInit,uC/OS-III Stat Task
@@ -512,7 +512,7 @@ address,references,functions,example_functions,tasks
 0x18004ac4,3,1,sub_3071950,
 0x4563c,3,3,sub_3072780 CPU_IntDisMeasStart sub_10368,shared (37 tasks); shared (6 tasks)
 0x45644,3,3,sub_3072780 CPU_IntDisMeasStop sub_10368,shared (37 tasks); shared (6 tasks)
-0x45664,3,3,sub_3072780 get_u32_45664 sub_10368,shared (6 tasks); uC/OS-III Stat Task
+0x45664,3,3,sub_3072780 candidate_CPU_IntDisMeasMaxCalc sub_10368,shared (6 tasks); uC/OS-III Stat Task
 0x42c00,3,3,sub_10708 sub_10c60 sub_10d5c,shared (7 tasks); uC/OS-III Stat Task
 0x42a40,3,3,sub_107c0 sub_10ac4 sub_10d5c,shared (29 tasks)
 0x426d8,3,3,sub_10854 sub_10ac4 sub_10d5c,irq:candidate_os_tick_irq; shared (29 tasks)
@@ -629,7 +629,7 @@ address,references,functions,example_functions,tasks
 0x18000e38,2,1,sub_306e88c,shared (8 tasks)
 0x18003db4,2,2,candidate___fixunsdfsi sub_2afe8,encoder; shared (10 tasks)
 0x4bfe0,2,2,sub_307050c sub_307063c,task CallDisp
-0x18000c34,2,2,set_u32_18000c34 set_u32_18000c34_3070684,shared (6 tasks)
+0x18000c34,2,2,rand srand,shared (6 tasks)
 0x18004af4,2,1,sub_3071950,
 0x18004ae4,2,1,sub_3071950,
 0x426e8,2,2,sub_106cc sub_10d5c,uC/OS-III Idle Task
@@ -800,7 +800,7 @@ address,references,functions,example_functions,tasks
 0x4e924,1,1,candidate_block03_read_3064dbc,task init
 0x4021c,1,1,sub_3068024,task cds
 0x40245,1,1,candidate_rfic_fsk_receive,task cds
-0x411da,1,1,set_u16_411da,uC/OS-III Stat Task
+0x411da,1,1,candidate_os_list_clear_411da,uC/OS-III Stat Task
 0x42cec,1,1,sub_306c220,
 0x45534,1,1,sub_306d670,
 0x18000c48,1,1,sub_306d7e0,task CallDisp task menu
@@ -848,7 +848,7 @@ address,references,functions,example_functions,tasks
 0x18003e40,1,1,sub_30706e4,shared (6 tasks)
 0x18003e70,1,1,candidate_uses_0000000000000000_null,shared (10 tasks)
 0x1800407c,1,1,candidate_uses_0000000000000000_null,shared (10 tasks)
-0x18004084,1,1,set_u8_18004090,
+0x18004084,1,1,candidate_ptr_table_18004084_get,
 0x180049e4,1,1,sub_3071942,
 0x18004acc,1,1,sub_3071950,
 0x18004ad4,1,1,sub_3071950,
@@ -857,7 +857,7 @@ address,references,functions,example_functions,tasks
 0x18004afc,1,1,sub_3071db0,
 0x45668,1,1,sub_106dc,
 0x42744,1,1,sub_110bc,shared (31 tasks)
-0x420a2,1,1,set_u16_420a2,uC/OS-III Stat Task
+0x420a2,1,1,candidate_os_list_clear_420a2,uC/OS-III Stat Task
 0x4dcae,1,1,candidate_bitbang_i2c_read_sequence,decoder encoder task init
 0x18000e48,1,1,sub_14860,CclTraffic sysint txslot
 0x18000e50,1,1,sub_15cd4,sysint

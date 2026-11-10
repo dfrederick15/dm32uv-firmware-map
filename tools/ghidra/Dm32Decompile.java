@@ -1,27 +1,44 @@
-// Decompiles the named functions and writes C to a file, with body sizes. Usage: -postScript Dm32Decompile.java <out.c> name1 name2 ...
+// Decompiles functions and writes C to a file, using the program's decompiler options.
+// Usage: -postScript Dm32Decompile.java <out.c> name1 name2 ...
+//        -postScript Dm32Decompile.java <out.c> --all
+// Each function starts with a line "//@@ <address> <name> body=<bytes>" so the output can be split by tools.
 //@category DM32
 import ghidra.app.decompiler.*;
 import ghidra.app.script.GhidraScript;
 import ghidra.program.model.listing.Function;
+import java.io.*;
 import java.nio.file.*;
+import java.util.*;
+
 public class Dm32Decompile extends GhidraScript {
     @Override
     protected void run() throws Exception {
         String[] args = getScriptArgs();
-        DecompInterface d = new DecompInterface();
         DecompileOptions opts = new DecompileOptions();
         opts.grabFromProgram(currentProgram);
+        DecompInterface d = new DecompInterface();
         d.setOptions(opts);
         d.openProgram(currentProgram);
-        StringBuilder out = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
+        boolean all = args.length > 1 && args[1].equals("--all");
+        Set<String> want = new HashSet<>(Arrays.asList(args).subList(1, args.length));
+        int done = 0, failed = 0;
+        try (BufferedWriter out = Files.newBufferedWriter(Paths.get(args[0]))) {
             for (Function f : currentProgram.getFunctionManager().getFunctions(true)) {
-                if (!f.getName().equals(args[i])) continue;
+                if (!all && !want.contains(f.getName())) continue;
+                if (monitor.isCancelled()) break;
                 DecompileResults r = d.decompileFunction(f, 60, monitor);
-                out.append("// ").append(f.getName()).append(" @ ").append(f.getEntryPoint()).append(", body ").append(f.getBody().getNumAddresses()).append(" bytes\n");
-                out.append(r.decompileCompleted() ? r.getDecompiledFunction().getC() : "// failed: " + r.getErrorMessage()).append("\n");
+                out.write("//@@ " + f.getEntryPoint() + " " + f.getName() + " body=" + f.getBody().getNumAddresses() + "\n");
+                if (r.decompileCompleted()) {
+                    out.write(r.getDecompiledFunction().getC());
+                    done++;
+                } else {
+                    out.write("// failed: " + r.getErrorMessage() + "\n");
+                    failed++;
+                }
+                out.write("\n");
             }
         }
-        Files.writeString(Paths.get(args[0]), out.toString());
+        d.dispose();
+        println("decompiled " + done + ", failed " + failed);
     }
 }

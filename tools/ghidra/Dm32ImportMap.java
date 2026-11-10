@@ -39,6 +39,15 @@ public class Dm32ImportMap extends GhidraScript {
         }
         bins = args.length > 1 ? new File(args[1]) : tables;
 
+        // This analyzer wrongly marks uC/CPU critical-section helpers (CPU_SR_Restore, CPU_IntDisMeasStop) as
+        // non-returning, which cuts every function after its first critical section. C-SKY GCC code here has no
+        // real non-returning callees that matter, so it is turned off.
+        try {
+            setAnalysisOption(currentProgram, "Non-Returning Functions - Discovered", "false");
+        } catch (Exception e) {
+            println("could not disable non-returning analyzer: " + e.getMessage());
+        }
+
         setupMemory();
         typeTables();
         applyFunctions();
