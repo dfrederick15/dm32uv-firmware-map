@@ -1,0 +1,13 @@
+# Local additions for DM32 firmware analysis: 16-bit instructions missing from the base module.
+# Encodings inferred from GNU objdump output on the DM32 firmware (fixed bits across all occurrences).
+
+# tst16 rx, ry : 0110 10yy yyxx xx10
+:tst i16_r4_rx, i16_r4_ry is i16_optype = 0b01 & i16_4op = 0b1010 & i16_r4_sop = 0b10 & i16_r4_rx & i16_r4_ry {
+    psr_cf = ((i16_r4_rx & i16_r4_ry) != 0);
+}
+
+# tstnbz16 rx : 0110 1000 00xx xx11
+:tstnbz i16_r4_rx is i16_optype = 0b01 & i16_4op = 0b1010 & i16_r4_sop = 0b11 & i16_r4_ry = 0 & i16_r4_rx {
+    psr_cf = ((i16_r4_rx & 0xff) != 0) && ((i16_r4_rx & 0xff00) != 0) && ((i16_r4_rx & 0xff0000) != 0) && ((i16_r4_rx & 0xff000000) != 0);
+}
+

@@ -1,0 +1,11 @@
+# Definitions for dm32_extra32.sinc (outside any with block)
+define pcodeop psr_clear;
+define pcodeop psr_set;
+define pcodeop return_from_exception;
+define pcodeop read_control_register;
+define pcodeop write_control_register;
+
+# Control register numbers for mfcr/mtcr (bank selected by the ry field, shown as sel)
+crn: "cr<"^cr_num_rx^", "^cr_num_ry^">" is cr_num_rx & cr_num_ry { local n:4 = cr_num_rx | (cr_num_ry << 5); export n; }
+crz: "cr<"^cr_num_rz^", "^cr_num_ry^">" is cr_num_rz & cr_num_ry { local n:4 = cr_num_rz | (cr_num_ry << 5); export n; }
+

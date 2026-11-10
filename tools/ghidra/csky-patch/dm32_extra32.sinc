@@ -1,0 +1,75 @@
+# Local additions for DM32 firmware analysis: 32-bit instructions missing from the base module.
+# Included inside the `with : i32_optype = 0b11` block of 32b.sinc.
+# Encodings inferred from GNU objdump output on the DM32 firmware (fixed bits across all occurrences).
+
+with : i32_op = 0b0000 {
+    # mfcr rz, cr<rx, sel>
+    :mfcr i32_r_rz, crn is i32_r_sop = 0b011000 & i32_r_pcode = 0b00001 & i32_r_rz & crn {
+        i32_r_rz = read_control_register(crn);
+    }
+    # mtcr rx, cr<rz, sel>
+    :mtcr i32_r_rx, crz is i32_r_sop = 0b011001 & i32_r_pcode = 0b00001 & i32_r_rx & crz {
+        write_control_register(crz, i32_r_rx);
+    }
+    # rte
+    :rte is i32_r_sop = 0b010000 & i32_r_pcode = 0b00001 & i32_r_rx = 0 & i32_r_ry = 0 & i32_r_rz = 0 {
+        local t:4 = return_from_exception();
+        return [t];
+    }
+    # psrclr / psrset with a 5-bit selector in the ry field
+    :psrclr i32_r_imm5 is i32_r_sop = 0b011100 & i32_r_pcode = 0b00001 & i32_r_rx = 0 & i32_r_rz = 0 & i32_r_imm5 {
+        psr_clear(i32_r_imm5:1);
+    }
+    :psrset i32_r_imm5 is i32_r_sop = 0b011101 & i32_r_pcode = 0b00001 & i32_r_rx = 0 & i32_r_rz = 0 & i32_r_imm5 {
+        psr_set(i32_r_imm5:1);
+    }
+}
+
+with : i32_op = 0b0001 {
+    with : i32_r_sop = 0b011111 & i32_r_ry = 0 {
+        # ff0 rz, rx : position of the first 0 from the top
+        :ff0 i32_r_rz, i32_r_rx is i32_r_pcode = 0b00001 & i32_r_rz & i32_r_rx {
+            i32_r_rz = lzcount(~i32_r_rx);
+        }
+        # ff1 rz, rx : position of the first 1 from the top
+        :ff1 i32_r_rz, i32_r_rx is i32_r_pcode = 0b00010 & i32_r_rz & i32_r_rx {
+            i32_r_rz = lzcount(i32_r_rx);
+        }
+    }
+    with : i32_r_sop = 0b011100 & i32_r_ry = 0 {
+        :xtrb0 i32_r_rz, i32_r_rx is i32_r_pcode = 0b00001 & i32_r_rz & i32_r_rx { i32_r_rz = (i32_r_rx >> 24) & 0xff; psr_cf = (i32_r_rz != 0); }
+        :xtrb1 i32_r_rz, i32_r_rx is i32_r_pcode = 0b00010 & i32_r_rz & i32_r_rx { i32_r_rz = (i32_r_rx >> 16) & 0xff; psr_cf = (i32_r_rz != 0); }
+        :xtrb2 i32_r_rz, i32_r_rx is i32_r_pcode = 0b00100 & i32_r_rz & i32_r_rx { i32_r_rz = (i32_r_rx >> 8) & 0xff; psr_cf = (i32_r_rz != 0); }
+        :xtrb3 i32_r_rz, i32_r_rx is i32_r_pcode = 0b01000 & i32_r_rz & i32_r_rx { i32_r_rz = i32_r_rx & 0xff; psr_cf = (i32_r_rz != 0); }
+    }
+    # muls / mulsa rx, ry : 64-bit signed product into hi:lo (mulsa accumulates)
+    :muls i32_r_rx, i32_r_ry is i32_r_sop = 0b100011 & i32_r_pcode = 0b00001 & i32_r_rz = 0 & i32_r_rx & i32_r_ry {
+        local p:8 = sext(i32_r_rx) * sext(i32_r_ry);
+        lo = p:4; hi = p(4);
+    }
+    :mulsa i32_r_rx, i32_r_ry is i32_r_sop = 0b100011 & i32_r_pcode = 0b00010 & i32_r_rz = 0 & i32_r_rx & i32_r_ry {
+        local acc:8 = (zext(hi) << 32) | zext(lo);
+        local p:8 = acc + sext(i32_r_rx) * sext(i32_r_ry);
+        lo = p:4; hi = p(4);
+    }
+    # mulsha rx, ry : lo += sext16(rx) * sext16(ry)
+    :mulsha i32_r_rx, i32_r_ry is i32_r_sop = 0b100100 & i32_r_pcode = 0b00010 & i32_r_rz = 0 & i32_r_rx & i32_r_ry {
+        lo = lo + sext(i32_r_rx:2) * sext(i32_r_ry:2);
+    }
+}
+
+with : i32_op = 0b0011 {
+    # srs.b/h/w rz, (r28, imm18 scaled) : store relative to r28
+    :srs.b i32_imm18_rz, r28, i32_imm18_imm is i32_imm18_sop = 0b100 & i32_imm18_rz & r28 & i32_imm18_imm {
+        local addr:4 = r28 + i32_imm18_imm;
+        *:1 addr = i32_imm18_rz:1;
+    }
+    :srs.h i32_imm18_rz, r28, i32_imm18_imm is i32_imm18_sop = 0b101 & i32_imm18_rz & r28 & i32_imm18_imm {
+        local addr:4 = r28 + (i32_imm18_imm << 1);
+        *:2 addr = i32_imm18_rz:2;
+    }
+    :srs.w i32_imm18_rz, r28, i32_imm18_imm is i32_imm18_sop = 0b110 & i32_imm18_rz & r28 & i32_imm18_imm {
+        local addr:4 = r28 + (i32_imm18_imm << 2);
+        *:4 addr = i32_imm18_rz;
+    }
+}

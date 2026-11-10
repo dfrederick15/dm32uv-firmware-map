@@ -27,6 +27,13 @@ This repository holds addresses, names and descriptions only. It contains no fir
 | `tables/sound-ids.csv` | Sound and voice prompt request IDs |
 | `tables/data-map-program.csv`, `tables/data-map-dataflash.csv`, `tables/images.csv` | Data regions in program flash and data flash, icons |
 | `tables/code-gaps.csv`, `tables/bootloader-ram-functions.csv` | Bytes between functions, and functions in the bootloader's RAM image |
+| `tools/ghidra/` | Scripts that build a Ghidra project from your own firmware dump with all of the above applied (see its README) |
+
+## Ghidra
+
+`tools/ghidra/build_dm32_project.sh` builds a Ghidra 12 project from a program-flash dump: C-SKY processor module,
+every function named with its evidence as a comment, RAM variables, registers and tables. Ghidra's disassembly matches
+GNU objdump on 95.6% of the 203,882 instructions in known functions, plus 0.6% that differ only in alias spelling.
 
 ## Naming conventions
 
